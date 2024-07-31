@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.129.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.3f3831041a88815ea6a76a23dbf31d99f633d5c390b8c987e1138da9c3cb4e58.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 1 (2024/7/31)</h1>
+  <p class="mb-1">July 31, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h2 id="my-last-work-review">My Last Work Review</h2>
+<p>Firstly, I would like to introduce my last work in detail. We design a new framework based on Neural Representation for Videos (NeRV), which can efficiently transform a video compression task into a neural network compression task by using the idea of Implicit Neural Representation (INR).</p>
+<p>Before delving into how NeRV addresses specific challenges and its respective advantages and disadvantages, I need explain some basic concepts I mention above.</p>
+<h3 id="implicit-neural-representation-inr"><strong>Implicit Neural Representation (INR):</strong></h3>
+<p>INR is an innovative way to parameterize various signals. Traditional signal representations are often discrete. For example, images consist of discrete grids of pixels, audio signals are composed of discrete amplitude samples, and 3D shapes are typically parameterized as voxels, point clouds, or grids. However, the real world can be considered continuous, or nearly continuous, prompting the use of continuous functions to represent the true state of signals.</p>
+<p>INR parameterizes signals as continuous functions that classify the signal&rsquo;s domain (i.e., coordinates). For instance, the pixel coordinate of an image maps to the value at that coordinate (for an image, this would be [R, G, B] values). Despite their potential, continuous functions are challenging to handle, and their exact forms are often unknown. Therefore, researchers have proposed using neural networks to approximate these continuous functions, leading to the concept of Implicit Neural Representation (INR).</p>
+<p>This idea has already been applied successfully in areas such as Super Resolution and 3D Reconstruction.</p>
+<h3 id="neural-representation-for-videos-nerv"><strong>Neural Representation for Videos (NeRV):</strong></h3>
+<p>NeRV leverages the concept of INR by representing a video as an implicit function based on a specific set of embedded data (generated by the encoder) and a corresponding sequence of frames. The video is then reconstructed through a decoder composed of a neural network.</p>
+<hr>
+<p><img src="/figures/24_7_31/fig1.png" alt="fig1"></p>
+<p>Figure 1 NeRV encodes the input frame to generate an embedding. It then uses a neural network (Decoder) and the corresponding frame index to generate the compressed video. Users can generate their videos using only the Decoder, meaning the complexity on the user side is determined solely by the Decoder.</p>
+<hr>
+<h3 id="why-is-nerv-competitive"><strong>Why is NeRV competitive?</strong></h3>
+<p>First, let&rsquo;s examine the disadvantages of other methods. Traditional compression methods like H.264 and H.265 often use transformation encoding, such as wavelet variations and discrete cosine transforms. While these methods effectively reduce redundancy in video data, their compression performance is limited by the use of fixed encoders and decoders. Additionally, fixed decoders can introduce time redundancy during user-side decoding.</p>
+<p>Current neural methods replace keyframe compression, motion estimation, and motion compression with neural networks. Although these methods enhance compression efficiency, they still follow the traditional compression process, which can increase overall complexity.</p>
+<p>NeRV addresses these limitations by offering a novel approach that maintains efficient compression while reducing complexity on the user side.</p>
+<p>INR in compression tasks has also seen development over time. Initially, it was used to compress images, where a decoder composed of neural networks could restore the original image based on the coordinates (x, y). However, this approach is not ideal for video compression since pixel-by-pixel processing significantly lowers user-side decoding efficiency.</p>
+<p><strong>Comparing the above methods, NeRV offers the following advantages:</strong></p>
+<ol>
+<li>NeRV uses a separate neural network for representing (compressing) each video. This makes the model very compact, increasing the compression rate. Additionally, it is compatible with common model compression methods like pruning and quantization.</li>
+<li>NeRV simplifies decoder design, effectively improving user-side decoding efficiency and producing smoother video output.</li>
+<li>NeRV employs a learnable architecture to enhance compression quality, achieving higher-definition video.</li>
+<li>NeRV&rsquo;s neural network approach extends beyond video compression, allowing for synchronized execution of other visual tasks, such as video denoising.</li>
+</ol>
+<p><strong>However, NeRV has the following disadvantages:</strong></p>
+<ol>
+<li>NeRV requires training for each video, resulting in high training time and cost.</li>
+<li>Different videos may necessitate different neural network architectures. Manual configuration is impractical, and suitable methods for automatic configuration are currently lacking.</li>
+</ol>
+<h3 id="our-contribution"><strong>Our Contribution</strong></h3>
+<p>Most current NeRV research focuses on using more complex models to improve compression quality (video accuracy after reconstruction). However, this increased complexity compromises efficient user-side decoding and raises device requirements, counteracting NeRV&rsquo;s original intent.</p>
+<p>We designed a much more lightweight NeRV model that uses multiple frames instead of individual frames as the base unit. Our method decomposes large-parameter network layers into multiple neural network layers with small redundancy. We also introduce modules that can learn in the frequency domain, similar to the wavelet transform in traditional methods. Our approach maintains good compression quality while achieving excellent decoding speed (Even without any optimization, it can achieve a fast speed) on resource-constrained devices.</p>
+<h3 id="application-scenarios-of-nerv"><strong>Application Scenarios</strong> of NeRV</h3>
+<p>One practical application is cloud gaming services, which have extremely high latency requirements. High-quality cloud gaming demands low network latency, and compressing game screens (e.g., scenes) can help address high latency issues. Additionally, these services require smooth gameplay at frame rates of 144FPS or 240FPS, necessitating efficient decoders. Network video can also benefit from this approach: users upload videos that the server compresses and forwards to multiple viewers, allowing for smooth playback and reduced video size.</p>
+<h2 id="application-scenarios-i-collected-these-days">Application Scenarios I collected these days</h2>
+<p>Most of my undergraduate work focused on machine learning. I also explored various network problems, such as SDN (Software-Defined Networking) and mobile computing, concentrating on how ML (Machine Learning) and RL (Reinforcement Learning) can solve network problems in specific scenarios. Below are some relevant problems that I find particularly interesting these days.</p>
+<h3 id="internet-of-medical-things-iomt"><strong>Internet of Medical Things (IoMT)</strong></h3>
+<p>In some medical scenarios that use IoT devices, network issues such as high latency or congestion can arise. Many medical applications have high network demands to avoid risks of medical malpractice. However, the network itself is a best-effort service system, which is often not reliable enough.</p>
+<p>In the paper “<a href="https://ieeexplore.ieee.org/document/9769959/?arnumber=9769959">Persistent Service Provisioning Framework for IoMT Based Emergency Mobile Healthcare Units</a>” from the IEEE Journal of Biomedical and Health Informatics (IJHI), the authors present a scenario where medical devices on a moving highway, such as an ambulance needing to upload medical data to the cloud for patient state prediction, face connectivity challenges. In some areas, there may be unconnected zones. To address this, they propose sinking part of the model onto monitoring devices. When passing through these unconnected areas, the switch is processed using the local model, which improve the device reliability. Paper’s authors also improve the selection of fog computing nodes.</p>
+<hr>
+<p><img src="/figures/24_7_31/fig2.png" alt="image-20240731180244069"></p>
+<p>Figure 2 In this figure, there are None-Network Coverage Zone between two Network Coverage Zone, which can cause medical devices to stop working, resulting in potential incidents.</p>
+<hr>
+<p><img src="/figures/24_7_31/fig3.png" alt="image-20240731180302521"></p>
+<p>Figure 3 The fog server and the local device are equipped with the model which be used to monitor patients, and the reliable part is selected to complete the medical data prediction for patients based on network connectivity.</p>
+<hr>
+<p>Although this approach solves part of the problem, it still has shortcomings. For instance, there are concerns about whether the delay in local computing meets application requirements, whether the delay in detecting link stability is acceptable, and whether high network delay during transmission could lead to packet loss and security risks, especially for high-speed moving ambulances. These questions prompted further reflection.</p>
+<p>After reading another paper, I developed a new idea. The paper “<a href="https://dl.acm.org/doi/10.1145/3603269.3604832">CellFusion: Multipath Vehicle-to-Cloud Video Streaming with Network Coding in the Wild</a>” from the Proceedings of the ACM SIGCOMM 2023 Conference presents an interesting approach. The authors employ a multipath transmission method to ensure stable high-definition video transmission in field environments. Different operators offer their own frequency bands and base stations, and using these bands simultaneously can effectively avoid high latency. However, this method has its drawbacks: using multiple carriers&rsquo; frequency bands increases costs and introduces unnecessary redundant information to the network.</p>
+<hr>
+<p><img src="/figures/24_7_31/fig4.png" alt="image-20240731180404543"></p>
+<p>Figure 4 CellFusion CPE will try to send video stream through different Cellular Carriers to avoid transferring fault.</p>
+<hr>
+<p>Given these considerations, it seems possible to integrate these two ideas to design a highly reliable and cost-effective emergency mobile medical device. This device could evaluate the cost and stability of multipath transmission, controlling transmission costs while meeting latency requirements. In the field, multiple paths could be used to ensure low latency, while in urban areas, the most stable link could be chosen. During inevitable network outages, a local model could perform medical tasks. Additionally, in highly congested networks, the local model could prevent irreversible medical errors caused by packet loss. This balance between low latency and low cost is challenging, so using reinforcement learning to control the system may be a good solution.</p>
+<p>In IoMT, classic tasks like task offloading and resource allocation are also crucial. For example, the solution proposed in the paper “<a href="https://ieeexplore.ieee.org/document/10192277/?arnumber=10192277">DRL-Based URLLC-Constraint and Energy-Efficient Task Offloading for Internet of Health Things</a>” from the IEEE Journal of Biomedical and Health Informatics addresses these tasks effectively. This area is a promising research direction. I am particularly interested in using graph reinforcement learning (GRL) for such tasks. GRL combines graph neural networks with reinforcement learning, enabling it to perform basic reinforcement learning tasks while learning based on a directed graph. This approach holds significant potential for network tasks.</p>
+<h3 id="fairness-problems-of-financial-exchanges-in-the-cloud"><strong>Fairness problems of Financial Exchanges in the Cloud</strong></h3>
+<p>When discussing Financial Exchanges, we are primarily referring to High-Frequency Financial Exchanges. High-frequency trading (HFT) involves computerized trading that seeks to profit from extremely brief market fluctuations, which are too rapid for humans to exploit. These fluctuations might include small changes in the difference between the bid and ask prices of a security or minor price differences for the same stock on different exchanges. The trading speed is so crucial that some trading firms have placed their &ldquo;server farms&rdquo; close to the exchange&rsquo;s computers, minimizing the distance orders travel at light speed through fiber-optic cables.</p>
+<p>Moving these platforms to the cloud introduces significant requirements for cloud server capabilities and network performance. However, before discussing the challenges, it&rsquo;s important to understand why this setup might lead to unfairness in the cloud.</p>
+<hr>
+<p><img src="/figures/24_7_31/fig5.png" alt="image-20240731180536685"></p>
+<p>Figure 5 We consider CES as the server that provides transaction information, and MP as the user who initiates the transaction. G(x) is the timestamp when the transaction information is posted, while D(i,x) and D(j,x) are the timestamps when the information reaches different users. RT(i,a) and RT(j,a) represent the reaction times for users to initiate transactions. S(i,a) and S(j,b) are the timestamps when the users initiated their transactions, and F(i,a) and F(j,b) are the timestamps when the transactions reached the server.</p>
+<hr>
+<p>As shown in Figure 5, the user who should win the transaction at this time is MP_i, as they respond the quickest to the transaction (i.e., the shortest RT). However, traditional methods often consider only the time difference between G(x) and F(i,a), leading to network delays that significantly interfere with transaction fairness.</p>
+<p>The paper &ldquo;<a href="https://dl.acm.org/doi/10.1145/3458336.3465278">CloudEx: A Fair-Access Financial Exchange in the Cloud</a>&rdquo; from the Proceedings of the Workshop on Hot Topics in Operating Systems proposes using a high-precision clock to synchronize user-side and server-side timestamps. This method aims to effectively obtain network delay information and eliminate its interference. However, achieving clock synchronization in a cloud network is challenging, and it doesn&rsquo;t address the fundamental issue of varying times for transaction information to reach different users.</p>
+<p>In the Proceedings of the ACM SIGCOMM 2023 Conference, the paper &ldquo;<a href="https://doi.org/10.1145/3603269.3604871">DBO: Fairness for Cloud-Hosted Financial Exchanges</a>&rdquo; introduces a Delivery Clock to avoid clock synchronization. Yet, this approach essentially synchronizes multiple users&rsquo; clocks to a central clock in my view (undetermined).</p>
+<p>A new paper, &ldquo;<a href="http://arxiv.org/abs/2402.09527">Jasper: Scalable and Fair Multicast for Financial Exchanges in the Cloud</a>,&rdquo; proposes a novel perspective. Trading information is often synchronized to local exchanges, making it feasible to control the timing of information arrival at each exchange, thus ensuring a degree of fairness. They propose a multicast scheme to address this issue.</p>
+<p>These papers have inspired me to explore solutions in this area. I aim to use learnable methods, such as reinforcement learning, on the server side to manage synchronization between servers and different exchanges. For user-side synchronization, besides initial modeling, I am considering the issue of network congestion causing some users to miss transactions despite fast response times. This is inherently unfair. Therefore, I am exploring ways to enable efficient transaction service transmission and avoid packet loss due to congestion, which hasn&rsquo;t been extensively studied in current research.</p>
+<p>Additionally, I have discussed the financial implications of this research with a friend from New York University, as it addresses critical issues in the financial market.</p>
+<h3 id="ai-based-channel-modeling"><strong>AI-based Channel Modeling</strong></h3>
+<p>In 6G networks, researchers have introduced additional frequency bands, such as millimeter wave and terahertz, to support the more powerful Internet of Everything. Accurate channel modeling is crucial for evaluating and optimizing communication performance. However, in a 6G environment, the vast amount of communication data and varied communication measurement environments (such as underwater) can make data collection challenging, complicating the channel modeling process. Additionally, high-performance data acquisition equipment is often expensive.</p>
+<p>In the paper &ldquo;<a href="https://ieeexplore.ieee.org/document/10466759/?arnumber=10466759">A Frequency Domain Predictive Channel Model for 6G Wireless MIMO Communications Based on Deep Learning</a>&rdquo; from IEEE Transactions on Communications, the authors propose using AI to predict channel models in unknown frequencies based on known frequency data.</p>
+<hr>
+<p><img src="/figures/24_7_31/fig6.png" alt="image-20240731180811909"></p>
+<p>Figure 6 The goal of AI channel modeling is to predict the channel characteristics of unknown locations, times, and frequency bands using data from known locations, times, and frequency bands.</p>
+<hr>
+<p>Although this scheme is valuable and promising, after discussing it with Tingxi Liang，another your student, I realized some significant issues in the system. Different frequency bands exhibit notable differences in their ability to penetrate various objects. Objects that low-frequency signals can easily penetrate may cause significant reflection, diffraction, and other phenomena with high-frequency signals. Therefore, the prediction accuracy is not sufficient.</p>
+<p>In the aforementioned paper, only signals from two frequency bands were used to calculate the channel characteristics of unknown frequency bands. This approach did not account for the penetration differences between frequency bands. Consequently, I believe it is valuable to explore this field further, using AI models to make more accurate predictions by considering the distinct characteristics of different frequency bands.</p>
+<hr>
+<p><img src="/figures/24_7_31/fig7.png" alt="image-20240731180852903"></p>
+<p>Figure 7 In fact, data used by the paper I mentioned is colletced in outdoor scene. This scene is not such complicated as other scenes, like indoor. In that case, a naïve AI model can be efficient.</p>
+<hr>
+<p>Additionally, I hope to introduce the concept of Implicit Neural Representation (INR) from NeRV in this context. Originally used for video data, INR utilizes an implicit function with coordinates (x, y) and time t to reconstruct video frames. I propose extending this approach to our field by building an implicit function using location information (x, y), time t, and frequency band f.</p>
+<h3 id="vehicular-network"><strong>Vehicular network</strong></h3>
+<p>&ldquo;<a href="https://ieeexplore.ieee.org/document/10571777/?arnumber=10571777">Profit Maximization of Independent Task Offloading in MEC-Enabled 5G Internet of Vehicles</a>&rdquo; from IEEE Transactions on Intelligent Transportation Systems is a project I participated in during my undergraduate studies (only help write some codes, and offer some mathematics proves).</p>
+<p>In essence, this project addresses the classic problem of vehicle networking, edge computing resource allocation, and task offloading. The methods proposed can effectively control the costs associated with resource allocation. However, having participated in this project, I believe its practical value is somewhat limited compared to the previously mentioned issues. (But its idea is still interesting and its experiments are also sufficient) The definitions of cost and available data in this project are often self-defined, which I find less practical.</p>
+<p>Nonetheless, I am including it in this summary to provide a comprehensive overview.</p>
+<h3 id="summary"><strong>Summary</strong></h3>
+<p>In summary, I have presented various application scenarios that are highly related to AI and networking, and these are areas I am particularly interested in. I would appreciate your thoughts on these ideas ❤️. Next week, I want to provide an outline of my scheme for a specific direction, detailing the problem to be solved, the methods to be used, and the expected results and benefits 👍.</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/markdown_syntax/"
+      title="Demo Page"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>
