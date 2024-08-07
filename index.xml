@@ -6,8 +6,15 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 2 (2024/8/7)</title>
+      <link>https://ZongyuYe.github.io/blog/24_8_7/</link>
+      <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_8_7/</guid>
+      <description>Fair Financial Transactions on Cloud Driven by Graph Neural Networks&#xA;Background Currently, migrating financial transactions to public cloud platforms is becoming increasingly popular in the industry. This is because cloud services offer flexibility, stability, and cost savings compared to traditional local configurations.&#xA;However, moving to the public cloud also presents several challenges. Firstly, each market participant (MP) needs to receive financial transaction information simultaneously to ensure they all have the same reaction time.</description>
+    </item>
     <item>
       <title>Learning Record --- 1 (2024/7/31)</title>
       <link>https://ZongyuYe.github.io/blog/24_7_31/</link>
