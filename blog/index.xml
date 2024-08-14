@@ -6,8 +6,15 @@
     <description>Recent content in aafu theme on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 3 (2024/8/14)</title>
+      <link>https://ZongyuYe.github.io/blog/24_8_14/</link>
+      <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_8_14/</guid>
+      <description>Details about Fair Financial Exchanges In this week&amp;rsquo;s report, I aim to detail the evaluation process of my idea.&#xA;Distribution Delay The first aspect I want to assess is the propagation delay. The evaluation process is outlined as follows:&#xA;Design a network topology that supports multiple carriers to ensure consistency in both time period and network environment. Incrementally add market participants into the market and monitor the total delay observed. This section aims to test the distribution latency, essentially determining whether the method can guarantee that the information delivered to the user end is both timely and relevant.</description>
+    </item>
     <item>
       <title>Learning Record --- 2 (2024/8/7)</title>
       <link>https://ZongyuYe.github.io/blog/24_8_7/</link>
