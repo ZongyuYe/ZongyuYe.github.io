@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.129.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+<link href="/main.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="http://localhost:1313/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 4 (2024/8/21)</h1>
+  <p class="mb-1">August 21, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <p>This week, I&rsquo;m going to  present two intriguing solutions, both related to the use of GNNs, for potentially implementing a fair cloud trading system as previously discussed.</p>
+<h1 id="dynamic-graph-neural-network">Dynamic Graph Neural Network</h1>
+<p>Graph Neural Networks (GNNs) are an efficient method for processing  data structured as graphs and have seen widespread adoption. However,  the majority of existing GNNs are designed to work with static graphs,  which do not change once node and edge features have been defined. This  approach is clearly unsuitable in certain contexts.</p>
+<p>For the GNN deployed within a cloud trading system, its role is to  monitor the state of connections without relying heavily on timing,  which means its network topology is subject to continuous changes in  node and edge characteristics. Consequently, a traditional GNN, which is limited to static graphs, is not fit for purpose.</p>
+<p>To address this, the dynamic graph neural network incorporates a time dimension. By learning the evolving graph structure (how the graph  changes over time), it can effectively manage graphs that are in flux,  accommodating new nodes, and updating node characteristics, among other  changes.</p>
+<p>A common approach involves integrating RNNs with GNNs to handle this dynamic nature, as illustrated in the subsequent figure.</p>
+<p><img src="/figures/24_8_21/fig1.png" alt="fig1"></p>
+<p>Upper figure illustrates how dynamic GNNs meld structural information  encoding techniques (e.g., GNNs) with temporal information encoding  methods (e.g., RNNs). Although there are various strategies for  integrating GNNs with RNNs, the most prevalent approach involves  substituting the matrix multiplications in RNN architectures, such as  LSTMs or GRUs, with graph convolutions (𝐺𝑐𝑜𝑛𝑣). The  time-independent graph convolutions, highlighted in orange boxes,  process the current node representations (𝑥𝑡) as inputs. In contrast,  the time-dependent graph convolutions, shown in blue boxes, rely on the  hidden states (ℎ𝑡−1) from previous timesteps.</p>
+<p>The GNN I aim to integrate  into the fair cloud trading system shares essential characteristics with the dynamic graph neural network. At its core, the GNN processes graph  information (for example, link congestion, which may be depicted on the  graph), while the RNN handles temporal information (enabling time-based  reasoning). By utilizing a graph that represents past time, it becomes  possible to infer the network state for the desired time period. This  ultimately facilitates the realization of a fair trading system that  operates independently of a clock.</p>
+<p>I will reference a figure from the paper on <a href="https://arxiv.org/pdf/1810.10627v1">Dynamic Graph Neural Networks</a>, which succinctly demonstrates how DGNN can adapt to the introduction of a new edge into the graph.</p>
+<p><img src="/figures/24_8_21/fig2.png" alt="image-20240821162132973"></p>
+<p>Upper figure illustrates a  scenario where a new edge forms at time (t_7) between nodes (v_2) and  (v_5), indicating that (v_2) and (v_5) now have a direct relationship.  The nodes ({v_1, v_3, v_6, v_7}) are identified as influenced nodes due  to their connections. Following the interaction ((v_2, v_5, t_7)), it  becomes necessary to update the information for nodes (v_2) and (v_5)  using the update component. This component takes as input the old  information of the two interacting nodes along with their most recent  interaction times ((v_2, t_3)), ((v_5, t_6)), and the time of the  current interaction (t_7). The output from the update component is the  refreshed information for these two nodes. Furthermore, it is essential to disseminate the details of this  interaction to the influenced nodes through the propagation component.  This component&rsquo;s input includes the old information of the influenced  nodes, each with their last interaction time with the interacting nodes  ((v_1, t_0)), ((v_3, t_6)), ((v_7, t_3)), ((v_6, t_5)), alongside the  old information of the interacting nodes (v_2, v_5), and the current  interaction time (t_7). The propagation component’s output updates the  information for the influenced nodes, reflecting the new interaction.</p>
+<p>The paper <a href="https://arxiv.org/pdf/2206.03469">FDGNN: FULLY DYNAMIC GRAPH NEURAL NETWORK</a> offers an alternative perspective on realizing Dynamic Graph Neural Networks (DGNNs).</p>
+<p>It begins by introducing two key concepts. The first, Graph Stream,  refers to the representation of changes within a graph from time (t_0)  to (t_1), encompassing modifications in nodes and edges. The second  concept, Graph Snapshot, captures the comprehensive state of the graph  at a specific time point (t).</p>
+<p>The paper further delves into the dynamics of nodes and edges by  discussing node and edge activities. Any alteration in a node or edge is documented as an activity, providing a detailed record of graph  evolution.</p>
+<p>Additionally, the concept of Attribute Embeddings is introduced. This method illustrates how to effectively embed the recorded activities  within the graph, offering a nuanced approach to understanding graph  dynamics.</p>
+<p>A crucial component of the paper is the introduction of a process  function. This function is essential for monitoring the progression of  node and edge modifications, providing a clear view of the graph&rsquo;s  evolution over time.</p>
+<p>Actually, if I want to use DGNN in cloud financial exchange system. I need put more attention on how we can describe the change of property on node and edge by time. GNN itself is more like a assistant. To help abstract the graph and help DGNN extract the deep information and use RNN or other method to catch changes through time.</p>
+<h1 id="graph-neural-tangent-kernel">Graph Neural Tangent Kernel</h1>
+<p>The Graph Neural Tangent  Kernel (GNTK) represents a fascinating fusion of Neural Tangent Kernel  (NTK) concepts with Graph Neural Networks (GNNs). To understand GNTK,  it’s essential to first grasp the foundational ideas behind NTK.</p>
+<p>NTK is a kernel that captures the essence of how deep artificial  neural networks (ANNs) evolve during training via gradient descent. It  provides a theoretical framework that allows ANNs to be analyzed with  kernel methods, leading to several intriguing insights:</p>
+<ol>
+<li>Throughout the entire training process of a neural network, there  exists an invariant—the NTK—that remains unchanged regardless of the  network parameters.</li>
+<li>In scenarios where the network width approaches infinity, the  behavior of such wide neural networks can be approximated by a linear  model based on a first-order Taylor expansion around the initial  parameters. Notably, this approximation holds true across different  network architectures, optimization techniques, and loss functions—even  for practically-sized networks. This alignment is particularly accurate  under a squared loss function (MSE), where the dynamics can be expressed as a closed-form solution over time.</li>
+<li>Gradient descent is capable of avoiding local minima, enabling the  efficient identification of global minima from the initial parameter  settings.</li>
+</ol>
+<p>These insights not only facilitate the monitoring of neural network  training but also help explain why neural network training is effective. Consequently, researchers are exploring NTK to interpret and enhance  the performance of existing networks.</p>
+<p>Building on this, the work presented in <a href="http://arxiv.org/abs/1905.13192">Graph Neural Tangent Kernel: Fusing Graph Neural Networks with Graph Kernels</a> introduces GNTKs, which correlate to infinitely wide, multi-layer GNNs  trained via gradient descent. GNTKs aim to synergize the strengths of  Graph Kernels (GKs) and GNNs. While GKs, known for their ease of  training and theoretical underpinnings, often lack expressive power,  GNNs typically deliver superior performance through multi-layered  structures and non-linear activations that capture complex graph  information. However, GNNs come with their own set of challenges,  including difficult training procedures and numerous hyperparameters.</p>
+<p>GNTKs seek to harness the comprehensive expressive capabilities of  GNNs while maintaining the advantages of GKs. Theoretical analyses  demonstrate that GNTKs can effectively learn a variety of smooth  functions on graphs. Empirical evaluations on graph classification datasets have shown that GNTKs achieve impressive performance, thus underscoring their potential as a powerful tool in graph analysis and machine learning.</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_8_14/"
+      title="Learning Record --- 3 (2024/8/14)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>

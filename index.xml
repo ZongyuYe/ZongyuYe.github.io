@@ -2,45 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <link>https://ZongyuYe.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Aug 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://ZongyuYe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 4 (2024/8/21)</title>
+      <link>http://localhost:1313/blog/24_8_21/</link>
+      <pubDate>Wed, 21 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/24_8_21/</guid>
+      <description>This week, I&amp;rsquo;m going to present two intriguing solutions, both related to the use of GNNs, for potentially implementing a fair cloud trading system as previously discussed.&#xA;Dynamic Graph Neural Network Graph Neural Networks (GNNs) are an efficient method for processing data structured as graphs and have seen widespread adoption. However, the majority of existing GNNs are designed to work with static graphs, which do not change once node and edge features have been defined.</description>
+    </item>
     <item>
       <title>Learning Record --- 3 (2024/8/14)</title>
-      <link>https://ZongyuYe.github.io/blog/24_8_14/</link>
+      <link>http://localhost:1313/blog/24_8_14/</link>
       <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://ZongyuYe.github.io/blog/24_8_14/</guid>
+      <guid>http://localhost:1313/blog/24_8_14/</guid>
       <description>Details about Fair Financial Exchanges In this week&amp;rsquo;s report, I aim to detail the evaluation process of my idea.&#xA;Distribution Delay The first aspect I want to assess is the propagation delay. The evaluation process is outlined as follows:&#xA;Design a network topology that supports multiple carriers to ensure consistency in both time period and network environment. Incrementally add market participants into the market and monitor the total delay observed. This section aims to test the distribution latency, essentially determining whether the method can guarantee that the information delivered to the user end is both timely and relevant.</description>
     </item>
     <item>
       <title>Learning Record --- 2 (2024/8/7)</title>
-      <link>https://ZongyuYe.github.io/blog/24_8_7/</link>
+      <link>http://localhost:1313/blog/24_8_7/</link>
       <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://ZongyuYe.github.io/blog/24_8_7/</guid>
+      <guid>http://localhost:1313/blog/24_8_7/</guid>
       <description>Fair Financial Transactions on Cloud Driven by Graph Neural Networks&#xA;Background Currently, migrating financial transactions to public cloud platforms is becoming increasingly popular in the industry. This is because cloud services offer flexibility, stability, and cost savings compared to traditional local configurations.&#xA;However, moving to the public cloud also presents several challenges. Firstly, each market participant (MP) needs to receive financial transaction information simultaneously to ensure they all have the same reaction time.</description>
     </item>
     <item>
       <title>Learning Record --- 1 (2024/7/31)</title>
-      <link>https://ZongyuYe.github.io/blog/24_7_31/</link>
+      <link>http://localhost:1313/blog/24_7_31/</link>
       <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://ZongyuYe.github.io/blog/24_7_31/</guid>
+      <guid>http://localhost:1313/blog/24_7_31/</guid>
       <description>My Last Work Review Firstly, I would like to introduce my last work in detail. We design a new framework based on Neural Representation for Videos (NeRV), which can efficiently transform a video compression task into a neural network compression task by using the idea of Implicit Neural Representation (INR).&#xA;Before delving into how NeRV addresses specific challenges and its respective advantages and disadvantages, I need explain some basic concepts I mention above.</description>
     </item>
     <item>
       <title>Demo Page</title>
-      <link>https://ZongyuYe.github.io/blog/markdown_syntax/</link>
+      <link>http://localhost:1313/blog/markdown_syntax/</link>
       <pubDate>Sat, 19 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://ZongyuYe.github.io/blog/markdown_syntax/</guid>
+      <guid>http://localhost:1313/blog/markdown_syntax/</guid>
       <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
     <item>
       <title>luctus enim ultricies auctor pulvinar nam etiam</title>
-      <link>https://ZongyuYe.github.io/blog/post_3/</link>
+      <link>http://localhost:1313/blog/post_3/</link>
       <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>https://ZongyuYe.github.io/blog/post_3/</guid>
+      <guid>http://localhost:1313/blog/post_3/</guid>
       <description>donec lacinia eleifend sem a Pulvinar tempor ultrices amet praesent aliquet non magnis euismod elit venenatis. Aliqua consequat tristique erat nulla sit risus aliqua posuere. Potenti natoque augue proin accimsan risus scelerisque id integer curabitur mattis amet quisque. Aliquet porta sit sapien natoque sed fringilla, madssa suspendisse vivamus placerat sociis condimentum ridiculus. Natoque egestas non lectus pellentesque nunc mattis eu ridiculus pretium maecenas ligula. Gravida facilisis sem mollis sagittis aliquet ornare bibendum, leo nec morbi tortor diam maecenas tempor.</description>
     </item>
   </channel>

@@ -1106,6 +1106,9 @@ blockquote {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
+.static {
+  position: static !important;
+}
 .fixed {
   position: fixed !important;
 }
@@ -1183,6 +1186,9 @@ blockquote {
 }
 .grid {
   display: grid !important;
+}
+.hidden {
+  display: none !important;
 }
 .h-full {
   height: 100% !important;
