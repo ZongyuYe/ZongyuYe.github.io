@@ -6,8 +6,15 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 6 (2024/9/18)</title>
+      <link>https://ZongyuYe.github.io/blog/24_9_18/</link>
+      <pubDate>Wed, 18 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_9_18/</guid>
+      <description>Abstract: Four kinds of typical satellites:&#xA;GEO (Geostationary Earth Orbit): About 36,000 kilometers. MEO (Middle Earth Orbit): The orbital altitude is between 2000 and 36,000 km. (GPS) LEO (Low Earth Orbit): The orbital altitude is about 600-2000 km. VLEO (Very Low Earth Orbit): Nearly 350 km. (Low transmission delay, low propagation loss, high regional capacity, and low manufacturing and launch costs) Huawei Pay attention to Satellites in this orbit. https://www.huawei.com/cn/huaweitech/future-technologies/very-low-earth-orbit-satellite-networks-6g. The red part will be the latency of NTN.</description>
+    </item>
     <item>
       <title>Learning Record --- 5 (2024/9/11)</title>
       <link>https://ZongyuYe.github.io/blog/24_9_11/</link>

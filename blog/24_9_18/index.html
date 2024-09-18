@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.129.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.3f3831041a88815ea6a76a23dbf31d99f633d5c390b8c987e1138da9c3cb4e58.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 6 (2024/9/18)</h1>
+  <p class="mb-1">September 18, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h2 id="abstract">Abstract:</h2>
+<p>Four kinds of typical satellites:</p>
+<ol>
+<li>GEO (Geostationary Earth Orbit): About 36,000 kilometers.</li>
+<li>MEO (Middle Earth Orbit): The orbital altitude is between 2000 and 36,000 km. (GPS)</li>
+<li>LEO (Low Earth Orbit): The orbital altitude is about 600-2000 km.</li>
+<li>VLEO (Very Low Earth Orbit): Nearly 350 km. (Low transmission delay, low propagation loss, high regional capacity, and low manufacturing and launch costs) Huawei Pay attention to Satellites in this orbit. <a href="https://www.huawei.com/cn/huaweitech/future-technologies/very-low-earth-orbit-satellite-networks-6g">https://www.huawei.com/cn/huaweitech/future-technologies/very-low-earth-orbit-satellite-networks-6g</a>.</li>
+</ol>
+<p><img src="/figures/24_9_18/1.png" alt="image-20240918221124376"></p>
+<p>The red part will be the latency of NTN. The blue part will be the latency of TN.</p>
+<p><img src="/figures/24_9_18/2.png" alt="image-20240918221313253"></p>
+<p>Most current research works focus on offloading tasks to LEOs (LEO satellite). Some may consider add GEOs (GEO satellite) into their systems. In fact, every kind of satellites will have its application scenarios.</p>
+<h2 id="typical-application-scenarios-by-china-mobile">Typical application Scenarios: (By China Mobile)</h2>
+<p>http://221.179.172.81/images/20240204/21161707047023502.pdf</p>
+<h3 id="outlines">Outlines:</h3>
+<p>Space-air-ground network initially provide comprehensive basic network connection, ensuring network availability in areas not covered by terrestrial networks. In the next step, services need heavy traffic are introduced to provide better service. Meanwhile Satellite network (Or NTN, Non-Terrestrial Network) will release some pressure on the ground network. Finally, it will offload intelligence tasks to NTN to realize computing power (force) offloading.</p>
+<h3 id="communication-of-space-air-ground-network">Communication of space-air-ground network:</h3>
+<ol>
+<li>
+<p>Public Safety and Industry Disaster Recovery Emergency Communications: Emergency satellite communications are primarily used for disaster  relief, public security emergencies, large-scale security, industry  disaster recovery, and other emergency events for on-site command and  dispatch and remote data backup processing. In the field of industry emergency, off-site disaster recovery, data  protection, and recovery for special industries will also become  important growth points for future industrialized emergency  communications.</p>
+</li>
+<li>
+<p>Remote Areas, and Comprehensive Coverage Over Sea, Land, and Air: Regarding coverage in remote areas: The construction cost of connecting  the last 1% of the population with ground broadband is 40 times the  average cost of connecting the first 95%. Thanks to the low latency and  wide coverage characteristics of low Earth orbit (LEO) satellites, it  will be possible in the future to establish a ground-to-space  communication link between miniaturized satellite relay stations in  remote areas and the LEO satellite constellation in a &ldquo;base  station-free&rdquo; manner. Users in remote areas without ground operator base station coverage, such as wilderness and mountainous areas, can achieve smooth communication access. In terms of maritime affairs on the high  seas: Satellite communication deployment on ships, led by space-based  communication, can effectively realize communication services such as  message sending and receiving between &ldquo;ship-to-ship&rdquo; and  &ldquo;ship-to-shore&rdquo;, and voice dispatching.</p>
+</li>
+<li>
+<p>Airborne  aviation: Airborne satellite communication can provide cabin passengers  with high-speed, real-time, and smooth Internet connection services,  improving the passenger flight experience. It will become an important  infrastructure for the digital and intelligent development of civil aviation.</p>
+</li>
+</ol>
+<h3 id="connection-of-space-air-ground-network">Connection of space-air-ground network:</h3>
+<ol>
+<li>Mobile Terminal Direct-to-Satellite Services: With the mobile phone being the most commonly used personal  communication tool, the technology enabling direct-to-satellite  connections will allow for more flexible and convenient access to both  terrestrial and space networks. In the absence of ground networks or  when ground networks are compromised, users can access the satellite  network directly via their mobile phones, achieving true anytime,  anywhere, on-demand access. This capability significantly supports  personal users in maintaining network connectivity during outdoor  adventures, large sporting events, severe weather conditions, and in  remote areas. (Car-mounted satellite communication services)</li>
+<li>Unmanned Operations: In terms of offshore unmanned operations, with the development of the maritime economy, unmanned vessels, intelligent robots, and other  equipment will gradually be applied to marine operations. Through remote real-time remote control or preset control programs, they will replace human workers in performing specific tasks. For example, using aquatic  robots to help ships clean various barnacles and other microorganisms,  using unmanned ships to replace manual work in tasks such as channel  patrol, and underwater topography mapping of waterways. Satellite  internet can provide more stable network support for offshore unmanned  operations, improve operational efficiency, such as using video data  transmission and AI visual analysis technology, real-time analysis of  the operational status of ships and marine conditions, achieving  intelligent management of ships. In the aspect of industrial unmanned operations: With the development of industrial digital transformation, the industry gradually uses  drones or robots and other automation equipment to perform tasks in the  industrial field, including inspections, monitoring, maintenance,  logistics, etc. Industrial unmanned operations often need to be carried  out in vast areas, and traditional wireless communication networks  sometimes cannot cover remote areas, oceans, and other regions. However, the wide coverage and high-speed data transmission capabilities of  satellite internet can meet the requirements of industrial unmanned  operations for real-time and high reliability. For example, devices such as drones or robots can use satellite signals to locate their positions and transmit real-time location information back to the ground control  center. This enables the tracking and monitoring of device status and  operational trajectories, efficiently supporting operational decisions  and adjustments.</li>
+<li>Enterprise Remote Asset Management: Enterprises with assets widely distributed in remote areas, such as  oil fields in the Gobi Desert, hydropower stations in deep mountains,  equipment and goods in far-sea transportation, often have needs for  asset monitoring and management. However, due to the difficulty of  covering these areas with ground networks, enterprises face the dilemma  of high labor inspection costs and low efficiency. Satellite  communication networks, by integrating satellite-borne sensing data and  edge computing capabilities, can provide industries with asset  management services such as fault prediction, low-latency alarms, remote equipment shutdown, control, and remote technical guidance. For  example, through satellite IoT, scattered minerals, oil wells, and  high-value raw materials and bulk commodities in transit around the  world can be connected to the enterprise&rsquo;s regulatory network. This  allows for timely reporting of enterprise asset movements and statuses,  achieving enterprise remote monitoring and digital management.</li>
+<li>Precision Agriculture Operations.</li>
+</ol>
+<h3 id="intelligence-of-space-air-ground-network">Intelligence of space-air-ground network:</h3>
+<ol>
+<li>Simulation of Natural Disasters: On one hand, the integrated technology of &ldquo;communication,  navigation, remote sensing, and computing&rdquo; can predict and monitor  natural disasters, providing communication and rescue guidance. By  real-time dynamic monitoring, collecting, and summarizing wide-area  geographic information and disaster data, a simulation system for  natural disasters is formed, such as flood discharge simulation, typhoon passage simulation, and mountain landslide simulation, etc. This  effectively aids national meteorological departments, city management  departments, agricultural enterprises, etc., in formulating response  measures in advance, significantly enhancing disaster emergency  management capabilities, and minimizing losses to the greatest extent.  On the other hand, by integrating the &ldquo;communication, navigation, remote sensing, and computing&rdquo; technology, satellite internet can also  establish platform-level system applications, combined with satellite  remote sensing data, to provide key medical support for major disasters, including situation awareness of affected areas, rapid medical resource positioning, and remote resource dispatching, efficiently and reliably  ensuring the safety of people&rsquo;s lives and property.</li>
+<li>In the process of providing  time-space digital content services, satellite internet operators will  accumulate a large amount of digital content resources. For  non-sensitive remote sensing data, it can be applied in fields such as  cultural tourism, game scene modeling, streaming media content  production, and geographic education, to leverage the value of digital content.</li>
+<li>Relying on an integrated  terrestrial and celestial intelligent perception network, combined with  technologies such as AI, blockchain, computing power, cloud, and big  data, it is possible to achieve &ldquo;comprehensive coverage, digitalization, and dynamic&rdquo; monitoring and supervision of resources in fields such as  the ocean, ecological environment, and agriculture. This further  promotes the improvement of social intelligent supervision quality and efficiency.</li>
+</ol>
+<h2 id="the-expected-architecture-of-space-air-ground-network">The expected architecture of space-air-ground network:</h2>
+<p><a href="https://www.zte.com.cn/content/dam/zte-site/res-www-zte-comcn/mediares/magazine/publication/com_cn/article/202305/3.pdf">https://www.zte.com.cn/content/dam/zte-site/res-www-zte-comcn/mediares/magazine/publication/com_cn/article/202305/3.pdf</a></p>
+<p>The 6G network can construct a low-latency integrated satellite-terrestrial network system through low Earth orbit (LEO) satellite constellations. Compared to LEO satellites, geostationary orbit (GEO) satellites have some significant advantages  in terms of coverage range, network complexity, and mobility management. Therefore, the integration of GEO and LEO satellites needs to be  considered in the 6G integrated satellite-terrestrial network to achieve complementary advantages.</p>
+<p>The 6G network architecture needs to integrate capabilities that are intelligent by design, computationally powerful, and inherently secure,  to achieve ubiquitous connectivity, omnipresent computing power, and  comprehensive intelligence.</p>
+<p>With the continuous emergence of new services, satellite networks,  acting as relays for remote ground data centers, can no longer provide  efficient data processing responses. Hence, the integrated satellite-terrestrial communication network needs to consider edge computing capabilities, implementing a flexible division of edge computing between satellites and the ground. This approach places  services with high globality, complexity, and low latency on ground  network platforms, and services with high real-time requirements and low computational complexity on satellite nodes. Through on-orbit computing services, it reduces latency and achieves efficient service  distribution. For instance, utilizing satellite pre-data caching and  satellite broadcast/multicast functions can significantly reduce traffic on the forward link of the integrated satellite-terrestrial  communication network; moving some satellite data processing (such as  Earth imaging and weather observation) to satellites can greatly reduce  the amount of data that needs to be sent back, saving bandwidth on the  feeder link.</p>
+<p>As the computing power of onboard electronic devices continues to  develop, there has been a significant improvement in onboard computing  capabilities. However, the network still needs to dynamically allocate  and flexibly schedule computing resources, storage resources, and  network resources among the cloud, network, and edge as needed. Through  an intelligent collaborative mechanism for edge computing, an  intelligent network orchestration system can match the best computing  resources for users&rsquo; business needs based on network status and  computing power status, and calculate the optimal path from the user to  the target computing power node, determining the forwarding path for the service. Edge computing nodes deployed on satellites can utilize  relatively limited computing and network resources to perform some edge  computing tasks, while central computing nodes on the ground, with  abundant computing and network resources, provide strong support for  terminals and edges, capable of completing complex computing tasks that edge nodes cannot handle.</p>
+<h2 id="computing-power-network-towards-6g-what-computing-power-network-">computing power network towards 6G (What computing power network )</h2>
+<p><a href="https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&amp;arnumber=9354741&amp;ref=aHR0cHM6Ly9pZWVleHBsb3JlLmllZWUub3JnL2Fic3RyYWN0L2RvY3VtZW50LzkzNTQ3NDE">https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&amp;arnumber=9354741&amp;ref=aHR0cHM6Ly9pZWVleHBsb3JlLmllZWUub3JnL2Fic3RyYWN0L2RvY3VtZW50LzkzNTQ3NDE</a></p>
+<p>Firstly, efficient computing power requires a professional network. Focusing on dedicated scenarios can complete more calculations with lower power consumption and cost. At present, video and image analysis are relatively mature scenes with the greatest demand for computing power, which basically run through all intelligent scenes in all industries. Video analysis and processing at the Edge and in the Cloud requires high throughput, which depends on two key indicators, network bandwidth and latency. The larger the bandwidth and the lower the latency is, the greater the data throughput is. (Large amount of videos and image demands network with higher throughput.</p>
+<p>Secondly, efficient computing power requires an elastic network. Such as the overallocation of computing power, the agility provided by computing power, and the elasticity of 100ms level light computing, elastic data processing requires the network to provide agile connection establishment, bandwidth and service level flexibility adjustment capabilities between data requirements and computing power resources.</p>
+<p>Thirdly, efficient computing power requires a collaborative network. From the cooperation between multiple cores inside the processor, to the “balance of computing power” among multiple servers in the data centers, and then to the “on-demand computing power” of the entire network edge, the purpose of collaboration is to make full use of computing power resources, and the bearer network needs to support the balance of computing power, traffic scheduling and congestion management between multiple edges, between the edge and the core.</p>
+<h2 id="three-typical-application-scenarios-about-computing-power-network-and-space-air-ground-network">Three typical application scenarios about computing power network and space-air-ground network:</h2>
+<ol>
+<li>A common scenario involves areas where terrestrial networks cannot  provide coverage or are congested, requiring users to offload tasks,  such as image super-resolution. In such instances, the decision whether  to offload to LEO, VLEO, GEO, MEO, MEC, or the Cloud comes into play. At this juncture, several factors merit consideration, primarily focusing  on user experience quality alongside the company&rsquo;s profit and cost  considerations.</li>
+<li>Another scenario involves distributed learning, such as when multiple geographically dispersed companies need to engage in distributed learning using their own data. In such cases, satellite networks can be  employed for communication, not only offering higher efficiency but also reducing the likelihood of packet loss due to congestion.  Simultaneously, if the learned parameters need to be retained within  each company, satellite networks can also provide reliable, high-speed  services for inference when required. Should there be a need to  integrate these parameters to form a single model, it can also be  deployed on satellites to offer services with a broader coverage. This exemplifies a typical scenario where Satellite Terrestrial Networks (STN) and Computing Power Networks (CPN) converge.
+<img src="/figures/24_9_18/3.jpg" alt="image-20240918221313254"></li>
+<li>The final scenario touches on entertainment and lifestyle, and can also relate to telemedicine. For  example, imagine wanting to remotely experience the taste of a delicacy  your friend is enjoying in the United States, or the sensation of  touching the sandy beaches of Hawaii from the comfort of your home. This would require sensory interconnectivity. While short-distance sensory  interconnectivity might be achievable through cloud services and  terrestrial networks, the experience could deteriorate as distances  increase due to latency in terrestrial networks. Hence, the use of  satellite networks to facilitate communication becomes essential.  Additionally, some sensory conversions might utilize AI models,  necessitating computational power from satellites.
+<img src="/figures/24_9_18/4.jpg" alt="image-20240918221313255">
+Actually, STN can do better in remote areas and Long distance communication.</li>
+</ol>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_9_11/"
+      title="Learning Record --- 5 (2024/9/11)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>
