@@ -6,8 +6,29 @@
     <description>Recent content in Notes on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 7.1 (2024/9/25)</title>
+      <link>https://ZongyuYe.github.io/blog/24_9_25_1/</link>
+      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_9_25_1/</guid>
+      <description>Important Papers (STN Offloading) Two-Timescale Learning-Based Task Offloading for Remote IoT in Integrated Satellite–Terrestrial Networks&#xA;STN for sensitive task offloading in remote IoT devices.&#xA;Optimization problems on offloading link selection and bandwidth allocation. Also divide the problems into two subproblems to make computing time scalable.&#xA;Solutions: H-PPO, Discrete + continuous hybrid model&#xA;Multi-BS, Multi-satellites and Multi-users.&#xA;This paper considers that both the base station and LEO node are non-computing nodes, which need to be offloaded to the core network for calculation.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 7.2 (2024/9/25)</title>
+      <link>https://ZongyuYe.github.io/blog/24_9_25_2/</link>
+      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_9_25_2/</guid>
+      <description>Important papers (Networking for FL) AOP: Towards Adaptive Offloading Point Approach in a Federated Learning Framework for Edge AI Applications&#xA;Offloading the AI training to edge nodes.&#xA;Using RL method to decide which DNN should be offloaded to the edge and using clustering algorithm to assist this process.&#xA;The Architecture of Computing Power Network Towards Federated Learning: Paradigms and Perspectives&#xA;Introducing the concept of computing power network.&#xA;Because of the computing resources in different devices, it will introduce heterogeneity.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 7.3 (2024/9/25)</title>
+      <link>https://ZongyuYe.github.io/blog/24_9_25_3/</link>
+      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_9_25_3/</guid>
+      <description>Smart Farm Telemedicine: Remote medical consultations, diagnostics, and even surgeries rely on high-speed communication networks and advanced computing for real-time data processing, image analysis, and secure patient data management. Smart Grids: These systems use long-distance communication to monitor and manage electricity distribution. They require substantial computing power for real-time data analysis, predictive maintenance, and optimizing energy usage across vast networks. Autonomous Vehicles: Self-driving cars and drones depend on long-distance communication for navigation, traffic updates, and coordination with other vehicles.</description>
+    </item>
     <item>
       <title>Learning Record --- 6 (2024/9/18)</title>
       <link>https://ZongyuYe.github.io/blog/24_9_18/</link>
