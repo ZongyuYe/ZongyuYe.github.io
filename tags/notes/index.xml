@@ -6,8 +6,15 @@
     <description>Recent content in Notes on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 8 (2024/10/09)</title>
+      <link>https://ZongyuYe.github.io/blog/24_10_9/</link>
+      <pubDate>Wed, 09 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_10_9/</guid>
+      <description>Important materials: Below is an important survey paper on STN computing. (2023.10.15)&#xA;http://www.tiansuan.org.cn/Chinese/source/Satellite_Computing_Vision_and_Challenges.pdf&#xA;This paper provide a comprehensive view on computing in space. Based on their experiments in real satellite, they provide different kinds of problems which need further works.&#xA;Below are two important demo for satellite network.&#xA;https://www.uni.lu/research-en/research-areas/space-systems/&#xA;This is a demo from University of Luxembourg. Even though they do not use real satellite, but they try to use different methods to emulate the communication environment in the space, which a good alternative way.</description>
+    </item>
     <item>
       <title>Learning Record --- 7.1 (2024/9/25)</title>
       <link>https://ZongyuYe.github.io/blog/24_9_25_1/</link>
