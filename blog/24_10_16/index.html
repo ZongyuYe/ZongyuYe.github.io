@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.129.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.630a9b2221f09b61177a69894600e1f7994802ec18d708696374c75292151771.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 9 (2024/10/16)</h1>
+  <p class="mb-1">October 16, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="graph-tensor-completion">Graph Tensor Completion</h1>
+<h1 id="preliminary">Preliminary:</h1>
+<h2 id="basic-notations">Basic Notations:</h2>
+<p>Assume  $\mathcal A$  is a third order tensor, $A$ is a matrix and $a$ is a vector.</p>
+<p>$G(V, E, A)$ be a graph with $N$ nodes, where $V$ is the set of nodes, $E$ is the set of edges and $A$ is the adjacency matrix of size $N\times N$.</p>
+<hr>
+<p>Laplacian matrix $L=D-A$ can describe the connection information of nodes.</p>
+<p>$D = diag(d_1, d_2, …, d_n)$ is the degree matrix, and $d_i=\sum_{j} A_{ij}$.</p>
+<h2 id="definition-1-gft">Definition 1 (GFT):</h2>
+<p>Suppose the vector $f={ f_1, f_2, …, f_N}^T$ is a graph signal, while $f_i$ is attached to node $i$.</p>
+<p>The frequency component of $f$ is defined by graph Fourier transform (GFT).</p>
+<hr>
+<p>Now, given a graph signal $f \in \mathcal R^N$, and its Laplacian matrix $L$. The GFT of $f$ can be defined as</p>
+<p>$$
+\tilde{f} = GFT(f)=U^*f
+$$</p>
+<p>And its inverse version can be modeled as,</p>
+<p>$$
+f=IGFT(\tilde{f})=U\tilde{f}
+$$</p>
+<p>$U^*$ is $U$’s conjugated matrix. And it can be obtained from,</p>
+<p>$$
+L=U \Lambda U^*
+$$</p>
+<h2 id="definition-2-graph-convolution">Definition 2 (Graph Convolution):</h2>
+<p>Graph convolution between two graph signals $f$ and $g$ can be defined by,</p>
+<p>$$
+f \star g = U(U^* f \bigodot U^* g)
+$$</p>
+<p>Here, $\star$ is graph convolution and $\bigodot$ is Hadamard product.</p>
+<p>Hadamard product can be defined as below,</p>
+<p>$$
+(A\bigodot B)<em>{ij} = a</em>{ij}*b_{ij}
+$$</p>
+<p><img src="/figures/24_10_16/image.png" alt="image.png"></p>
+<p><img src="/figures/24_10_16/image%201.png" alt="image.png"></p>
+<h2 id="definition-3-gft-for-third-order-tensor">Definition 3 (GFT for third-order tensor)</h2>
+<p>$$
+\mathcal A \times_3 U^* = fold((U^* \bigotimes I)\times unfold(\mathcal A))
+$$</p>
+<p>$\mathcal A$’s size is ${ n_1, n_2, n_3}$.</p>
+<p>Here,  $\times_3$ is the mode-3 product, $\bigotimes$ is the Kronecker product. $I$  is an identity matrix of size $n_3\times n_3$.</p>
+<p>Kronecker product can be defined as below.</p>
+<p>$$
+A \bigotimes B = [ a_{ij}B ]^{m, n}<em>{i=1, j=1}=\begin{pmatrix} a</em>{11}B &amp; \cdots &amp; a_{1n}B \ a_{21}B &amp; \cdots &amp; a_{2n}B\ a_{m1}B &amp; \cdots &amp; a_{mn}B\end{pmatrix}
+$$</p>
+<p><img src="/figures/24_10_16/image%202.png" alt="image.png"></p>
+<p>For $unflod(\mathcal A)$, it can be defined as,</p>
+<p>$$
+unflod(\mathcal A)= \begin{bmatrix}\mathcal A^{(1)} \ \mathcal A^{(2)} \ \cdots \ \mathcal A^{(n_3)} \end{bmatrix}
+$$</p>
+<p>Then, $unfold(fold(\mathcal A)) = \mathcal A$.</p>
+<p>For IGFT, it can be shown as, $\mathcal A = IGFT(\tilde{A})=\tilde{A} \times_{3} U$.</p>
+<p>Moreover, for all $\mathcal A^{(i)}$ before. It means the matrix when its third dimension get the value of $i$.</p>
+<h2 id="definition-4-graph-tensor-product">Definition 4 (Graph tensor product)</h2>
+<p>Here, we consider two third-order tensor. The first one is $\mathcal A$ $\in$ $\mathcal R^{n_1 \times n_2 \times n_3}$  and the second one is $\mathcal B \in \mathcal R^{n_1 \times n_2 \times n_3}$. The graph tensor product can be defined as below,</p>
+<p>$$
+\mathcal C = \mathcal A <em>_g \mathcal B = (\mathcal A \times_3 U^</em>) \Delta (\mathcal B \times_3 U_*) \times_3 U
+$$</p>
+<p>Here, $*_g$ is graph tensor product, and $\Delta$ is facewise product. Facewise product means the result will be caculated by independently multiplying the frontal slices of two tensors.</p>
+<p>Actually, the $(i, j)$-th tube of $C$ can be obtained by</p>
+<p>$$
+\mathcal C(i,j,:)=\sum_{k=1}^{n_2}\mathcal A(i,k,:)\star \mathcal B(k,j,:)
+$$</p>
+<h2 id="definition-5-graph-tensor-conjugate-transpose">Definition 5 (Graph tensor conjugate transpose)</h2>
+<p>The conjugate transpose of  $\mathcal A \in \mathcal R^{n_1\times n_2\times n_3}$ is $\mathcal A^T \in \mathcal R^{n_1 \times n_2 \times n_3}$.</p>
+<h2 id="definition-6-gt-svd">Definition 6 (GT-SVD)</h2>
+<p>The GT-SVD of a graph tensor $\mathcal A \in \mathcal R^{n_1\times n_2\times n_3}$, can be defined as,</p>
+<p>$$
+\mathcal A = \mathcal U *_g \mathcal S *_g \mathcal V^T
+$$</p>
+<p>Here, $\mathcal U \in \mathcal R^{n_1\times n_1 \times n_3}$ and $\mathcal V \in \mathcal R_{n_2\times n_2 \times n_3}$ are orthogonal tensors, and for  $\mathcal S \in \mathcal R^{n_1\times n_2\times n_3}$ is an f_diagonal tensor.</p>
+<h2 id="definition-7-graph-tensor-tubal-rank--multi-rank">Definition 7 (Graph tensor tubal-rank &amp; multi-rank)</h2>
+<p>The tubal-rank of $\mathcal A$ can be defined as $rank_g(\mathcal A)$. It means the number of non-zeor singular tubes of $\mathcal S$.</p>
+<p>The multi-rank of $\mathcal A$ can be donated by $rank_m(\mathcal A) = k$. $k$ is a vector which satisfy $k_i = rank(\overline{A}^{(i)})$ and $rank_g(\mathcal A) = max(k_1, \cdots, k_{n_3}$).</p>
+<p>Here, $\overline{A}$ is the block diagonal matrix.</p>
+<p><img src="/figures/24_10_16/Screenshot_20241015_191926.jpg" alt="Screenshot_20241015_191926.jpg"></p>
+<h2 id="lemma-1">Lemma 1</h2>
+<p>Suppose we have $\mathcal A$ $\in \mathcal R^{n_1\times n_2 \times n_3}$  and $\mathcal B \in \mathcal R^{n_2\times n_4 \times n_3}$. We have,</p>
+<ol>
+<li>$|| \mathcal A||_F^2 = || \overline{A} ||_F^2.$</li>
+<li>$\mathcal F = \mathcal A *_g \mathcal B$ and $\overline{F}=\overline{A}\overline{B}$ are equivalent to each other.</li>
+</ol>
+<p>Since GFT exhibits similar properties with DFT. More specifically, using the Parseval relation for GFT. we can have,</p>
+<p>$$
+\sum_{i=1}^N|\tilde{f}(i)|^2 = \sum_{i=1}^N|f(i)|^2
+$$</p>
+<h2 id="lemma-2">Lemma 2</h2>
+<p>Suppose $\mathcal A \in \mathcal R^{(n_1, n_2, n_3)}$, $\mathcal B \in \mathcal R^{(n_1, n_2, n_3)}$, $\mathcal C \in \mathcal R^{(n_2, n_4, n_3)}$, we have:</p>
+<ol>
+<li>if $rank_g(\mathcal A) = \hat(k)$, $\hat k &lt; \min(n_1, n_2)$. Then $\mathcal A$ can be expressed as $\mathcal A=\mathcal G *_g \mathcal H$ , $\mathcal G \in \mathcal R^{n_1 \times \hat{k} \times n_3}$, $\mathcal H \in \mathcal R^{\hat{k} \times n_2 \times n_3}$, and $rank_g{(\mathcal G)} = rank_g{(\mathcal H)} = \hat{k}$.</li>
+<li>$rank_g(\mathcal B *_g \mathcal C) \leqslant \min(rank_g(\mathcal G), rank_g(\mathcal C))$</li>
+</ol>
+<h1 id="problem-statement">Problem statement:</h1>
+<p>Assume the traffic data can be organized as a tensor $\mathcal X \in \mathcal R^{n_1\times n_2 \times n_3}$, the $(i, j, k)$-th element denotes the traffic volume measurement at the $i$-th time interval on the $j$-th day.</p>
+<p>Assume the incomplete traffic data is represented as a tensor $\mathcal M \in \mathcal R^{n_1\times n_2 \times n_3}$.</p>
+<p>The target is using $\mathcal M$ to get $\mathcal X$.</p>
+<p>The objective function can be denoted as,</p>
+<p>$$
+\min_{\mathcal X} \ rank_g(\mathcal X)
+$$</p>
+<p>$rank_g(\mathcal X)$ denotes the tubal-rank of $\mathcal X$. $P_{\varOmega}$ is the sampling operator and $\varOmega$ is the set of observed entries.</p>
+<h1 id="proposed-method">Proposed Method:</h1>
+<p><img src="/figures/24_10_16/image%203.png" alt="image.png"></p>
+<p>In particular, given an incomplete graph-tensor of traffic data $\mathcal M$ and its initial rank. $\mathcal M$ can be decomposed into two components,</p>
+<p>$$
+\overline{L}^0 \overline{R}^0=\overline{M}^0
+$$</p>
+<p>$\overline{L}^0$ and $\overline{R}^0$ are block-diagonal matrices and can act as the initializations of $\overline{L}$ and $\overline{R}$ for solving the GTC model.</p>
+<p>Meanwhile, we measure the different smoothness of traffic data on the “day” and “time interval” dimensions and develop Toeplitz matrices $T1, T2$ as regularization for further performance improvement. Finally, the estimated components $\overline{L}$ and $\overline{R}$ can be obtained by solving the GTC model. Finally the traffic data can be recovered from,</p>
+<p>$$
+\mathcal X_{est} = IGFT(ibdiag(\overline{L}\overline{R}))
+$$</p>
+<h2 id="low-rank-graph-tensor-factorization">Low Rank Graph Tensor Factorization</h2>
+<p>Rank minimization is NP-Hard.</p>
+<p>Here, based on Lemma 2, we try to transform the graph tensor $\mathcal M$ into two smaller tensors $\mathcal L \in \mathcal R^{n_1 \times \hat{r} \times n_3}$ and $\mathcal R \in \mathcal R^{n_1 \times \hat{r} \times n_3}$. And, $\mathcal M = \mathcal L *_g \mathcal R$, $rank_g(L) = rank_g(R) = \hat{r}$.</p>
+<p>Then, the tensor factorization formulation can be denoted as,</p>
+<p>$$
+\min_{\mathcal L, \mathcal R}||\mathcal P_\Omega(\mathcal L *_g\mathcal R-\mathcal M)||_F^2
+$$</p>
+<p>Since,  $\mathcal P_\Omega$ has constraints on the product of $\mathcal L$ $\mathcal R$. In this case, we add an intermediate variable $\mathcal Y$.</p>
+<p>$$
+\min_{\mathcal L, \mathcal R, \mathcal Y}||\mathcal L *_g\mathcal R-\mathcal Y||_F^2+(||\mathcal L||_F^2+||\mathcal R||_F^2)
+$$</p>
+<p>$s.t. \mathcal P_\Omega(\mathcal Y) = \mathcal M$.</p>
+<p>Finally, we assume $rank_m(\mathcal Y) = r$ and $rank_g(\mathcal Y) = \hat{r}$. $r_i=rank(\overline{Y}^{(i)}), i=1, \cdots, n_3$. $\hat{r} = max(r_1, \cdots, r_{n_3})$. Then $\overline{Y}^{(i)}$ can be written as the product of $\hat{L}^{(i)} \in \mathcal C^{n_1 \times r_i}$ and $\hat{R}^{(i)} \in \mathcal C^{r_i \times n_2}$, and $\overline{L} \overline{R} = \hat{L} \hat{R}$. Then, we have,</p>
+<p>$$
+\min_{\overline{L}, \overline{R}, \overline{Y}}\sum_{i=1}^{n_3}{ ||\overline{L}^{(i)} \overline{R}^{(i)}-\overline{Y}^{(i)}||^2_F+\lambda(||\overline{L}^{(i)}||_F^2+||\overline{L}^{(i)}||_R^2)}
+$$</p>
+<p>$s.t. \mathcal P_{\Omega}(\mathcal Y - \mathcal M)=0$</p>
+<h2 id="constructing-temporal-regularization">Constructing Temporal Regularization</h2>
+<p>Traffic data exhibits temporal smoothness. We use Toeplitz matrix to catch it.</p>
+<p><img src="/figures/24_10_16/image%204.png" alt="image.png"></p>
+<p>Before is a typical example of Toeplitz matrix.</p>
+<p>We want use two Toeplitz matrices, $T_1 \in \mathcal R^{n_1 \times n_2}$, $T_1 \in \mathcal R^{n_1 \times n_2}$</p>
+<p>Last equation can be transformed into,</p>
+<p>$$
+\min_{\overline{L}, \overline{R}, \overline{Y}}\sum_{i=1}^{n_3}{ ||\overline{L}^{(i)} \overline{R}^{(i)}-\overline{Y}^{(i)}||^2_F+\lambda(||\overline{L}^{(i)}||_F^2+||\overline{L}^{(i)}||_R^2) + \alpha(||T_1(\overline{L}^{(i)}\overline{R}^{(i)})||_F^2+||(\overline{L}^{(i)}\overline{R}^{(i)})T_2||_F^2)}
+$$</p>
+<p>$s.t. \mathcal P_{\Omega}(\mathcal Y - \mathcal M)=0$.</p>
+<h2 id="solving-gtc-for-traffic-data-completion">Solving GTC for Traffic Data Completion</h2>
+<p>$$
+Loss(\overline{Y}, \Omega, \overline{R}, \overline{L}, T_1, T_2, \alpha, \lambda) = \sum_{i=1}^{n_3}{ ||\overline{L}^{(i)} \overline{R}^{(i)}-\overline{Y}^{(i)}||^2_F+\lambda(||\overline{L}^{(i)}||_F^2) + \alpha(||T_1(\overline{L}^{(i)}\overline{R}^{(i)})||_F^2+||(\overline{L}^{(i)}\overline{R}^{(i)})T_2||_F^2)}
+$$</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_10_9/"
+      title="Learning Record --- 8 (2024/10/09)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>

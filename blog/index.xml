@@ -6,8 +6,15 @@
     <description>Recent content in aafu theme on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 16 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 9 (2024/10/16)</title>
+      <link>https://ZongyuYe.github.io/blog/24_10_16/</link>
+      <pubDate>Wed, 16 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_10_16/</guid>
+      <description>Graph Tensor Completion Preliminary: Basic Notations: Assume $\mathcal A$ is a third order tensor, $A$ is a matrix and $a$ is a vector.&#xA;$G(V, E, A)$ be a graph with $N$ nodes, where $V$ is the set of nodes, $E$ is the set of edges and $A$ is the adjacency matrix of size $N\times N$.&#xA;Laplacian matrix $L=D-A$ can describe the connection information of nodes.&#xA;$D = diag(d_1, d_2, …, d_n)$ is the degree matrix, and $d_i=\sum_{j} A_{ij}$.</description>
+    </item>
     <item>
       <title>Learning Record --- 8 (2024/10/09)</title>
       <link>https://ZongyuYe.github.io/blog/24_10_9/</link>
