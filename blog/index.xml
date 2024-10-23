@@ -6,8 +6,15 @@
     <description>Recent content in aafu theme on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 10 (2024/10/23)</title>
+      <link>https://ZongyuYe.github.io/blog/24_10_23/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_10_23/</guid>
+      <description>https://api.starlink.com/public-files/DIRECT_TO_CELL_FIRST_TEXT_UPDATE.pdf&#xA;Here is a report from SpaceX. As they said, current communication between phone and satellite still have problems.&#xA;Mobility Management in Satellite SKYCASTLE: Taming LEO Mobility to Facilitate Seamless and Low-latency Satellite Internet Services https://ieeexplore.ieee.org/document/10621390/?arnumber=10621390.&#xA;The fundamental challenge stems from a unique characteristic of ISTNs: not only users are mobile, but also core network infrastructures (i.e., LEO satellites) are frequently changing their locations in the network.&#xA;Research scope Firstly, efficiently integrate satellite constellations into existing terrestrial Internet, emerging ISTNs like Starlink adopts IP-based networking architecture with heterogeneous wireless access technologies.</description>
+    </item>
     <item>
       <title>Learning Record --- 9 (2024/10/16)</title>
       <link>https://ZongyuYe.github.io/blog/24_10_16/</link>

@@ -1190,6 +1190,9 @@ blockquote {
 .grid {
   display: grid !important;
 }
+.contents {
+  display: contents !important;
+}
 .hidden {
   display: none !important;
 }

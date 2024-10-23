@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.129.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.630a9b2221f09b61177a69894600e1f7994802ec18d708696374c75292151771.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 10 (2024/10/23)</h1>
+  <p class="mb-1">October 23, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <p><a href="https://api.starlink.com/public-files/DIRECT_TO_CELL_FIRST_TEXT_UPDATE.pdf">https://api.starlink.com/public-files/DIRECT_TO_CELL_FIRST_TEXT_UPDATE.pdf</a></p>
+<p>Here is a report from SpaceX. As they said, current communication between phone and satellite still have problems.</p>
+<h1 id="mobility-management-in-satellite">Mobility Management in Satellite</h1>
+<h2 id="skycastle-taming-leo-mobility-to-facilitate-seamless-and-low-latency-satellite-internet-services"><strong>SKYCASTLE: Taming LEO Mobility to Facilitate Seamless and Low-latency Satellite Internet Services</strong></h2>
+<p><a href="https://ieeexplore.ieee.org/document/10621390/?arnumber=10621390">https://ieeexplore.ieee.org/document/10621390/?arnumber=10621390</a>.</p>
+<p>The fundamental challenge stems from a unique characteristic of ISTNs: not only users are mobile, but also core network infrastructures (i.e., LEO satellites) are frequently changing their locations in the network.</p>
+<h3 id="research-scope"><strong>Research scope</strong></h3>
+<p>Firstly, efficiently integrate satellite constellations into existing terrestrial Internet, emerging ISTNs like Starlink adopts IP-based networking architecture with heterogeneous wireless access technologies. (Integrated network)</p>
+<p>Second, unlike link-layer solutions, a network-layer solution does not rely on any assumption about the underlying wireless access technologies. (Non-lower)</p>
+<p>Finally, as compared to high-layer approaches (e.g., QUIC’s connection identifier), a network-layer solution achieves higher handover efficiency (e.g., shorter disruption time). (Non-higher)</p>
+<p><img src="/figures/24_10_23/Screenshot_20241018_090739.jpg" alt="Screenshot_20241018_090739.jpg"></p>
+<h3 id="deploying-anchor-on-the-ground">Deploying anchor on the ground</h3>
+<p>Figure 4a and 4b plot the end-to-end connection uninterrupted ratio (CUR) and RTTs when anchors are deployed at GSs. Our experiment results reveal that deploying anchors on GSs can result in poor network continuity. As shown in Figure 4a, The server-to-user CUR is only 79% on average, indicating that the connection is unavailable for at least 20% of the entire session.</p>
+<h3 id="deploying-anchor-in-satellites">Deploying anchor in satellites</h3>
+<p>Figure 4a and 4b plots the end-to-end CUR and RTTs when users choose their initial ingress satellite as the anchor. We observe that deploying anchors on satellites can significantly improve the server-to-user CUR, but it still suffers from high user-perceived RTTs. Figure 4c plots the RTTs changing over time. As users roam around the world and satellites move around the earth, we observe that the RTT can increase by about 100ms over a period of 25 minutes.</p>
+<h3 id="method-overview">Method Overview</h3>
+<ol>
+<li>Judiciously deploying distributed anchors at LEO satellites to efficiently manage the mobility of both users and network infrastructures.</li>
+<li>Dynamically assigning satellite anchors to users to avoid triangular routing and attain low latency.</li>
+</ol>
+<p><strong>The anchor manager aims to maximize the time users are managed by the same anchor.</strong></p>
+<p><img src="/figures/24_10_23/Screenshot_20241018_091923.jpg" alt="Screenshot_20241018_091923.jpg"></p>
+<hr>
+<h2 id="handover-protocol-learning-for-leo-satellite-networks-access-delay-and-collision-minimization"><strong>Handover Protocol Learning for LEO Satellite Networks: Access Delay and Collision Minimization</strong></h2>
+<p><a href="https://ieeexplore.ieee.org/document/10371217/?arnumber=10371217">https://ieeexplore.ieee.org/document/10371217/?arnumber=10371217</a></p>
+<p>(How to combine Protocol design with Optimization)</p>
+<p>DRL-based Handover protocol. It skips the Measurement Report (MR) in the HO procedure by leveraging its predictive capabilities after being trained with a pre-determined LEO satellite orbital pattern.</p>
+<p><img src="/figures/24_10_23/Screenshot_20241018_094550.jpg" alt="Screenshot_20241018_094550.jpg"></p>
+<p><strong>Challenge:</strong></p>
+<p>Outdated, Power-Consuming, and Unreliable MR: Specific challenges in LEO SAT networks are the out-dated, power-consuming, and unreliable MR. The transmission of the signaling is hampered by a long propagation delay. 500-2000KM, 1.6s-6.0s.</p>
+<p>High Correlation and Density of Ground UEs: In LEO SAT networks, handling massive HO requests for UEs in densely populated areas poses another challenge, as there is a high correlation among UEs in such areas,</p>
+<p><img src="/figures/24_10_23/image.png" alt="image.png"></p>
+<hr>
+<h2 id="dynamic-space-ground-integrated-mobility-management-strategy-for-mega-leo-satellite-constellations"><strong>Dynamic Space-Ground Integrated Mobility Management Strategy for Mega LEO Satellite Constellations</strong></h2>
+<p><a href="https://ieeexplore.ieee.org/document/10478861/?arnumber=10478861">https://ieeexplore.ieee.org/document/10478861/?arnumber=10478861</a></p>
+<p><strong>Contributions:</strong></p>
+<ol>
+<li>
+<p>Dynamic management node decision-making (DMND) problem and unguaranteed delays: Due to the triple mobility between LEO satellites as well as MEO and GS management nodes, the management node of each LEO satellite needs to be changed constantly, which brings the DMND problem. Since the selection of GS management node or MEO management node has a large spatial-temporal scale difference, the handover delays are hard to be guaranteed. To ensure the effectiveness of the dynamic SGIMM architecture, minimizing the handover management delay is a pivotal goal to the DMND problem.</p>
+</li>
+<li>
+<p>Dynamic content migrations caused migration delays and overheads: With the change of management node, the buffered contents of registered users, gNB-DUs, and gNB-CU-UPs in the AMF and gNB-CU-CP functions should also be migrated to the new management node accordingly. This brings additional migration delays and overheads to DMND problem.</p>
+</li>
+<li>
+<p>Fluctuating storage overheads: As the overall network topology changes, the global non-uniform-distributed users will bring fluctuating and differential storage overheads to the storage-constrained MEO management nodes. The storage provided to the gNB-CU-CP and AMF functions in the MEO management node should be evaluated, and the practical MEO storage overhead need to be constrained in the DMND problem.</p>
+<p><img src="/figures/24_10_23/image%201.png" alt="image.png"></p>
+</li>
+</ol>
+<p><img src="/figures/24_10_23/image%202.png" alt="image.png"></p>
+<hr>
+<h2 id="handover-analysis-in-ultra-dense-leo-satellite-networks-with-beamforming-methods"><strong>Handover Analysis in Ultra-Dense LEO Satellite Networks With Beamforming Methods</strong></h2>
+<p><a href="https://ieeexplore.ieee.org/document/9946436/?arnumber=9946436">https://ieeexplore.ieee.org/document/9946436/?arnumber=9946436</a></p>
+<p>This paper is aim to improve the sum data rate and also improve the handover performance.</p>
+<p>Contributions:</p>
+<ol>
+<li>A modified low-complexity matching algorithm and a novel handover rate analysis method are proposed. We develop a practical UDSGIN for traffic hotspot areas, where the matching relations between users and BSs are obtained by maximizing the sum rate of users. We add the retention and switching mechanism in the proposed matching algorithm to reduce the computational complexity. Combining the proposed matching algorithm and the pause time of users inside the cell boundaries, we derive the expressions of handover rate and handover failure rate under UDSGIN.</li>
+<li>A MPSO-based satellite beamforming method is proposed. In order to provide equal coverage for all LBSs, we present a MPSO-based beamforming method, which can generate arbitrarily shaped beams by the pre-defined antenna pattern. The amplitude and phase of each antenna array are obtained by the proposed method.</li>
+</ol>
+<p><img src="/figures/24_10_23/image%203.png" alt="image.png"></p>
+<p>Maximize the sum rate of all users in the ground network under the constraint of space link backhaul capacity.</p>
+<hr>
+<h2 id="qoe-driven-intelligent-handover-for-user-centric-mobile-satellite-networks"><strong>QoE-Driven Intelligent Handover for User-Centric Mobile Satellite Networks</strong></h2>
+<p><a href="https://ieeexplore.ieee.org/document/9112229/?arnumber=9112229">https://ieeexplore.ieee.org/document/9112229/?arnumber=9112229</a></p>
+<p>Current handover methods are based on either signal strength or service time, however, due to the randomness of user terminal (UT) arrivals and the unbalanced traffic distribution for high-mobility satellite networks, the success rate can hardly be guaranteed.</p>
+<p><strong>Contributions:</strong></p>
+<ol>
+<li>To maximize the UT′s QoE, we propose a QoE-driven Intelligent Handover (QIH) algorithm. The handover factors are first predicted according to the periodic motion of satellites. Then to make optimal handover decisions and achieve best QoE for candidate satellite, RL is adopted to solve the multi-criteria optimization problem.</li>
+<li>To avoid frequent satellite handover, they propose a spatial relationship coupling model to predict relative motion patterns between UTs and satellites. The relative azimuth and distance are quantified, and the longest service time of candidate satellites can be derived in advance.</li>
+<li>To improve the handover success rate, they develop an available channel estimation model. Taking advantage of the periodic movement of adjacent satellites, future available communication resources can be predicted to decrease the handover failure.</li>
+</ol>
+<hr>
+<h2 id="optimum-handover-algorithms-for-the-minimization-of-handovers-and-call-blocking-rate-in-low-earth-orbit-satellite-networks"><strong>Optimum Handover Algorithms for the Minimization of Handovers and Call Blocking Rate in Low Earth Orbit Satellite Networks</strong></h2>
+<p><a href="https://ieeexplore.ieee.org/document/10622914/?arnumber=10622914">https://ieeexplore.ieee.org/document/10622914/?arnumber=10622914</a></p>
+<p>Although many LEO handover algorithms have been proposed in the literature to date, none of them can ensure the minimum handovers of UEs (or the minimum average call blocking rate of satellites) when the network resource is sufficient (or insufficient).</p>
+<p>The first problem is when satellite can provide normal service to users, whether we can minimize the number of handovers.</p>
+<p>The second problem is Minimum Satellite Handover for Bandwidth Oversubscription. The average number of handovers of UEs is minimized under the condition that the average call blocking rate of satellites is minimized.</p>
+<hr>
+<h2 id="user-centric-satellite-handover-for-multiple-traffic-profiles-using-deep-q-learning"><strong>User Centric Satellite Handover for Multiple Traffic Profiles Using Deep Q-Learning</strong></h2>
+<p><a href="https://ieeexplore.ieee.org/document/10613436/?arnumber=10613436">https://ieeexplore.ieee.org/document/10613436/?arnumber=10613436</a></p>
+<p><strong>Contributions:</strong></p>
+<ol>
+<li>A novel Multi-Agent Deep Q-Learning (MADQL)based HO optimization approach that takes into account the variation and diversity of performance requirements of different UE classes. It allows more efficiently managing the limited available satellite resources and achieves low blocking rate per user.</li>
+</ol>
+<p><img src="/figures/24_10_23/image%204.png" alt="image.png"></p>
+<p>The goal to minimize the average number of handovers ($HO_{avg}$) experienced by all UEs in the network.</p>
+<hr>
+<h2 id="dqn-alrm-based-intelligent-handover-method-for-satellite-ground-integrated-network"><strong>DQN-ALrM-Based Intelligent Handover Method for Satellite-Ground Integrated Network</strong></h2>
+<p><a href="https://ieeexplore.ieee.org/document/10082894/?arnumber=10082894">https://ieeexplore.ieee.org/document/10082894/?arnumber=10082894</a></p>
+<p><strong>Contributions:</strong></p>
+<ol>
+<li>They formulate a problem of multi-metric handover decision for a moving user in the scenario of GEO SGIN. To make best decision, they take as many as possible main factors that may affect the handover performance into account, including received signal strength (RSS), available bit rate (ABR), round-trip time delay (RTT), relative speed and network cost. They also define a uniform QoS metric with handover rate, call failure, ABR, RTT and network cost.</li>
+<li>To solve the formulated optimization problem, they propose a handover method exploiting the DQN framework of adaptive learning rate with momentum (DQN-ALrM). Specifically, according to the system models, they establish the state space and action space in DQN, and design the reward function. The DQN network parameters are updated by constantly training to optimize the multi-metric QoS.</li>
+</ol>
+<p><strong>Evaluation Matrix: (QoS)</strong></p>
+<ol>
+<li>Received Signal Strength (RSS):</li>
+</ol>
+<p><img src="/figures/24_10_23/image%205.png" alt="image.png"></p>
+<ol>
+<li>Available Bit Rate (ABR)</li>
+</ol>
+<p>The bandwidth allocation can be represented as,</p>
+<p><img src="/figures/24_10_23/image%206.png" alt="image.png"></p>
+<p>Below is available bit rate.</p>
+<p><img src="/figures/24_10_23/image%207.png" alt="image.png"></p>
+<p>Peak signal-to-noise ratio (PSNR)</p>
+<p><img src="/figures/24_10_23/image%208.png" alt="image.png"></p>
+<ol>
+<li>Round Trip Time (RTT)</li>
+</ol>
+<p><img src="/figures/24_10_23/image%209.png" alt="image.png"></p>
+<ol>
+<li>Relative Speed</li>
+</ol>
+<p>The relative speed of the user to GBS $k, vk (n)$, is defined as the projection of the speed of the user on the attachment between the user and GBS $k$.</p>
+<p><img src="/figures/24_10_23/image%2010.png" alt="image.png"></p>
+<ol>
+<li>Network Cost</li>
+</ol>
+<p><img src="/figures/24_10_23/image%2011.png" alt="image.png"></p>
+<p><strong>Target:</strong></p>
+<p><img src="/figures/24_10_23/image%2012.png" alt="image.png"></p>
+<hr>
+<h2 id="user-grouping-based-beam-handover-scheme-with-load-balancing-for-leo-satellite-networks"><strong>User Grouping-Based Beam Handover Scheme with Load-Balancing for LEO Satellite Networks</strong></h2>
+<p><a href="https://ieeexplore.ieee.org/document/10436950/?arnumber=10436950">https://ieeexplore.ieee.org/document/10436950/?arnumber=10436950</a></p>
+<p>Specifically, on the one hand, current research focuses on single-beam satellite handover scenarios, which fail to align with actual satellite deployments and cannot adequately reduce the frequency of handover occurrences. On the other hand, a majority of the existing schemes primarily address scenarios involving a small or uniformly distributed user base. However, with the exponential growth in the number of users, the satellite decision making process becomes increasingly burdensome, especially when users with similar handover attributes are aggregated in a area, which will lead to many redundant satellite decisions.</p>
+<p>(P.S. If a specific area has a lot of users gathering. Then decision making will be burdensome. )</p>
+<p>Proposing a user grouping-based beam handover scheme with load-balancing. When faced with the multi-beam LEO satellite network scenario, users are grouped based on handover moment prediction, consider multiple factors in the process of group member selection, and make a uniform beam handover decision for users within the same group to reduce decision cost.</p>
+<p><img src="/figures/24_10_23/image%2013.png" alt="image.png"></p>
+<hr>
+<h2 id="a-multi-agent-deep-reinforcement-learning-based-handover-scheme-for-mega-constellation-under-dynamic-propagation-conditions"><strong>A Multi-Agent Deep Reinforcement Learning-Based Handover Scheme for Mega-Constellation Under Dynamic Propagation Conditions</strong></h2>
+<p><a href="https://ieeexplore.ieee.org/document/10551688/?arnumber=10551688">https://ieeexplore.ieee.org/document/10551688/?arnumber=10551688</a></p>
+<p><strong>Contributions:</strong></p>
+<ol>
+<li>Different from the existing handover schemes where only the static propagation condition is considered, the dynamic propagation conditions between users and satellites are integrated into the proposed scheme design. Specifically, we first employ a three-state Markov model to characterize the typical propagation conditions including the LOS, shadowed, and blocked propagation states as well as the probabilistic transitions among the three states. Then, the Loo model is adopted to describe the time-varying LMS channels. In this way, the stochastic nature of the dynamic propagation conditions between users and satellites are sufficiently characterized and also put significant challenges in the satellite handover scheme design.</li>
+<li>Based on the characterization of dynamic propagation conditions between users and satellites, we design the frame structure and propose a centralized adaptive intelligent handover mechanism for LEO mega constellations, where the handover delay and handover failure probability are jointly considered. Then, we design the utility function for each user by taking the throughput of users and load-balancing demand of satellites into consideration. Moreover, we further formulate an optimization problem that aims at maximizing the long-term network overall utilities to optimize the performance of the proposed scheme.</li>
+<li>Although the formulated optimization problem can be characterized by a single-agent Markov decision process (MDP) framework and solved by the fundamental RL method, huge state and action space will be incurred, which will significantly increase the computation complexity and thus might not be appropriate for the LEO mega-constellations. To solve this problem, we convert the single-agent MDP framework to a cooperative multi-agent MDP framework, where the space and action space are efficiently reduced. Based on the constructed cooperative multi-agent MDP framework, we develop a MA-SHDQL algorithm, which can efficiently solve the formulated problem with relatively low complexity. In this way, the handover decisions can be intelligently determined by cognizing the dynamic propagation environments between users and satellites.</li>
+<li>As the LEO mega-constellation includes a large number of satellites, the centralized handover scheme might incur heavy signaling overhead and computation burden to the control center. To address this issue, we further propose a distributed intelligent handover scheme, where each user can independently determine its own handover decisions only based on its local information. Due to the distributed manner, the complexity of the developed distributed scheme will not increase as the numbers of users and satellites grow. Consequently, the proposed distributed scheme is promising to be applied in the LEO satellite network with massive users and satellites.</li>
+</ol>
+<p><img src="/figures/24_10_23/image%2014.png" alt="image.png"></p>
+<hr>
+<h2 id="seamless-handover-in-leo-based-non-terrestrial-networks-service-continuity-and-optimization">Seamless Handover in LEO Based Non-Terrestrial Networks: Service Continuity and Optimization</h2>
+<p><a href="https://ieeexplore.ieee.org/document/9984697/?arnumber=9984697">https://ieeexplore.ieee.org/document/9984697/?arnumber=9984697</a></p>
+<p>Contributions:</p>
+<ol>
+<li>We utilize the CHO mechanism to enhance the handover success rate and optimize the target satellite selection in LEO-based NTN. We treat the CHO decisions in a certain service duration as a spatial-temporal NTN service capability optimization problem. Different from existing works, the objective of this paper is to enhance the service continuity for LEO-based NTN with seamless handover optimization.</li>
+<li>We describe the CHO configuration and execution process in detail. Then, the step of target node condition monitoring is extracted for optimization. A reward function, related to USL service time and service capability, is designed and the optimal target satellite selection algorithm is proposed to obtain the maximum CHO reward in each time slot.</li>
+<li>We further propose the SCG to describe the NTN performance based on the prediction of different possible CHO combinations. The impact of HO selection on NTN service continuity is analyzed using SCG. Then, the SCDP scheme is proposed to calculate CHO sequences for accessing users with optimal service continuity in service duration.</li>
+</ol>
+<p><img src="/figures/24_10_23/image%2015.png" alt="image.png"></p>
+<hr>
+<h1 id="privacy-of-task-offloading"><strong>Privacy of Task Offloading:</strong></h1>
+<h2 id="deep-reinforcement-learning-for-privacy-preserving-task-offloading-in-integrated-satellite-terrestrial-networks"><strong>Deep Reinforcement Learning for Privacy-Preserving Task Offloading in Integrated Satellite-Terrestrial Networks</strong></h2>
+<p><a href="https://ieeexplore.ieee.org/document/10439625">https://ieeexplore.ieee.org/document/10439625</a></p>
+<p><strong>Contributions:</strong></p>
+<ol>
+<li>Present a privacy-preserving task offloading scheme in the satellite-terrestrial network to bridge the gap between offloading performance and privacy leakage in this area. In particular, this paper balance two offloading privacy metrics (i.e., the usage pattern privacy and the location privacy) with traditional satellite offloading targets (e.g., computation time, energy consumption, and communication reliability), and determine a joint optimization framework.</li>
+</ol>
+<p><img src="/figures/24_10_23/image%2016.png" alt="image.png"></p>
+<p>Determining an optimal policy to minimize the total offloading cost including the computation delay and the energy consumption, while satisfying pre-specified constraints on the reliability and the privacy-preserving level.</p>
+<hr>
+<h2 id="privacy-driven-security-aware-task-scheduling-mechanism-for-space-air-ground-integrated-networks"><strong>Privacy-Driven Security-Aware Task Scheduling Mechanism for Space-Air-Ground Integrated Networks</strong></h2>
+<p><a href="https://ieeexplore.ieee.org/document/10506576/?arnumber=10506576">https://ieeexplore.ieee.org/document/10506576/?arnumber=10506576</a></p>
+<p><strong>Contributions:</strong></p>
+<p>This paper proposes a privacy-driven security-aware task scheduling mechanism for SAGIN, where the overall task completion time, energy consumption and privacy leakage risks are minimized, given the data size, computation resource demands and privacy levels of tasks. A content-driven task privacy evaluation model is formulated to classify the privacy level of tasks.</p>
+<p><strong>Privacy Threats:</strong></p>
+<ol>
+<li>Usage Privacy: Usage privacy mainly refers to the usage patterns of clients utilizing the services provided by edge nodes. For example, by reading and analyzing the time pattern of electricity consumption revealed by the data on a family smart meter, a curious edge node can infer their private information, like when they are away from home.</li>
+<li>Location Privacy: In a traditional MEC scenario, a device’s location can be exposed through being aware of its access point by curious edge nodes like Wi-Fi hotspots and base stations. Specifically, since the coverage area of each MEC access node is usually very limited and well-defined, devices connected to these nodes can be presumed to be active in this specific area, thus leaking location privacy information.</li>
+<li>Data Privacy: The data produced from IoT applications encapsulate various aspects of living space. Some of them may contain sensitive information like personal phone numbers, preferences, and biographical information; while others may not, such as air carbon dioxide index, stock price, and social news.</li>
+</ol>
+<p><img src="/figures/24_10_23/image%2017.png" alt="image.png"></p>
+<p><img src="/figures/24_10_23/image%2018.png" alt="image.png"></p>
+<p>Minimize the cost of delay, energy consumption and privacy leakage risks of the SAGIN-assisted computation offloading system.</p>
+<hr>
+<h2 id="privacy-assisted-computation-offloading-schemes-for-satellite-ground-digital-twin-networks"><strong>Privacy-Assisted Computation Offloading Schemes for Satellite-Ground Digital Twin Networks</strong></h2>
+<p><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10279144">https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10279144</a></p>
+<p><strong>Contributions:</strong></p>
+<ol>
+<li>This paper presents an SG-DT-based blockchain-assisted network model for the sake of minimizing the execution energy consumption and privacy time overhead. Meanwhile, the network can not only accommodate dynamic channel gains, stochastic task arrivals, and volatile aerial base stations distribution, but also process the variables coupling between the long-term constraints for task bits as well as battery capacity and short-term computation offloading decisions, which can help achieve the large integration among communication, computation and blockchain resources.</li>
+<li>Next, a Lyapunov stability theory multi-agent DFRL (LST-MADFRL) algorithm is proposed to process the CPU cycle frequency, the size of each blockchain, the number of DTs, and optimized harvested solar energy. Furthermore, the Lyapunov-based optimization method is designed to decouple the long-term task and energy level constraints. Subsequently, the MADFRL framework can be utilized to execute the computation offloading and avoid privacy data leakage.</li>
+</ol>
+<p><img src="/figures/24_10_23/image%2019.png" alt="image.png"></p>
+<p>For the SG-DT-based blockchain-assisted network scenario, the dynamic channel gains, stochastic task arrivals, and volatile aerial base station locations cause high execution energy consumption and privacy overhead. Hence, how to allocate proper number of DTs for each aerial base stations, CPU cycle frequency and block size for each DT, and optimize the harvested energy is a major research hot spot.</p>
+<hr>
+<h1 id="qoe-based-service-on-satellite">QoE Based Service on Satellite:</h1>
+<h2 id="qoe-aware-efficient-content-distribution-scheme-for-satellite-terrestrial-networks"><strong>QoE-Aware Efficient Content Distribution Scheme For Satellite-Terrestrial Networks</strong></h2>
+<p><a href="https://xploreqa.ieee.org/document/9411737">https://xploreqa.ieee.org/document/9411737</a></p>
+<p><strong>Contributions:</strong></p>
+<ol>
+<li>This paper proposes an innovative density-based STN division (DBD) framework. The STN is divided into several blocks of different sizes according to subscriber density. The aim is to identify the dense and sparse STN regions to make the users in each block uniform. The cache satellite in each block provides subscribers with the specified content to achieve reasonable and efficient STN-based content distribution.</li>
+<li>A complete cache node deployment process is designed. They firstly look for the minimum coverage vertex set in LEO satellite networks and prove that it is an NP-complete problem. Then, They also analyze the link usability and propose an approximate minimum coverage vertex set (AMCV) algorithm. Finally, the cache node selection (CNS) algorithm is proposed for optimal block matching.</li>
+<li>the density-based time-varying graph (DTG) to realize efficient STN topology update. The updating rules are derived to enable a stable and sustainable user experience. Then, the density-based content distribution scheme (DCD) is orchestrated to complete the closed-loop autonomy. The continuity and stability of proposed QoE-aware STN content distribution are guaranteed.</li>
+</ol>
+<hr>
+<h2 id="qoe-aware-cost-minimizing-capacity-renting-for-satellite-as-a-service-enabled-multiple-beam-satcom-systems"><strong>QoE-Aware Cost-Minimizing Capacity Renting for Satellite-as-a-Service Enabled Multiple-Beam SatCom Systems</strong></h2>
+<p><a href="https://xploreqa.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10323376&amp;tag=1">https://xploreqa.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10323376&amp;tag=1</a></p>
+<p><strong>Contributions:</strong></p>
+<p>First, This paper expresses the traffic flows using a time-varying (𝑀𝑡 /𝑀𝑡 /1) queuing model and estimate the stochastic queue length of packets waiting in the system by using the continuous-time Markov chain (CTMC). The analysis results are then employed to formulate a stochastic optimization problem for QoE-aware dynamic capacity allocation that includes queue status-based dynamic spectrum sharing among adjacent beams of the same cluster to minimize cost. The problem aims to help SPs to be able to efficiently allocate capacity and reduce un-utilized capacity as well as their rent costs.</p>
+<hr>
+<h2 id="qoe-maximization-for-video-streaming-in-cache-enable-satellite-uav-terrestrial-network"><strong>QoE Maximization for Video Streaming in Cache-Enable Satellite-UAV-Terrestrial Network</strong></h2>
+<p><a href="https://ieeexplore.ieee.org/document/10622270/?arnumber=10622270">https://ieeexplore.ieee.org/document/10622270/?arnumber=10622270</a></p>
+<p><strong>Contributions:</strong></p>
+<ol>
+<li>This paper considers a scenario for a dynamic satellite-UAV-GU communication model to provide live streaming video. They model the GUs’ request arrival as Poisson process in each time slot, and design the cache management and the UAVGUs location spaces to support video streaming.</li>
+<li>To guarantee the smoothness and minimum bitrate of the live video streaming in the satellite-UAV-terrestrial network, a QoE-orientated video streaming transport scheduling (QOTS) scheme is proposed to maximize the QoE received by GUs under the cache capacity constraints. The authors formulate a non-convex mixed integer optimization problem mathematically to find a suitable combination of cache management and trajectory.</li>
+</ol>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_10_16/"
+      title="Learning Record --- 9 (2024/10/16)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
