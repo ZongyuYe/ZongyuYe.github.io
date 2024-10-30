@@ -6,8 +6,15 @@
     <description>Recent content in Notes on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 11 (2024/10/30)</title>
+      <link>https://ZongyuYe.github.io/blog/24_10_30/</link>
+      <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_10_30/</guid>
+      <description>FOOL: Addressing the Downlink Bottleneck in Satellite Computing with Neural Feature Compression https://arxiv.org/abs/2403.16677.&#xA;Quick Summary: LEO will generate lots of data in a short time, but the maximum transmission capability is limited. In this case, we hope we can only transmit part of the most important data to the ground station and try to recover them. This paper provide an interesting view that satellite usually compress data in a long time but have to transmit the data in a short time because it can only transm</description>
+    </item>
     <item>
       <title>Learning Record --- 10 (2024/10/23)</title>
       <link>https://ZongyuYe.github.io/blog/24_10_23/</link>
