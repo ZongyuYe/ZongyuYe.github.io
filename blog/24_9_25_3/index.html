@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.630a9b2221f09b61177a69894600e1f7994802ec18d708696374c75292151771.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 7.3 (2024/9/25)</h1>
+  <p class="mb-1">September 25, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="smart-farm">Smart Farm</h1>
+<ol>
+<li><strong>Telemedicine</strong>: Remote medical consultations, diagnostics, and even surgeries rely on high-speed communication networks and advanced computing for real-time data processing, image analysis, and secure patient data management.</li>
+<li><strong>Smart Grids</strong>: These systems use long-distance communication to monitor and manage electricity distribution. <a href="https://www.frontiersin.org/journals/energy-research/articles/10.3389/fenrg.2022.850252/full">They require substantial computing power for real-time data analysis, predictive maintenance, and optimizing energy usage across vast networks</a>.</li>
+<li><strong>Autonomous Vehicles</strong>: Self-driving cars and drones depend on long-distance communication for navigation, traffic updates, and coordination with other vehicles. <a href="https://www.intel.com/content/dam/www/central-libraries/us/en/documents/2022-06/case-study-integrating-5g-and-edge-computing-to-accelerate-the-intelligent-transformation-of-the-power-sector.pdf">They also need powerful computing resources for processing sensor data, making real-time decisions, and ensuring safety</a>.</li>
+<li><strong>Remote Scientific Research</strong>: Projects like space exploration or deep-sea research involve remote-operated vehicles and instruments that send data back to researchers. <a href="https://link.springer.com/article/10.1007/s00607-020-00896-5">This data often requires extensive processing and analysis using high-performance computing systems</a>.</li>
+<li><strong>Disaster Response and Management</strong>: During natural disasters, long-distance communication is crucial for coordinating rescue operations and providing real-time updates. <a href="https://www.intel.com/content/dam/www/central-libraries/us/en/documents/2022-06/case-study-integrating-5g-and-edge-computing-to-accelerate-the-intelligent-transformation-of-the-power-sector.pdf">Advanced computing is used for modeling disaster scenarios, analyzing data from various sources, and optimizing resource allocation</a>.</li>
+<li><strong>Smart Agriculture</strong>: Precision farming uses IoT devices and sensors spread over large areas to monitor soil conditions, weather, and crop health. <a href="https://link.springer.com/article/10.1007/s00607-020-00896-5">These devices communicate data to central systems that use computing power to analyze the information and provide actionable insights</a>.</li>
+</ol>
+<p>Yes, smart agriculture often requires highly parallel access due to the need for real-time data collection and analysis from various sensors and devices spread across large and remote areas. Here are some key points to consider:</p>
+<h3 id="highly-parallel-access-in-smart-agriculture">Highly Parallel Access in Smart Agriculture</h3>
+<ol>
+<li><strong>Data Collection</strong>:
+<ul>
+<li><strong>Sensors and IoT Devices</strong>: Smart farms use numerous sensors to monitor soil moisture, temperature, humidity, crop health, and more. <a href="https://www.mdpi.com/2073-4395/13/10/2536">These devices generate large amounts of data that need to be processed simultaneously</a>.</li>
+<li><a href="https://www.mdpi.com/1424-8220/23/16/7128"><strong>Drones and Satellites</strong>: High-resolution imagery from drones and satellites provides valuable data for precision farming, requiring parallel processing to analyze and integrate this information</a>.</li>
+</ul>
+</li>
+<li><strong>Real-Time Decision Making</strong>:
+<ul>
+<li><a href="https://www.mdpi.com/1424-8220/23/16/7128"><strong>Automated Systems</strong>: Irrigation systems, pest control, and fertilization processes often rely on real-time data to make immediate adjustments, necessitating parallel data access and processing</a>.</li>
+<li><a href="https://www.mdpi.com/2073-4395/13/10/2536"><strong>Predictive Analytics</strong>: Machine learning models used for predicting crop yields, weather patterns, and disease outbreaks require parallel computing to handle large datasets efficiently</a>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="challenges-in-remote-areas">Challenges in Remote Areas</h3>
+<ol>
+<li><strong>High Latency</strong>:
+<ul>
+<li><strong>Network Infrastructure</strong>: Remote areas often lack robust network infrastructure, leading to higher latency in data transmission. <a href="https://www.mdpi.com/2073-4395/13/10/2536">This can affect the real-time responsiveness of smart agricultural systems</a>.</li>
+<li><a href="https://www.mdpi.com/2073-4395/13/10/2536"><strong>Satellite Communication</strong>: While satellite communication can provide coverage in remote areas, it typically has higher latency compared to terrestrial networks</a>.</li>
+</ul>
+</li>
+<li><strong>High Costs</strong>:
+<ul>
+<li><a href="https://www.mdpi.com/2073-4395/13/10/2536"><strong>Infrastructure Investment</strong>: Setting up the necessary infrastructure for high-speed internet and robust communication networks in remote areas can be costly</a>.</li>
+<li><a href="https://www.mdpi.com/2073-4395/13/10/2536"><strong>Maintenance and Upgrades</strong>: Ongoing maintenance and periodic upgrades to the network infrastructure add to the overall costs</a>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="mitigation-strategies">Mitigation Strategies</h3>
+<ol>
+<li><strong>Edge Computing</strong>:
+<ul>
+<li><a href="https://www.mdpi.com/2073-4395/13/10/2536"><strong>Local Processing</strong>: By processing data locally at the edge of the network, smart farms can reduce latency and reliance on constant internet connectivity</a>.</li>
+<li><a href="https://www.mdpi.com/2073-4395/13/10/2536"><strong>Data Aggregation</strong>: Aggregating data locally before sending it to central servers can reduce bandwidth usage and costs</a>.</li>
+</ul>
+</li>
+<li><strong>Hybrid Networks</strong>:
+<ul>
+<li><a href="https://www.mdpi.com/2073-4395/13/10/2536"><strong>Combining Technologies</strong>: Using a combination of terrestrial, satellite, and cellular networks can provide more reliable and cost-effective connectivity</a>.</li>
+<li><a href="https://www.mdpi.com/2073-4395/13/10/2536"><strong>Adaptive Systems</strong>: Implementing adaptive systems that can switch between different network types based on availability and cost can optimize performance</a>.</li>
+</ul>
+</li>
+</ol>
+<p>Smart agriculture indeed faces challenges related to highly parallel access, high latency, and high costs, especially in remote areas. However, with the right technologies and strategies, these challenges can be effectively managed.</p>
+<p>Is there a specific aspect of smart agriculture you’re particularly interested in exploring further?</p>
+<p>The agricultural sector and technology providers can leverage smart agriculture technologies and innovations to help create a better future for agriculture. Here are a few examples of how smart agriculture can optimize global farm productivity.</p>
+<p>In Texas, USA, sensors connected to smartphone applications are collecting real-time information about soil conditions (including soil moisture). This app combines this information with other data, including weather forecasts, to perform artificial intelligence analysis, thereby making irrigation recommendations. These recommendations are sent to farmers&rsquo; mobile devices, helping them efficiently allocate water resources, enabling crops in areas affected by drought and climate change to grow better.</p>
+<p>California, USA, also places a high emphasis on the efficient use of water resources. A winery has adopted a cloud-based solution that gathers information from weather forecasts, satellite images, and sensors to measure the stress of grapevines. Analysis of the data generates watering recommendations tailored to the needs of each grapevine. After implementing this solution, production increased by 26%, while water usage decreased by 16%.</p>
+<p>In the Almaty region of Kazakhstan, a five-hectare &ldquo;smart greenhouse&rdquo; facility is equipped with Internet of Things technology and artificial intelligence. These technologies monitor conditions within the greenhouse and automatically adjust temperature, light, humidity, and irrigation levels as needed, creating the optimal environment for crop growth.</p>
+<p>In the UK, researchers have installed sensors on dairy cows to track their movements, including the number of steps they take and the time they spend eating and lying down. Since more active cows generally appear to be more positive, this information can help farmers determine if intervention is necessary, i.e., changing the animals&rsquo; environment to increase their satisfaction, which often leads to higher milk production.</p>
+<p><strong>Reinforcement Learning-Based Task Offloading of MEC-Assisted UAVs in Precision Agriculture</strong></p>
+<p><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10436856"></a></p>
+<p><img src="/figures/24_9_25_3/image.png" alt="image.png"></p>
+<p>UAV to collect the data from the farm and then transmit them to the MEC.</p>
+<p><strong>Reinforcement Learning-Based Deadline and Battery-Aware Offloading in Smart Farm IoT-UAV Networks</strong></p>
+<p><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=9838500"></a></p>
+<p>Offload some tasks to UAV, UAV is as a computing platform.</p>
+<p>Solutions: DRL.</p>
+<p>Target: energy consumption and latency.</p>
+<p>Deep Reinforcement Learning for Task Offloading in UAV-Aided Smart Farm Networks</p>
+<p><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10056709"></a></p>
+<p>To improve the agricultural landscape using a network of devices to automatically monitor farmlands. Surveying a large area requires performing a lot of image classification tasks within
+a specific period of time in order to prevent damage to the farm in case of an incident, such as fire or flood.</p>
+<p>DQL，Q-learning。</p>
+<p>Combination optimization on latency and energy consumption.</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_9_18/"
+      title="Learning Record --- 6 (2024/9/18)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/24_9_25_2/"
+      title="Learning Record --- 7.2 (2024/9/25)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>

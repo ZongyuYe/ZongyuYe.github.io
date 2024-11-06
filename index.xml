@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>https://ZongyuYe.github.io/</link>
+    <description>Recent content on </description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ZongyuYe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 12 (2024/11/06)</title>
+      <link>https://ZongyuYe.github.io/blog/24_11_06/</link>
+      <pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_11_06/</guid>
+      <description>Communication channel model between LEO satellite and Ground User For the LEOS communications, the altitude, speed and position information of the LEOS are known to all BSs in a time slot. For the sake of simplicity, a quasi-static fading channel model is considered in a time slot. Thus, the signal received by the LEOS over the $Ka$-band is given by,&#xA;$$ y = \sqrt{p}h^{Ka}s+N_0, $$&#xA;$y$ is the received signal.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 11 (2024/10/30)</title>
+      <link>https://ZongyuYe.github.io/blog/24_10_30/</link>
+      <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_10_30/</guid>
+      <description>FOOL: Addressing the Downlink Bottleneck in Satellite Computing with Neural Feature Compression https://arxiv.org/abs/2403.16677.&#xA;Quick Summary: LEO will generate lots of data in a short time, but the maximum transmission capability is limited. In this case, we hope we can only transmit part of the most important data to the ground station and try to recover them. This paper provide an interesting view that satellite usually compress data in a long time but have to transmit the data in a short time because it can only transm</description>
+    </item>
+    <item>
+      <title>Learning Record --- 10 (2024/10/23)</title>
+      <link>https://ZongyuYe.github.io/blog/24_10_23/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_10_23/</guid>
+      <description>https://api.starlink.com/public-files/DIRECT_TO_CELL_FIRST_TEXT_UPDATE.pdf&#xA;Here is a report from SpaceX. As they said, current communication between phone and satellite still have problems.&#xA;Mobility Management in Satellite SKYCASTLE: Taming LEO Mobility to Facilitate Seamless and Low-latency Satellite Internet Services https://ieeexplore.ieee.org/document/10621390/?arnumber=10621390.&#xA;The fundamental challenge stems from a unique characteristic of ISTNs: not only users are mobile, but also core network infrastructures (i.e., LEO satellites) are frequently changing their locations in the network.&#xA;Research scope Firstly, efficiently integrate satellite constellations into existing terrestrial Internet, emerging ISTNs like Starlink adopts IP-based networking architecture with heterogeneous wireless access technologies.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 9 (2024/10/16)</title>
+      <link>https://ZongyuYe.github.io/blog/24_10_16/</link>
+      <pubDate>Wed, 16 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_10_16/</guid>
+      <description>Graph Tensor Completion Preliminary: Basic Notations: Assume $\mathcal A$ is a third order tensor, $A$ is a matrix and $a$ is a vector.&#xA;$G(V, E, A)$ be a graph with $N$ nodes, where $V$ is the set of nodes, $E$ is the set of edges and $A$ is the adjacency matrix of size $N\times N$.&#xA;Laplacian matrix $L=D-A$ can describe the connection information of nodes.&#xA;$D = diag(d_1, d_2, …, d_n)$ is the degree matrix, and $d_i=\sum_{j} A_{ij}$.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 8 (2024/10/09)</title>
+      <link>https://ZongyuYe.github.io/blog/24_10_9/</link>
+      <pubDate>Wed, 09 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_10_9/</guid>
+      <description>Important materials: Below is an important survey paper on STN computing. (2023.10.15)&#xA;http://www.tiansuan.org.cn/Chinese/source/Satellite_Computing_Vision_and_Challenges.pdf&#xA;This paper provide a comprehensive view on computing in space. Based on their experiments in real satellite, they provide different kinds of problems which need further works.&#xA;Below are two important demo for satellite network.&#xA;https://www.uni.lu/research-en/research-areas/space-systems/&#xA;This is a demo from University of Luxembourg. Even though they do not use real satellite, but they try to use different methods to emulate the communication environment in the space, which a good alternative way.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 7.1 (2024/9/25)</title>
+      <link>https://ZongyuYe.github.io/blog/24_9_25_1/</link>
+      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_9_25_1/</guid>
+      <description>Important Papers (STN Offloading) Two-Timescale Learning-Based Task Offloading for Remote IoT in Integrated Satellite–Terrestrial Networks&#xA;STN for sensitive task offloading in remote IoT devices.&#xA;Optimization problems on offloading link selection and bandwidth allocation. Also divide the problems into two subproblems to make computing time scalable.&#xA;Solutions: H-PPO, Discrete + continuous hybrid model&#xA;Multi-BS, Multi-satellites and Multi-users.&#xA;This paper considers that both the base station and LEO node are non-computing nodes, which need to be offloaded to the core network for calculation.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 7.2 (2024/9/25)</title>
+      <link>https://ZongyuYe.github.io/blog/24_9_25_2/</link>
+      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_9_25_2/</guid>
+      <description>Important papers (Networking for FL) AOP: Towards Adaptive Offloading Point Approach in a Federated Learning Framework for Edge AI Applications&#xA;Offloading the AI training to edge nodes.&#xA;Using RL method to decide which DNN should be offloaded to the edge and using clustering algorithm to assist this process.&#xA;The Architecture of Computing Power Network Towards Federated Learning: Paradigms and Perspectives&#xA;Introducing the concept of computing power network.&#xA;Because of the computing resources in different devices, it will introduce heterogeneity.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 7.3 (2024/9/25)</title>
+      <link>https://ZongyuYe.github.io/blog/24_9_25_3/</link>
+      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_9_25_3/</guid>
+      <description>Smart Farm Telemedicine: Remote medical consultations, diagnostics, and even surgeries rely on high-speed communication networks and advanced computing for real-time data processing, image analysis, and secure patient data management. Smart Grids: These systems use long-distance communication to monitor and manage electricity distribution. They require substantial computing power for real-time data analysis, predictive maintenance, and optimizing energy usage across vast networks. Autonomous Vehicles: Self-driving cars and drones depend on long-distance communication for navigation, traffic updates, and coordination with other vehicles.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 6 (2024/9/18)</title>
+      <link>https://ZongyuYe.github.io/blog/24_9_18/</link>
+      <pubDate>Wed, 18 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_9_18/</guid>
+      <description>Abstract: Four kinds of typical satellites:&#xA;GEO (Geostationary Earth Orbit): About 36,000 kilometers. MEO (Middle Earth Orbit): The orbital altitude is between 2000 and 36,000 km. (GPS) LEO (Low Earth Orbit): The orbital altitude is about 600-2000 km. VLEO (Very Low Earth Orbit): Nearly 350 km. (Low transmission delay, low propagation loss, high regional capacity, and low manufacturing and launch costs) Huawei Pay attention to Satellites in this orbit. https://www.huawei.com/cn/huaweitech/future-technologies/very-low-earth-orbit-satellite-networks-6g. The red part will be the latency of NTN.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 5 (2024/9/11)</title>
+      <link>https://ZongyuYe.github.io/blog/24_9_11/</link>
+      <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_9_11/</guid>
+      <description>In this record, I decide to show some papers which let me have new ideas, mostly focus on what they do, what are their problems and how we can solve them.&#xA;Firstly, I would like to give a relatively detailed decribetion on deep unrolling.&#xA;Deep unrolling involves transforming an iterative optimization algorithm into a neural network. Each iteration of the algorithm is represented as a layer in the network. This approach leverages the strengths of both traditional model-based methods and data-driven deep learning techniques.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 4 (2024/8/21)</title>
+      <link>https://ZongyuYe.github.io/blog/24_8_21/</link>
+      <pubDate>Wed, 21 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_8_21/</guid>
+      <description>This week, I&amp;rsquo;m going to present two intriguing solutions, both related to the use of GNNs, for potentially implementing a fair cloud trading system as previously discussed.&#xA;Dynamic Graph Neural Network Graph Neural Networks (GNNs) are an efficient method for processing data structured as graphs and have seen widespread adoption. However, the majority of existing GNNs are designed to work with static graphs, which do not change once node and edge features have been defined.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 3 (2024/8/14)</title>
+      <link>https://ZongyuYe.github.io/blog/24_8_14/</link>
+      <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_8_14/</guid>
+      <description>Details about Fair Financial Exchanges In this week&amp;rsquo;s report, I aim to detail the evaluation process of my idea.&#xA;Distribution Delay The first aspect I want to assess is the propagation delay. The evaluation process is outlined as follows:&#xA;Design a network topology that supports multiple carriers to ensure consistency in both time period and network environment. Incrementally add market participants into the market and monitor the total delay observed. This section aims to test the distribution latency, essentially determining whether the method can guarantee that the information delivered to the user end is both timely and relevant.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 2 (2024/8/7)</title>
+      <link>https://ZongyuYe.github.io/blog/24_8_7/</link>
+      <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_8_7/</guid>
+      <description>Fair Financial Transactions on Cloud Driven by Graph Neural Networks&#xA;Background Currently, migrating financial transactions to public cloud platforms is becoming increasingly popular in the industry. This is because cloud services offer flexibility, stability, and cost savings compared to traditional local configurations.&#xA;However, moving to the public cloud also presents several challenges. Firstly, each market participant (MP) needs to receive financial transaction information simultaneously to ensure they all have the same reaction time.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 1 (2024/7/31)</title>
+      <link>https://ZongyuYe.github.io/blog/24_7_31/</link>
+      <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_7_31/</guid>
+      <description>My Last Work Review Firstly, I would like to introduce my last work in detail. We design a new framework based on Neural Representation for Videos (NeRV), which can efficiently transform a video compression task into a neural network compression task by using the idea of Implicit Neural Representation (INR).&#xA;Before delving into how NeRV addresses specific challenges and its respective advantages and disadvantages, I need explain some basic concepts I mention above.</description>
+    </item>
+    <item>
+      <title>Demo Page</title>
+      <link>https://ZongyuYe.github.io/blog/markdown_syntax/</link>
+      <pubDate>Sat, 19 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/markdown_syntax/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>luctus enim ultricies auctor pulvinar nam etiam</title>
+      <link>https://ZongyuYe.github.io/blog/post_3/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/post_3/</guid>
+      <description>donec lacinia eleifend sem a Pulvinar tempor ultrices amet praesent aliquet non magnis euismod elit venenatis. Aliqua consequat tristique erat nulla sit risus aliqua posuere. Potenti natoque augue proin accimsan risus scelerisque id integer curabitur mattis amet quisque. Aliquet porta sit sapien natoque sed fringilla, madssa suspendisse vivamus placerat sociis condimentum ridiculus. Natoque egestas non lectus pellentesque nunc mattis eu ridiculus pretium maecenas ligula. Gravida facilisis sem mollis sagittis aliquet ornare bibendum, leo nec morbi tortor diam maecenas tempor.</description>
+    </item>
+  </channel>
+</rss>

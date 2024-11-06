@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.630a9b2221f09b61177a69894600e1f7994802ec18d708696374c75292151771.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 3 (2024/8/14)</h1>
+  <p class="mb-1">August 14, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h2 id="details-about-fair-financial-exchanges">Details about Fair Financial Exchanges</h2>
+<p>In this week&rsquo;s report, I aim  to detail the evaluation process of my idea.</p>
+<h3 id="distribution-delay">Distribution Delay</h3>
+<p>The first aspect I want to assess is the propagation delay. The evaluation process is outlined as follows:</p>
+<ol>
+<li>Design a network topology that supports multiple carriers to ensure consistency in both time period and network environment.</li>
+<li>Incrementally add market participants into the market and monitor the total delay observed.</li>
+</ol>
+<p>This section aims to test the distribution latency, essentially  determining whether the method can guarantee that the information  delivered to the user end is both timely and relevant.</p>
+<h3 id="delivery-delay">Delivery Delay</h3>
+<p>Next, I plan to evaluate the total latency experienced in transmitting data to the cloud from the user end.</p>
+<ol>
+<li>Ensure that various methods undergo the same network conditions for a fair comparison.</li>
+<li>Document and contrast the ultimate delay encountered in reaching the cloud.</li>
+</ol>
+<p>The objective of this part is to ascertain whether our approach can  consistently ensure that the network facilitates stable transaction data delivery. Additionally, it aims to mitigate potential packet loss due  to network congestion, which could lead to unfair transactions. Meanwhile, fast delivery speed can help cloud deal with a trade in a short time, which means it can preserve a trade information with less time. It is meaningful in a financial exchange system.</p>
+<h3 id="distribution-fairness">Distribution Fairness</h3>
+<p>The third aspect we need to evaluate is whether transactions can be distributed to market competitors simultaneously.</p>
+<ol>
+<li>Ensure uniformity in the network environment for all participants.</li>
+<li>Measure the delay experienced by transactions in reaching different market participants.</li>
+<li>Evaluate the average error (the mean delay difference), maximum  error (the difference between the quickest and slowest participants),  and variance to gauge distribution fairness.</li>
+<li>By modifying the level of network congestion and the number of  participants, we further assess whether our method offers additional  advantages in ensuring equitable distribution.</li>
+</ol>
+<h3 id="delivery-fairness">Delivery Fairness</h3>
+<p>In the fourth part, our objective is to ascertain the accuracy with which we can rank market participants based on their response time.</p>
+<ol>
+<li>Maintain consistency in the network environment across all tests.</li>
+<li>Calculate both the statistical and actual response time of user participants.</li>
+<li>The evaluation is based on the mean error, maximum error, and variance.</li>
+<li>By adjusting the network size and level of congestion, we conduct further assessments.</li>
+<li>The focus is on accurately determining which users should prevail in the trade and precisely ranking the reaction times of all  participants.</li>
+</ol>
+<p>This comprehensive evaluation aims not only to test the efficiency  and reliability of our method but also to ensure fairness in  distribution and delivery across all market participants.</p>
+<h3 id="tolerance-for-users">Tolerance for Users</h3>
+<p>As our fifth consideration, given the scenario where a vast number of traders participate in one of the trades, it&rsquo;s crucial to  evaluate our method&rsquo;s user tolerance capacity.</p>
+<ol>
+<li>Maintain a consistent network environment while introducing a significant number of market participants at a certain ratio.</li>
+<li>Assess the impact of varying user participant numbers on both fairness and latency.</li>
+</ol>
+<h3 id="throughput">Throughput</h3>
+<p>Our sixth area of focus is to determine the maximum throughput our method can support.</p>
+<ol>
+<li>Keeping the network environment constant, vary the number of market participants and the level of network congestion.</li>
+<li>Incrementally adjust the number of parallel transactions, altering  the throughput, and evaluate the fairness and latency across different  scenarios.</li>
+<li>Identify the maximum throughput capacity of the method while ensuring the fairness remains at an acceptable level.</li>
+</ol>
+<h3 id="the-ability-to-prevent-user-fraud">The Ability to Prevent User Fraud</h3>
+<p>Considering the necessity to compute response time accurately, it&rsquo;s imperative to evaluate whether our method can effectively prevent user fraud. (also conclude scenarios that might be complicated by clock discrepancies)</p>
+<ol>
+<li>With a stable network environment, introduce varying degrees of  fraudulent activities. (Ensure consistency in the number of user  participants and the level of network congestion.)</li>
+<li>Analyze the fairness under these circumstances to determine the method&rsquo;s robustness against fraudulent attempts.</li>
+</ol>
+<h3 id="fairness-in-extreme-network-environments">Fairness in Extreme Network Environments</h3>
+<p>To address potential fairness issues arising from packet loss in extreme network conditions, we must simulate such environments.</p>
+<ol>
+<li>Maintain a consistent network environment while deliberately  increasing network congestion to simulate an extreme scenario,  potentially leading to packet loss.</li>
+<li>Monitor and record the percentage of transactions that fail due to packet loss, analyzing the impact on fairness.</li>
+</ol>
+<h3 id="ai-training-costs-and-reasoning-costs">AI Training Costs and Reasoning Costs</h3>
+<p>With the introduction of AI models to address this challenge, it&rsquo;s  crucial to ensure they are optimized for high-frequency trading  environments, requiring high precision and rapid reasoning capabilities. This necessitates a comparison with other AI methodologies to highlight our model&rsquo;s advantages.</p>
+<ol>
+<li>Evaluate and compare the training and operational costs of our AI  models against alternative AI solutions, focusing on efficiency in  high-frequency trading scenarios.</li>
+<li>Assess the balance between the accuracy and speed of predictions and the associated costs, aiming for an optimal solution that meets the  demands of the trading environment.</li>
+</ol>
+<h3 id="cost-considerations">Cost Considerations</h3>
+<p>Incorporating AI models and adopting a multi-operator collaboration  strategy undoubtedly increases the complexity and cost of our approach  compared to simpler solutions. Thus, it&rsquo;s essential to critically assess the limitations and cost-effectiveness of our method.</p>
+<ol>
+<li>Analyze the overall costs involved in implementing our approach,  including AI model training, operational expenses, and multi-operator  collaboration.</li>
+<li>Evaluate the financial and operational implications of our method,  considering the potential for enhanced performance and fairness.</li>
+</ol>
+<h2 id="an-interesting-alternative-to-gnn---graph-reinforcement-learning">An Interesting Alternative to GNN - Graph Reinforcement Learning</h2>
+<p>Graph reinforcement learning represents an innovative approach that  merges the strengths of Graph Neural Networks (GNN) and Deep  Reinforcement Learning (DRL), showcasing significant potential in  addressing problems with inherent graph structures.</p>
+<p>This model introduces several novel optimization strategies to  enhance the learning capabilities of reinforcement learning (RL),  particularly in complex scenarios.</p>
+<ol>
+<li>Traditional RL and DRL techniques are well-suited for single-task,  single-agent environments. However, they struggle to maintain efficacy  as the number of tasks and agents scales up. GNNs excel in capturing  intricate graph relationships, making them adept at understanding  interactions between multiple agents and the latent connections across  various tasks.</li>
+<li>In the domain of graph-centric problems, such as knowledge graphs  and traffic networks, the accuracy of DRL models is heavily reliant on  the encoder&rsquo;s ability to represent graphs effectively. GNNs, known for  their efficient graph representation capabilities, can serve as superior encoders within DRL frameworks, thereby boosting overall performance.</li>
+</ol>
+<p>Here is a interesting paper which use such kind of method to solve allocation problems in computing networks.</p>
+<p><a href="https://www.fitee.zjujournals.com/zh/article/doi/10.1631/FITEE.2300009/">Combining Graph Neural Network with Deep Reinforcement Learning for Resource Allocation in Computing Networks</a></p>
+<p>This research utilizes GNN for graph encoding, leveraging the learned inter-agent relationships to enhance system-wide optimization. Inspired by these findings, I am currently exploring whether a similar strategy  could address the challenges within my own projects. I plan to delve  deeper into this topic and share further insights in my upcoming work.</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_8_7/"
+      title="Learning Record --- 2 (2024/8/7)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/24_8_21/"
+      title="Learning Record --- 4 (2024/8/21)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>

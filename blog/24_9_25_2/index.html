@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.630a9b2221f09b61177a69894600e1f7994802ec18d708696374c75292151771.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 7.2 (2024/9/25)</h1>
+  <p class="mb-1">September 25, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="important-papers-networking-for-fl">Important papers (Networking for FL)</h1>
+<p><a href="https://ieeexplore.ieee.org/document/10475983"></a></p>
+<p><strong>AOP: Towards Adaptive Offloading Point Approach in a Federated Learning Framework for Edge AI Applications</strong></p>
+<p>Offloading the AI training to edge nodes.</p>
+<p>Using RL method to decide which DNN should be offloaded to the edge and using clustering algorithm to assist this process.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10211630"></a></p>
+<p><strong>The Architecture of Computing Power Network Towards Federated Learning: Paradigms and Perspectives</strong></p>
+<p>Introducing the concept of computing power network.</p>
+<p>Because of the computing resources in different devices, it will introduce heterogeneity.</p>
+<p>FL need high throughout communcation.</p>
+<p>Step 1: Federated learning tasks train local models based on locally generated data from devices.</p>
+<p>Step 2: After device D1 trains the local model, it sends the gradient data to edge resource pool C1 via Gateway 1 and the operator network.</p>
+<p>Step 3: When edge resource pool C1 receives the gradient data of the local model, it can perform model edge aggregation. This process requires a significant amount of computing resources that local resources cannot meet, so CPN needs to consider factors such as network bandwidth, transmission time, etc., to select the appropriate nodes.</p>
+<p>Step 4.1: Edge resource pool C1 sends the gradient data to cloud resource pool C4 through CPN routing node G4 and the operator network.</p>
+<p>Step 5.1: When cloud resource pool C4 receives the gradient data from edge resource pool C1, it can perform global model aggregation. This process typically requires more computing resources than edge aggregation.</p>
+<p>Step 6.1: After model aggregation, cloud resource pool C4 sends the new model to edge resource pool C1.</p>
+<p>Step 7: Edge resource pool C1 continues to send the new model to device D1.</p>
+<p>Step 8: Finally, device D1 updates the local model based on the new model.</p>
+<p><img src="/figures/24_9_25_2/image.png" alt="image.png"></p>
+<p><a href="https://ieeexplore.ieee.org/document/10575706"></a></p>
+<p><strong>ERAFL: Efficient Resource Allocation for Federated Learning Training in Smart Homes</strong></p>
+<p>Considering the local resources are not enough to support the training. Then offloading some to the edge.</p>
+<p>This paper focus on the privacy problem. It control the amount of data to keep the data privacy. Also some algorithms.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10413579"></a></p>
+<p><strong>Virtual Network Embedding for Task Offloading in IIoT: A DRL-Assisted Federated Learning Scheme</strong></p>
+<p>Using DRL to support federated learning.</p>
+<p>Conbinational optimization on latency and privacy.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10521565"></a></p>
+<p><strong>Joint Partial Offloading and Resource Allocation for Vehicular Federated Learning Tasks</strong></p>
+<p>This paper try to achieve FL in the vehicular network.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10164158"></a></p>
+<p><strong>Adaptive Training and Aggregation for Federated Learning in Multi-Tier Computing Networks</strong></p>
+<p>specifically, local model training can be performed at end devices, edge nodes, and fog nodes. The global aggregator can choose from the edge, fog, and cloud layers. A joint optimization problem of training, aggregation node selection, and resource allocation is further formulated to minimize system latency and energy consumption.</p>
+<p>Solutions: DRL</p>
+<p><img src="/figures/24_9_25_2/image%201.png" alt="image.png"></p>
+<p>Conbinational optimization on latency and energy consumption.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10575406"></a></p>
+<p><strong>Non-Cooperative Edge Server Selection Game for Federated Learning in IoT</strong></p>
+<p>Game theothy to decide which server we decide to offload to.</p>
+<p><a href="https://ieeexplore.ieee.org/document/9930629"></a></p>
+<p><strong>Data-Centric Client Selection for Federated Learning Over Distributed Edge Networks</strong></p>
+<p>Try to find out which server we offload to.</p>
+<p>Conbinational optimization on latency and energy consumption.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10601609"></a></p>
+<p><strong>Device Sampling and Resource Optimization for Federated Learning in Cooperative Edge Networks</strong></p>
+<p>Under the constraints of real network conditions, we propose the optimization problem of joint sampling, D2D offloading, communication, and computation resources to maximize the accuracy of the FedL model.</p>
+<p>We compare the method of estimating D2D data similarity by comparing the centroids of datasets on network devices. This method allows the server to perform optimization without collecting actual device data.</p>
+<p>Theoretical analysis of the offloading subproblem with fixed sampling strategy yields a new upper bound for the convergence of FedL under any data sampling strategy.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10679127"></a></p>
+<p><strong>Client Selection for Federated Learning in Vehicular Edge Computing: A Deep Reinforcement Learning Approach</strong></p>
+<p>Maximizing model accuracy + Minimizing energy consumption (and communication overhead)</p>
+<p>Step 1 (Customer Candidate Inference): Each VECS infers customer candidates based on factors such as vehicle movement distance, direction, stability, etc.</p>
+<p>Step 2 (Global Model Download): Clients in the candidate set download the global model from the VECS controller and participate in exploratory training.</p>
+<p>Step 3 (Exploratory Training): Clients in the candidate set train a local training epoch, known as exploratory training, to collect metadata about the client&rsquo;s state for each configuration. This information is provided for the final client selection. After exploratory training, each client uploads the metadata to the VECS controller and proceeds to the next step.</p>
+<p>Step 4 (Client Selection): Based on the collected client state information, the VECS controller selects the final client to meet the objectives of this study.</p>
+<p>Step 5 (Local Model Training and Aggregation): The clients selected by the VECS controller continue with local training until reaching epoch e. Each locally trained model is uploaded to the VECS controller for model aggregation. Clients not finally selected from the candidate set will stop training the model.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10194294"></a></p>
+<p><strong>TD-MDB: A Truth-Discovery-Based Multidimensional Bidding Strategy for Federated Learning in Industrial IoT Systems</strong></p>
+<p>Securing problems in FL system. Some people may try to use network attack to break the transmition between network nodes in the network system.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10078329"></a></p>
+<p><strong>UbiNN: A Communication Efficient Framework for Distributed Machine Learning in Edge Computing</strong></p>
+<p>Ubiquitous neural network (UbiNN)  泛在神经网络。</p>
+<p><img src="/figures/24_9_25_2/image%202.png" alt="image.png"></p>
+<p><img src="/figures/24_9_25_2/image%203.png" alt="image.png"></p>
+<p><a href="https://ieeexplore.ieee.org/document/10131976"></a></p>
+<p><strong>Sequential Offloading for Distributed DNN Computation in Multiuser MEC Systems</strong></p>
+<p>Sequential offloading design under the Markov decision process (MDP) framework: Introducing local CPU workload queues (WD-qsi) and Mobile Edge Computing (MEC) server workload queues (MEC-qsi) to model the dynamic workload of each WD and MEC server. The decision on the transmission power for sequential offloading and the partitioning of local DNN tasks on each WD are based on instantaneous channel conditions (capturing task offloading opportunities) and instantaneous WD-qsi and MEC-qsi (capturing the dynamic urgency of tasks), to minimize the average energy consumption and computation latency of DNN tasks. The joint optimization of local task partitioning, transmission power control, and local/remote computation is formulated as traversing the MDP, where optimality conditions are represented by the centralized Bellman equation.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10242079"></a></p>
+<p><strong>Edge/Cloud Infinite-Time Horizon Resource Allocation for Distributed Machine Learning and General Tasks</strong></p>
+<p>Balancing target accuracy, monetary cost and delay。</p>
+<p>Using heuristic algorithms to achieve resource allocation.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10043656"></a></p>
+<p><strong>Dynamic Pricing and Placing for Distributed Machine Learning Jobs: An Online Learning Approach</strong></p>
+<p>Pricing problem in FL to provide enough profit and lower cost.</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_9_25_3/"
+      title="Learning Record --- 7.3 (2024/9/25)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/24_9_25_1/"
+      title="Learning Record --- 7.1 (2024/9/25)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>

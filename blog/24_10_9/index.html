@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.630a9b2221f09b61177a69894600e1f7994802ec18d708696374c75292151771.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 8 (2024/10/09)</h1>
+  <p class="mb-1">October 9, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="important-materials">Important materials:</h1>
+<p>Below is an important survey paper on STN computing. (2023.10.15)</p>
+<p><a href="http://www.tiansuan.org.cn/Chinese/source/Satellite_Computing_Vision_and_Challenges.pdf">http://www.tiansuan.org.cn/Chinese/source/Satellite_Computing_Vision_and_Challenges.pdf</a></p>
+<p>This paper provide a comprehensive view on computing in space. Based on their experiments in real satellite, they provide different kinds of problems which need further works.</p>
+<p>Below are two important demo for satellite network.</p>
+<p><a href="https://www.uni.lu/research-en/research-areas/space-systems/">https://www.uni.lu/research-en/research-areas/space-systems/</a></p>
+<p>This is a demo from University of Luxembourg. Even though they do not use real satellite, but they try to use different methods to emulate the communication environment in the space, which a good alternative way.</p>
+<p><a href="http://www.tiansuan.org.cn/Chinese/sate-by.html">http://www.tiansuan.org.cn/Chinese/sate-by.html</a></p>
+<p>Here is research experiments based on Tiansuan constellation.</p>
+<p>Also, Paper from <a href="http://www.tiansuan.org.cn/source/mobicom24-final298.pdf">http://www.tiansuan.org.cn/source/mobicom24-final298.pdf</a>. Provide a dataset they collect in the space. This dataset is about devices’ states, like temperature, energy consumption.</p>
+<p>All these paper provide very detailed information on real project.</p>
+<p>Below, I will give several kinds of research opportunities and give a basic introduction.</p>
+<h1 id="research-opportunities">Research opportunities:</h1>
+<hr>
+<h2 id="physical-channel-modeling-and-stable-communication">Physical Channel Modeling and Stable Communication</h2>
+<p>A key distinction between satellite and terrestrial networks lies in the stability of their communication links and channels. Satellite connections are susceptible to several variables, including weather conditions, signal-to-noise ratio, power, and antenna gain, making the minimization of path loss a critical factor in satellite communications. Beamforming stands out as a prevalent strategy to enhance service quality and broaden coverage. Nonetheless, communications between satellites or between satellites and the ground are hampered by issues like vast distances and interference, leading to more pronounced path loss. Consequently, there is an urgent need for more efficient access solutions to mitigate this loss.</p>
+<p>Below are several examples.</p>
+<p><a href="https://arxiv.org/pdf/2402.16563#:~:text=Abstract.%20Low%20Earth%20Orbit%20(LEO)%20satellite-to-handheld%20connections%20herald%20a%20new">https://arxiv.org/pdf/2402.16563#:~:text=Abstract. Low Earth Orbit (LEO) satellite-to-handheld connections herald a new</a></p>
+<p><strong>Flexible Robust Beamforming for Multibeam Satellite Downlink using Reinforcement Learning</strong></p>
+<p>This is a paper which use RL to achieve flexible beamforming.</p>
+<p>The advent of Low Earth Orbit (LEO) satellite-to-handheld connections marks a significant advancement in satellite communications. Space-Division Multiple Access (SDMA) precoding is utilized to reduce interference between satellite beams and enhance spectral efficiency. Although optimal SDMA precoding techniques have been developed for scenarios with perfect channel knowledge, their effectiveness diminishes with imperfect channel information, a common issue due to the complexity of LEO satellite applications. To address this, the Soft Actor-Critic (SAC) deep Reinforcement Learning (RL) approach is employed to devise robust precoding strategies without relying on detailed system knowledge. This method demonstrates a strong ability to adjust to various system configurations and maintains high performance in terms of rate achievement and resistance to disruptions, outperforming traditional analytical precoders.</p>
+<p><a href="https://arxiv.org/abs/2403.08371">https://arxiv.org/abs/2403.08371</a></p>
+<p><strong>User-Centric Beam Selection and Precoding Design for Coordinated Multiple-Satellite Systems</strong></p>
+<p>This paper presents a framework that optimizes both beam selection and linear precoding (LP) within a coordinated multiple-satellite (CoMSat) system, leveraging Digital-Fourier-Transform-based (DFT) beamforming. The goal is to efficiently match users with satellites and select the best beam clusters while optimizing LP for each satellite-to-user link, aiming to serve users at desired SINRs and minimize total transmit power. Initially posed as a complex mixed-integer programming (MIP) problem, the challenge is reformulated into a joint cluster association and LP design issue. Through the analysis of the duality between downlink and uplink transmissions, an effective iterative method for finding the optimal solution is developed. For comparison, a simpler duality-based approach for quick beam selection and LP design is also introduced. Simulation results highlight the efficiency of the proposed methods in various scenarios.</p>
+<p><img src="/figures/24_10_9/Screenshot_20241008_145810.jpg" alt="Screenshot_20241008_145810.jpg"></p>
+<hr>
+<h2 id="limited-resources-and-resource-allocation">Limited Resources and Resource allocation</h2>
+<p>Another significant distinction between satellite and terrestrial networks lies in their resource constraints. Satellites are often limited by their onboard computing, networking, and storage capacities, which are predetermined by their design and operational parameters. Maximizing the efficiency of these limited resources is crucial for enhancing satellite network performance, with spectrum resources playing a pivotal role. Spectrum, being a finite natural asset, is under considerable pressure due to fixed frequency allocations for satellite communications. With the advent of 5G, Beyond 5G (B5G), and the anticipation of 6G technologies, the demand for massive terminal access, ultra-high data speeds, and increased capacity is expected to intensify the strain on the available spectrum. Technologies such as cognitive radio and millimeter waves present promising solutions to enhance spectrum efficiency and warrant further investigation.</p>
+<p><a href="https://ieeexplore.ieee.org/abstract/document/10440193">https://ieeexplore.ieee.org/abstract/document/10440193</a></p>
+<p><strong>Joint Offloading and Resource Allocation for Hybrid Cloud and Edge Computing in SAGINs: A Decision Assisted Hybrid Action Space Deep Reinforcement Learning Approach</strong></p>
+<p>The integration of satellite communications and aerial platforms into space-air-ground integrated networks (SAGINs) has become crucial for future communications, leveraging the global reach of low Earth orbit (LEO) satellites and the flexibility of aerial platforms. This study introduces a deep reinforcement learning (DRL)-based method for simultaneously optimizing task offloading and resource allocation in environments combining cloud and multi-access edge computing (MEC) within SAGINs. The system accounts for multiple satellites, clouds, and unmanned aerial vehicles (UAVs), and models tasks from ground users as directed acyclic graphs (DAGs). Aiming to minimize energy consumption and latency in MEC, a novel DRL multi-agent algorithm is proposed to refine both offloading decisions and MEC resource distribution. The approach incorporates a hybrid action algorithm to navigate the challenges of mixed continuous and discrete action spaces, and a decision-assisted DRL technique to enhance training by mitigating the effects of unavailable actions. Extensive simulations validate the effectiveness of this learning-based strategy, showing consistent superiority over conventional methods and underscoring its potential for real-world deployment.</p>
+<p><a href="https://ieeexplore.ieee.org/document/9023924">https://ieeexplore.ieee.org/document/9023924</a></p>
+<p><strong>Intelligent Resource Management for Satellite and Terrestrial Spectrum Shared Networking toward B5G</strong></p>
+<p>Integrated satellite-terrestrial networks (ISTNs) are set to enhance beyond fifth-generation (B5G) wireless systems by combining the strengths of satellite and terrestrial technologies to ensure continuous and extensive coverage. Given the limited availability of frequency resources and the challenge of satellite-terrestrial cochannel interference, there&rsquo;s a growing focus on intelligent resource allocation to maximize spectrum efficiency while minimizing interference. A proposed solution is a hierarchical framework for shared satellite and terrestrial spectrum, managed by a spectrum management unit (SMU), which employs spectrum sensing and prediction to enhance efficiency across varying user densities. The framework includes a support vector machine (SVM)-based algorithm for more accurate spectrum occupancy detection, alongside a convolutional neural network (CNN) for spectrum prediction, trained on past detection outcomes. Additionally, an intelligent resource management strategy that incorporates sensing, prediction, and allocation based on user needs is introduced to optimize spectrum use. Evaluation of this approach shows promising results in reducing detection errors and improving spectrum efficiency.</p>
+<hr>
+<h2 id="urllc">URLLC</h2>
+<p>Communication delay is a crucial factor affecting user service experience. Satellite communication is affected by the objective environment and channel quality, and the delay is usually substantial. Therefore, it is of great significance to reduce the delay of satellite networks further. Satellite communication delay is usually caused by transmission, propagation, queuing, and processing. The high dynamic and time-varying characteristics of satellite topology increase the instability of communication delay. Improving the onboard computing power will enable user services to be processed on the satellite, significantly reducing the delay.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10566891">https://ieeexplore.ieee.org/document/10566891</a></p>
+<p><strong>QoS-Aware Multihop Task Offloading in Satellite–Terrestrial Edge Networks</strong></p>
+<p>This article explores the integration of mobile edge computing (MEC) in satellite-terrestrial networks (STNs) to enhance offloading services for Internet of Things (IoT) devices in remote locations. It addresses the challenge of balancing computing resource demands between highly solicited MEC servers on visible Low Earth Orbit (LEO) satellites and underused ones on more distant satellites. A Quality-of-Service (QoS)-aware offloading decision and resource allocation scheme is proposed, facilitated by a software-defined network (SDN) within a STN structure that combines the LEO Walker constellation with satellite ground stations (SGSs). This setup aims to provide efficient edge computing services to remote IoT devices, allowing tasks to be offloaded to either SGSs or LEO satellites based on QoS requirements. To navigate the system&rsquo;s vast state and complex action spaces, the QoS-aware multihop task offloading in satellite-terrestrial edge networks (OUTSIDE) algorithm is introduced. This algorithm merges the broad search capabilities of genetic algorithms with the precise refinement potential of the Lagrangian multiplier method, aiming to reduce total task computation latency while adhering to QoS criteria. Comparative analyses and simulations show that the OUTSIDE algorithm surpasses competing methods in terms of efficiency and effectiveness.</p>
+<hr>
+<h2 id="mobility-management">Mobility Management</h2>
+<p>The frequent movement of satellites raises the problem of service migration. The ground area covered by LEO satellites is not fixed, and the high-speed movement of LEO satellites results in frequent switching of satellite networks. Therefore, mobility management is essential to ensure the continuity of satellite communication and meet the QoS requirements of users. Computing offloading is also a problem caused by satellite movement and limited onboard resources. Satellites need to offload some computing tasks to other eligible satellites or ground base stations to improve QoS and nearby service capabilities. Dynamic unloading schemes are the focus of research on satellite communication. In addition, congestion control and delay are also challenges faced in the computation offloading process.</p>
+<p><a href="https://ieeexplore.ieee.org/document/9024370">https://ieeexplore.ieee.org/document/9024370</a></p>
+<p><strong>Dynamic Handover in Satellite-Terrestrial Integrated Networks</strong></p>
+<p>The satellite-terrestrial integrated networks (STIN) aim to enhance coverage area and connectivity to meet rising user traffic demands, yet face challenges due to dynamic node mobility leading to frequent and quality-degrading link switches between low earth orbit (LEO) satellites and mobile terminals. To improve this situation, a novel handover scheme utilizing a multi-attribute dynamic graph (MADG) has been proposed to decrease handover delays and unnecessary handovers. This approach involves analyzing link connectivity within a constructed STIN model of LEO satellites and variously mobile terminals to identify viable switching paths. Handover is treated as an optimization problem, where MADG represents all potential handover paths considering factors like elevation angle, coverage time, and channel state. Additionally, the multi-service data transmission issue is addressed through multi-attribute decision making (MADM) to meet diverse service requirements. A dynamic handover strategy combining MADG and MADM selects the optimal path using the Floyd algorithm, based on edge weights. Simulation results indicate that this handover scheme significantly reduces total handover latency and minimizes unnecessary handovers, enhancing overall network performance.</p>
+<p><a href="https://ieeexplore.ieee.org/document/9814653">https://ieeexplore.ieee.org/document/9814653</a></p>
+<p><strong>Multi-objective Intelligent Handover in Satellite-Terrestrial Integrated Networks</strong></p>
+<p>The paper addresses the challenges of managing mobility in large low-Earth-orbit (LEO) satellite constellations, particularly the issues of long management delays and high signaling overheads, within the constraints of fixed and limited ground mobility management entities. It introduces a dynamic satellite-ground integrated mobility management strategy (DSG-MMS) that leverages cooperation between medium-Earth-orbit (MEO) satellites and ground stations (GSs) to optimize management node selection for reducing handover and migration delays. This strategy accounts for the global, non-uniform distribution of users and the limited storage resources on satellites. The DSG-MMS is framed as a distributed Markov decision process and employs a reinforcement learning (RL)-based method for decision-making, specifically designed to function with the limited resources of LEO satellites. A novel tensor-based RL algorithm, utilizing streamed low-rank tensor decomposition, is proposed to minimize storage and computational demands while ensuring swift convergence. Simulations using parameters from real satellite systems (Telesat, Kuiper, and Starlink) demonstrate the DSG-MMS&rsquo;s effectiveness in reducing mobility management delays and overheads, and in minimizing the storage needed on satellites for mobility management. Comparative analyses highlight the advantages of DSG-MMS over existing methods.</p>
+<p><a href="https://ieeexplore.ieee.org/abstract/document/10478861">https://ieeexplore.ieee.org/abstract/document/10478861</a></p>
+<p><strong>Dynamic Space-Ground Integrated Mobility Management Strategy for Mega LEO Satellite Constellations</strong></p>
+<p>The paper addresses the challenges of managing mobility in large low-Earth-orbit (LEO) satellite constellations, particularly the issues of long management delays and high signaling overheads, within the constraints of fixed and limited ground mobility management entities. It introduces a dynamic satellite-ground integrated mobility management strategy (DSG-MMS) that leverages cooperation between medium-Earth-orbit (MEO) satellites and ground stations (GSs) to optimize management node selection for reducing handover and migration delays. This strategy accounts for the global, non-uniform distribution of users and the limited storage resources on satellites. The DSG-MMS is framed as a distributed Markov decision process and employs a reinforcement learning (RL)-based method for decision-making, specifically designed to function with the limited resources of LEO satellites. A novel tensor-based RL algorithm, utilizing streamed low-rank tensor decomposition, is proposed to minimize storage and computational demands while ensuring swift convergence. Simulations using parameters from real satellite systems (Telesat, Kuiper, and Starlink) demonstrate the DSG-MMS&rsquo;s effectiveness in reducing mobility management delays and overheads, and in minimizing the storage needed on satellites for mobility management. Comparative analyses highlight the advantages of DSG-MMS over existing methods.</p>
+<hr>
+<h2 id="security-and-privacy-problem">Security and Privacy Problem</h2>
+<p>Access to LEO satellites by a large number of users raises security concerns. Some user data and information are security-sensitive and private, which brings inevitable security problems. The design of the security mechanism has to face the challenges of an open satellite environment and highly dynamic topology. Inter-satellite communications are prone to interference or eavesdropping, which is also the main security challenge facing satellite communications today. Mature data encryption techniques have been developed. However, in order to further adapt to satellite communication scenarios and avoid the increase in delay caused by complex keys, distributed key calculation and management have attracted the attention of researchers. Additionally, the authentication mechanism and the security routing mechanism should be redesigned.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10439625">https://ieeexplore.ieee.org/document/10439625</a></p>
+<p><strong>Deep Reinforcement Learning for Privacy-Preserving Task Offloading in Integrated Satellite-Terrestrial Networks</strong></p>
+<p>This article discusses the development of an integrated satellite-terrestrial network designed to facilitate satellite-assisted task offloading, addressing the dynamic nature of satellite mobility and the challenges it poses to privacy and reliable communication. It introduces a privacy-preserving task offloading scheme aimed at balancing performance metrics like task completion time, energy consumption, and communication reliability with the need to protect user privacy, focusing on usage pattern and location privacy. The solution involves formulating a joint optimization problem and employing a deep reinforcement learning algorithm to determine the optimal offloading policy. Experimental comparisons demonstrate the superiority of the proposed algorithm over existing benchmarks in achieving better task completion times, lower energy consumption, enhanced privacy protection, and improved communication reliability, offering a promising approach to privacy-preserving task offloading in satellite-assisted edge computing.</p>
+<hr>
+<h2 id="virtualization-in-satellite-network">Virtualization in Satellite Network</h2>
+<p>Network resource allocation is a core business of network virtualization, called virtual network embedding satellite networks. Differences in the design, structure, and characteristics of satellite networks and ground networks determine that the management of satellite network resources is not easy. Onboard computing resources are extremely limited. Network resources such as storage, spectrum, and energy also need to be properly orchestrated. SDN/NFV-based satellite network resource management is an effective solution to the above challenges and deserves further research.</p>
+<hr>
+<h2 id="light-weight-core-network">Light Weight Core Network</h2>
+<p>For satellite network, if we still have to use terrestrial network to control it, it will bring unless troubles. In this case, we can deploy core network to the satellite to provide more functions in the space. However, due to the limited resources satellite can provide, which functions we deploy on the satellite is a question. For example, access management, mobility management and session management.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10056776">https://ieeexplore.ieee.org/document/10056776</a></p>
+<p><strong>From earth to space: A first deployment of 5G core network on satellite</strong></p>
+<p>This paper introduce how they deploy 5G core network on satellites.</p>
+<hr>
+<h2 id="ai-in-space">AI in Space</h2>
+<p>Satellites have become more powerful with the development of satellite technology, and they can process information onboard. Therefore, deploying AI models on satellites can save communication costs and improve responsiveness by processing data onboard instead of transmitting it to the ground station. However, due to the limited size of a single satellite, the computing ability of the deployed models is also limited. Processing high-resolution earth imagery in real-time is a typical application scenario in LEO satellite applications, but it is challenging to process such large resolution images with a small model. Therefore, deploying a single AI model in a single satellite is unrealistic, and transmitting all images to the ground station is not feasible. Instead, a distributed learning framework deployment on LEO is promising.</p>
+<p>Below are two application scenarios that can be benefited from AI in the space.</p>
+<h3 id="earth-observation">Earth Observation</h3>
+<p>Satellites are essential for capturing earth data in various fields, such as weather, vegetation and urban development.  The data generated is growing rapidly in terms of size and variety, which creates immense pressure on space-ground communication.  However, OEC can analyze this data, provide near real-time analysis, and significantly enhance  decision-making processes. One specific application of  this technology is the real-time monitoring of natural disasters. By quickly detecting and transmitting critical information to ground stations, response times can be greatly improved. Additionally, satellite edge computing can identify invalid  images caused by cloud cover in orbit, which reduces the cost of data transmission to the ground. Environmental monitoring is another potential application of satellite edge  computing. Tracking changes in land use, forest cover, and ocean temperature provide an opportunity to quickly identify changes and send alerts to stakeholders for timely action.  Moreover, multiple agile satellites can utilize satellite edge computing to solve the scheduling problem, enabling onorbit  decision-making and intelligent mission planning.  These applications demonstrate the potential of satellite edge computing to enhance the efficiency and effectiveness of earth observation missions.</p>
+<h3 id="scientific-research">Scientific Research:</h3>
+<p>Scientific Experiments satellites such as DArk Matter Particle Explorer (DAMPE), Quantum Experiments at Space Scale (QUESS), etc. are used to gather data for scientific research. Scientists obtain a large amount of experimental data from these satellites for space exploration and other missions, which often require transmission via  satellite-ground links for subsequent analysis on the ground, a process that is inefficient. Edge computing on satellites, however, seeks to minimize data transmission and even enable  in-orbit data analysis and processing. Several scientific experiment satellites, including the Dark Matter Particle Explorer (DAMPE) and Quantum Experiments at Space Scale (QUESS), are instrumental in gathering data  for space exploration and other scientific research missions. Although a considerable amount of experimental data is obtained from these satellites, transmitting the data via satellite-ground links for subsequent analysis on the ground is often an inefficient process. Therefore, OEC can assist scientific  satellites in completing on-orbit data processing, reducing unnecessary data transmission.</p>
+<p>However, traditional distributed learning deployment is not practical in LEO satellites because inter-satellite communication is currently not possible, and even if satellites could communicate in the future, the amount of memory and power required to do so would quickly become the bottleneck. Therefore, Federated Learning (FL) as a special distributed learning paradigm has great prospects for widespread deployment in satellites. In this way, we can directly process and analyze the collected information on the satellite while protecting the privacy of each satellite’s data. We can also deploy a large model in the ground station and use this model to assist a shallow model deployed on the satellite. However, FL, like traditional deep learning systems, often demonstrate incorrect or unexpected corner-case behaviors, especially in the harsh space environment. Therefore, a systematic testing tool is necessary for automatically detecting erroneous behaviors of FL-driven satellites that can potentially lead to data invalidation analysis. This tool can automatically generate test cases leveraging real-world changes in the space environment (such as meteorites, lighting conditions, shooting angle, etc.) to retrain the corresponding FL model and improve the model’s robustness.</p>
+<hr>
+<hr>
+<p>Here, I also provide several topics which also need more research works on them.</p>
+<h2 id="multimedia--satellite">Multimedia &amp; Satellite</h2>
+<p>Augmented reality (AR) and virtual reality (VR) display exhibit potential to trigger attractive applications, including but not limited to health care, education, engineering design, manufacturing, retail, and entertainment, and urtra-high definition (UHD) video can provide better visual differentiation and better depth perception for users. However, they face many challenges on complex computation operations, including encoding/decoding and rendering, thus introducing a longer processing time. Edge computing provides opportunities for these applications by transfering part of computing pressure to edge device. Howerver, terrestrial networks may fail to provide ubiquitous  coverage to surban and rutal areas, and the latency increase obviously with the transmission distance. As an effective solution, OEC provides ubiquitous access and ultra-long distance with low-latency transmission, opening up further possibilities for these applications.</p>
+<p><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=9520346">https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=9520346</a></p>
+<p><strong>QoE-Aware Video Streaming over Integrated Space and Terrestrial 5G Network</strong></p>
+<p>This article explores the integration of Space Information Network (SIN) capabilities with terrestrial 5G infrastructures to improve service performance, specifically focusing on multi-link video streaming over both geostationary Earth orbit (GEO) satellite and terrestrial 5G backhaul links. The challenge lies in optimally scheduling video segment delivery through these two distinct channels to enhance video quality and network resource efficiency. Through systematic experiments utilizing a real-life 5G testing setup with integrated GEO satellite and terrestrial links, the study showcases the effectiveness of a proposed 5G edge-computing-based solution. This approach successfully ensures a high-quality user experience while optimizing network resource efficiency for video traffic offloading.</p>
+<p><img src="/figures/24_10_9/image.png" alt="image.png"></p>
+<p>Use satellite links as an addition of terrestrial network. Videos will be divided into several segments and then use different links to transmit them and keep a stable transmission.</p>
+<p><strong>Dynamic Caching in Space over Heterogeneous Mega-Constellations: A DRL-Guided Approach</strong></p>
+<p><a href="https://ieeexplore.ieee.org/document/10599330">https://ieeexplore.ieee.org/document/10599330</a></p>
+<p>This work addresses the enhancement of global connectivity and network scalability through the integration of network caching techniques in satellite communication systems. Focusing on a heterogeneous satellite constellation that includes both low earth orbit (LEO) and medium earth orbit (MEO) satellites, the study explores how Internet content providers (ICPs) can efficiently deliver content to terrestrial end-users despite the challenges posed by the satellites&rsquo; constant movement. A multilayer optimization framework is proposed to minimize long-term operational costs, which include storage expenses for satellite servers and network traffic costs. This framework combines a deep reinforcement learning (DRL) agent, which learns the optimal content caching strategies over time, with a linear programming (LP) solver for managing traffic flow. The effectiveness of the proposed algorithm is validated through extensive simulations using realistic satellite constellations such as OneWeb, Starlink, and O3b.</p>
+<hr>
+<h2 id="network-slicing">Network Slicing</h2>
+<p>When the network grow larger and larger, if a use want to request a service, the server may cost lots of time to react to his or her actions. In this case, network slicing divide the physical network into serveral logistic network. Each logistic network will handle a specific task. In this case, the structue of network will be more simple and improve the QoS.</p>
+<p>However, satellite network is dynamics. A LEO satellite can only cover a user for ten to fifteen minutes, which means if we use fixed network slicing strategies, the network will be unstable. In this case, we need a suitable method to solve this problem.</p>
+<p><img src="/figures/24_10_9/download_(1).png" alt="download (1).png"></p>
+<p><a href="https://ieeexplore.ieee.org/abstract/document/10685080">https://ieeexplore.ieee.org/abstract/document/10685080</a></p>
+<p><strong>SAST-VNE: A Flexible Framework for Network Slicing in 6G Integrated Satellite-Terrestrial Networks</strong></p>
+<p>This paper discusses the concept of Network Slicing (NS), a crucial technique for managing logically and functionally separate networks on a shared infrastructure dynamically. While the integration of satellite and terrestrial networks to enhance NS in 5G has faced challenges due to the complexity of virtualizing infrastructure, 6G networks are expected to advance NS further through full integration of these networks. The process of embedding virtual networks within the main infrastructure, known as Virtual Network Embedding (VNE), is complex and existing solutions lack flexibility and traffic-awareness, especially in dynamic satellite environments. To address this, the work introduces a novel framework called Slice-Aware VNE for Satellite-Terrestrial (SAST-VNE), designed to prioritize traffic, optimize load-balancing and migration costs during network congestion, and provide near-optimal solutions. Compared to existing VNE algorithms, SAST-VNE demonstrates significant reductions in migration costs during satellite handovers and offers flexible congestion management by aligning the priority of network slices with solution optimality and time complexity.</p>
+<hr>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_9_25_1/"
+      title="Learning Record --- 7.1 (2024/9/25)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/24_10_16/"
+      title="Learning Record --- 9 (2024/10/16)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>

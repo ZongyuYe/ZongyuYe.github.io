@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.630a9b2221f09b61177a69894600e1f7994802ec18d708696374c75292151771.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 7.1 (2024/9/25)</h1>
+  <p class="mb-1">September 25, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="important-papers-stn-offloading">Important Papers (STN Offloading)</h1>
+<p><a href="https://ieeexplore.ieee.org/document/10018447"></a></p>
+<p><strong>Two-Timescale Learning-Based Task Offloading for Remote IoT in Integrated Satellite–Terrestrial Networks</strong></p>
+<p>STN for sensitive task offloading in remote IoT devices.</p>
+<p>Optimization problems on offloading link selection and bandwidth allocation. Also divide the problems into two subproblems to make computing time scalable.</p>
+<p>Solutions: H-PPO, Discrete + continuous hybrid model</p>
+<p>Multi-BS, Multi-satellites and Multi-users.</p>
+<p>This paper considers that both the base station and LEO node are non-computing nodes, which need to be offloaded to the core network for calculation. Therefore, the optimization goal of this paper is to choose ground transmission or satellite transmission, and how much bandwidth should be allocated after the selection, so as to meet the unloading delay requirements while saving resources.</p>
+<p><img src="/figures/24_9_25_1/Screenshot_20240920_101656.jpg" alt="Screenshot_20240920_101656.jpg"></p>
+<p><a href="https://ieeexplore.ieee.org/document/10439625/"></a></p>
+<p><strong>Deep Reinforcement Learning for Privacy-Preserving Task Offloading in Integrated Satellite-Terrestrial Networks</strong></p>
+<p>privacy problems, User mode privacy and location privacy.</p>
+<p>Considering the latency, energy and privacy a joint optimization.</p>
+<p>Solution: DRL</p>
+<p>At the same time, the paper also considers the problem of satellite communication switching. (Communication reliability, that is, whether it will be disconnected)</p>
+<p>Only NTN (Non Terrestrial Network)</p>
+<p><a href="https://ieeexplore.ieee.org/document/10283768"></a></p>
+<p><strong>DDPG-Based Task Offloading in Satellite-Terrestrial Collaborative Edge Computing Networks</strong></p>
+<p>latency &amp; energy lowest. Optimization.</p>
+<p>User, Terrestial node and Satellite all can handle some works.</p>
+<p>Solutions: DDPG</p>
+<p>Multi-satellite, single ground base station, multi-users.</p>
+<p><a href="https://ieeexplore.ieee.org/document/9638998"></a></p>
+<p><strong>Learning-Based Computation Offloading for IoRT Through Ka/Q-Band Satellite–Terrestrial Integrated Networks</strong></p>
+<p>Resource allocation problem, the maximum number of tasks that a satellite ground network can carry. At the same time, energy consumption is reduced to meet the maximum tolerable delay.</p>
+<p>Solutions: DRL</p>
+<p>Channels for a variety of environments are considered, such as attenuation due to clouds and rainfall.</p>
+<p>Only NTN, Multi-users.</p>
+<p>This paper also consider GEO as a control plane. (Like the controller in SDN)</p>
+<p><img src="/figures/24_9_25_1/image.png" alt="image.png"></p>
+<p><a href="https://ieeexplore.ieee.org/document/10039422"></a></p>
+<p><strong>Computation-Dependent Routing Based Low-Latency Decentralized Collaborative Computing Strategy for Satellite-Terrestrial Integrated Network</strong></p>
+<p>routing problems.</p>
+<p>Finding the best path which can transmit data from one satellite node to another in a high speed.</p>
+<p>Solutions: heuristic algorithm.</p>
+<p><a href="https://ieeexplore.ieee.org/document/9978929"></a></p>
+<p><strong>Edge-Assisted Multi-Layer Offloading Optimization of LEO Satellite-Terrestrial Integrated Networks</strong></p>
+<p>Offloading problem, based on the minimum energy scheme, control delay does not exceed a range.</p>
+<p>Single Satellite，Multi-MEC and Multi-user.</p>
+<p>Solutions: Transitional method. KKT, convex and MINLP.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10409745"></a></p>
+<p><strong>Revolutionizing Future Connectivity: A Contemporary Survey on AI-Empowered Satellite-Based Non-Terrestrial Networks in 6G (Review)</strong></p>
+<p><a href="https://ieeexplore.ieee.org/document/10107794"></a></p>
+<p><strong>Energy-Efficient Computation Peer Offloading in Satellite Edge Computing Networks</strong></p>
+<p>Minimize the energy consumption and control the latency.</p>
+<p><img src="/figures/24_9_25_1/image%201.png" alt="image.png"></p>
+<p>Multi-hop offloading, NTN。</p>
+<p>Solutions: Lyapunov + transitional method</p>
+<p>Below is its experiment setup, which is useful.</p>
+<p>Inclination of 87°; 1070 km low Earth orbit satellite constellation; 192 satellites distributed over 16 orbits, with 12 satellites per orbital plane; The simulation runs for 3600 seconds, with each time slot lasting 1 second, used for making satellite peer offloading decisions. The computing power of the satellite is 2 Gcycles/s. Each satellite En has a local computing capability of 6 tasks per time slot. The transmission rate of inter-satellite links is uniformly distributed between [100M, 300M] bit/s. The inter-satellite transmission power is 0.1 W, and the propagation delay between adjacent satellites is calculated as the straight-line distance divided by the speed of light.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10279035"></a></p>
+<p><strong>Task Offloading in MEC-Aided Satellite-Terrestrial Networks: A Reinforcement Learning Approach</strong></p>
+<p>This is a paper which included robots in STN</p>
+<p>Single satellite and single robot.</p>
+<p>For robots, they may move from one place to another. If we use terrestrial network to provide service to them, it will introduce several migration in the cell. which may introduce high latency.</p>
+<p>Lyapunov ——&gt; robot control problem and offloading problem.</p>
+<p>Then using MDP and dual-agent RL to solve the problem.</p>
+<p><img src="/figures/24_9_25_1/image%202.png" alt="image.png"></p>
+<p>Tips: Average switching latency is nearly 500 ms</p>
+<p><a href="https://ieeexplore.ieee.org/document/10566926"></a></p>
+<p><strong>Deep Reinforcement Learning for QoE-Aware Offloading in Space-Terrestrial Integrated Networks</strong></p>
+<p>Most existing works focus on performance and energy consumption from the system&rsquo;s perspective, neglecting the dynamic Quality of Experience (QoE) of users: users tend to prioritize energy saving when the battery level is low, and seek lower latency when the battery is sufficiently charged.</p>
+<p>combinatorial optimization on latency and energy consumption.</p>
+<p>Solutions: DRL</p>
+<p>This paper also regards computing on the local device will have a higher speed. (True???)</p>
+<p>Multi-LEO, Multi-MEC, and Multi-user</p>
+<p><a href="https://ieeexplore.ieee.org/document/9861699"></a></p>
+<p><strong>Evolution of Non-Terrestrial Networks From 5G to 6G: A Survey（Review）</strong></p>
+<p><a href="https://ieeexplore.ieee.org/document/10592403"></a></p>
+<p><strong>Resource Allocation in LEO Satellites assisted Terrestrial Network for Latency-Sensitive Task</strong></p>
+<p>Multi-satellite, Multi-user and Multi-MEC.</p>
+<p>Solutions: DRL</p>
+<p>Target: Energy consumption and Latency.</p>
+<p><a href="https://ieeexplore.ieee.org/document/9775682"></a></p>
+<p><strong>Proactive Traffic Offloading in Dynamic Integrated Multisatellite Terrestrial Networks</strong></p>
+<p>Balancing energy consumption and latency.</p>
+<p>Multi-satellite, Multi-user and Multi-MEC.</p>
+<p>This paper divides the traffic into three kinds. And use different methods to provide service.</p>
+<p>Lyapunov &amp; queueing problem。</p>
+<p><a href="https://ieeexplore.ieee.org/document/9999289"></a></p>
+<p><strong>Collaborative Satellite-Terrestrial Edge Computing Network for Everyone-Centric Customized Services</strong></p>
+<p>QoS, mostly focus on the latency.</p>
+<p>This paper pay attention how to design the satellite terrestrial network.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10129129"></a></p>
+<p><strong>Toward Resilient Network Slicing for Satellite–Terrestrial Edge Computing IoT</strong></p>
+<p>Network Slicing problems.</p>
+<p>Dividing the network into several parts and then avoid broken in the network system.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10421658"></a></p>
+<p><strong>Multi-Satellite-Enabled Edge Computing: An Offloading and Computation Integration Approach</strong></p>
+<p>Energy consumption optimization.</p>
+<p><img src="/figures/24_9_25_1/image%203.png" alt="image.png"></p>
+<p>Dividing into three sub-problems：</p>
+<ol>
+<li>User Association。</li>
+<li>Task Scheduling</li>
+<li>Computing Resource Allocation</li>
+</ol>
+<p>Solutions: MINLP, Traditional method.</p>
+<p>Only NTN.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10227270"></a></p>
+<p><strong>Stochastic Computation Offloading for LEO Satellite Edge Computing Networks: A Learning-Based Approach</strong></p>
+<p>Energy consumption optimization.</p>
+<p>queueing problem.</p>
+<p>Solutions: RL.</p>
+<p><a href="https://ieeexplore.ieee.org/document/9838943"></a></p>
+<p><strong>Dynamic Computation Offloading in Satellite Edge Computing</strong></p>
+<p><img src="/figures/24_9_25_1/image%204.png" alt="image.png"></p>
+<p>Only NTN.</p>
+<p>Combinational optimization on latency and energy consumption.</p>
+<p>Lyapunov, RL.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10440447"></a></p>
+<p><strong>Hierarchical Dynamic Resource Allocation for Computation Offloading in LEO Satellite Networks</strong></p>
+<p>To provide computational services for user tasks in satellite edge computing, a collaborative computational offloading model with routing paths and partial offloading has been established. In small satellite networks, distributing user tasks to adjacent access satellites enhances the timeliness of decisions and reduces the design complexity of the satellite network. (Multi-hop offloading)</p>
+<p>Latency + energy consumption=cost</p>
+<p>BSP &amp; greedy algorithm.</p>
+<p><img src="/figures/24_9_25_1/image%205.png" alt="image.png"></p>
+<p><a href="https://ieeexplore.ieee.org/document/10198334"></a></p>
+<p><strong>Satellite-Based ITS Data Offloading &amp; Computation in 6G Networks: A Cooperative Multi-Agent Proximal Policy Optimization DRL With Attention Approach</strong></p>
+<p>delay and rental price.</p>
+<p>Solutions: DRL</p>
+<p>Actually the kind of satellites will have a high influence on it.</p>
+<p>GEO,MEO AND LEO。</p>
+<p>This a paper which consider the pricing problems and also try to find a specific real satellite (cube satellite).</p>
+<p><a href="https://ieeexplore.ieee.org/document/10279579"></a></p>
+<p><strong>Integrated Satellite-Terrestrial Routing Using Distributionally Robust Optimization</strong></p>
+<p>Routing problem.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10323351"></a></p>
+<p><strong>Energy-Efficient Design of Satellite-Terrestrial Computing in 6G Wireless Networks</strong></p>
+<p>Combinational optimization on latency and energy consumption.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10246158"></a></p>
+<p><strong>Satellite-Terrestrial Assisted Multi-Tier Computing Networks With MIMO Precoding and Computation Optimization</strong></p>
+<p>A dense satellite and ground integrated multi-layer computing network architecture, with different computing densities at each layer, to better approximate the multi-layer computing process. Utilizing multiple satellites to multiplex spectrum resources and employing MIMO precoding to suppress co-channel interference.</p>
+<p>Then, by jointly optimizing the UT-satellite association, MIMO precoding for both UT and satellites, the computational depth at the local and satellite layers, and the allocation of computational resources at each layer, a weighted sum energy consumption minimization problem is formulated.</p>
+<p>Then, the optimization variables are solved iteratively, where UT-satellite association is obtained with closed-form solution, the computing depth of local/satellitetier is solved with first-order Taylor expansion. Then, quadratic transform based fractional programming is used to solve MIMO transmit precoding subproblem. Finally, the computation resource allocation at the local tier and the satellite tier is derived in closed-form expressions and the computation resource allocation at the GW can be dealt with the interior point method.</p>
+<p><img src="/figures/24_9_25_1/image%206.png" alt="image.png"></p>
+<p><a href="https://ieeexplore.ieee.org/document/10097591"></a></p>
+<p><strong>Joint Mobility Control and MEC Offloading for Hybrid Satellite-Terrestrial-Network-Enabled Robots</strong></p>
+<p>A joint optimization problem of task offloading and velocity control is formulated.</p>
+<p>Using Lyapunov optimization, the original optimization is decomposed into a velocity control subproblem and a task offloading subproblem. （MDP RL）</p>
+<p>Satellite, MEC, and User Integration</p>
+<p>Robots will offload tasks to the network within the network coverage, thus completing their autonomous decision-making.</p>
+<p>The issue of speed control for satellite-terrestrial network robots and MEC-driven offloading joint optimization has not yet been studied in existing research. Since joint optimization involves two different systems - the hybrid network system and the motion control system - it is also a complex optimization problem.</p>
+<p>That is, the joint optimization of the robot&rsquo;s motion model and network optimization issues.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10266782"></a></p>
+<p><strong>Joint Optimization of Server and Service Selection in Satellite-Terrestrial Integrated Edge Computing Networks</strong></p>
+<p>Which server we choose and which satellite can hold this server.</p>
+<p>The number of edge servers, operator costs, the computing power of each edge server (the maximum number of services that an edge server can place), the type of service, and the storage capacity requirement. The aim is to minimize the average response latency and average energy consumption by proactively designing the edge server placement and service deployment.</p>
+<p>heuristic algorithm to minimize the average response latency and average energy consumption with the aid of the K-medoids clustering method and NSGAII technique.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10436088"></a></p>
+<p><strong>Cooperative Federated Learning Over Ground-to-Satellite Integrated Networks: Joint Local Computation and Data Offloading (GOOD GOOD Paper)</strong></p>
+<p>Mobile Communication Across Remote Areas: Although mobile communication systems have been widely deployed in current terrestrial networks, there are still many isolated areas on Earth lacking developed communication infrastructure (such as rural and maritime regions). Since these areas have neither servers nor access points, it is currently challenging to conduct Federated Learning (FL) across devices located in these regions.</p>
+<p>(i) An edge computing unit for processing data offloaded from the ground users</p>
+<p>(ii) A server for aggregating the models within each cluster</p>
+<p>(iii) A relay for sharing the model/data with other satellites via inter-satellite links (ISLs)</p>
+<p>Compared to traditional terrestrial communication networks, one of the key challenges faced by integrated terrestrial-satellite networks is the continuous movement of satellites in orbit, which limits the coverage time of each satellite over any given cluster. To address this problem, we suggest allowing each satellite to transfer its trained model and the data offloaded from clients to its neighboring satellite (which will soon cover the same area) through Inter-Satellite Links (ISL).</p>
+<p>As for the issue of satellite batteries, they only have the capacity for efficient computing when the sun is shining on them.</p>
+<p><img src="/figures/24_9_25_1/image%207.png" alt="image.png"></p>
+<p>Solutions: Iterative Algorithm, block-coordinated descent</p>
+<p><a href="https://ieeexplore.ieee.org/document/10032271"></a></p>
+<p><strong>Satellite Edge Computing With Collaborative Computation Offloading: An Intelligent Deep Deterministic Policy Gradient Approach</strong></p>
+<p>This paper is firstly consider Cloud in the satellite terrestrial network.</p>
+<p>Solutions: DDPG</p>
+<p><img src="/figures/24_9_25_1/image%208.png" alt="image.png"></p>
+<p><a href="https://ieeexplore.ieee.org/document/10279759"></a></p>
+<p><strong>Multi-agent Deep Reinforcement Learning Aided Computing Offloading in LEO Satellite Networks</strong></p>
+<p>Multi-hop offloading.</p>
+<p>Target: Delay.</p>
+<p>Solutions: DRL</p>
+<p><a href="https://ieeexplore.ieee.org/document/10623089"></a></p>
+<p><strong>Cooperative Federated Learning over Hybrid Terrestrial and Non-Terrestrial Networks</strong></p>
+<p>This another paper which try to use NTN to help FL.</p>
+<p>It seems like this a former conference paper based on upper Journal paper.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10589437"></a></p>
+<p><strong>Cost-Effective Hybrid Computation Offloading in Satellite-Terrestrial Integrated Networks</strong></p>
+<p>Target: Energy Consumption and Latency.</p>
+<p>Solutions: Dividing the problems into several simple problems. (Convex problems and MINLP problems)</p>
+<p><a href="https://ieeexplore.ieee.org/document/10445211"></a></p>
+<p><strong>Semantic Communication in Satellite-Borne Edge Cloud Network for Computation Offloading</strong></p>
+<p>Specific problems.</p>
+<p>Semantic communication in STN.</p>
+<p><a href="https://ieeexplore.ieee.org/document/9984663"></a></p>
+<p><strong>Delay Optimization for Cooperative Multi-Tier Computing in Integrated Satellite-Terrestrial Networks</strong></p>
+<p>Dividing the computing problems into serveral computing problems to make each task will have the low latency and every such single task is relatively simple. (Maybe convex.)</p>
+<p>Multi-User, Multi-MEC and Multi-satellite.</p>
+<p><a href="https://ieeexplore.ieee.org/document/9955992"></a></p>
+<p><strong>Latency Optimization for Hybrid GEO–LEO Satellite-Assisted IoT Networks</strong></p>
+<p>latency and energy consumption.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10243118"></a></p>
+<p><strong>Online Computation Offloading for Collaborative Space/Aerial-Aided Edge Computing Toward 6G System</strong></p>
+<p>Multi-hop offloading.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10566891"></a></p>
+<p><strong>QoS-Aware Multi-Hop Task Offloading in Satellite-Terrestrial Edge Networks</strong></p>
+<p>QoS, here truly the latency.</p>
+<p>Multi-hop offloading problem.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10061467"></a></p>
+<p><strong>Dynamic Transmission and Computation Resource Optimization for Dense LEO Satellite Assisted Mobile-Edge Computing</strong></p>
+<p>Queueing problem.</p>
+<p>Lyapunov.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10216375"></a></p>
+<p><strong>Collaborative Computing Services at Ground, Air, and Space: An Optimization Approach</strong></p>
+<p>Concentrate on Air and Space communication devices.</p>
+<p>Actually the UAV and the Satellite cooperated network.</p>
+<p>Block successive upper-bound minimization</p>
+<p>Minimize the overall latency.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10596043"></a></p>
+<p><strong>Collaborative Task Offloading Optimization for Satellite Mobile Edge Computing Using Multi-Agent Deep Reinforcement Learning</strong></p>
+<p>NTN</p>
+<p>counterfactual multi-agent policy gradients (COMA)-based collaborative task offloading scheme</p>
+<p><a href="https://ieeexplore.ieee.org/document/10555521"></a></p>
+<p><strong>Computation Offloading and Quantization Schemes for Federated Satellite-Ground Graph Networks</strong></p>
+<p>This paper is aim to build the highly dynamic satellite network graph. Which means its target is to predict the orbit of satellites.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10345669"></a></p>
+<p><strong>Digital Twin-Assisted Space-Air-Ground Integrated Networks for Vehicular Edge Computing</strong></p>
+<p>Multi-satellite, Multi-MEC and Multi-user.</p>
+<p>This paper introduce digital twin model into the system. (But actually digital model have no influence on the optimization problem.)</p>
+<p><a href="https://ieeexplore.ieee.org/document/10677429"></a></p>
+<p><strong>DOGS: Dynamic Task Offloading in Space-Air-Ground Integrated Networks With Game-Theoretic Stochastic Learning</strong></p>
+<p>Offloading problems based on conbination optimization on latency and energy consumption.</p>
+<p>Solutions: Game-Theorestic method.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10679111"></a></p>
+<p><strong>Orchestrating Federated Learning in Space-Air-Ground Integrated Networks: Adaptive Data Offloading and Seamless Handover (GOOD Paper)</strong></p>
+<p>This paper pay attention to the switching problems in the NTN for federated learning.</p>
+<p>Since we want the training can run smoothly and do not catch any accident, but satellite will move quickly and cannot cover an sepecific area for a long time, In this case, sometimes we have to deliver the task to the next satellite and let it handle the FL aggregation.</p>
+<p>This optimization process takes into account the data transmission delay, data processing delay, and model aggregation delay algorithm.</p>
+<p>WalkerStar (A specific method to connect the different satellites. )</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_9_25_2/"
+      title="Learning Record --- 7.2 (2024/9/25)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/24_10_9/"
+      title="Learning Record --- 8 (2024/10/09)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>

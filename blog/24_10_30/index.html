@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.630a9b2221f09b61177a69894600e1f7994802ec18d708696374c75292151771.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 11 (2024/10/30)</h1>
+  <p class="mb-1">October 30, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="fool-addressing-the-downlink-bottleneck-in-satellite-computing-with-neural-feature-compression"><strong>FOOL: Addressing the Downlink Bottleneck in Satellite Computing with Neural Feature Compression</strong></h1>
+<p><a href="https://arxiv.org/abs/2403.16677">https://arxiv.org/abs/2403.16677</a>.</p>
+<h2 id="quick-summary">Quick Summary:</h2>
+<p>LEO will generate lots of data in a short time, but the maximum transmission capability is limited. In this case, we hope we can only transmit part of the most important data to the ground station and try to recover them. This paper provide an interesting view that satellite usually compress data in a long time but have to transmit the data in a short time because it can only transm</p>
+<hr>
+<h2 id="the-downlink-bottleneck">The downlink bottleneck:</h2>
+<p>The volume of data per capture can be determined as below:</p>
+<p>$$
+V_{capture} = \frac{R^2_{orbit}\cdot tan^2(S_{fov})}{S_w \cdot S_H}\cdot S_{bands}\cdot S_{radio}
+$$</p>
+<p>$R_{orbit}$ is the altitude of the orbit.</p>
+<p>$S_{fov}$ is the field of view. measured as an angle, determines how wide an area can be seen by the sensor from that altitude.</p>
+<p>The sensor spatial resolution is $S_{spatial} = S_h \times S_w$, which represents the area each pixel covers on the ground.</p>
+<p>$S_{radio}$ is the radiometric resolution. Indicating the number of bits used to represent each pixel’s intensity in each band.</p>
+<p>$S_{bands}$ is the number of band.</p>
+<p><strong>Easily written,</strong></p>
+<p>$\frac{R^2_{orbit}\cdot tan^2(S_{fov})}{S_w \cdot S_H}$ is the total pixels per capture.</p>
+<p>$S_{bands} \cdot S_{radio}$ is the bits per pixel.</p>
+<p>Then, we want to know how many captures we got during an orbit. Firstly we need know how long we finish one orbit range.</p>
+<p>$$
+T_{orbit}=2\pi \sqrt{\frac{(R_{orbit}+R_{earth})^3}{GM}}
+$$</p>
+<p>$G$ is the gravitational constant.</p>
+<p>$M$ is the earth’s mass.</p>
+<p>Then we can overall capture volume during one round can be shown as:</p>
+<p>$$
+V=T_{orbit}\cdot S_{rate}\cdot V_{capture}
+$$</p>
+<p>$S_{rate}$ is the capture rate.</p>
+<p>Here, we want to have to $V_{enc}$ be smaller than V{link}.</p>
+<p>$V_{enc}$ is the data volume after encoder. While V_{link} is the maximum transmission rate.</p>
+<p>Generally, The encoder need to decrease the data volume by a factor of $4.0-5.0$.</p>
+<h2 id="the-limitations-of-codecs">The Limitations of Codecs:</h2>
+<p><img src="/figures/24_10_30/6a56bdd0-bd35-437d-8a77-f15493ce9dcc.png" alt="Screenshot_20241029_153605.jpg"></p>
+<p>Here, we provide what we want to achieve in this system.</p>
+<p>$\mathcal{D}(X, Y)$ is the distortion while the $I(X; Y)$ is the mutual information.</p>
+<p>Easily speaking, we hope to use the lowest volume of information to satisfy the the overall distortion below a threshold.</p>
+<p><img src="/figures/24_10_30/image.png" alt="image.png"></p>
+<hr>
+<h2 id="shallow-variantional-bottleneck-injection">Shallow Variantional Bottleneck Injection:</h2>
+<p>SVBI trains the coders by replacing the distortion term of the rate-distortion objective of variational image compression model with head distillation (HD)</p>
+<p>Head distillation in machine learning, especially in the context of <strong>transformer models</strong> like BERT, refers to a technique that focuses on selecting or compressing the most important &ldquo;heads&rdquo; (attention heads) within a model. The goal is to reduce the model&rsquo;s complexity and computational load without significantly losing performance. Here’s an overview of the concept.</p>
+<p><img src="/figures/24_10_30/image%201.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%202.png" alt="image.png"></p>
+<p>The mutual information will decrease relative to the distance between the input and the representation. The deeper the representation, the more information we lose regarding $X$.</p>
+<p><img src="/figures/24_10_30/image%203.png" alt="image.png"></p>
+<hr>
+<h2 id="system-design">System Design:</h2>
+<p>The original data will be encoded and then dealt by two modules. Detection pipeline is to find the important thing in the original data and the image reconstruction will only reconstruct the data in the field which provided by the detection pipeline.</p>
+<p><img src="/figures/24_10_30/image%204.png" alt="image.png"></p>
+<h2 id="compression-method">Compression Method:</h2>
+<p><img src="/figures/24_10_30/image%205.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%206.png" alt="image.png"></p>
+<hr>
+<h1 id="image-reconstruction-using-superpixel-clustering-and-tensor-completion"><strong>Image Reconstruction using Superpixel Clustering and Tensor Completion.</strong></h1>
+<p><a href="https://arxiv.org/abs/2305.09564v1">https://arxiv.org/abs/2305.09564v1</a>.</p>
+<p><img src="/figures/24_10_30/image%207.png" alt="image.png"></p>
+<p>Upper figure describe the pipeline of this superpixel clustering and tensor completion method.</p>
+<p>Firstly, the image data will be divided into several clusters. Then we will sample the central part or the edge part in the cluster and then obtain the sampled data. After that, they try to use tensor completion method to reconstruct the data.</p>
+<h2 id="superpixel-clustering">SUPERPIXEL CLUSTERING</h2>
+<p><img src="/figures/24_10_30/image%208.png" alt="image.png"></p>
+<p>Upper Figure describe the basic workload of superpixel sampling.</p>
+<p><img src="/figures/24_10_30/image%209.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2010.png" alt="image.png"></p>
+<p><strong>Explanation:</strong> Firstly, we need initialize a desired number of approximately equally sized superpixels. $K$ superpixel cluster centers $c_k, k = 1, 2, . . . , K$ are chosen at regular grid intervals $S$.</p>
+<p>CIELAB color space as $[l, a, b, x, y]^T$. Color vector, $[l, a, b]^T$. $[x,y]^T$ is the position vector.</p>
+<p>$i$  represents the value to be clustered. The sum of the lab distance $d_{lab}$ and the $xy$ plane distance $d_{xy}$ normalized by the grid interval $S$. Besides, the distance measure $D_s$ includes a variable $m$  that allows us to control the compactness of a superpixel. The greater the value of $m$, the cluster becomes more compact.</p>
+<hr>
+<h2 id="proposed-pixel-sampling-method">PROPOSED PIXEL SAMPLING METHOD</h2>
+<p><img src="/figures/24_10_30/image%2011.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2012.png" alt="image.png"></p>
+<h2 id="tensor-completion-with-smoothingfiltering">TENSOR COMPLETION WITH SMOOTHING/FILTERING</h2>
+<h3 id="tensor-completion-based-on-matrix-nuclear-norm-regularization">Tensor completion based on matrix nuclear norm regularization</h3>
+<p><img src="/figures/24_10_30/image%2013.png" alt="image.png"></p>
+<p>This easily describe the optimization problem of tensor completion. However, determine the rank of a matrix is non-convex. Then common way to solve this problem is to use <strong>the matrix nuclear norm</strong> $‖.‖^∗$ to approximate the rank.</p>
+<p><img src="/figures/24_10_30/image%2014.png" alt="image.png"></p>
+<p>$‖.‖^∗$ representing the nuclear norm of a matrix which is the sum of the singular values of the matrix.</p>
+<p>Then, we try to unfold the data.</p>
+<p><img src="/figures/24_10_30/image%2015.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2016.png" alt="image.png"></p>
+<p>$λ$ denotes the trade-off parameter.</p>
+<p>Appendix:</p>
+<ol>
+<li>The n-mode matricization of a tensor $\underline{A} ∈ R^{I_1×I_2×···×I_N}$ which is also called mode-n unfolding of a tensor is shown by $A_{(n)} ∈ R^{I_n×I_1···I_{n−1}I_{n+1}···I_N}$. Tensorization or matrix folding is the process of converting a low-order tensor to a higher-order tensor.</li>
+<li>if we have an incomplete data tensor, $\underline{A} ∈ R^{I_1×I_2×···×I_N}$, be given and assume the indices of its observed elements are arranged in the indexing binary tensor. $\underline{\Omega}  ∈ R^{I_1×I_2×···×I_N}$. The projection operator $\underline{\Omega}$ over the data tensor $\underline{A}$ is defined as follows:</li>
+</ol>
+<p><img src="/figures/24_10_30/image%2017.png" alt="image.png"></p>
+<p>The task of low rank tensor completion can be formulated as the following optimization problem.</p>
+<p><img src="/figures/24_10_30/image%2018.png" alt="image.png"></p>
+<p>The Frobenius norm of a tensor is given as,</p>
+<p><img src="/figures/24_10_30/image%2019.png" alt="image.png"></p>
+<p>The inner product of two tensors $\underline{A}, \underline{B} ∈ R^{I_1×I_2×···×I_N}$.</p>
+<p><img src="/figures/24_10_30/image%2020.png" alt="image.png"></p>
+<p>A constrained optimization problem can be formulated by introducing an auxiliary matrix $Z_{(1)}$ with the same size as the matrix $X_{(1)}$.</p>
+<p><img src="/figures/24_10_30/image%2021.png" alt="image.png"></p>
+<p>Then we solve the problem above by using Alternating Direction Method of Multipliers (ADMM) algorithm. Firstly, we write the augmented Lagrangian function for the constrained optimization problem.</p>
+<p><img src="/figures/24_10_30/image%2022.png" alt="image.png"></p>
+<p>where $T$ is a matrix representing the Lagrangian multipliers and $μ$ is a penalty parameter.</p>
+<p>Then, we have to update the matrices $X,Y,Z$ iteratively by fixing two of them and updated the other as presented below.</p>
+<p><strong>Update of X:</strong></p>
+<p><img src="/figures/24_10_30/image%2023.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2024.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2025.png" alt="image.png"></p>
+<p>$β &gt; 0$ is constant, $Dβ(.)$ is the matrix singular value thresholding operation defined as follows</p>
+<p><img src="/figures/24_10_30/image%2026.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2027.png" alt="image.png"></p>
+<p><strong>Update of Z:</strong></p>
+<p><img src="/figures/24_10_30/image%2028.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2029.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2030.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2031.png" alt="image.png"></p>
+<p><strong>Update of T:</strong></p>
+<p><img src="/figures/24_10_30/image%2032.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2033.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2034.png" alt="image.png"></p>
+<p>where $α &gt; 1$ is a predetermined constant used to iteratively increase the penalty and $μ_{max}$ represents the upper bound for the penalty.</p>
+<p><img src="/figures/24_10_30/image%2035.png" alt="image.png"></p>
+<h3 id="tensor-completion-using-tensor-nuclear-norm-tnn-regularization">Tensor completion using tensor nuclear norm (TNN) regularization</h3>
+<p>In this section, we discuss the tensor formulation of the completion problem based on the tensor Singular Decomposition (t-SVD) model.</p>
+<p>The model of rank minimization based tensor completion is formulated as follows</p>
+<p><img src="/figures/24_10_30/image%2036.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2037.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2038.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2039.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2040.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2041.png" alt="image.png"></p>
+<p><img src="/figures/24_10_30/image%2042.png" alt="image.png"></p>
+<p>One figure shows the result.</p>
+<p><img src="/figures/24_10_30/image%2043.png" alt="image.png"></p>
+<hr>
+<p><img src="/figures/24_10_30/Screenshot_20241029_134552_com.huawei.hinote.jpg" alt="Screenshot_20241029_134552_com.huawei.hinote.jpg"></p>
+<p>A figure draws what I think it will be more important in this field.</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_10_23/"
+      title="Learning Record --- 10 (2024/10/23)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/24_11_06/"
+      title="Learning Record --- 12 (2024/11/06)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>

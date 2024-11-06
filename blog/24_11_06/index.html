@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.630a9b2221f09b61177a69894600e1f7994802ec18d708696374c75292151771.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 12 (2024/11/06)</h1>
+  <p class="mb-1">November 6, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h2 id="communication-channel-model-between-leo-satellite-and-ground-user">Communication channel model between LEO satellite and Ground User</h2>
+<p>For the LEOS communications, the altitude, speed and position information of the LEOS are known to all BSs in a time slot.
+For the sake of simplicity, a quasi-static fading channel model is considered in a time slot. Thus, the signal received by the LEOS over the $Ka$-band is given by,</p>
+<p>$$
+y = \sqrt{p}h^{Ka}s+N_0,
+$$</p>
+<p>$y$ is the received signal.</p>
+<p>$p$ is the transmitting power from user.</p>
+<p>$s$ is the signal from user with unit energy.</p>
+<p>$N_0 ~ (0, \sigma^2)$ is the additive white Gaussian noise at the LEOs.</p>
+<p>$h_{Ka}$  is the channel between user and the LEO. It can be given by,</p>
+<p>$$
+h^{Ka}=v\gamma d^{-\beta}
+$$</p>
+<p>Here, we have,</p>
+<p>$v~(0,1)$ is a complex Gaussian variable representing Rayleigh fading.</p>
+<p>$\gamma$  follows log-normal distributed shadow fading.</p>
+<p>$d_{ij}$ is the distance between user and LEO.</p>
+<p>$\beta$  is the path loss exponent.</p>
+<p>Then, the achievable capacity of user served by LEO over $Ka$-Band can be shown as,</p>
+<p>$$
+R = B_{ka}log_2(1+\frac{p|h^{Ka}|^2}{\sigma^2})
+$$</p>
+<p>$B_{Ka}$ is the bandwidth for one user.</p>
+<hr>
+<hr>
+<h2 id="geometry-based-stochastic-model-gbsm-model-for-leo-satellite-communication-channel">Geometry-based stochastic model (GBSM) model for LEO satellite communication channel.</h2>
+<p><img src="/figures/24_11_06/Screenshot_20241104_182847.jpg" alt="Screenshot_20241104_182847.jpg"></p>
+<p>Before is an figure which can describe the main structure of satellite communication with ground user. Easily, this figure only shows the line of sight (LoS) path and the l-th Non-LoS path. Usually, it will have L-1 NLoS path with 20 subpaths.</p>
+<p><img src="/figures/24_11_06/Screenshot_20241104_183611.jpg" alt="Screenshot_20241104_183611.jpg"></p>
+<p>Before shows some important parameters which will used later or in last figure.</p>
+<hr>
+<h3 id="large-scale-fading">Large Scale Fading</h3>
+<p>Here, Effective path loss can be shown as,</p>
+<p>$$
+PG_s = \sqrt{10^{0.1(PL_s+SF_s)}}
+$$</p>
+<p>Shadow fading $SF_s$ is a random variable following the log-normal distribution, and its standard deviation is determined by the frequency, terminal environment, and the elevation angle.</p>
+<p>The path loss can be expressed as,</p>
+<p>$$
+PL_s=A\cdot log_{10}d_s+B+C\cdot f_c +PL_A
+$$</p>
+<p>where $d_s$ is the distance from the transmit antenna to the receive antenna of the snapshot $s$ and $f_c$ is the carrier frequency. $A, B$, and $C$  are the parameters determined by the environment, which are obtained by actual measurement. In the satellite communication environment: $A = 20; B = 32:45; C = 20.$</p>
+<p>Atmospheric attenuation $PL_A$ can be expressed as,</p>
+<p>$$
+PL_A = \frac{A_{zenith}(f)}{Sin(\theta)}
+$$</p>
+<p>where $θ$ is the satellite zenith angle and $A_{zenith}(f)$  is the attenuation value corresponding to different zenith angles and frequencies.</p>
+<hr>
+<h3 id="small-scale-fading">Small Scale Fading</h3>
+<p>For LoS component, we can only have one LoS path without any subpath. Then, the subscript will be considered as $1$. Then channel impulse response of LoS path and NLoS path can be expressed as,</p>
+<p><img src="/figures/24_11_06/Screenshot_20241104_185324.jpg" alt="Screenshot_20241104_185324.jpg"></p>
+<p>Then, we have the overall channel impulse respose can be shown as below,</p>
+<p><img src="/figures/24_11_06/Screenshot_20241104_185609.jpg" alt="Screenshot_20241104_185609.jpg"></p>
+<p>$P_l$ is the initial power of cluster l and $KF_{l, s}$ is a time-varying power scaling factor. It can be expressed as,</p>
+<p><img src="/figures/24_11_06/Screenshot_20241104_185937.jpg" alt="Screenshot_20241104_185937.jpg"></p>
+<p>Here, $K_0$ is the power scaling factor at the beginning fo the trajectory and $K_s$ is the power scaling factor at snapshot $s$.</p>
+<hr>
+<p>Initialization of large scale parameters:</p>
+<p>Positions and relection characteristics of clusters are based on eight large scale parameters: DS, Ricean K-factor (KF), shadowing fading (SF), azimuth spread of departure (ASD), azimuth spread of arrival (ASA), elevation spread of departure (ESD), elevation spread of arrival (ESA) and cross-polarization ratio (XPR).</p>
+<p>Below is their example on how to find DS.</p>
+<p><img src="/figures/24_11_06/Screenshot_20241104_190706.jpg" alt="Screenshot_20241104_190706.jpg"></p>
+<p>Initial delays, angles, and path powers:</p>
+<p>Delay of the LoS path is initialized to $0$. Initial delays of NLoS paths are randomly selected from a unilateral exponential distribution with unit mean and unit standard deviation. The unilateral exponential distribution can be expressed as,</p>
+<p><img src="/figures/24_11_06/Screenshot_20241104_191046.jpg" alt="Screenshot_20241104_191046.jpg"></p>
+<p>Here, $X_l^{\tau}$ is a spatially related random variable.</p>
+<p><img src="/figures/24_11_06/Screenshot_20241104_191259.jpg" alt="Screenshot_20241104_191259.jpg"></p>
+<p>where $X_{l}^{\tau}$ is a random variable following the standard normal distribution generated by the summation of sinusoids (SoS) method and $erfc()$ is complementary error function.</p>
+<p><img src="/figures/24_11_06/Screenshot_20241104_191629.jpg" alt="Screenshot_20241104_191629.jpg"></p>
+<p><img src="/figures/24_11_06/Screenshot_20241104_192048.jpg" alt="Screenshot_20241104_192048.jpg"></p>
+<hr>
+<h2 id="communication-channel-model-between-one-satellite-and-another-satellite">Communication Channel Model between One satellite and another satellite</h2>
+<p>For inter-satellite links, we often only consider the attenuation of signal strength due to Free-space Path Loss, coupled with the impact of Additive White Gaussian Noise.</p>
+<p><img src="/figures/24_11_06/Screenshot_20241104_195605.jpg" alt="Screenshot_20241104_195605.jpg"></p>
+<hr>
+<h2 id="relatively-stationary-satellite-cluster">Relatively Stationary Satellite Cluster</h2>
+<p><img src="/figures/24_11_06/image.png" alt="image.png"></p>
+<p>Walker Delta Constellation</p>
+<p><img src="/figures/24_11_06/image%201.png" alt="image.png"></p>
+<p>Satellite formation flying</p>
+<p><img src="/figures/24_11_06/image%202.png" alt="image.png"></p>
+<p>Landsat-7 being trailed by EO-1 covering the same area at different times</p>
+<p><img src="/figures/24_11_06/image%203.png" alt="image.png"></p>
+<p><img src="/figures/24_11_06/image%204.png" alt="image.png"></p>
+<hr>
+<h2 id="the-distance-between-two-leo-satellites-take-spacexs-starlink-as-an-example">The distance between two LEO satellites (Take SpaceX’s Starlink as an example)</h2>
+<h3 id="distance-between-satellites-on-the-same-orbit">Distance Between Satellites on the Same Orbit</h3>
+<p>In the Starlink constellation, satellites are typically spaced about 5.45 degrees apart within the same orbital plane. Given that Starlink satellites orbit at an altitude of approximately 550 km, the distance between two adjacent satellites in the same orbital plane can be calculated using the formula for the arc length:</p>
+<p>$$
+d=rθ
+$$</p>
+<p>$r$   is the radius of the orbit (Earth’s radius + altitude of the satellites, approximately 6371 km + 550 km = 6921 km)</p>
+<p>$\theta$ is the angular separation in radians (5.45 degrees ≈ 0.095 radians)</p>
+<p>Then, the distance is approximately,</p>
+<p>$$
+d=6921\times0.095\approx657\ km
+$$</p>
+<h3 id="distance-between-satellites-on-different-near-orbits"><strong>Distance Between Satellites on Different Near Orbits</strong></h3>
+<p>For satellites in different but nearby orbits in the Starlink constellation, a typical distance between satellites in adjacent orbital planes can be around <strong>500 to 700 km</strong>. This distance can vary based on the specific configuration and phasing of the satellites, but this range gives a good approximation for typical spacing in such constellations.</p>
+<p>The inter-satellite distance can be as close as 1 to 2 kilometers in certain segments of the constellation.</p>
+<hr>
+<h2 id="transmitting-and-generating-data">Transmitting and Generating Data</h2>
+<h3 id="maximum-downlink-rate-of-a-leo-satellite">Maximum Downlink Rate of a LEO Satellite</h3>
+<p>For instance, WorldView-3 satellites can transmit 90GB data when it have connection with one user.</p>
+<h3 id="data-obtained-by-a-remote-sensing-leo-satellite-in-one-orbit">Data Obtained by a Remote Sensing LEO Satellite in One Orbit</h3>
+<p>For example, the Sentinel-2 satellite, part of the Copernicus program, can capture approximately 1.6 terabytes of data per day. Given that Sentinel-2 completes about 14 orbits per day, this translates to roughly 114 gigabytes per orbit.</p>
+<p>Inter-satellite links (ISLs) may offer higher speeds compared to ground-satellite links.</p>
+<ol>
+<li><strong>Speed of Light in Free Space</strong>: Data transmitted via ISLs travels at the speed of light in a vacuum, which is faster than through optical fibers used in terrestrial networks. Optical fibers typically transmit data at about 65-70% of the speed of light. Also, ground-satellite links will be influenced by atmospheric interference.</li>
+<li><strong>Higher Data Rates</strong>: Technologies like Optical Inter-Satellite Links (OISLs) can achieve much higher data rates compared to traditional Radio Frequency (RF) links, making them ideal for high-speed data transfer.</li>
+</ol>
+<hr>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_10_30/"
+      title="Learning Record --- 11 (2024/10/30)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
