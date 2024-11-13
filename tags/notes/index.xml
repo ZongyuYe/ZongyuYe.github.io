@@ -6,8 +6,22 @@
     <description>Recent content in Notes on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 13.1 (2024/11/13)</title>
+      <link>https://ZongyuYe.github.io/blog/24_11_13_1/</link>
+      <pubDate>Wed, 13 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_11_13_1/</guid>
+      <description>Inter-Satellites Link Communication Channel Channel Modeling and Analysis of Inter-Small-Satellite Links in Terahertz Band Space Networks S. Nie and I. F. Akyildiz, &amp;ldquo;Channel Modeling and Analysis of Inter-Small-Satellite Links in Terahertz Band Space Networks,&amp;rdquo; in IEEE Transactions on Communications, vol. 69, no. 12, pp. 8585-8599, Dec. 2021, doi: 10.1109/TCOMM.2021.3113942.&#xA;https://ieeexplore.ieee.org/abstract/document/9541155&#xA;This paper mostly focus on when the size of the satellite is small enough.&#xA;Our numerical results demonstrate that:&#xA;the ionospheric plasma does not affect the THz band signal propagation in near-Earth orbits; (ionospheric plasma will cause multipath.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 13.2 (2024/11/13)</title>
+      <link>https://ZongyuYe.github.io/blog/24_11_13_2/</link>
+      <pubDate>Wed, 13 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_11_13_2/</guid>
+      <description>Data Compression Works on Satellites https://ieeexplore.ieee.org/document/10283385&#xA;This paper provide datasets on Hyperspectral images, which is an important part in satellite datasets.&#xA;Towards Efficient Satellite Computing Through Adaptive Compression&#xA;https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;amp;arnumber=10697471.&#xA;This is a paper for clarify data on the satellite and then compress it to improve the overall efficiency.&#xA;C. Yang et al., &amp;ldquo;Towards Efficient Satellite Computing Through Adaptive Compression,&amp;rdquo; in IEEE Transactions on Services Computing, doi: 10.1109/TSC.2024.3470341.&#xA;Two Main Problems:</description>
+    </item>
     <item>
       <title>Learning Record --- 12 (2024/11/06)</title>
       <link>https://ZongyuYe.github.io/blog/24_11_06/</link>

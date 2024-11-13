@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.630a9b2221f09b61177a69894600e1f7994802ec18d708696374c75292151771.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 13.1 (2024/11/13)</h1>
+  <p class="mb-1">November 13, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="inter-satellites-link-communication-channel">Inter-Satellites Link Communication Channel</h1>
+<h1 id="channel-modeling-and-analysis-of-inter-small-satellite-links-in-terahertz-band-space-networks"><strong>Channel Modeling and Analysis of Inter-Small-Satellite Links in Terahertz Band Space Networks</strong></h1>
+<p>S. Nie and I. F. Akyildiz, &ldquo;Channel Modeling and Analysis of Inter-Small-Satellite Links in Terahertz Band Space Networks,&rdquo; in IEEE Transactions on Communications, vol. 69, no. 12, pp. 8585-8599, Dec. 2021, doi: 10.1109/TCOMM.2021.3113942.</p>
+<p><a href="https://ieeexplore.ieee.org/abstract/document/9541155">https://ieeexplore.ieee.org/abstract/document/9541155</a></p>
+<p>This paper mostly focus on when the size of the satellite is small enough.</p>
+<p>Our numerical results demonstrate that:</p>
+<ol>
+<li>
+<p>the ionospheric plasma does not affect the THz band signal propagation in near-Earth orbits; (ionospheric plasma will cause multipath.)</p>
+</li>
+<li>
+<p>the beam misalignment loss can be characterized by orbital perturbation factors; (This shows when satellite are moving. The angle of their antenna should also change through time. However, sometimes we can not make sure all the antennas are their suitable place. )</p>
+</li>
+<li>
+<p>the ISLs in THz band can utilize the diversity techniques to achieve high throughput in both near-Earth and deep-space links.</p>
+</li>
+</ol>
+<p><img src="/figures/24_11_13_1/Screenshot_20241111_191042.jpg" alt="This paper shows different sizes of Small Satellites. All such kind of satellites we can use inter-satellite link channel model provided by this paper. "></p>
+<p>This paper shows different sizes of Small Satellites. All such kind of satellites we can use inter-satellite link channel model provided by this paper.</p>
+<p><img src="/figures/24_11_13_1/Screenshot_20241111_191541.jpg" alt="This figure draw the scenarios of their paper. The most important thing they concerns is how to obtain channel model near the earth and in the deep space by using THz band. "></p>
+<p>This figure draw the scenarios of their paper. The most important thing they concerns is how to obtain channel model near the earth and in the deep space by using THz band.</p>
+<p>Actually, THz band signal between 30km-36000km will be highly influenced by ionospheric plasma. Below are some important factors about it.</p>
+<h2 id="near-earth-channel-model">Near Earth Channel Model:</h2>
+<p>In this part, authors describe how THz band fade in the near earth orbit.</p>
+<p><strong>Plasma Frequency:</strong> The plasma frequency is a measure of oscillation frequency of free electrons and ions due to the Coulomb force in the electric field and can be expressed as</p>
+<p>$$
+f_{pe}=\frac{e}{2\pi}\sqrt{\frac{n_e}{\epsilon_em_e}}
+$$</p>
+<p>$n_e$ denotes the electron density in the ionosphere.</p>
+<p>$e=1.6021 \times 10^{-19}$ is coulombs in the electron charge.</p>
+<p>$m_e=9.109 \times 10_{-31} kg$ is the mass of a single electron.</p>
+<p>$\epsilon_0=8.854 \times 10^{-12} F/m$ is the vacuum permittivity.</p>
+<p><strong>Collision Frequency:</strong> The interactions among charged electrons, ions, and neutral particles also generate collisions. A measure for the intensity of collisions is the collision frequency.</p>
+<p>$$
+f_{ce} = v_{ei}+v_{en}+v_{in}
+$$</p>
+<p>Each term can be expressed as,</p>
+<p>$$
+v_{ei} = [24+4.18log_{10}(\frac{T^3}{n_e})]n_eT^{-3/2}, \v_{en}=5.4\times10^{-10}n_nT^{1/2}, \ v_{in}=2.6\times 10^{-9}(n_e+n_n)W^{-1/2}
+$$</p>
+<p>$ν$ denotes the frequency, with subscripts $ei$, $en$, and $in$ representing the collisions of electrons with ions, electrons with neutral particles, and ions with neutral particles, respectively.</p>
+<p>$T$  denotes the temperature (with an average value of 1000 K in ionosphere).</p>
+<p>$W$ denotes the mass of ions and neutral particles (with an equal value assumed to be $1.67493 × 10−27 kg$).</p>
+<p>$n_n$ denotes the density of neutral particles with a peak value of approximately $3×10^5/cm^3$</p>
+<p><strong>Depolarization:</strong> The ionosphere also causes depolarization of EM waves, known as the Faraday rotation. Such depolarization angle over a displacement $s$ is expressed as,</p>
+<p>$$
+d\phi_{FR}/ds =2.36\times10^4\overline{B}_Gf_c^{-2}n_e
+$$</p>
+<p>$\overline{B}_G$ is the average Earth magnetic field intensity with a range of 25 to 65 μT.</p>
+<p>$f_c$ is the carrier frequency.</p>
+<p><strong>Attenuation Factor:</strong> The attenuation factor, which is the loss per unit distance along signal’s propagation path, is a function of both collision frequency $f_{ce}$ and plasma frequency $f_{pe}$, can be  expressed as:</p>
+<p>$$
+L_i=\frac{1}{2}k(\frac{f_{pe}}{f_{c}})^2\frac{f_{ce}}{f_{c}}(1+\frac{1}{2}(\frac{f_{pe}}{f_{c}})^2)
+$$</p>
+<p>$k$ is the wavenumber.</p>
+<p>The attenuation factor monotonously decreases with the increase of signal frequency, and lower RF bands are subject to higher attenuation, as compared to the THz band.</p>
+<p><img src="/figures/24_11_13_1/image.png" alt="image.png"></p>
+<h2 id="orbit-perturbation-modeling-and-beam-tracking-for-small-satellites">Orbit Perturbation Modeling and Beam Tracking for Small Satellites</h2>
+<p><strong>Gravitational Effect:</strong></p>
+<p>When a pair of identical small satellites (denoted as a leader and a follower for differentiation) locate in the same circular orbit with a relatively small distance (usually much smaller than the geocentric distance of the orbit), as shown in Fig. 6, their respective equations of motion per unit mass, or perturbative accelerations $\ddot{r}_{F/L}$, are</p>
+<p><img src="/figures/24_11_13_1/image%201.png" alt="image.png"></p>
+<p>$$
+\ddot{r}<em>{F}=-\mu\frac{r_F}{||r_F||^3}+f_F \ \ddot{r}</em>{L}=-\mu\frac{r_L}{||r_L||^3}+f_L
+$$</p>
+<p>$μ$ is the standard gravitational parameter</p>
+<p>$r_{F/L} = [x_{F/L}y_{F/L}z_{F/L}]^T$ denotes the position vector and $f_{F/L}$ denotes other perturbation forces on the follower or leader, respectively.</p>
+<p>The relative motion of the follower with respect to the leader under general perturbations can be expressed as,</p>
+<p>$$
+\ddot{p} = \ddot{r}<em>{F} - \ddot{r}</em>{L} \ \ddot{p} = -\mu\frac{r_L+p}{||r_L+p||^3}+\mu\frac{r_L}{||r_L||^3}+f_F-f_L
+$$</p>
+<p><img src="/figures/24_11_13_1/image%202.png" alt="image.png"></p>
+<p><strong>Upper function shows a closed-form solution for the relative position of the follower with respect to the leader as a function of time.</strong></p>
+<p>$\dot{x}$ and  $\dot{y}$ denote the velocities along local directions.</p>
+<p>$\omega=\sqrt{\mu/r^3}$ is the orbit velocity.</p>
+<p><strong>The J2 Effect:</strong></p>
+<p>The irregularities in the celestial body will impose a noticeable disturbance to satellites’ orbit.</p>
+<p>In particular, the total external forces exerted on satellites can be written as</p>
+<p>$$
+f_{(.)}=f_{J_2}+f_S+f_{AD}
+$$</p>
+<p>$f_{J_2}$ is from Earth’s oblateness.</p>
+<p>$f_S$ is induced by solar radiation pressure.</p>
+<p>f_{AD} is from atmospheric drag.</p>
+<p>Here, $f_{J_2}$ can be expressed as,</p>
+<p><img src="/figures/24_11_13_1/image%203.png" alt="image.png"></p>
+<p>$R_e$ = 6, 378 km is the equatorial radius.</p>
+<p>$J_2$ is the second zonal gravitational harmonic with a constant value of $1.083 × 10^{−3}$ at Earth’s equator.</p>
+<p><strong>Solar Radiation Pressure:</strong> The solar radiation pressure induced force is expressed as</p>
+<p><img src="/figures/24_11_13_1/image%204.png" alt="image.png"></p>
+<p>$P_{\odot}$ is the solar pressure on the unit surface of satellite facing the Sun with a magnitude of $4.5 × 10^{−6} N/m^2$, $c_{R}$ is the coefficient for solar radiation pressure in a range between 0 and 2, with a value of 1 commonly used in orbit calculation. $S_{\odot}$ denotes the area of satellite facing the Sun, and $e$  is the unit vector pointing towards the satellite from the Sun. The maximum magnitude of this force occurs when satellite and the Sun are aligned with Earth, where $n · e = ||n||||e||$ where $cos ς = 1.$</p>
+<p>The perturbation force per unit mass induced by solar radiation pressure can be thus approximated as</p>
+<p><img src="/figures/24_11_13_1/image%205.png" alt="image.png"></p>
+<h2 id="link-performance-in-thz-band-isls">Link Performance in THz Band ISLs</h2>
+<p>The actual gain of the main beam of a pair of satellites can be approximated by</p>
+<p><img src="/figures/24_11_13_1/image%206.png" alt="image.png"></p>
+<p>$G_0 = max_{\theta, \phi}G$, $\alpha =4ln(2)/\theta_{3dB}^2$  and $\beta =4ln(2)/\phi_{3dB}^2$  are coefficients related to the 3-dB beamwidths in elevation and azimuth planes, respectively.</p>
+<p><strong>Spectral Efficiency:</strong> In the studied point-to-point channel between a pair of small satellites, the achievable spectral efficiency is a function of the signal-to-noise ratio, expressed as</p>
+<p><img src="/figures/24_11_13_1/image%207.png" alt="image.png"></p>
+<p>$L_T$ is the path gain along signal propagation from the transmitter</p>
+<p>$L_P$ denotes the beam pointing coefficient ($L_P ≤ 1$)</p>
+<p>$T$  is the noise temperature.</p>
+<p><strong>Outage Probability With Beam Misalignment:</strong></p>
+<p><img src="/figures/24_11_13_1/image%208.png" alt="image.png"></p>
+<p><img src="/figures/24_11_13_1/image%209.png" alt="image.png"></p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_11_13_2/"
+      title="Learning Record --- 13.2 (2024/11/13)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
