@@ -6,8 +6,15 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 20 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 14 (2024/11/20)</title>
+      <link>https://ZongyuYe.github.io/blog/24_11_20/</link>
+      <pubDate>Wed, 20 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_11_20/</guid>
+      <description>ALANINE: A Novel Decentralized Personalized Federated Learning For Heterogeneous LEO Satellite Constellation (Arxiv 2024.11) Abstract Low Earth Orbit (LEO) satellite constellations have seen significant growth and functional enhancement in recent years, which integrates various capabilities like communication, navigation, and remote sensing. However, the heterogeneity of data collected by different satellites and the problems of efficient inter-satellite collaborative computation pose significant obstacles to realizing the potential of these constellations. Existing approaches struggle with data heterogeneity, varing image resolutions, and the need for efficient on-orbit model training.</description>
+    </item>
     <item>
       <title>Learning Record --- 13.1 (2024/11/13)</title>
       <link>https://ZongyuYe.github.io/blog/24_11_13_1/</link>

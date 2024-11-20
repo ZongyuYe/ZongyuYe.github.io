@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.630a9b2221f09b61177a69894600e1f7994802ec18d708696374c75292151771.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 14 (2024/11/20)</h1>
+  <p class="mb-1">November 20, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="alanine-a-novel-decentralized-personalized--federated-learning-for-heterogeneous-leo--satellite-constellation-arxiv-202411">ALANINE: A Novel Decentralized Personalized  Federated Learning For Heterogeneous LEO  Satellite Constellation (Arxiv 2024.11)</h1>
+<p><img src="/figures/24_11_20/image.png" alt="image.png"></p>
+<h2 id="abstract">Abstract</h2>
+<p>Low Earth Orbit (LEO) satellite constellations have seen significant growth and functional enhancement in recent years, which integrates various capabilities like communication, navigation, and remote sensing. However, the heterogeneity of data collected by different satellites and the problems of efficient inter-satellite collaborative computation pose significant obstacles to realizing the potential of these constellations. Existing approaches struggle with data heterogeneity, varing image resolutions, and the need for efficient on-orbit model training. To address these challenges, we propose a novel decentralized PFL framework, namely, A Novel DecentraLized PersonAlized Federated Learning for HeterogeNeous LEO SatellIte CoNstEllation (ALANINE). ALANINE incorporates decentralized FL (DFL) for satellite image Super Resolution (SR), which enhances input data quality. Then it utilizes PFL to implement a personalized approach that accounts for unique characteristics of satellite data. In addition, the framework employs advanced model pruning to optimize model complexity and transmission efficiency. The framework enables efficient data acquisition and processing while improving the accuracy of PFL image processing models. Simulation results demonstrate that ALANINE exhibits superior performance in on-orbit training of SR and PFL image processing models compared to traditional centralized approaches. This novel method shows significant improvements in data acquisition efficiency, process accuracy, and model adaptability to local satellite conditions.</p>
+<p>(Super Resolution task is often harder than image compression. Easily understanding, super resolution is to use a raw image with resolution of $64 \times 64$ to find a better version with more details which have a resolution $128 \times 128$. Image compression is to use $32 \times 32$ compressed data to represent a raw data with resolution $64 \times 64$. Another point is typically, super resolution sometimes we only have high quality image used for computing loss which are relatively similar. But compression we can find raw data which are completely similar, which is easier to train. )</p>
+<h2 id="system-model">System Model</h2>
+<h3 id="network-model">Network Model</h3>
+<p>A Walker Star satellite constellation, which consists of $N$ satellites, arranged in $G$ orbits with $S$  satellites per orbit.</p>
+<p>Within this constellation, satellites are organized into sets denoted as $N = {1, 2, . . . , N }$. Each orbital plane $g ∈ G$, part of $G = {1, 2, . . . , G}$,</p>
+<p>Each satellite is uniquely identified by an index $i$, represented as $s_i ∈ {s_1, s_2, . . . , s_N }$.</p>
+<p>In every orbital plane $g$, satellites follow identical trajectories and are uniquely identified  within their respective planes as $S^′_g = {s_g^1, s_g^2, . . . , s_g^S}$.</p>
+<h3 id="communication-model"><strong>Communication Model</strong></h3>
+<p>For satellites $s_i$ and $s_j$, the maximum inclination range $dθ(s_i, s_j)$, which can be represented as</p>
+<p><img src="/figures/24_11_20/image%201.png" alt="image.png"></p>
+<p>$h_{s_i}$ and $h_{s_j}$ represent the orbital heights of $s_i$ and $s_j$ respectively.</p>
+<p>$r_d$ is the Earth radius.</p>
+<p>$r_T$ is the effective communication range threshold.</p>
+<p><img src="/figures/24_11_20/image%202.png" alt="image.png"></p>
+<p>This ensures that the satellites are within the effective communication range.</p>
+<p>The data transmission rate $R_i$ for $s_i$, is calculated using Shannon formula.</p>
+<p><img src="/figures/24_11_20/image%203.png" alt="image.png"></p>
+<p>$B$ represents the bandwidth of the channel.</p>
+<p>$p^C_i$ denotes the transmission power of $s_i$,</p>
+<p>$N_p$ is the noise power spectral density.</p>
+<p>The channel gain associated with $s_i$ is designated as $g_i$.</p>
+<h3 id="computation-model">Computation Model</h3>
+<p><img src="/figures/24_11_20/image%204.png" alt="image.png"></p>
+<p>$ω$ is defined as the model parameter vector.</p>
+<p>The global loss function is represented by $F (ω)$.</p>
+<p>$f (X, ω)$ denotes the loss function for each individual sample $X$ in the dataset.</p>
+<h2 id="approach-design">Approach design</h2>
+<p><img src="/figures/24_11_20/image%205.png" alt="image.png"></p>
+<h3 id="dynamic-model-pruning-policy-for-personalized-federated-learning">Dynamic Model Pruning Policy for Personalized Federated Learning</h3>
+<p>we consider a heterogeneous LEO satellite constellation comprising $N$ satellites uniformly distributed across $G$ orbital planes, with $S$ satellites per plane.</p>
+<p>$S(N, J)$, $N$ denotes the total number of satellites and $J$ is the adjacency matrix.</p>
+<p><img src="/figures/24_11_20/image%206.png" alt="image.png"></p>
+<p>$F_n(ω ⊙ h_n) = E[f (X; ω ⊙ h_n)|X ∈ D_n)]$ represents the average loss of the pruned model on the local dataset $D_n$.</p>
+<p>$⊙$ symbolizes the Hadamard product.</p>
+<p>In each round $t$ of PFL, $s_n$ is required to collect the locally trained models from its neighboring satellites defined by $S^t_n$ and subsequently performs model aggregation.</p>
+<p>the Scale-Free Networks (SFN) distribution [1] for sparse construction.</p>
+<p>[1] A. D. Broido and A. Clauset, “Scale-free networks are rare,” Nature communications, vol. 10, no. 1, p. 1017, 2019.</p>
+<p>For determining the optimal pruning timing $t$ across the network of $N$ satellites, we establish a threshold $ε_c$ and a voting funciton $c_t(·)$. This approach can be formalized as:</p>
+<p><img src="/figures/24_11_20/image%207.png" alt="image.png"></p>
+<p>The initial pruning time can be expressed</p>
+<p><img src="/figures/24_11_20/image%208.png" alt="image.png"></p>
+<p>The voting ratio threshold is denoted by $ε_v$.</p>
+<p>In addition to the initial pruning time, we define a pruning frequency $p_f$. This parameter determines the intervals between subsequent pruning operations following the initial pruning, thus facilitating a more dynamic and adaptive pruning process across the satellite network. The pruning frequency pf can be expressed as:</p>
+<p><img src="/figures/24_11_20/image%209.png" alt="image.png"></p>
+<p>$α$ is an exponential parameter controlling the growth pattern of pruning intervals</p>
+<p>$β$ is used to optimize the initial pruning time delay.</p>
+<p>The function of the parameter as a modulator for the pruning frequency is served by $γ$.</p>
+<p>Additionally, $r$ represents the FL round.</p>
+<p>The set of pruning times $T$ can be represented as:</p>
+<p><img src="/figures/24_11_20/image%2010.png" alt="image.png"></p>
+<p><img src="/figures/24_11_20/image%2011.png" alt="image.png"></p>
+<p>Evaluation:</p>
+<p><img src="/figures/24_11_20/image%2012.png" alt="image.png"></p>
+<p>the EuroSAT dataset, a comprehensive collection of satellite imagery specifically designed for land use and land cover classification tasks. This dataset encompasses 10 distinct classes, with a total of 27, 000 RGB images, each with spatial dimensions of $64×64$ pixels.</p>
+<p><img src="/figures/24_11_20/image%2013.png" alt="image.png"></p>
+<p><img src="/figures/24_11_20/image%2014.png" alt="image.png"></p>
+<h1 id="image-compression">Image compression</h1>
+<h2 id="tackling-the-satellite-downlink-bottleneck-with-federated-onboard-learning-of--image-compression">Tackling the Satellite Downlink Bottleneck with Federated Onboard Learning of  Image Compression</h2>
+<p><a href="https://ieeexplore.ieee.org/document/10678480/citations?tabFilter=papers#citations">Tackling the Satellite Downlink Bottleneck with Federated Onboard Learning of Image Compression | IEEE Conference Publication | IEEE Xplore</a>.</p>
+<p>P. Gómez and G. Meoni, &ldquo;Tackling the Satellite Downlink Bottleneck with Federated Onboard Learning of Image Compression,&rdquo; <em>2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)</em>, Seattle, WA, USA, 2024, pp. 6809-6818, doi: 10.1109/CVPRW63382.2024.00674.</p>
+<p><img src="/figures/24_11_20/image%2015.png" alt="image.png"></p>
+<p><img src="/figures/24_11_20/image%2016.png" alt="image.png"></p>
+<p>Dataset: A total of 860 images with resolutions ranging from 384px × 1296px up to 2304px × 2592px were used. multispectral data with 13 channel.</p>
+<p>The proposed models are smaller (11.8 MB) than even a single image (49.12 MB).</p>
+<h2 id="an-end-to-end-learning-framework--for-video-compression">An End-to-End Learning Framework  for Video Compression</h2>
+<p>G. Lu, X. Zhang, W. Ouyang, L. Chen, Z. Gao and D. Xu, &ldquo;An End-to-End Learning Framework for Video Compression,&rdquo; in <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>, vol. 43, no. 10, pp. 3292-3308, 1 Oct. 2021, doi: 10.1109/TPAMI.2020.2988453.</p>
+<p><img src="/figures/24_11_20/image%2017.png" alt="image.png"></p>
+<p><img src="/figures/24_11_20/image%2018.png" alt="image.png"></p>
+<p><img src="/figures/24_11_20/image%2019.png" alt="image.png"></p>
+<h2 id="fool-addressing-the-downlink-bottleneck-in-satellite-computing-with-neural-feature-compression">FOOL: Addressing the Downlink Bottleneck in Satellite Computing with Neural Feature Compression</h2>
+<p><a href="http://arxiv.org/abs/2403.16677">http://arxiv.org/abs/2403.16677</a></p>
+<p><img src="/figures/24_11_20/image%2020.png" alt="image.png"></p>
+<h1 id="typical-parameters-for-satellite-communication">Typical parameters for satellite communication</h1>
+<h2 id="altitude">Altitude:</h2>
+<p><strong>LEOs:</strong> <strong>500 km</strong> for many Earth observation satellites and <strong>1,200 km</strong> for some communication satellites.</p>
+<ol>
+<li><strong>SkySat Constellation:</strong> Operated by Planet Labs, SkySat is a constellation of high-resolution Earth imaging satellites. Initially launched at around 500 km, some of these satellites have been lowered to 450 km.</li>
+<li><strong>GRACE-FO:</strong> The Gravity Recovery and Climate Experiment Follow-On (GRACE-FO) mission orbits at about 500 km. It continues the work of its predecessor, GRACE, in mapping Earth&rsquo;s gravity field.</li>
+<li><strong>OneWeb</strong>: OneWeb&rsquo;s satellite constellation aims to provide global internet coverage and operates at altitudes ranging from 1,200 km to 1,500 km.</li>
+<li><strong>Iridium NEXT</strong>: This is a constellation of 66 active satellites providing global voice and data coverage. They operate at an altitude of approximately 780 km, but the original Iridium constellation was designed for around 1,200 km.</li>
+</ol>
+<p><strong>GEO (Geostationary Earth Orbit)</strong>: Fixed at <strong>35,786 km</strong> above the equator.</p>
+<h2 id="distance">Distance:</h2>
+<p>J. Liang, A. U. Chaudhry and H. Yanikomeroglu, &ldquo;Phasing Parameter Analysis for Satellite Collision Avoidance in Starlink and Kuiper Constellations,&rdquo; <em>2021 IEEE 4th 5G World Forum (5GWF)</em>, Montreal, QC, Canada, 2021, pp. 493-498, doi: 10.1109/5GWF52925.2021.00093.</p>
+<p>The latest version of Starlink’s Phase 1 constellation contains 1,584 satellites and has 22 orbital planes spaced 16.4° apart with 72 satellites in each plane. Its altitude is 550 km and its inclination is 53°. (<strong>603.8 km</strong>)</p>
+<p>Maximum Distance (near equator): 1976.8 km.</p>
+<p>Minimum Distance (near poles): 342.9 km.</p>
+<p><img src="/figures/24_11_20/image%2021.png" alt="image.png"></p>
+<p><img src="/figures/24_11_20/image%2022.png" alt="image.png"></p>
+<p>Kuiper Shell 2 constellation. This constellation contains 1,296 satellites in total with 36 satellites distributed uniformly on each of the 36 orbital planes. The altitude of this constellation is 610 km and the inclination is 42°. (<strong>1,218.4km</strong>)</p>
+<p>At the equator: 1,200 km.</p>
+<p>At high latitudes 200 km.</p>
+<p><img src="/figures/24_11_20/image%2023.png" alt="image.png"></p>
+<p><img src="/figures/24_11_20/image%2024.png" alt="image.png"></p>
+<p><a href="https://www.starlink.com/legal/documents/DOC-1400-28829-70">Starlink Specifications - Starlink</a></p>
+<p><img src="/figures/24_11_20/image%2025.png" alt="image.png"></p>
+<p><img src="/figures/24_11_20/image%2026.png" alt="image.png"></p>
+<p><img src="/figures/24_11_20/image%2027.png" alt="image.png"></p>
+<p><img src="/figures/24_11_20/image%2028.png" alt="image.png"></p>
+<h3 id="maximum-link-capacity-250-mhz-bandwidth-500-km-altitude-600-km-inter-satellite-distance-easy-calculation-with-experimental-result">Maximum Link Capacity (250 MHz Bandwidth, 500 km Altitude, 600 km Inter-Satellite Distance, easy calculation with experimental result):</h3>
+<p>Pending</p>
+<h1 id="geometry-based-non-stationary--inter-large-satellite-wireless--channel-model">Geometry-Based Non-Stationary  Inter-Large-Satellite Wireless  Channel Model</h1>
+<p>X. Chen <em>et al</em>., &ldquo;Geometry-Based Non-Stationary Inter-Large-Satellite Wireless Channel Model,&rdquo; in <em>IEEE Transactions on Wireless Communications</em>, vol. 23, no. 9, pp. 10592-10607, Sept. 2024, doi: 10.1109/TWC.2024.3373604.</p>
+<p>The 3D non-stationary channel impulse response (CIR) is given by</p>
+<p><img src="/figures/24_11_20/image%2029.png" alt="image.png"></p>
+<p>$η_1 ∈ {0, 1}$ is related to the inter-visibility.</p>
+<p>$η_2$ and $η_3$ denote power-related coefficients of solar-panel-bounce (SPB) and body-bounce (BB) components. $η_2 + η_3 = 1$.</p>
+<p>$K_R(t)$ is the Rician factor.</p>
+<p>$R(t),$ $L_m(t)$ is the number of rays in the BB clusters or the $mth$ SPB cluster. (One body cluster and several solar panel clusters build the multi-path system. )</p>
+<p>The delay $\tau_{pq}^{LoS}(t)$ of LoS path between the $pth$ Tx and the  $qth$ Rx can be expressed as $\tau_{pq}^{LoS}(t) = ||D_{pq}^{LoS}(t)||/c$. $c$ is the speed of light, $||.||$ calculates the Frobenius norm.</p>
+<p><img src="/figures/24_11_20/image%2030.png" alt="image.png"></p>
+<p>$\tau_{pq,ml_m}^{SPB}(t)$ is the delay $l_m-th$ ray in the $m-th$ SPB cluster</p>
+<p><img src="/figures/24_11_20/image%2031.png" alt="image.png"></p>
+<p><img src="/figures/24_11_20/image%2032.png" alt="image.png"></p>
+<p>$\tau_{pq,r}^{BB}(t)$ is the delay between the $p-th$ Tx and the $q-th$ Rx via the $r-th$ ray in the BB cluster.</p>
+<p><img src="/figures/24_11_20/image%2033.png" alt="image.png"></p>
+<p><img src="/figures/24_11_20/image%2034.png" alt="image.png"></p>
+<p>$H_r$ is the height between the Rx antenna array and the $r-th$ scatterer.</p>
+<p>We assume that $H_r ∼ U [H_{min}, H_{max}].$</p>
+<p><img src="/figures/24_11_20/image%2035.png" alt="image.png"></p>
+<p><img src="/figures/24_11_20/image%2036.png" alt="image.png"></p>
+<p><img src="/figures/24_11_20/image%2037.png" alt="image.png"></p>
+<p>$G(t)$ is The antenna gain matrix.</p>
+<p>$Ψ_O^P$ is the corresponding initial phase matrix.</p>
+<p>$f_{pT,qR}^{LoS}(t)$ is the LoS Doppler frequency.</p>
+<p>$M^{AB} _{T (R)}(t)$ is the antenna rotation matrix.</p>
+<p>$M^{SB} _{T (R)}(t)$ is spacecraft body rotation matrix.</p>
+<p>$P^p _T, P^q _R$ are position vectors of the p-th Tx/q-th Rx.</p>
+<p><img src="/figures/24_11_20/image%2038.png" alt="image.png"></p>
+<p>$P_{pq,ml_m}^{SPB}(t)$ is the power of SPB clusters.</p>
+<p><img src="/figures/24_11_20/image%2039.png" alt="image.png"></p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_11_13_1/"
+      title="Learning Record --- 13.1 (2024/11/13)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
