@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.1efdce153f8d13f66b5c665f81b1c7fb22d66d406541cfdb6c5c782bce0a990c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 15 (2024/11/27)</h1>
+  <p class="mb-1">November 27, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="3gpp-release-18-ntn-summary">“3GPP” Release 18 NTN Summary</h1>
+<h2 id="policy-and-charging-control-pcc-and-quality-of-service-qos-control-considering-dynamic-satellite-backhaul">Policy and Charging Control (PCC) and Quality of Service (QoS) control considering dynamic satellite backhaul</h2>
+<p>While using satellites as the backhaul, a gNB may be subject to variable backhaul delay or bandwidth if the backhaul connection involves varying inter-satellite links or if it has different types of satellite backhaul. The change of satellite backhaul delay has impact to PCC/QoS control, hence following enhancements are introduced:</p>
+<ol>
+<li>New dynamic satellite backhaul categories, i.e. DYNAMIC_GEO, DYNAMIC_MEO, DYNAMIC_LEO and DYNAMIC_OTHERSAT, are defined. If AMF is aware that satellite backhaul category changes (e.g. at handover), the AMF reports the current satellite backhaul category and indicates the satellite backhaul category change to SMF.</li>
+<li>Based on the dynamic satellite backhaul category indication, the SMF or PCF can determine to enforce QoS monitoring to measure the packet delay between UE and PSA UPF.</li>
+</ol>
+<h2 id="enhancements-for-satellite-edge-computing"><strong>Enhancements for satellite edge computing</strong></h2>
+<p>A UE can establish a PDU session with PSA UPF onboard GEO satellite, or a PDU session with an UL CL/BP and local PSA UPF onboard GEO satellite, to access satellite edge computing service. The SMF selects UPF on board GEO satellite as the PSA UPF or UL CL/BP and local PSA based on the DNAI corresponding to the GEO Satellite ID reported by the AMF and other factors. The AMF determines the GEO satellite ID based on network configuration if it detects that the satellite backhaul category is GEO or DYNAMIC_GEO.</p>
+<p>To assist a UE establishing a PDU session with PSA UPF onboard GEO satellite to access satellite edge computing services, the PCF may take GEO satellite backhaul category reported into account to generate or update the URSP rule to include an appropriate Route Selection Descriptor for services deployed on GEO satellite, where the AMF is enhanced to send the satellite backhaul category to the PCF. The UE determines appropriate S-NSSAI and/or DNN based on the received URSP rule, and includes them in the PDU session establishment request. The SMF then determines DNAI to select the PSA UPF onboard GEO satellite based on local configuration, the received S-NSSAI and/or DNN, and GEO Satellite ID.</p>
+<p>In order to insert an UL CL/BP and local PSA UPF onboard GEO satellite into a PDU session to let the UE access satellite edge computing services, the SMF needs also to determine DNAI based on local configuration, S-NSSAI and/or DNN, and GEO Satellite ID, then select UPF on board GEO satellite as the UL CL/BP and local PSA based on the DNAI.</p>
+<h2 id="two-important-aspects">Two important aspects</h2>
+<p><strong>Mobility Management enhancement with discontinuous satellite coverage</strong>: identify and solve the gaps in Rel-17 solution designed in EPS (e.g. concerning minimizing a period of no coverage and/or minimizing power consumption), considering at least to study how to reduce the impact to target RAT or system due to large number of UEs triggering signalling load on the target RAT or system to receive normal service.</p>
+<p><strong>Power saving enhancement for UE in discontinuous coverage</strong>: based on the coverage information of the UE, whether and how to enhance the power saving mechanisms, e.g. PSM, MICO mode and eDRX in CM-IDLE state, in order to make sure that the UE does not attempt PLMN access when there is no network coverage; and, when there is network coverage the UE attempts PLMN access as needed e.g. to transfer signalling, transfer data or receive paging, etc.</p>
+<h2 id="frequency-band">Frequency band</h2>
+<p>In Release-18, the following NTN operating bands in above 10 GHz for satellite networks (FR2-NTN) have been introduced:</p>
+<p><img src="/figures/24_11_27/image.png" alt="image.png"></p>
+<p><img src="/figures/24_11_27/image%201.png" alt="image.png"></p>
+<p>Moreover, the following VSAT classes and types have been introduced</p>
+<p><img src="/figures/24_11_27/image%202.png" alt="image.png"></p>
+<h2 id="5g-system-with-satellite-access-to-support-control-andor-video-surveillance">5G system with satellite access to Support Control and/or Video Surveillance</h2>
+<p>This feature updates KPI table to 5G system with satellite access in TS 22.261 clause 7.4.2, specifying requirements for 5G system with satellite access to support equipment control and/or video surveillance.
+To support video surveillance and control of video surveillance for 5G system with satellite access, performance requirements for 5G system with satellite access are added for the scenario.</p>
+<h1 id="cosmic-compress-satellite-images-efficiently-via-diffusion-compensation"><strong>COSMIC: Compress Satellite Images Efficiently via Diffusion Compensation</strong></h1>
+<p><img src="/figures/24_11_27/image%203.png" alt="image.png"></p>
+<h2 id="abstract">Abstract</h2>
+<p>With the rapidly increasing number of satellites in space and their enhanced capabilities, the amount of earth observation images collected by satellites is exceeding the transmission limits of satellite-to-ground links. Although existing learned image compression solutions achieve remarkable performance by using a sophisticated encoder to extract fruitful features as compression and using a decoder to reconstruct, it is still hard to directly deploy those complex encoders on current satellites’ embedded GPUs with limited computing capability and power supply to compress images in orbit. In this paper, we propose COSMIC, a simple yet effective learned compression solution to transmit satellite images. We first design a lightweight encoder (i.e. reducing FLOPs by 2.6 ∼ 5×) on satellite to achieve a high image compression ratio to save satellite-to-ground links. Then, for reconstructions on the ground, to deal with the feature extraction ability degradation due to simplifying encoders, we propose a diffusion-based model to compensate image details when decoding. Our insight is that satellite’s earth observation photos are not just images but indeed multi-modal data with a nature of Text-to-Image pairing since they are collected with rich sensor data (e.g. coordinates, timestamp, etc.) that can be used as the condition for diffusion generation. Extensive experiments show that COSMIC outperforms state-of-the-art baselines on both perceptual and distortion metrics. The code is publicly available at <a href="https://github.com/Joanna-0421/COSMIC">https://github.com/Joanna-0421/COSMIC</a>.</p>
+<h2 id="system-model">System Model</h2>
+<p><img src="/figures/24_11_27/image%204.png" alt="image.png"></p>
+<p>As illustrated in upper Figure, COSMIC consists of two components: a compression module and a compensation module. To adapt to the satellite scenarios, the compression module includes a lightweight image compression encoder $\mathcal{E}$ and an entropy model deployed on the satellite, as well as an image compression decoder $\mathcal{D}$ deployed at the ground station. To fix the content detail loss caused by the lightweight encoder, a compensation module is proposed, which is entirely deployed at the ground station. It has an encoder $\tilde{\mathcal{E}}$, aiming to extract compensation information $z_0$ from original images, which is received by decoder $\mathcal{D}$ as compensation for latent representation $y′$ extracted by $\mathcal{E}$ during training. During the inference phase, the noise prediction network generates compensation information $z_0′$ from noise to simulate $z_0$ as a compensation.</p>
+<h2 id="experiments">Experiments</h2>
+<h3 id="dataset">Dataset</h3>
+<p>The function Map of the World (fMoW) [13], which has 62 categories, and in which each image is paired with different types of metadata features, as our training data and test data. For training data, we randomly crop the image to a resolution of 256 × 256 pixels. For information collected by satellite sensors as metadata, we choose Coordinates, Timestamp, GSD, Cloud cover, Off-nadir Angle, Target Azimuth, Sun Azimuth, and Sun Elevation provided by fMoW.</p>
+<h3 id="metrics">Metrics</h3>
+<ol>
+<li>Peak Signal-to-Noise Ratio (PSNR)</li>
+<li>Multi-Scale Structural Similarity Index Measure (MS-SSIM)</li>
+<li>Learned Perceptual Image Patch Similarity (LPIPS)</li>
+<li>Fréchet Inception Distance (FID)</li>
+</ol>
+<p>Model training details. The training has two stages. First, we train the image compression encoder $\mathcal{E}$, image encoder $\tilde{\mathcal{E}}$ and image decoder $D$ together using $L_{IC}$ for 100 epochs with a batchsize of $32$. Second, we freeze the parameters of the model trained in the first stage, use the pretrained stable diffusion model for the noise prediction network, and finetune it using $L_{ldm}$ for $10$  epochs with a batchsize of $4$. All the training experiments are performed on 10× NVIDIA GeForce RTX 3090 using Adam optimizer with $lr = 1 × 10^{−4}$ and $λ ∈ {0.00067, 0.0013, 0.0026, 0.005}$. During inference, we utilize the DDIM sampling with 25 steps.</p>
+<h3 id="results">Results</h3>
+<p><img src="/figures/24_11_27/image%205.png" alt="image.png"></p>
+<p><img src="/figures/24_11_27/image%206.png" alt="image.png"></p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_11_20/"
+      title="Learning Record --- 14 (2024/11/20)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>

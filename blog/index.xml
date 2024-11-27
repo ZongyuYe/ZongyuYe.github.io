@@ -6,8 +6,15 @@
     <description>Recent content in aafu theme on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 27 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 15 (2024/11/27)</title>
+      <link>https://ZongyuYe.github.io/blog/24_11_27/</link>
+      <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_11_27/</guid>
+      <description>“3GPP” Release 18 NTN Summary Policy and Charging Control (PCC) and Quality of Service (QoS) control considering dynamic satellite backhaul While using satellites as the backhaul, a gNB may be subject to variable backhaul delay or bandwidth if the backhaul connection involves varying inter-satellite links or if it has different types of satellite backhaul. The change of satellite backhaul delay has impact to PCC/QoS control, hence following enhancements are introduced:</description>
+    </item>
     <item>
       <title>Learning Record --- 14 (2024/11/20)</title>
       <link>https://ZongyuYe.github.io/blog/24_11_20/</link>
