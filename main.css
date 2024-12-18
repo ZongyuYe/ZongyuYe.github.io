@@ -1115,6 +1115,9 @@ blockquote {
 .fixed {
   position: fixed !important;
 }
+.absolute {
+  position: absolute !important;
+}
 .relative {
   position: relative !important;
 }

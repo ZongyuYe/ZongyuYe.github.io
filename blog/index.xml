@@ -6,8 +6,15 @@
     <description>Recent content in aafu theme on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 17 (2024/12/18)</title>
+      <link>https://ZongyuYe.github.io/blog/24_12_18/</link>
+      <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_12_18/</guid>
+      <description>Summary &amp;mdash; {12.18} FedFusion: Manifold-Driven Federated Learning for Multi-Satellite and Multi-Modality Fusion D. Li, W. Xie, Y. Li and L. Fang, &amp;ldquo;FedFusion: Manifold-Driven Federated Learning for Multi-Satellite and Multi-Modality Fusion,&amp;rdquo; in IEEE Transactions on Geoscience and Remote Sensing, vol. 62, pp. 1-13, 2024, Art no. 5500813, doi: 10.1109/TGRS.2023.3339522.&#xA;Problems and Motivations Multi-Satellite, multi-modality in-orbit fusion is a challenging task as it explores the fusion representation of complex high-dimensional data under limited computational resources.</description>
+    </item>
     <item>
       <title>Learning Record --- 15 (2024/11/27)</title>
       <link>https://ZongyuYe.github.io/blog/24_11_27/</link>

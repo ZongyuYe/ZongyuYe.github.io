@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.94e34217b49dc1e731fe3acb6c19e698ee07651761f1431ba3772128bcd8845c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 17 (2024/12/18)</h1>
+  <p class="mb-1">December 18, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="summary-----1218">Summary &mdash; {12.18}</h1>
+<h1 id="fedfusion-manifold-driven-federated-learning-for--multi-satellite-and-multi-modality-fusion">FedFusion: Manifold-Driven Federated Learning for  Multi-Satellite and Multi-Modality Fusion</h1>
+<p><a href="https://ieeexplore.ieee.org/document/10342879/?arnumber=10342879">D. Li, W. Xie, Y. Li and L. Fang, &ldquo;FedFusion: Manifold-Driven Federated Learning for Multi-Satellite and Multi-Modality Fusion,&rdquo; in <em>IEEE Transactions on Geoscience and Remote Sensing</em>, vol. 62, pp. 1-13, 2024, Art no. 5500813, doi: 10.1109/TGRS.2023.3339522.</a></p>
+<h2 id="problems-and-motivations">Problems and Motivations</h2>
+<p><strong>Multi-Satellite, multi-modality in-orbit fusion</strong> is a challenging task as it explores the fusion representation of complex high-dimensional data under limited computational resources. Deep neural networks can reveal the underlying distribution of multimodal remote sensing data, but the in-orbit fusion of multimodal data is more difficult because of the limitations of different sensor imaging characteristics, especially when the multimodal data follow nonindependent identically distribution (Non-IID) distributions.</p>
+<p>To address this problem while maintaining <strong>classification performance</strong>, this article proposes a manifold-driven multi-modality fusion framework. [Using multi-modality model to solve classification problems]</p>
+<p>FedFusion, which randomly samples local data on each client to jointly estimate the prominent manifold structure of shallow features of each client and explicitly compresses the feature matrices into a low-rank subspace through cascading and additive approaches, which is used as the feature input of the subsequent classifier. [The original data is sampled and compressed for efficient classification]</p>
+<p>Considering the physical space limitations of the satellite constellation, we developed a multimodal federated learning (FL) module designed specifically for manifold data in a deep latent space. This module achieves iterative updating of the subnetwork parameters of each client through global weighted averaging, constructing a framework that can represent compact representations of each client. [A FL framework]</p>
+<p>The proposed framework surpasses existing methods in terms of performance on three multimodal datasets, achieving a classification average accuracy of 94.35% while compressing communication costs by a factor of 4. Furthermore, extensive numerical evaluations of real-world satellite images were conducted on the orbiting edge computing architecture based on Jetson TX2 industrial modules, which demonstrated that FedFusion significantly reduced training time by 48.4 min (15.18%) while optimizing accuracy.</p>
+<h2 id="some-information-from-intro">Some Information from Intro</h2>
+<p>For spaceborne data, only level-1 or higher products are provided for public access, and level-0 data are protected as privacy by relevant laws, and many jurisdictions have implemented data protection regulations (e.g., GDPR) that strictly limit the sharing of privacy-sensitive data among different clients and platforms.</p>
+<p><img src="/figures/24_12_18/image.png" alt="image.png"></p>
+<h2 id="method">Method</h2>
+<h3 id="pipeline">Pipeline</h3>
+<p>This paper consider two kinds of data (different modalities) $I_1, I_2 \in \mathbb{R}^{h \times w \times c}$. The $h, w, c$ denote the height, width, and the number of image channels, respectively. $I_1( p)$ is represented as the $p$th pixel pair of the first modality.</p>
+<p>The two modalities capture the same scene with the same label information, denoted as $L\in \mathbb{R}^{h \times w \times c}$ with $C \in N^*$ classification categories. The goal of image classification is to learn a model $\theta(I_1,I_2)$ and map the input images of different modalities into a new mapping $C_{max}(I_1, I_2)$ to represent the probability of each pixel corresponding to different categories. and set the maximum probability of different categories as the threshold $τ$ to get a binary prediction graph of hard classification, where values 1 and 0, respectively, represent the category and other categories, which is defined as,</p>
+<p>$$
+\theta(I_1,I_2)=\left{
+\begin{aligned}
+&amp;0,\ \ if\ C_{max}(I_1,I_2)&lt;\tau \
+&amp;1,\ \ otherwise
+\end{aligned}
+\right.
+$$</p>
+<p><img src="/figures/24_12_18/image%201.png" alt="image.png"></p>
+<p>Figure 2 is their proposed method’s architecture. The designed feature fusion framework allows data fusion of multiple parties to train deep learning models without any participant revealing their raw data to the server. The dynamic feature approximation approach compresses local features so that each client’s communication reduces by up to about $4.00×$ per round.</p>
+<p>The fusion future map $C_{max}(I_1, I_2)$ in our work can be expressed as,</p>
+<p>$$
+C_{max}(I_1,I_2)=\Theta(I_1,I_2|\alpha_1,\alpha_2)
+$$</p>
+<p>A nonlinear objective model $\Theta(·)$ is used to transform the image space into the classification space, and $α_1, α_2$ represent the corresponding parameters of two branches.</p>
+<h3 id="manifold-driven-multi-modality-fusion-framework">Manifold-Driven Multi-Modality Fusion Framework</h3>
+<p>This paper’s FedFusion framework is inspired by multi-modality cross fusion. The two branches improve model performance by sharing the output of the features from the convolutional layers, which fits right in with the privacy protection of federal learning, especially for better information fusion of heterogeneous data from different sensors.</p>
+<p>First, two sets of heterogeneous data $I_1$ and $I_2$ are put into two branches of the convolution operation to obtain the to-belearned weights $w^l$ and $b^l$. Based on the above definitions, $X^l$ is the output feature map of the lth convolutional layer, which is defined as,</p>
+<p>$$
+X_{I_s}^l(p)=w_{I_s}^l\cdot X^{l-1}(p)+b_{I_s}^l
+$$</p>
+<p>$s = 1, 2$ denotes different modalities.</p>
+<p>To accelerate the convergence of the network layer and control the gradient explosion to prevent gradient disappearance, the output results are batch normalized. It can be formulated as</p>
+<p>$$
+\tilde{X}=BN(X_{I_s}^l(p))
+$$</p>
+<p>Before importing $\tilde{X}$ into the next block, we have the following output after the nonlinear activation function, which is performed by ReLU.</p>
+<p>$$
+X_{I_s}^l(p)=ReLU(\tilde{X})
+$$</p>
+<p>At each client, the output $X_{I_s}^l(p)$ is obtained through the convolution layer. In this work, we use upsampling to enhance the spatial dimension of single-modal data. Specifically, we feed the output $X_{I_s}^l(p)$ as input into two identical upsampled module to get $Y^{f_1}$ and $Y^{f_2}$, and then the two outputs are merged in spatial dimensions to be consistent with the dimensions of subsequent multimodal data merges.</p>
+<p>channel upsampling can be represented as,</p>
+<p>$$
+Y_{I_s}^{f_n}(p)=UpSample(X_{I_s}^l(p)),\ \ n=1,2
+$$</p>
+<p>$UpSample(·)$ is made up of two sets of $Conv1×1(·)$, $BN(·)$,  $Relu(·)$, and the maximum pooled layer. The upper  input needs to enter these two sets to get $Y_{I_s}^{f_1}(p)$ and $Y_{I_s}^{f_2}(p)$, respectively.</p>
+<p>The fusion layer learns the characteristics of different modality by interactively updating the parameters of other subnetworks, and the fusion output obtained can be expressed as</p>
+<p><img src="/figures/24_12_18/image%202.png" alt="image.png"></p>
+<p>As the multi-modality sample input from the next layer, the component of $J_1$, $J_2$, and $J_{fusion}$  shares the same training weight, and the obtained cross weight has a higher information density than the original weight.</p>
+<h3 id="multimodal-fl-module">Multimodal FL Module</h3>
+<p>The most important part model update</p>
+<p>(1) local fusion update of data</p>
+<p>(2) update of the global model in each client</p>
+<p><img src="/figures/24_12_18/image%203.png" alt="image.png"></p>
+<p><img src="/figures/24_12_18/image%204.png" alt="image.png"></p>
+<h3 id="svd-via-fedfusion">SVD via FedFusion</h3>
+<p>The data sometimes too large to deal with, so, here they provide a method to only focus on part of the remote sensing data.</p>
+<p>This method gives special attention to the sparse attributes of remote sensing data, where the model parameters generated based on sparse representation exhibit low-rank properties.</p>
+<p>Consider we have feature map $Y_I^f(p)\in \mathbb{R}^{P\times Q}$.</p>
+<p>We can have,</p>
+<p>$$
+Y^f_I(p)\approx U_i\Sigma_iV_i
+$$</p>
+<p>Here, they only use $\Sigma$ as their trained data.</p>
+<h3 id="loss-function">Loss Function</h3>
+<p><img src="/figures/24_12_18/image%205.png" alt="image.png"></p>
+<p>$O_t$ refers to the actual value of the sample.</p>
+<p>$n$ represents the number of observed values in the dataset.</p>
+<p>$||w||_2$ denotes the sum of the L2 norm, which is used for computing the weights of all the network layers.</p>
+<p><img src="/figures/24_12_18/image%206.png" alt="image.png"></p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_11_27/"
+      title="Learning Record --- 15 (2024/11/27)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
