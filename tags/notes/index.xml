@@ -6,8 +6,22 @@
     <description>Recent content in Notes on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 18.1 (2024/12/25)</title>
+      <link>https://ZongyuYe.github.io/blog/24_12_25_1/</link>
+      <pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_12_25_1/</guid>
+      <description>Cyclic Client Federated Learning [1] [1] Cho Y J, Sharma P, Joshi G, et al. On the convergence of federated averaging with cyclic client participation[C]//International Conference on Machine Learning. PMLR, 2023: 5677-5721.&#xA;Abstract Federated Averaging (FedAvg) and its variants are the most popular optimization algorithms in federated learning (FL). Previous convergence analyses of FedAvg either assume full client participation or partial client participation where the clients can be uniformly sampled.</description>
+    </item>
+    <item>
+      <title>Learning Record --- 18.2 (2024/12/25)</title>
+      <link>https://ZongyuYe.github.io/blog/24_12_25_2/</link>
+      <pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/24_12_25_2/</guid>
+      <description>AFL (Broadcast to All Clients) [1] Koloskova A, Stich S U, Jaggi M. Sharper convergence guarantees for asynchronous SGD for distributed and federated learning[J]. Advances in Neural Information Processing Systems, 2022, 35: 17202-17215.&#xA;Abstract We study the asynchronous stochastic gradient descent algorithm for distributed training over $n$ workers which have varying computation and communication frequency over time. In this algorithm, workers compute stochastic gradients in parallel at their own pace and return those to the server without any synchronization.</description>
+    </item>
     <item>
       <title>Learning Record --- 17 (2024/12/18)</title>
       <link>https://ZongyuYe.github.io/blog/24_12_18/</link>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.94e34217b49dc1e731fe3acb6c19e698ee07651761f1431ba3772128bcd8845c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 18.1 (2024/12/25)</h1>
+  <p class="mb-1">December 25, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="cyclic-client-federated-learning-1">Cyclic Client Federated Learning [1]</h1>
+<p>[1] Cho Y J, Sharma P, Joshi G, et al. On the convergence of federated averaging with cyclic client participation[C]//International Conference on Machine Learning. PMLR, 2023: 5677-5721.</p>
+<h1 id="abstract">Abstract</h1>
+<p>Federated Averaging (FedAvg) and its variants are the most popular optimization algorithms in federated learning (FL). Previous convergence analyses of FedAvg either assume full client participation or partial client participation where the clients can be uniformly sampled.</p>
+<p>However, in practical cross-device FL systems, only a subset of clients that satisfy local criteria such as battery status, network connectivity, and maximum participation frequency requirements (to ensure privacy) are available for training at a given time. <strong>As a result, client availability follows a natural cyclic pattern.</strong></p>
+<p>We provide (to our knowledge) the first theoretical framework to analyze the convergence of FedAvg with cyclic client participation with several different client optimizers such as GD, SGD, and shuffled SGD. Our analysis discovers that cyclic client participation can achieve a faster asymptotic convergence rate than vanilla FedAvg with uniform client participation under suitable conditions, providing valuable insights into the design of client sampling protocols.</p>
+<h1 id="introduction">Introduction</h1>
+<p>In this work, we provide the first (to the best of our knowledge) convergence analysis of federated averaging with cyclic client participation. We consider that clients are implicitly divided into groups, and the groups become available to the server in a cyclic order. We show that for a global PL objective, instead of the standard $\mathcal{O}(1/T)$ rate of error convergence achieved by FedAvg, where $T$ is the number of communication rounds, cyclic client participation can achieve a faster $\tilde{O}(1/T^2)$ convergence under suitable conditions, where  $\tilde{O}(·)$ subsumes all log-terms and constants. This key insight is similar to that obtained by a recent work [2] on the convergence of mini-batch and local-update shuffle SGD, which shows the fast convergence of local data shuffling at clients under the full (rather than cyclic and partial) client participation setting.</p>
+<p>[2] Yun, C., Rajput, S., and Sra, S. Minibatch vs local sgd with shuffling: Tight convergence bounds and beyond. International Conference on Learning Representations (ICLR), 2022.</p>
+<p>Our analysis framework covers several cases of cyclic participation and different client optimizers:</p>
+<ol>
+<li>
+<p>it includes the subsampling of a subset of clients from each group that becomes cyclically available.</p>
+</li>
+<li>
+<p>it captures how the number of groups within a cycle or the data heterogeneity characteristics of the client groups affect convergence.</p>
+</li>
+<li>
+<p>it covers different client local procedures including gradient descent (GD), stochastic gradient descent (SGD), and shuffled SGD (SSGD).</p>
+</li>
+</ol>
+<h1 id="problem-formulation">Problem Formulation</h1>
+<h2 id="system-model-and-objectives">System Model and Objectives</h2>
+<p>We have $M$ total clients. Each client $m \in [M]$ has its local training dataset $\mathcal{B}_m$ and its corresponding local empirical loss function $F_m(w)=\frac{1}{|\mathcal{B}<em>m|}\sum</em>{\xi \in \mathcal{B}<em>m}\ell(w,\xi)$. Here, $\ell(w,\xi)$ is the loss value for the model $w \in \mathbb{R}^d$ at data sample $\xi$. Finally the objective is to find $min_w F(w)$ and $F(w)=\frac{1}{M}\sum</em>{m=1}^M F_m(w)$.</p>
+<h2 id="cyclic-client-participation-cycp">Cyclic Client Participation (CyCP)</h2>
+<p>Firstly, we need to divide our $M$ clients into $\overline{K}$ non-overlapping client groups and each group can contains $M/\overline{K}$ clients.</p>
+<p><img src="/figures/24_12_25_1/image.png" alt="image.png"></p>
+<p>The client groups are denoted by $\sigma(i) \in [\overline{K}]$. Each $\sigma(i)$ contains associated clients’ indices.</p>
+<p>The groups and the order in which they are traversed by the server (say, $\sigma(1), \dots, \sigma(\overline{K})$) are pre-determined and fixed throughout training to simulate a cyclic structure of client participation.</p>
+<p>Once a client group $σ(i)$ becomes available, the server selects a subset of $N$ clients from $σ(i)$ uniformly at random without replacement.</p>
+<p>We introduce the term “cycle-epoch” to refer to the interval in which the server goes through all the client groups ${σ(i), i ∈ [K]}$ once sequentially. In other words, each cycle-epoch consists of $K$ communication rounds. Formally, we set $k$ as the index for the cycle-epoch, and $i ∈ [K]$ as the index for the currently available client group within a cycle-epoch. The server sends the global model $w(k,i−1)$ to the set $S(k,i)$ of $N$  clients, selected from the client group $σ(i)$, to perform local training.</p>
+<h2 id="client-local-update">Client Local Update</h2>
+<p>Each client $m \in \mathcal{S}^{(k, i)}$ initializes its local model as $w_m^{(k, i-1, 0)} = w^{(k, i-1)}$ and perform local updates. The global model is updated as:</p>
+<p>$$
+w^{(k, i)}=w^{(k, i-1)}+\Delta^{(k,i-1)}
+$$</p>
+<p>$\Delta^{(k, i-1)}$ is the aggregate of local updates from clients in $\mathcal{S}(k,i)$.</p>
+<p>Here, this paper considers three different client local update procedures for our CyCP framework.</p>
+<h3 id="i-local-gradient-descent-gd">(i) Local Gradient Descent (GD)</h3>
+<p>Selected clients perform a single GD step to update their local model.</p>
+<p>$$
+\Delta^{(k, i-1)}=-\frac{\eta}{N}\sum_{m\in\mathcal{S}^{(k,i)}}\nabla F_m(w^{(k,i-1)})
+$$</p>
+<p>The resulting global algorithm is referred to as FedSGD in [3].</p>
+<p>[3] McMahan, H. B., Moore, E., Ramage, D., Hampson, S., and y Arcas, B. A. Communication-Efficient Learning of Deep Networks from Decentralized Data. International Conference on Artificial Intelligenece and Statistics (AISTATS), April 2017. URL <a href="https://arxiv.org/abs/1602.05629">https://arxiv.org/abs/1602.05629</a>.</p>
+<h3 id="ii-local-stochastic-gradient-descent-local-sgd">(ii) Local Stochastic Gradient Descent (Local SGD)</h3>
+<p>To avoid the cost of computing full gradients, each client performs $τ$ local updates to its model using stochastic gradients $\nabla F_m (w_m^{(k, i-1, l)}, \xi_m^{(k, i-1, l)})$ computed using a minibatch $\xi_m^{(k, i-1, l)}$ sampled uniformly at random from client $m$’s dataset. In this case, the client’s model update is,</p>
+<p>$$
+\Delta^{(k,i-1)}=-\frac{\eta}{N}\sum_{m\in\mathcal{S}^{(k,i)}}\sum_{l=0}^{\tau-1}\nabla F_m (w_m^{(k, i-1, l)}, \xi_m^{(k, i-1, l)})
+$$</p>
+<p>Here, we have $w_m^{(k,i-1,l+1)}=w_m^{(k,i-1,l)}-\eta \nabla F_m(w_m^{k,i-1,l}, \xi_m^{(k, i-1, l)})$.</p>
+<h3 id="iii-local-shuffled-sgd-ssgd-4">(iii) Local Shuffled SGD (SSGD) [4]:</h3>
+<p>[4] Malinovsky, G., Sailanbayev, A., and Richtárik, P. Random reshuffling with variance reduction: New analysis and better rates. arXiv preprint arXiv:2104.09342, 2021.</p>
+<p>Clients partition their local datasets into $B$ disjoint components. The local loss at client $m$ can be expressed,</p>
+<p>$$
+F_m(w)=\frac{1}{B}\sum^{B-1}<em>{l=0}F</em>{m,l}(w)
+$$</p>
+<p>Here, define $\mathcal{P}_B$ to be the set of all permutations of ${0, &hellip;, B − 1}$. In each round, the client performs local updates by going over all the components, in an order decided by the random permutation $\pi^k_m \sim Unif(\mathcal{P}_B)$. Thus, the update can be denoted as,</p>
+<p>$$
+\Delta^{(k,i-1)}=-\frac{\eta}{N}\sum_{m\in \mathcal{S}^{(k,i)}}\sum^{B-1}<em>{l=0}\nabla F</em>{m,\pi^k_m(l)}(w_m^{(k,i-1,l)})
+$$</p>
+<p>Here, $w_m^{(k,i-1,l+1)}=w_m^{(k,i-1,l)}-\eta \nabla F_{m,\pi^k_m(l)}(w_m^{(k,i-1,l)})$.</p>
+<p><img src="/figures/24_12_25_1/image%201.png" alt="image.png"></p>
+<h1 id="convergence-analysis">Convergence Analysis</h1>
+<h2 id="assumptions">Assumptions</h2>
+<h3 id="assumption-1-smoothness-of-f_mw--m">Assumption 1 (Smoothness of $F_m(w)$, $∀\ m$)</h3>
+<p>The clients’ local objective functions $F_1(w), &hellip;, F_M (w)$, are all L-smooth, $||\nabla F_m(w) - \nabla F_m(w’) \le L ||w-w’||$ for all $m$, $w$ and $w’$.</p>
+<h3 id="assumption-2-μ-polyak-łojasiewicz-fw">Assumption 2 (μ-Polyak-Łojasiewicz $F(w)$)</h3>
+<p>For some $\mu &gt; 0$, the global objective satisfies $\frac{1}{2}||\nabla F(w)||^2 \ge \mu(F(w)-min_{w’}F(w’))$ for all $w$.</p>
+<p>Assumption 1, 2 restrict ourselves to PL functions.</p>
+<h3 id="assumption-3-intra-group--inter-group-data-heterogeneity">Assumption 3 (Intra-group &amp; Inter-Group Data Heterogeneity)</h3>
+<p>Exist constants $\gamma$, $\alpha \ge 0$. Fore all $w$, $i \in [\overline{K}]$ and $m \in \sigma(i)$.</p>
+<p>$$
+||\nabla F_m(w)-\frac{1}{\sigma(i)}\sum_{m \in \sigma(i)}\nabla F_m(w)||\le \gamma
+$$</p>
+<p>$$
+||\frac{1}{\sigma(i)}\sum_{m\in\sigma(i)}\nabla F_m(w)-\nabla F(w)||\le\alpha
+$$</p>
+<p>Assumption 3 bounds the data heterogeneity across clients within a group by $γ$ and the data heterogeneity across groups by $α$.</p>
+<p><img src="/figures/24_12_25_1/image%202.png" alt="image.png"></p>
+<h2 id="convergence-for-cycp-with-local-gd">Convergence for CyCP with Local GD</h2>
+<h3 id="theorem-1">Theorem 1</h3>
+<p>With Assumptions 1, 2, 3, the choice of step-size $\eta = log(MT^2/\overline{K}^2)/\mu NT$, and the number of communication rounds $T \ge 7 \kappa\overline{K}log(MT^2/\overline{K}^2)$, here, $\kappa=L/\mu$.</p>
+<p>$$
+E[F(w^{(K,0)})]-F^<em>\le\frac{\overline{K}^2(F(w^{(0,0)})-F^</em>)}{MT^2}+\tilde{\mathcal{O}}(\frac{\kappa^2(\overline{K}-1)^2\alpha^2}{\mu T^2})+\tilde{\mathcal{O}}(\frac{\overline{K}\kappa\gamma^2}{\mu NT}(\frac{M/\overline{K}-N}{M/\overline{K}-1}))
+$$</p>
+<h3 id="convergence-dependence-on-gamma2-and-alpha">Convergence dependence on $\gamma^2$ and $\alpha$</h3>
+<p>Theorem 1 shows CyCP+GD converges at the rate of $\tilde{\mathcal{O}}(\frac{\overline{K}\kappa\gamma^2}{\mu NT}(\frac{M/\overline{K}-N}{M/\overline{K}-1}))$ which depends on $\gamma^2$, the intra-group data heterogeneity. if $\gamma \backsimeq 0$, CyCP+GD can achieve $\tilde{\mathcal{O}}(1/T^2)$ convergence, due to the $\tilde{\mathcal{O}}(1/T)$ domintnat term becoming zero.</p>
+<h3 id="convergence-dependence-on-overlinek">Convergence Dependence on $\overline{K}$</h3>
+<p>Theorem 1 also shows that even for $γ \ne 0$, CyCP+GD can gain a  $\tilde{\mathcal{O}}(1/T^2)$  convergence rate when $K = M/N$.</p>
+<p>For $1&lt;\overline{K}&lt;M/N$. We define the total communication and computation cost in one communication round of GD (which involves computing $N$ gradients and communicating $N$ vectors to the server) as $c_{GD}$. Then taking into account only the dominant term in (2), the total cost $c_{GD}$ to achieve an $\epsilon$ error is,</p>
+<p>$$
+C_{GD}(\epsilon)=\tilde{\mathcal{O}}(\frac{c_{GD}\overline{K}\gamma^2}{\epsilon N}(\frac{M/\overline{K}-N}{M/\overline{K}-1}))
+$$</p>
+<p>This paper compare $C_{GD}(\epsilon)$ with $\overline{K} &gt; 1$ and $\overline{K}=1$ denoted as $C_{GD|\overline{K}&gt;1}(\epsilon), C_{GD|\overline{K}&gt;1}(\epsilon)$ respectively and we have,</p>
+<p>For $\overline{K} &lt; M/N$, we have  $C_{GD|\overline{K}&gt;1}(\epsilon) &gt; C_{GD|\overline{K}=1}(\epsilon)$.</p>
+<h2 id="convergence-for-cycp-with-local-sgd">Convergence for CyCP with Local SGD</h2>
+<h3 id="bounded-variance">Bounded Variance</h3>
+<p>For local objective $F_m(w)$, the local stochastic gradient $\nabla F_m(w,\xi_m)$ computed using a mini-batch $\xi_m$, sampled uniformly at random from $\mathcal{B}_m$, has bounded variance.</p>
+<p>$$
+\mathbb{E}[||\nabla F_m(w,\xi_m)-\nabla F_m(w)||^2]\le\sigma^2\ \ \ \forall m \in [M]
+$$</p>
+<h3 id="convergence-with-cycpsgd">Convergence with CyCP+SGD</h3>
+<p>Consider the step-size $\eta = log(MT^2/\overline{K}^2)/\tau\mu NT$</p>
+<p>For $T \ge 10\kappa\overline{K}log(MT^2/\overline{K}^2)$ communication rounds where $\kappa = L/\mu$. The convergence error is bounded as:</p>
+<p><img src="/figures/24_12_25_1/image%203.png" alt="image.png"></p>
+<h3 id="convergence-dependence-on-γ2-and-σ2">Convergence Dependence on $γ^2$ and $σ^2$</h3>
+<p>In upper equation, the dominant $\tilde{\mathcal{O}}(1/T)$ terms are dependent on two factors:</p>
+<ol>
+<li>the intra-group data heterogeneity $γ^2$</li>
+<li>the stochastic gradient variance $σ^2$</li>
+</ol>
+<p>Due to this, for $σ &gt; 0$, even with $K = M/N$ or $γ^2 \backsimeq 0$, we do not achieve the $\tilde{\mathcal{O}}(1/T)$ convergence rate, as we did in the local GD case. Hence, even with CyCP, the best we can achieve when using local SGD is the convergence rate of $\tilde{\mathcal{O}}(1/T)$.</p>
+<h3 id="does-cycp-overlinek--1-with-local-sgd-ever-help-for-fl">Does CyCP ($\overline{K} &gt; 1$) with Local SGD Ever Help for FL?</h3>
+<p>Define the total communication and computation cost in one communication round with Local SGD as $c_{SGD}$. Taking into the dominant terms. The total cost to achieve and $\epsilon$ error for the local SGD case is,</p>
+<p>$$
+C_{SGD}(\epsilon)=\tilde{\mathcal{O}}(\frac{c_{SGD}\overline{K}\gamma^2}{\epsilon N}(\frac{M/\overline{K}-N}{M/\overline{K}-1}))+\tilde{\mathcal{O}}(\frac{c_{SGD}\sigma^2\overline{K}}{\epsilon N\tau})
+$$</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_12_25_2/"
+      title="Learning Record --- 18.2 (2024/12/25)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>

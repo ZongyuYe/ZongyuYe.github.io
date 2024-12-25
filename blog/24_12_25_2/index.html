@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.94e34217b49dc1e731fe3acb6c19e698ee07651761f1431ba3772128bcd8845c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 18.2 (2024/12/25)</h1>
+  <p class="mb-1">December 25, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="afl-broadcast-to-all-clients">AFL (Broadcast to All Clients)</h1>
+<p>[1] Koloskova A, Stich S U, Jaggi M. Sharper convergence guarantees for asynchronous SGD for distributed and federated learning[J]. Advances in Neural Information Processing Systems, 2022, 35: 17202-17215.</p>
+<h1 id="abstract">Abstract</h1>
+<p>We study the asynchronous stochastic gradient descent algorithm for distributed training over $n$ workers which have varying computation and communication frequency over time. In this algorithm, workers compute stochastic gradients in parallel at their own pace and return those to the server without any synchronization. Existing convergence rates of this algorithm for non-convex smooth objectives depend on the maximum gradient delay $\tau_{max}$ show that an $ε$-stationary point is reached after $\mathcal{O}(\sigma^2\epsilon^{-2}+\tau_{max}\epsilon^{-1})$ iterations, $\sigma$ denotes the variance of stochastic gradients.</p>
+<ol>
+<li>We obtain a tighter convergence rate of $\mathcal{O}(\sigma^2\epsilon^{-2}+\sqrt{\tau_{max}\tau_{avg}}\epsilon^{-1})$ where $\tau_{avg}$ is the average delay.</li>
+<li>A simple delay-adaptive learning rate scheme, under which asynchronous SGD achieves a convergence rate of $\mathcal{O}(\sigma^2\epsilon^{-2}+\tau_{avg}\epsilon^{-1})$, and does not require any extra hyperparameter tuning nor extra communications.</li>
+</ol>
+<h1 id="problem-formulation">Problem Formulation</h1>
+<p>We consider optimization problems where the components of the objective function (i.e. the data for machine learning problems) is distributed across $n$ nodes (or clients),</p>
+<p>$$
+min_{x\in \mathbb{R}^d}[f(x):=\frac{1}{n}\sum_{i=1}^n[f_i(x)=\mathbb{E}_{\xi\sim\mathcal{D}_i}F_i(x,\xi)]]
+$$</p>
+<p>$f_i: \mathbb{R}^d \rightarrow \mathbb{R}$ denotes the local loss function which is accessible to node $i$, $i \in [n]$.</p>
+<h2 id="assumptions">Assumptions</h2>
+<ol>
+<li><strong>Bounded Variance:</strong> There exits a constant $\sigma \ge 0$ such that,</li>
+</ol>
+<p>$$
+\mathbb{E}_{\xi\sim\mathcal{D}_i}||\nabla F_i(x,\xi)-\nabla f_i(x)||\le \sigma^2,\ \ \forall i \in [n], x\in \mathbb{R}^d
+$$</p>
+<ol>
+<li><strong>Bounded Function Heterogeneity:</strong> there exists $n$ constants $\zeta_i \ge 0, i \in [n]$</li>
+</ol>
+<p>$$
+||\nabla f_i(x)-\nabla f(x)||^2_2\le\zeta_i^2\ \ \ \forall x\in\mathbb{R}^b
+$$</p>
+<p>$$
+\zeta^2:=\frac{1}{n}\sum^n_{i=1}\zeta_i^2
+$$</p>
+<ol>
+<li><strong>L-smoothness:</strong> Each function $f_i$ is differentiable and there exists a constant $L \ge 0$ which can satisfy,</li>
+</ol>
+<p>$$
+||\nabla f_i(y)- \nabla f_i(x)||\le L||x-y||,\ \ \ \forall x,y \in \mathbb{R}^d
+$$</p>
+<ol>
+<li><strong>Bounded Gradient:</strong> Each function $f_i$ is differentiable and there exists a constant $G \ge 0$ which satisfy,</li>
+</ol>
+<p>$$
+||\nabla f_i(x)||^2_2 \le G^2, \ \ \ \forall x \in \mathbb{R}^d
+$$</p>
+<h1 id="homogeneous-distributed-setting">Homogeneous Distributed Setting</h1>
+<p>This paper start its discussion from all the can be considered as homogeneous. (Which means $\zeta_i=0$).</p>
+<p><img src="/figures/24_12_25_2/image.png" alt="image.png"></p>
+<h3 id="concurrency">Concurrency</h3>
+<p>The concurrency \tau_{C}^{(t)} at step t is defined as the size of the active worker set \mathcal{C}_t, We also define the maximum and average concurrency as,</p>
+<p>$$
+\tau_C=max_t{\tau_C^{(t)}}
+$$</p>
+<p>$$
+\overline{\tau}<em>C=\frac{1}{T+1}\sum</em>{t=0}^T\tau_C^{(t)}
+$$</p>
+<h3 id="average-and-maximum-delays">Average and maximum delays</h3>
+<p>Let ${ \tau_t}_{t=0}^{T-1}$ be the delays of the applied gradients in Algorithm 1.</p>
+<p>${ \tau_i^{\mathcal{C}^T}}_{i \in \mathcal{C}^T \setminus {j_T}}$ is the delays of gradients which are  in flight at time $T$ , that is they have remained unapplied at the last step. Each $\tau_i^{\mathcal{C}^T}$ is  equal to the difference between the last iteration $T$ and the iteration at which worker $i$  started to compute its last gradient. Then the avarage and the maximum delays can be shown as,</p>
+<p>$$
+\tau_{avg}=\frac{1}{T+|\mathcal{C}<em>T|-1}(\sum</em>{t=0}^{T-1}\tau_t+\sum_{i \in \mathcal{C}^T \setminus {j_T}}\tau_i^{\mathcal{C}^T})
+$$</p>
+<p>$$
+\tau_{max}=max{max_{t=1,\dots,T-1}\tau_t, max_{i \in \mathcal{C}^T \setminus {j_T}}\tau_i^{\mathcal{C}^T} }
+$$</p>
+<h3 id="key-observation">Key Observation</h3>
+<p>In Algorithm 1 the average concurrency $\overline{\tau}<em>C$ is connected to the average delay $τ</em>{avg}$ as,</p>
+<p>$$
+\tau_{avg}=\frac{T+1}{T+|\mathcal{C}_T|-1}\overline{\tau}_C\overset{T&gt;|\mathcal{C}_T|}{=}\mathcal{O}(\overline{\tau}_C)
+$$</p>
+<h3 id="constant-stepsizes">Constant stepsizes</h3>
+<p>Under Assumptions 1, 3, there exists a constant stepsize $η_t ≡ η$ such that for Algorithm 1 it holds that $\frac{1}{T+1}\sum_{t=0}^T||\nabla f(x^{(t)})||_2^2 \le\epsilon$ after,</p>
+<p>$$
+\mathcal{O}(\frac{\sigma^2}{\epsilon^2}+\frac{\sqrt{\tau_C\tau_{max}}}{\epsilon}) \ \ \ iterations
+$$</p>
+<p>If we additionally assume bounded gradient Assumption 4, then $\frac{1}{\sum_{t=1}^T|\mathcal{A_t}|}\sum_{t=0}^T|\mathcal{A}_T|||\nabla f(x^{(t)})||^2_2\le \epsilon$ after,</p>
+<p>$$
+\mathcal{O}(\frac{\sigma^2}{\epsilon^2}+\frac{\tau_CG}{\epsilon^{3/2}}+\frac{\tau_C}{\epsilon})\ \ \ iterations
+$$</p>
+<hr>
+<hr>
+<p>[2] He J, Wang T, Min Y, et al. A simple and provably efficient algorithm for asynchronous federated contextual linear bandits[J]. Advances in neural information processing systems, 2022, 35: 4762-4775.</p>
+<h1 id="abstract-1">Abstract</h1>
+<p>We study federated contextual linear bandits, where $M$ agents cooperate with each other to solve a global contextual linear bandit problem with the help of a central server. We consider the asynchronous setting, where all agents work independently and the communication between one agent and the server will not trigger other agents’ communication. We propose a simple algorithm named FedLinUCB based on the principle of optimism. We prove that the regret of FedLinUCB is bounded by $\tilde{\mathcal{O}}(d\sqrt{\sum_{m=1}^M T_m})$ and he communication complexity is $\tilde{\mathcal{O}}(dM^2)$.</p>
+<p>$d$ is the dimension of the contextual vector and $T_m$ is the total number of interactions with the environment by $m$-th agent.</p>
+<h1 id="preliminaries">Preliminaries</h1>
+<h2 id="federated-contextual-linear-bandits">Federated contextual linear bandits</h2>
+<p>We consider the federated contextual linear bandits as follows: At each round $t ∈ [T]$, an arbitrary agent $m_t ∈ [M]$ is active for participation. This agent receives a decision set $D_t ⊂ \mathbb{R}^d$, picks an action $x_t ∈ D_t$, and receives a random reward $r_t$. We assume that the reward $r_t$ satisfies $r_t=&lt;x_t, \theta^*&gt;+\eta_t$ for all  $t \in [T]$. where $η_t$ is conditionally independent of $x_t$ given $x_{1:t−1}, m_{1:t}, r_{1:t−1}$.</p>
+<h2 id="assumption">Assumption</h2>
+<p>The noise ηt is R-sub-Gaussian conditioning on  $x_{1:t}, m_{1:t}$ and $r_{1:t−1}$.</p>
+<p>$$
+\mathbb{E}[e^{\lambda\eta_t}|x_{1:t}, m_{1:t}, r_{1:t−1}]\le exp(R^2\lambda^2/2),\ \ for\ any\ \lambda \in\mathbb{R}.
+$$</p>
+<p>We also assume that $||\theta^*||_2\le S$ and $||x||_2\le L$ for all action $x ∈ D_t$, for all $t ∈ [T ]$.</p>
+<h2 id="learning-objective">Learning objective</h2>
+<p><img src="/figures/24_12_25_2/image%201.png" alt="image.png"></p>
+<h1 id="the-proposed-algorithm">The Proposed Algorithm</h1>
+<p><img src="/figures/24_12_25_2/image%202.png" alt="image.png"></p>
+<p><img src="/figures/24_12_25_2/image%203.png" alt="image.png"></p>
+<h1 id="theoretical-results">Theoretical Results</h1>
+<p><img src="/figures/24_12_25_2/image%204.png" alt="image.png"></p>
+<p><img src="/figures/24_12_25_2/image%205.png" alt="image.png"></p>
+<p><img src="/figures/24_12_25_2/image%206.png" alt="image.png"></p>
+<p><img src="/figures/24_12_25_2/image%207.png" alt="image.png"></p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_12_18/"
+      title="Learning Record --- 17 (2024/12/18)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/24_12_25_1/"
+      title="Learning Record --- 18.1 (2024/12/25)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
