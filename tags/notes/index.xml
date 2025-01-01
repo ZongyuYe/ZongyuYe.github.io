@@ -6,8 +6,15 @@
     <description>Recent content in Notes on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 19 (2025/1/1)</title>
+      <link>https://ZongyuYe.github.io/blog/25_1_1/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/25_1_1/</guid>
+      <description>A General Theory for Federated Optimization with Asynchronous and Heterogeneous Clients Updates Fraboni Y, Vidal R, Kameni L, et al. A general theory for federated optimization with asynchronous and heterogeneous clients updates[J]. Journal of Machine Learning Research, 2023, 24(110): 1-43.&#xA;Code: Accenture/Labs-Federated-Learning at asynchronous_FL&#xA;Ⅰ. Background 1. Asynchronicity in Clients Updates For Server: An optimization round starts at time $t^n$ with global model $\theta^n$. Finishing at time $t^{n+1}$ with the new global model $\theta^{n+1}$, which takes $\Delta t^n = t^{n+1}- t^n$ to complete.</description>
+    </item>
     <item>
       <title>Learning Record --- 18.1 (2024/12/25)</title>
       <link>https://ZongyuYe.github.io/blog/24_12_25_1/</link>

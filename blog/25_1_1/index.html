@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.94e34217b49dc1e731fe3acb6c19e698ee07651761f1431ba3772128bcd8845c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 19 (2025/1/1)</h1>
+  <p class="mb-1">January 1, 2025</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="a-general-theory-for-federated-optimization-with-asynchronous-and-heterogeneous-clients-updates">A General Theory for Federated Optimization with Asynchronous and Heterogeneous Clients Updates</h1>
+<p>Fraboni Y, Vidal R, Kameni L, et al. A general theory for federated optimization with asynchronous and heterogeneous clients updates[J]. Journal of Machine Learning Research, 2023, 24(110): 1-43.</p>
+<p>Code: <a href="https://github.com/Accenture/Labs-Federated-Learning/tree/asynchronous_FL">Accenture/Labs-Federated-Learning at asynchronous_FL</a></p>
+<h1 id="-background">Ⅰ. Background</h1>
+<h2 id="1-asynchronicity-in-clients-updates">1. Asynchronicity in Clients Updates</h2>
+<p>For Server: An optimization round starts at time $t^n$ with global model $\theta^n$. Finishing at time $t^{n+1}$ with the new global model $\theta^{n+1}$, which takes $\Delta t^n = t^{n+1}- t^n$ to complete.</p>
+<p>For Client: Define random variable $T_i$ represents the update time for client $i$ to perform its local work and send it to the server for aggregation.</p>
+<p>Remark: If $\Delta t^n ={max}_i T_i$, here denotes FedAvg.</p>
+<hr>
+<p>Considering asynchronous FedAvg, we have to relate $T_i$ to $\Delta t^n$.</p>
+<p>Introduce $\rho_i(n)$ the index of the most recent global model received by client $i$ at optimization round $n$ and we can have the remaining time at optimization round $n$ needed by client $i$ to complete its local work.</p>
+<p>$$
+T_i^n :=T_i-(t^n-t^{\rho_i(n)})
+$$</p>
+<p>Compare $T_i^n$ with $\Delta t^n$ indicates whether a client is participating to the optimization round or not,</p>
+<p>$$
+\mathbb{I}(T_i^n\le \Delta t^n)=1 \ or\ 0
+$$</p>
+<p>For common FedAvg, we can have,</p>
+<p>$$
+\mathbb{I}(T_i^n\le \Delta t^n) = \mathbb{I}(T_i^n\le {max}_i T_i)=1
+$$</p>
+<p><img src="/figures/25_1_1/image.png" alt="image.png"></p>
+<h2 id="2-server-aggregation-scheme">2. Server Aggregation Scheme</h2>
+<p>Consider $\Delta_i(n)$ is the contribution of client $i$ received by the server at optimization round $n$. Clients will perform $K$ steps SGD on model, and the trained model is $\theta_i^{(n, k)}$.</p>
+<p>For common FedAvg, the aggregation scheme is,</p>
+<p>$$
+\theta^{n+1}:=\theta^n + \sum_{i=1}^M p_i \Delta_i(n)
+$$</p>
+<hr>
+<p>For asynchronous FedAvg, the stochastic aggregation weight $\omega_i(n)$ (for client $i$ at optimization round $n$) can denoted as,</p>
+<p>$$
+\omega_i(n):=\mathbb{I}(T_i^n \le \Delta t^n)d_i(n)
+$$</p>
+<p>Then, the aggregation scheme can be shown as,</p>
+<p>$$
+\theta^{n+1}:=\theta^n+\eta_g\sum_{i=1}^M \omega_i(n)\Delta_i(\rho_i(n))
+$$</p>
+<p><img src="/figures/25_1_1/image%201.png" alt="image.png"></p>
+<h2 id="3-expressing-fl-as-cumulative-gd-steps">3. Expressing FL as cumulative GD steps</h2>
+<p>Authors try to explain its global aggregation by introducing virtual sequence of global models $\theta^{n, k}$. This would be obtained with the clients contribution at optimization round $n$ on $k &lt; K$ SGD.</p>
+<p>$$
+\theta^{n,k}:=\theta^n + \eta_g\sum_{i=1}^M\omega_i(n)\left[\theta_i^{\rho_i(n),k}-\theta^{\rho_i(n)}\right]
+$$</p>
+<p>Considering $\theta_i^{\rho_i(n), k+1} - \theta_i^{\rho_i(n), k}=-\eta_l \nabla \mathcal(L)_i(\theta_i^{\rho_i(n), k}, \xi_i)$</p>
+<p>$\xi_i$ is a random batch of data samples of client $i$.</p>
+<p>Then, we can rewrite the aggregation process a a GD step with,</p>
+<p>$$
+\theta^{n,k+1} = \theta^{n,k}+\eta_g\eta_l \sum_{i=1}^M\omega_i(n)\nabla \mathcal(L)_i(\theta_i^{\rho_i(n), k}, \xi_i)
+$$</p>
+<h2 id="4-asynchronous-fl-as-a-sequence-of-optimization-problems">4. Asynchronous FL as a Sequence of Optimization Problems</h2>
+<p>Consider we have $M$  participants owning $n_i$  data points ${z_{k,i}}_{k=1}^{n_i}$. The aim of FL is solving a distribured optimization problem associated with the averaged loss across clients.</p>
+<p>$$
+\mathcal{L}(\theta):=\mathbb{E}<em>{z} \left[l(\theta,z) \right]=\frac{1}{\sum</em>{i=1}^Mn_i}\sum_{i=1}^M\sum_{k=1}^{n_i}l(\theta, z_{k,i})
+$$</p>
+<p>Define $q_i(n) := \mathbb{E}[\omega_i(n)]$, so we can minimize the optimization problem $\mathcal{L}^n$ defined as,</p>
+<p>$$
+\mathcal{L}^n(\theta):=\sum_{i=1}^Mq_i(n)\mathcal{L}_i(\theta)
+$$</p>
+<p>Here, denote by $\overline{\theta}^n$ the optimum of $\mathcal{L}^n$ and by $\theta^*$ the optimum of the optimization problem $\mathcal{L}$. Finally, define $q_i = \frac{1}{N}\sum_{n=0}^{N-1}q_i(n)$ the expected importance given to client $i$ over the $N$  server aggregations during the FL process.</p>
+<p>$$
+\overline{L}(\theta):=\sum_{i=1}^Mq_i\mathcal{L}<em>i(\theta)=\frac{1}{N}\sum</em>{n=0}^{N-1}\mathcal{L}^n(\theta)
+$$</p>
+<h1 id="-convergence">Ⅱ. Convergence</h1>
+<h2 id="1-assumptions">1. Assumptions</h2>
+<p><strong>Assumption 1 (Smoothness):</strong> Clients local objective functions are L-smooth,</p>
+<p>$$
+|| \nabla\mathcal{L}_i(x)-\nabla\mathcal{L}_i(y)||\le L||x-y||\ \ \ \forall i \in {1,\dots,n}
+$$</p>
+<p><strong>Assumption 2 (Convexity):</strong> Clients local objective functions are convex.</p>
+<p><strong>Assumption 3 (Unbiased Gradient):</strong> Every client stochastic gradient $g_i(x) = \nabla \mathcal{L}<em>i(x, z_i)$ of a model with parameters $x$ evaluated on batch $z_i$ is an unbiased estimator of the local gradient, i.e. $\mathbb{E}</em>{z_i}[g_i(x)]=\nabla \mathcal{L}_i(x)$.</p>
+<p><strong>Assumption 4 (Finite Answering Time):</strong> The server receives a client local work in at most $\tau := max_{i, n}(n, \rho_i(n))$ optimization steps, which satisfy $\mathbb{P}(\tau &lt; \infty) = 1$</p>
+<p><strong>Assumption 5:</strong> There exists $\alpha \in (0,1)$ such that $\mathbb{E}[\omega_i(n) \omega_j(n)] = \alpha q_i(n) q_j(n)$</p>
+<h2 id="2-convergence-of-algorithm-1"><strong>2. Convergence of Algorithm 1</strong></h2>
+<p><img src="/figures/25_1_1/image%201.png" alt="image.png"></p>
+<h3 id="theorem-1">Theorem 1</h3>
+<p>With $\eta_l \le 1/48KLmin(1, 1/3\rho\eta_g(\tau+1))$, we can obtain the following convergence bound:</p>
+<p>$$
+\frac{1}{N}\sum_{n=0}^{N-1}\frac{1}{K}\sum_{k=0}^{K-1}\left[ \mathbb{E}[\mathcal{L}^n(\theta^{n,k})-\mathcal{L}^n(\overline{\theta}^n)]\right]\le R({\mathcal{L}^n})+\epsilon_F+\epsilon_K+\epsilon_{\alpha}+\epsilon_{\beta}
+$$</p>
+<p>$$
+R({\mathcal{L}^n})=\frac{1}{N}\sum_{n=0}^{N-1}\left[ \mathcal{L}^n(\overline{\theta})-\mathcal{L}^n(\overline{\theta}^n)\right]
+$$</p>
+<p>$$
+\epsilon_F=\frac{1}{\tilde{\eta}KN}||\theta^0-\overline{\theta}||^2
+$$</p>
+<p>$$
+\epsilon_K = \mathcal{O}\left( \eta_l^2(K-1)^2[R({\mathcal{L^n}})+\Sigma_1] \right)
+$$</p>
+<p>$$
+\epsilon_{\alpha}=\mathcal{O}\left(\alpha\left[\tilde{\eta}+\tilde{\eta}^2K^2\tau^2\right][R({\mathcal{L}^n})+max q_i(n)\Sigma]\right)
+$$</p>
+<p>$$
+\epsilon_{\beta}=\mathcal{O}\left(\beta\left[\tilde{\eta}+\tilde{\eta}^2K^2\tau^2\right][R({\mathcal{L}^n})+\Sigma]\right)
+$$</p>
+<p><strong>Notations:</strong></p>
+<ol>
+<li>$\eta_l$ is local learning rate.</li>
+<li>K is number of SGD.</li>
+</ol>
+<p><strong>Optimized expected residual $R({\mathcal{L}^n})$:</strong> This factor quantifies the sensitivity of $\mathcal{L}^n$ between its optimum $\overline{\theta}^n$ and the optimum $\overline{\theta}$ of the overall expected minimized problem across optimization rounds $\tilde{\mathcal{L}}$. As such, the residual accounts for the heterogeneity in the history of optimized problems, and is minimized to $0$ when the same optimization problem is minimized at every round $n$. This condition is always satisfied when clients have identical data distributions.</p>
+<p><strong>Initialization quality $\epsilon_F$:</strong> $\epsilon_F$ only depends of the quality of the initial model $\theta^0$ through its distance  with respect to the optimum $\overline{\theta}$ of the overall expected minimized problem across optimization rounds $\tilde{\mathcal{L}}$. This convergence term can only be minimized by performing as many serial SGD steps $KN$.</p>
+<p><strong>Clients data heterogeneity $\epsilon_K$:</strong> This term accounts for the disparity in the clients updated models, and is proportional to the clients amount of local work $K$ and to the heterogeneity of their data distributions $\mathcal{Z}_i$ through $\Sigma_1$. When $K = 1$, every client perform its SGD on the same model, which reduces the server aggregation to a traditional centralized SGD. We retrieve $\epsilon_K = 0$</p>
+<p>Gradient delay $τ$ through $\epsilon_{\alpha}$ and $\epsilon_{\beta}$: Decreasing the server time policy $∆t^n$ allows faster optimization rounds but decreases a client’s participation probability $\mathbb{P}(T_i^n \le ∆t^n)$ esulting in an increased maximum answering time $τ$ . In turn, we note that $\epsilon_{\alpha}$ and $\epsilon_{\beta}$ are quadratically proportional to the maximum amount of serial SGD $Kτ$. This latter terms quantifies the maximum amount of SGD integrated in the global model $θ^n$.</p>
+<h2 id="3-sufficient-conditions-for-minimizing-the-federated-problem">3. Sufficient Conditions for Minimizing the Federated Problem</h2>
+<p>Theorem 1 provides convergence guarantees for the history of optimized models $\mathcal{L}^n$.</p>
+<p>Here, providing convergence guarantees for the original FL problem $\mathcal{L}(\theta)$.</p>
+<h3 id="theorem-2">Theorem 2</h3>
+<p>$$
+\frac{1}{N}\sum_{n=0}^{N-1}\frac{1}{K}\sum_{k=0}^{K-1}\mathbb{E} \left[ ||\nabla\mathcal{L}(\theta^{n,k})||^2 \right]
+\le \mathcal{O}(R({\mathcal{L}^n}))+P({\mathcal{L}^n})+U({\mathcal{L}^n})+\mathcal{O}(\epsilon_F)+\epsilon_K+\epsilon_{\alpha}+\epsilon_{\beta}
+$$</p>
+<p>$$
+P({\mathcal{L}^n})=\mathcal{O}\left(\frac{1}{N}\sum_{n=0}^{N-1}\mathcal{X}<em>n^2\sum</em>{j\in W_n}\tilde{s}_j(n)\left[F_j(\overline{\theta}^n)-F_j(\theta^*_j)\right]\right)
+$$</p>
+<p>$$
+U({\mathcal{L}^n})=\mathcal{O}\left(\frac{1}{N}\sum_{n=0}^{N-1}\frac{1}{K}\sum_{k=0}^{K-1}\sum_{j\in W_n}r_j\left[\mathbb{E}[F_j(\theta^{n,k})-F_j(\theta_j^*)] \right]\right)
+$$</p>
+<p>$\mathcal{X}<em>n^2 = \sum</em>{j \in W_n} (r_j-\tilde{s}_j(n))^2/\tilde{s}_j(n)$, $W_n = {j: s_j(n)&gt;0 }$.</p>
+<h3 id="corollary-1">Corollary 1</h3>
+<p>Under the conditions of Theorem 1, if every client data distribution satisfies \tilde{s}_j(n) = r_j, the following convergence bound for optimization problem 2 can be obtained,</p>
+<p>$$
+\frac{1}{N}\sum_{n=0}^{N-1}\frac{1}{K}\sum^{K-1}<em>{k=0}\left[\mathbb{E}[\mathcal{L}(\theta^{n,k})]-\mathcal{L}(\theta^*) \right]\le\epsilon_F+\epsilon_K+\epsilon</em>{\alpha}+\epsilon_{\beta}
+$$</p>
+<p>Proof: $\tilde{s}_j(n) = r_j$ implies $\mathcal{X}_n^2 = 0$, $W_n = ∅$, $\mathcal{L}^n = q(n)\mathcal{L}$, and $\overline{\theta}^n = \theta^*$ .</p>
+<p><img src="/figures/25_1_1/image%202.png" alt="image.png"></p>
+<h2 id="4-relaxed-sufficient-conditions-for-minimizing-the-federated-problem">4. Relaxed Sufficient Conditions for Minimizing the Federated Problem</h2>
+<p><strong>Assumption 6 (Window):</strong> $\exists W \ge$ <strong>1</strong> such that $\forall s,\ \frac{1}{W}\sum_{n=sW}^{(s+1)W-1}q_i(n)=q_i$</p>
+<p>With Assumption 6, we assume that over a cycle of $W$ aggregations, the sum of the clients expected aggregation weights $q_i(n)$ are constant. By definition of $q_i$, Assumption 6 is always satisfied with $W = N$. Also, by construction, we have $W ≥ τ$ . We note that Assumption 6 is made on a series of windows of size $W$  and not for any window of size $W$ .</p>
+<p><strong>Assumption 7 (Bounded Gradients):</strong>  $∃B &gt; 0$ such that $\mathbb{E}[|| \nabla \mathcal{L}_i(x)||]\le B$.</p>
+<p>Gradient clipping is a typical operation performed during the optimization of deep learning models to prevent exploding gradients. A pre-determined gradient threshold $B$ is introduced, and gradients with norm exceeding this threshold are clipped to the norm $B$. Therefore, using Assumption 7 and the subadditivity of the norm, the distance between two consecutive global models can be bounded by,</p>
+<p>$$
+\mathbb{E}[||\theta^{n+1}-\theta^n||]\le \eta_g\sum_{i=1}^Mq_i(n)\mathbb{E}\left[||\theta_i^{\rho_i(n)+1}-\theta^{\rho_i(n)}||\right]\le\eta_g\eta_lq(n)KB
+$$</p>
+<p>Since we consider the convexity of clients loss function and to the Cauchy Schwartz inequality, gives,</p>
+<p>$$
+\mathbb{E}[\mathcal{L}_i(\theta^{n+1})]-\mathbb{E}[\mathcal{L}_i(\theta^{n})]\le\mathbb{E}\left[ \langle\nabla\mathcal{L}_i(\theta^{n+1}),\theta^{n+1}-\theta^{n}\rangle \right]\le\eta_g\eta_lq(n)B^2K
+$$</p>
+<p>Finally, using equation above and Assumption 6, the performance history on the original optimized problem can be bounded as follows,</p>
+<p>$$
+\sum_{n=sW}^{(s+1)W-1}\sum_{k=0}^{K-1}q_i\mathbb{E}\left[\mathcal{L}<em>i(\theta^{(n,k)})\right]\le\sum</em>{n=sW}^{(s+1)W-1}\sum_{k=0}^{K-1}q_i(n)\left[\mathbb{E}[\overline{\mathcal{L}}(\theta^{(n,k)})]+\eta_g\eta_lK(W-1)B^2\right]
+$$</p>
+<h3 id="theorem-3">Theorem 3</h3>
+<p>Under the conditions of Theorem 1, Assumptions 6 and 7, and considering that $W$  is a divider of $N$ , we get the following convergence bound for the optimization problem:</p>
+<p>$$
+\frac{1}{N}\sum_{n=0}^{N-1}\frac{1}{K}\sum_{k=0}^{K-1}\left[ \mathbb{E}[\overline{\mathcal{L}}(\theta^{n,k})-\overline{\mathcal{L}}(\overline{\theta})]\right]\le\epsilon:=\epsilon_F+\epsilon_K+\epsilon_{\alpha}+\epsilon_{\beta}+\epsilon_W
+$$</p>
+<p>$\epsilon_W = \mathcal{O}(\eta_g\eta_l(W-1)K).$</p>
+<p>$$
+\frac{1}{N}\sum_{n=0}^{N-1}\frac{1}{K}\sum_{k=0}^{K-1}\mathbb{E}\left[||\nabla\mathcal{L}(\theta^{n,k})||^2\right]\le\epsilon+\mathcal{O}(\mathcal{X}^2[\overline{\mathcal{L}}(\overline{\theta})-\sum_{j=1}^Js_jF_j(\theta_j^*)])
+$$</p>
+<p>$\mathcal{X}^2 = \sum_{j=1}^J \frac{(r_j-\tilde{s}_j)^2}{\tilde{s}_j}$</p>
+<p><img src="/figures/25_1_1/image%203.png" alt="image.png"></p>
+<p><img src="/figures/25_1_1/image%204.png" alt="image.png"></p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/24_12_25_1/"
+      title="Learning Record --- 18.1 (2024/12/25)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
