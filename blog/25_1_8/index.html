@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.94e34217b49dc1e731fe3acb6c19e698ee07651761f1431ba3772128bcd8845c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 20 (2025/1/8)</h1>
+  <p class="mb-1">January 8, 2025</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="a-general-theory-for-federated-optimization-with-asynchronous-and-heterogeneous-clients-updates--investigation-on-q_in-and-omega_in-and-part-of-the-proof">A General Theory for Federated Optimization with Asynchronous and Heterogeneous Clients Updates — Investigation on $q_i(n)$ and $\omega_i(n)$ and part of the proof</h1>
+<p>Fraboni Y, Vidal R, Kameni L, et al. A general theory for federated optimization with asynchronous and heterogeneous clients updates[J]. Journal of Machine Learning Research, 2023, 24(110): 1-43.</p>
+<p>Code: <a href="https://github.com/Accenture/Labs-Federated-Learning/tree/asynchronous_FL">Accenture/Labs-Federated-Learning at asynchronous_FL</a></p>
+<h1 id="background">Background</h1>
+<p>For FedAvg, the aggregation scheme can be considered as,</p>
+<p>$$
+\theta^{n+1} := \theta^n +\sum_{i=1}^M p_i \Delta_i(n)
+$$</p>
+<p>$\theta^n$ is the global model at $n$  round.</p>
+<p>$p_i$ shows the importance of every client $i$.</p>
+<p>$\Delta_i(n)$ shows the contribution from client $i$’s local model.</p>
+<p>For Asynchronous FedAvg,</p>
+<p>$$
+\theta^{n+1} := \theta^n +\sum_{i=1}^M \omega_i(n) \Delta_i(\rho_i(n))
+$$</p>
+<p>$\omega_i(n) := \mathbb{I}(I) (T_i^n \le \Delta t^n)d_i(n)$</p>
+<h1 id="applications">Applications</h1>
+<p>In practice, clients generally may not know their update time distribution, $\mathbb{P}(T_i^n)$, which makes the computation of $d_i(n)$ intractable.</p>
+<h2 id="heterogeneity-of-clients-hardware-and-data-distributions">Heterogeneity of clients hardware and data distributions</h2>
+<h3 id="clients-importance">Clients importance</h3>
+<p>In this paper, authors consider clients have identical aggregation weights during learning process. i.e. $d_i(n) = d_i$ . While also considering identical client importance $p_i = 1/M$. The average optimum residual \Sigma can be defined as,</p>
+<p>$$
+\Sigma := \frac{1}{M}\sum_{i=1}^M\mathbb{E}_{\xi_i}\left[ ||\nabla\mathcal{L}_i(\theta^*,\xi_i)||\right]
+$$</p>
+<h3 id="clients-computation-time">Clients computation time</h3>
+<p>In this paper, clients are ordered by increasing $\tau_i$, i.e. $\tau_i \le \tau_{i+1}$. This derivation still holds for applications where clients have unreliable hardware capabilities that can be modeled as an exponential distribution, i.e. $T_i \sim exp(\tau_i^{-1})$ which gives $\mathbb{E}[T_i] = \tau_i$.</p>
+<h3 id="clients-data-distributions">Clients data distributions</h3>
+<p>Considering the FL setting where each client has its unique data distribution. Therefore, clients have heterogeneous hardware and non-iid data distributions.</p>
+<h3 id="learning-rates">Learning rates</h3>
+<p>For sake of clarity, we ignore the server learning rate when expressing the convergence bounds , i.e. $η_g = 1$. Also, we consider a local learning rate $η_l$ inversely proportional to the serial amount of SGD included in the global model, i.e. $\eta_l ∝ \sqrt{KN}$</p>
+<p><img src="/figures/25_1_8/image.png" alt="image.png"></p>
+<h2 id="fedavg-synchronous-federated-learning">FEDAVG, Synchronous Federated Learning</h2>
+<p>At every optimization round, the server sends to the clients the current global model to perform $K$  SGD steps on their own data before returning the resulting model to the server. Once every client performs its local work, the new global model is created as the weighted average of the clients contribution.</p>
+<p>The time required for an optimization step is therefore the one of the slowest client ($\Delta t^n = {max}_i(T_i^n)$). Here setting $d_i = p_i$ is sufficient to satisfy the conditions of optimum.</p>
+<p>$$
+\epsilon_{FedAvg} = \frac{1}{\sqrt{KN}}||\theta^0 -\theta^*||^2 + \mathcal{O}(\frac{K-1}{N}\Sigma) + \mathcal{O}(\frac{1}{\sqrt{KN}}\frac{1}{M}\Sigma)
+$$</p>
+<p>The second element of upper equation accounts for the clients update disparity through their amount of local work $K$  between two server aggregations, and is proportional to the SG variance $Σ$. The third element benefits of the distributed computation by being proportional to $1/M$ .</p>
+<h2 id="asynchronous-fedavg">Asynchronous FEDAVG</h2>
+<p>With asynchronous FEDAVG, clients always compute their local work but each on a different global model, giving $\Delta t^n = min_i T_i^n$, $\alpha = 0$, and $\beta = {max}_i d_i$ . In addition, while the slowest client updates its local work, other clients performs a fix amount of updates (up to $\tau_M/\tau_i$). By scaling this amount of updates by the amount of clients sending updates to the server, we have,</p>
+<p>$$
+\tau = \mathcal{O}\left(\frac{\tau_M}{\tau_0}(M-1)\right)
+$$</p>
+<p>Define $lcm({x_i})$ the function returning the least common multiplier of the set of integers ${x_i}$. Hence, after every $v:= lcm({\tau_i})$ time, each client has performed $v/\tau_i$ optimization rounds and the cycle of clients update repeats itself. Thus, the smallest window $W$ satisfies,</p>
+<p>$$
+W=\sum_{i=1}^M v/\tau_i
+$$</p>
+<p>By construction, $v\ge \tau_M$ and thus $W = Ω(M)$, with $W=M$ when clients have homogeneous hardware ($τ_M = τ_0$) In the worse case, every $τ_i$ is a prime number, and we have $v/\tau_i \le (\tau_M)^{M-1}$, which gives  $W = \mathcal{O}(M(\tau_M)^{M-1})$. In a cycle of $W$ optimization rounds, every client participates $ν/τ_i$ times to the creation of a new global model. Therefore, we have $q_i(n) =  d_i$ for the $v/\tau_i$ participation of client $i$ and $q_i(n) = 0$ otherwise, Then, we have,</p>
+<p>$$
+q_i=\frac{1}{W}\sum_{n=kW}^{(k+1)W-1}q_i(n)=\frac{1}{\sum_{i=1}^Mv/\tau_i}\frac{v}{\tau_i}d_i = p_i\rightarrow d_i=\left[\sum_{i=1}^M\frac{1}{\tau_i}\right]\tau_ip_i
+$$</p>
+<p>Finally we can get the close form of $\epsilon$,</p>
+<p>$$
+\epsilon_{Async} = \frac{1}{\sqrt{KN}}||\theta^0-\theta^*||^2+\mathcal{O}\left(\frac{K-1}{N}\Sigma\right)+\mathcal{O}\left(\frac{\tau_M}{\tau_0}\frac{1}{\sqrt{KN}}[R({\mathcal{L}^n})+\Sigma]\right)+\mathcal{O}\left((\frac{\tau_M}{\tau_0})^3\frac{K}{N}M^2[R({\mathcal{L}^n})+\Sigma]\right)+\mathcal{O}\left( \frac{1}{\sqrt{KN}}(W-1) \right)
+$$</p>
+<h2 id="fedfix">FEDFIX</h2>
+<p>With FedFix, an iteration time $\Delta t^n = t^{n+1} - t^n$  is decided by the server and is independent from the clients remaining update time $T_i^n$.<br>
+$\alpha = 1$  and $\beta = 0$.</p>
+<p>Every client sends an update to the server in $N_i^’ = T_i /\Delta t$ optimization steps. The smallest window W satisfies $W = lcm({N_i^’})$, and clients update $W/N_i^’$ times their work to the server during the window $W$ . Then, we have,</p>
+<p>$$
+d_i= \frac{\tau_i}{\Delta t}p_i
+$$</p>
+<p>Finally, we can simplify the close-form of \epsilon for FedFix to get,</p>
+<p>$$
+\epsilon_{FedFix} = \frac{1}{\sqrt{KN}}\mathbb{E}\left[ ||\theta^0-x ||^2\right]+\mathcal{O}\left(\frac{K-1}{N}[R({\mathcal{L}^n})+\Sigma]\right))+\mathcal{O}\left( \left[ \frac{1}{\sqrt{KN}}+\frac{K}{N}[\frac{\tau_m}{\Delta t}]^2\right] \left[ R({ \mathcal{L}^n})\frac{\tau_m}{\Delta t}\frac{1}{M}\Sigma\right]\right) + \mathcal{O}\left(\frac{1}{\sqrt{KN}}(W-1)\right)
+$$</p>
+<h1 id="proof">Proof</h1>
+<h2 id="proof-of-theorem-1">Proof of Theorem 1</h2>
+<h3 id="lemma-1">Lemma 1</h3>
+<p>Consider we have n vectors $x_i, \dots, x_n$, we have,</p>
+<p>$$
+\mathbb{E}<em>{S_n}\left[||\sum</em>{i=1}^M\omega_i(n)x_i||^2\right]=\sum_{i=1}^M\gamma_i(n)||x_i||^2+\alpha||\sum_{i=1}^Mq_i(n)x_i||^2
+$$</p>
+<p>$\gamma_i(n) = E_{S_n}[\omega_i^2(n)] - \alpha q_i^2(n)\ge 0$</p>
+<p>$\gamma_i(n) = \beta q_i(n)$, $\beta := max{d_i(n) - \alpha q_i(n)}$.</p>
+<p>$$
+\mathbb{E}<em>{S_n}\left[||\sum</em>{i=1}^M\omega_i(n)x_i||^2\right] = \sum_{i=1}^M\mathbb{E}<em>{S_n}[\omega_i^2(n)]||x_i||^2 + \sum</em>{i=1}^M\sum_{j=1,\ j\neq i}^M\mathbb{E}_{S_n}[\omega_i(n)\omega_j(n)]\langle x_i,x_j \rangle
+$$</p>
+<p>$$
+\mathbb{E}<em>{S_n}\left[||\sum</em>{i=1}^M\omega_i(n)x_i||^2\right] = \sum_{i=1}^M\mathbb{E}<em>{S_n}[\omega_i^2(n)]||x_i||^2 + \sum</em>{i=1}^M\sum_{j=1,\ j\neq i}^M \alpha q_i(n)q_j(n)\langle x_i,x_j\rangle
+$$</p>
+<h3 id="lemma-2">Lemma 2</h3>
+<p>$$
+\Delta(n)\le-2\tilde{\eta}D(x,n)+\tilde{\eta}\alpha q^2(n)R(n)+\tilde{\eta}^2\beta q(n)S(n)
+$$</p>
+<p>Consider $S_n$ is the set of participating clients at optimization round $n$, i.e. $S_n = {n: T_i^n \le \Delta t^n}$.</p>
+<p>$$
+\mathbb{E}<em>{S_n}\left[||\theta^{n,k+1}-\theta^*||^2\right]=\mathbb{E}</em>{S_n}\left[ ||(\theta^{n,k+1}-\theta^{n,k})+(\theta^{n,k}-\theta^<em>)||^2\right]
+=||\theta^{n,k}-\theta^</em>||^2+2\langle \mathbb{E}<em>{S_n}\left[\theta^{n,k+1}-\theta^{n,k}\right],\theta^{n,k}-\theta^* \rangle+\mathbb{E}</em>{S_n}\left[||\theta^{n,k+1}-\theta^{n,k}||^2 \right]
+$$</p>
+<p>By construction, we have $\theta^{n,k+1}-\theta^{n,k} = - \tilde{\eta}\sum_{i=1}^M\omega_i(n)g_i(\theta_i^{\rho_i(n), k})$</p>
+<p>Take the expectation on $S_n$, $\mathbb{E}<em>{S_n}\left[\theta^{n,k+1} - \theta^{n,k}\right] = - \tilde{\eta}\sum</em>{i=1}^Mq_i(n)g_i(\theta_i^{\rho_i(n), k})$. Then, finally we have,</p>
+<p>$$
+\mathbb{E}<em>{S_n}\left[ ||\theta^{n,k+1}-\theta^<em>||^2 \right]=||\theta^{n,k}-\theta^</em>||^2-2\tilde{\eta}\langle \sum</em>{i=1}^M q_i(n)g_i(\theta_i^{\rho_i(n),k}),\theta^{n, k}-\theta^*\rangle + \tilde{\eta}^2\sum_{i=1}^M \gamma_i(n) ||g_i(\theta^{\rho_i(n),k}<em>i)||^2+\tilde{\eta}^2\alpha||\sum</em>{i=1}^Mq_i(n)g_i(\theta^{\rho_i(n),k}_i)||^2
+$$</p>
+<p>Based on upper equation and $\gamma_i(n) \le \beta q_i(n)$, we can finally have,</p>
+<p>$$
+\Delta(n,k)\le -2\tilde{\eta}D(x,n,k)+\tilde{\eta}\alpha q^2(n)R(n,k)+\tilde{\eta}\beta q(n)S(n,k)
+$$</p>
+<hr>
+<p>$\Delta(n,k) := \mathbb{E}\left[ ||\theta^{n,k+1}-x||^2 \right] - \mathbb{E}\left[ ||\theta^{n,k}-x||^2 \right]$</p>
+<p>$D(x,n,k) := \mathbb{E}\left[ \langle \sum_{i=1}^M q_i(n)\nabla\mathcal{L}_i(\theta^{\rho_i(n),k}_i) , \theta^{n,k} -x \rangle \right]$</p>
+<p>$R(n, k) = \mathbb{E} \left[ ||\sum_{i=1}^M q_i(n)g_i(\theta_i^{\rho_i(n),k}) ||^2 \right]$</p>
+<p>$S(n, k) = \sum_{i=1}^M q_i(n) \mathbb{E} \left[ ||g_i(\theta_i^{\rho_i(n),k}) ||^2 \right]$</p>
+<h3 id="lemma-3">Lemma 3</h3>
+<p>Under Assumption 3 and 1:</p>
+<p><img src="/figures/25_1_8/image%201.png" alt="image.png"></p>
+<p><img src="/figures/25_1_8/image%202.png" alt="image.png"></p>
+<p>And Consider $D:= 6\eta_l^2(K-1)^2L^2 \le 1/2$, we have,</p>
+<p>$$
+\phi(n)\le 4q(n)\tau\sum_{s=1}^{\tau}Q(n-s)+4D\frac{1}{L}q^{-1}(n)Z(n)+6\eta_l^2(K-1)^2\sigma_1(n)
+$$</p>
+<p>$$
+S(n)\le12q(n)L^2\tau\sum_{s=1}^{\tau}Q(n-s)+12Lq^{-1}(n)Z(n)+6\sigma_1(n)
+$$</p>
+<p>$\phi(n,k) := \sum_{i=1}^M q_i(n)\mathbb{E}\left[ || \theta_i^{\rho_i(n), k} - \theta^{n,k} ||^2 \right]$</p>
+<p>$$
+\theta_i^{\rho_i(n),k}-\theta^{n,k}=\left[ \theta^{\rho_i(n)}-\theta^n \right]
+$$</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/25_1_1/"
+      title="Learning Record --- 19 (2025/1/1)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>

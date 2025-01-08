@@ -6,8 +6,15 @@
     <description>Recent content in aafu theme on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 20 (2025/1/8)</title>
+      <link>https://ZongyuYe.github.io/blog/25_1_8/</link>
+      <pubDate>Wed, 08 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/25_1_8/</guid>
+      <description>A General Theory for Federated Optimization with Asynchronous and Heterogeneous Clients Updates — Investigation on $q_i(n)$ and $\omega_i(n)$ and part of the proof Fraboni Y, Vidal R, Kameni L, et al. A general theory for federated optimization with asynchronous and heterogeneous clients updates[J]. Journal of Machine Learning Research, 2023, 24(110): 1-43.&#xA;Code: Accenture/Labs-Federated-Learning at asynchronous_FL&#xA;Background For FedAvg, the aggregation scheme can be considered as,&#xA;$$ \theta^{n+1} := \theta^n +\sum_{i=1}^M p_i \Delta_i(n) $$</description>
+    </item>
     <item>
       <title>Learning Record --- 19 (2025/1/1)</title>
       <link>https://ZongyuYe.github.io/blog/25_1_1/</link>
