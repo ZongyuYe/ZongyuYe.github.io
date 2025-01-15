@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.94e34217b49dc1e731fe3acb6c19e698ee07651761f1431ba3772128bcd8845c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 21 (2025/1/15)</h1>
+  <p class="mb-1">January 15, 2025</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="communication-efficient-learning-of-deep-networks-from-decentralized-data-fedavg">Communication-Efficient Learning of Deep Networks from Decentralized Data (FedAvg)</h1>
+<p>McMahan, H. B., Moore, E., Ramage, D., Hampson, S., and Agüera y Arcas, B., “Communication-Efficient Learning of Deep Networks from Decentralized Data”, <!-- raw HTML omitted -->arXiv e-prints<!-- raw HTML omitted -->, Art. no. arXiv:1602.05629, 2016. doi:10.48550/arXiv.1602.05629.</p>
+<h2 id="background">Background</h2>
+<p><strong>Federated Learning:</strong> Ideal problems for federated learning have the following properties:</p>
+<ol>
+<li>
+<p>Training on real-world data from mobile devices provides a distinct advantage over training on proxy data that is generally available in the data center.</p>
+</li>
+<li>
+<p>This data is privacy sensitive or large in size (compared to the size of the model), so it is preferable not to log it to the data center purely for the purpose of model training (in service of the focused collection principle).</p>
+</li>
+<li>
+<p>For supervised tasks, labels on the data can be inferred naturally from user interaction.</p>
+</li>
+</ol>
+<p><strong>Federated Optimization:</strong> We refer to the optimization problem implicit in federated learning as federated optimization, drawing a connection (and contrast) to distributed optimization. Federated optimization has several key properties that differentiate it from a typical distributed optimization problem:</p>
+<ol>
+<li><strong>Non-IID</strong> The training data on a given client is typically based on the usage of the mobile device by a particular user, and hence any particular user’s local dataset will not be representative of the population distribution.</li>
+<li><strong>Unbalanced</strong> Similarly, some users will make much heavier use of the service or app than others, leading to varying amounts of local training data.</li>
+<li><strong>Massively distributed</strong> We expect the number of clients participating in an optimization to be much larger than the average number of examples per client.</li>
+<li><strong>Limited communication</strong> Mobile devices are frequently offline or on slow or expensive connections.</li>
+</ol>
+<hr>
+<h3 id="a-simple-explanation-on-the-problem">A Simple explanation on the problem</h3>
+<p>Consider we have a fixed set of $K$ clients, each with a fixed local dataset. At the beginning of each round, a random fraction $C$ of clients is selected, and the server sends the current global algorithm state to each of these clients (e.g., the current model parameters). We only select a fraction of clients for efficiency, as our experiments show diminishing returns for adding more clients beyond a certain point. Each selected client then performs local computation based on the global state and its local dataset, and sends an update to the server. The server then applies these updates to its global state, and the process repeats.</p>
+<p>While we focus on non-convex neural network objectives, the algorithm we consider is applicable to any finite-sum objective of the form,</p>
+<p><img src="/figures/25_1_15/image.png" alt="image.png"></p>
+<p>For a machine learning problem, we typically take $f_i(w) = \mathcal{l}(x_i, y_i; w)$, that is, the loss of the prediction on example $(x_i, y_i)$ made with model parameters $w$. We assume there are $K$ clients over which the data is partitioned, with $\mathcal{P}_k$ the set of indexes of data points on client $k$, with $n_k = |\mathcal{P}_k|$. Thus, we can re-write the objective (1) as</p>
+<p><img src="/figures/25_1_15/image%201.png" alt="image.png"></p>
+<p>If the partition $\mathcal{P}<em>k$ was formed by distributing the training examples over the clients uniformly at random, then we would have $\mathbb{E}</em>{\mathcal{P}_k}[F_k(w)] = f (w)$, where the expectation is over the set of examples assigned to a fixed client $k$. This is the IID assumption typically made by distributed optimization algorithms; we refer to the case where this does not hold (that is, $F_k$ could be an arbitrarily bad approximation to $f )$ as the non-IID setting.</p>
+<h2 id="the-federatedaveraging-algorithm">The FederatedAveraging Algorithm</h2>
+<p>Consider we have $C$ to control the global batch size, with $C = 1$ corresponding to full-batch gradient descent. A typical implementation of FedSGD (Baseline in this paper) with $C = 1$ and a fixed learning rate $η$ has each client $k$ compute $g_k = \nabla F_k(w_t)$, the average gradient on its local data at the current model $w_t$, and the central server aggregates these gradients  and applies the update $w_{t+1} \leftarrow w_t - \eta \sum_{k=1}^K \frac{n_k}{n}g_k$, since $\sum_{k=1}^K\frac{n_k}{n}g_k=\nabla f(w_t)$. An equivalent update is given by $\forall k, w_{t+1}^k \leftarrow w_t - \eta g_k$ and then $w_{t+1} \leftarrow \sum_{k=1}^K \frac{n_k}{n}w_{t+1}^k$. That is, each client locally takes one step of gradient descent on the current model using its local data, and the server then takes a weighted average of the resulting models. Once the algorithm is written this way, we can add more computation to each client by iterating the local update $w^{k+1} \leftarrow w^k \eta \nabla F_k(w^k)$ multiple times before the averaging step. This can be called FederatedAveraging (or FedAvg). The amount of computation is controlled by three key parameters: $C$, the fraction of clients that perform computation on each round; $E$, then number of training passes each client makes over its local dataset on each round; and $B$, the local minibatch size used for the client updates. We write $B = ∞$ to indicate that the full local dataset is treated as a single minibatch. Thus, at one endpoint of this algorithm family, we can take $B = ∞$ and $E = 1$ which corresponds exactly to FedSGD. For a client with $n_k$ local examples, the number of local updates per round is given by $u_k = E \frac{n_k}{B}$; Complete pseudo-code is given in Algorithm 1.</p>
+<p><img src="/figures/25_1_15/image%202.png" alt="image.png"></p>
+<h2 id="experiment">Experiment</h2>
+<h3 id="image-date">Image date</h3>
+<p>In this paper, authors provide two model’s experiment for the MNIST digit recognition task</p>
+<p><strong>Model Ⅰ:</strong> A simple multilayer-perceptron with 2-hidden layers with 200 units each using ReLu activations (199,210 total parameters), which we refer to as the MNIST 2NN.</p>
+<p><strong>Model Ⅱ:</strong> A CNN with two 5x5 convolution layers (the first with 32 channels, the second with 64, each followed with 2x2 max pooling), a fully connected layer with 512 units and ReLu activation, and a final softmax output layer (1,663,370 total parameters).</p>
+<p>Also, dataset will be partitioned by two ways.</p>
+<p><strong>IID:</strong> where the data is shuffled, and then partitioned into 100 clients each receiving 600 examples.</p>
+<p><strong>Non-IID:</strong> where we first sort the data by digit label, divide it into 200 shards of size 300, and assign each of 100 clients 2 shards.</p>
+<h3 id="language-data">language data</h3>
+<p>For the language data, this paper provide IID version of the dataset, also with 1146 clients.</p>
+<p>On this data we train a stacked character-level LSTM language model, which after reading each character in a line, predicts the next character. The model takes a series of characters as input and embeds each of these into a learned 8 dimensional space. The embedded characters are then processed through 2 LSTM layers, each with 256 nodes. Finally the output of the second LSTM layer is sent to a softmax output layer with one node per character. The full model has 866,578 parameters, and we trained using an unroll length of 80 characters.</p>
+<h3 id="increasing-parallelism">Increasing parallelism</h3>
+<p>This paper firstly experiment withe the client fraction $C$, which controls the amount of multi-client parallelism.</p>
+<p><img src="/figures/25_1_15/image%203.png" alt="image.png"></p>
+<p>The rows correspond to 1, 10 20, 50, and 100 clients. Each table entry gives the number of rounds of communication necessary to achieve a test-set accuracy of 97% for the 2NN and 99% for the CNN, along with the speedup relative to the C = 0 baseline.</p>
+<h3 id="increasing-computation-per-client">Increasing computation per client</h3>
+<p>Here, we fix $C=0.1$, and add more computation per client on each round, either decreasing $B$, increasing  $E$, or both. Figure 2 demonstrates that adding more local SGD updates per round can produce a dramatic decrease in communication costs, and Table 2 quantifies these speedups. The expected number of updates per client per round is $u = (\mathbb{E}[n_k]/B)E = nE/(KB)$, where the expectation is over the draw of a random client $k$. As long as B is large enough to take full advantage of available parallelism on the client hardware, there is essentially no cost in computation time for lowering it, and so in practice this should be the first parameter tuned.</p>
+<p><img src="/figures/25_1_15/image%204.png" alt="image.png"></p>
+<h3 id="can-we-over-optimize-on-the-client-datasets">Can we over-optimize on the client datasets?</h3>
+<p>The current model parameters only influence the optimization performed in each ClientUpdate via initialization. Thus, as E → ∞, at least for a convex problem eventually the initial conditions should be irrelevant, and the global minimum would be reached regardless of initialization. Even for a non-convex problem, one might conjecture the algorithm would converge to the same local minimum as long as the initialization was in the same basin. That is, we would expect that while one round of averaging might produce a reasonable model, additional rounds of communication (and averaging) would not produce further improvements.</p>
+<p>Figure 3 shows the impact of large E during initial training on the Shakespeare LSTM problem. Indeed, for very large numbers of local epochs, FedAvg can plateau or diverge. This result suggests that for some models, especially in the later stages of convergence, it may be useful to decay the amount of local computation per round (moving to smaller $E$ or larger $B$) in the same way decaying learning rates can be useful.</p>
+<p><img src="/figures/25_1_15/image%205.png" alt="image.png"></p>
+<h2 id="core-code-explanation">Core Code Explanation</h2>
+<p>Below is the most important part of FedAvg. In fact, it is about how to compute the weight from different clients which participate into the training process.</p>
+<pre tabindex="0"><code># Copy the weight of the current global model net_glob
+w_glob = net_glob.state_dict()
+
+# training
+loss_train = []
+cv_loss, cv_acc = [], []
+val_loss_pre, counter = 0, 0
+net_best = None
+best_loss = None
+val_acc_list, net_list = [], []
+if args.all_clients:
+    print(&#34;Aggregation over all clients&#34;)
+    w_locals = [w_glob for i in range(args.num_users)]
+for iter in range(args.epochs):
+    loss_locals = []
+    # If not all clients, create a list w_locals to store the local weights for each client
+    if not args.all_clients:
+        w_locals = []
+    # Determine the number of clients involved in this round of training m based on the command line arguments args.frac and args.num_users
+    m = max(int(args.frac * args.num_users), 1)
+    idxs_users = np.random.choice(range(args.num_users), m, replace=False)
+    for idx in idxs_users:
+        # Perform local updates
+        local = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
+        # Pass in a copy of the current global model, net_glob, and get the updated weight w and local loss loss
+        w, loss = local.train(net=copy.deepcopy(net_glob).to(args.device))
+        if args.all_clients:
+            w_locals[idx] = copy.deepcopy(w)
+        else:
+            w_locals.append(copy.deepcopy(w))
+        # 将局部损失loss添加到loss_locals列表中
+        loss_locals.append(copy.deepcopy(loss))
+
+    # update global weights
+    # The FedAvg function is used to aggregate w_locals to get the updated global weight w_glob
+    w_glob = FedAvg(w_locals)
+
+    # copy weight to net_glob
+    net_glob.load_state_dict(w_glob)
+
+    # print loss
+    loss_avg = sum(loss_locals) / len(loss_locals)
+    print(&#39;Round {:3d}, Average loss {:.3f}&#39;.format(iter, loss_avg))
+    loss_train.append(loss_avg)
+</code></pre><p>Below is the local update part, actually, it is like the common training part. If we have N clients, then we have N distributed such local updat.</p>
+<pre tabindex="0"><code>class LocalUpdate(object):
+	def **init**(self, args, dataset=None, idxs=None):
+		self.args = args
+	  self.loss_func = nn.CrossEntropyLoss()
+	  #Clients which partcipate the training process
+	  self.selected_clients = []
+	  self.ldr_train = DataLoader(DatasetSplit(dataset, idxs), batch_size=self.args.local_bs, shuffle=True)
+# Below is common SGD training process for Single localupdate.
+	def train(self, net):
+	    net.train()
+	    # train and update
+	    optimizer = torch.optim.SGD(net.parameters(), lr=self.args.lr, momentum=self.args.momentum)
+	    epoch_loss = []
+	    for iter in range(self.args.local_ep):
+	        batch_loss = []
+	        for batch_idx, (images, labels) in enumerate(self.ldr_train):
+	            images, labels = images.to(self.args.device), labels.to(self.args.device)
+	            net.zero_grad()
+	            log_probs = net(images)
+	            loss = self.loss_func(log_probs, labels)
+	            loss.backward()
+	            optimizer.step()
+	            if self.args.verbose and batch_idx % 10 == 0:
+	                print(&#39;Update Epoch: {} [{}/{} ({:.0f}%)]\\tLoss: {:.6f}&#39;.format(
+	                    iter, batch_idx * len(images), len(self.ldr_train.dataset),
+	                           100. * batch_idx / len(self.ldr_train), loss.item()))
+	            batch_loss.append(loss.item())
+	        epoch_loss.append(sum(batch_loss)/len(batch_loss))
+	    return net.state_dict(), sum(epoch_loss) / len(epoch_loss)
+</code></pre><h1 id="rs-dgc-exploring-neighborhood-statistics-for--dynamic-gradient-compression-on-remote--sensing-image-interpretation">RS-DGC: Exploring Neighborhood Statistics for  Dynamic Gradient Compression on Remote  Sensing Image Interpretation</h1>
+<p>W. Xie, Z. Wang, J. Ma, D. Li and Y. Li, &ldquo;RS-DGC: Exploring Neighborhood Statistics for Dynamic Gradient Compression on Remote Sensing Image Interpretation,&rdquo; in IEEE Transactions on Geoscience and Remote Sensing, vol. 62, pp. 1-12, 2024, Art no. 5622112, doi: 10.1109/TGRS.2024.3394501.</p>
+<h2 id="abstract">Abstract</h2>
+<p>Distributed deep learning has recently been attracting more attention in remote sensing (RS) applications due to the challenges posed by the increased amount of open data that are produced daily by Earth observation programs. However, the high communication costs of sending model updates among multiple nodes are a significant bottleneck for scalable distributed learning. Gradient sparsification has been validated as an effective gradient compression (GC) technique for reducing communication costs and thus accelerating the training speed. Existing state-of-the-art gradient sparsification methods are mostly based on the “larger-absolute-more-important” criterion, ignoring the importance of small gradients, which is generally observed to affect the performance. Inspired by informative representation of manifold structures from neighborhood information, we propose a simple yet effective dynamic GC scheme leveraging neighborhood statistics indicator for RS image interpretation, termed RS-DGC. We first enhance the interdependence between gradients by introducing the gradient neighborhood to reduce the effect of random noise. The key component of RS-DGC is a neighborhood statistical indicator (NSI), which can quantify the importance of gradients within a specified neighborhood on each node to sparsify the local gradients before gradient transmission in each iteration. Further, a layer-wise dynamic compression scheme is proposed to track the important changes of each layer in real time. Extensive downstream tasks validate the superiority of our method in terms of intelligent interpretation of RS images. For example, we achieve an accuracy improvement of 0.51% with more than 50× communication compression on the NWPU-RESISC45 dataset using VGG-19 network. To the best of our knowledge, this is the first GC method designed for RS images and downstream tasks, achieving a successful trade-off between high compression ratio and performance.</p>
+<p>(Shorter Summary: )</p>
+<h2 id="method">Method</h2>
+<h3 id="problem-definition">Problem Definition</h3>
+<p>A distributed learning system consists of $N$ nodes, and each node can perform local training based on RS dataset $D_n (1 ≤ n ≤ N )$. The purpose of GC is to reduce the gradient elements that need to be transmitted as much as possible without losing the accuracy of the model, thereby minimizing the communication costs. Our aim is to solve the following optimization problem:</p>
+<p>$$
+min \sum_{i=1}^NC(\phi(g_i, p))\ \ s.t.\ \mathcal{L}<em>{SGD}(g_i, D_i)\ge \frac{1}{N}\sum</em>{i=1}^N\mathcal{L}_{S-SGD}\left( \phi(g_i,p^j_i), D_i\right)
+$$</p>
+<p>where $C(·)$ represents communication cost, $\phi(·)$ represents the operation to the gradients of each node. $\mathcal{L}<em>{SGD}$ is the loss function using stochastic gradient descent (SGD), and $\mathcal{L}</em>{S-SGD}$ is the loss function after GC. $g_n$ is gradients at node $n$, $p$ is the global compression ratio.</p>
+<p>The gradient sparsification and synchronization using classic data-parallel SGD can be formulated as</p>
+<p><img src="/figures/25_1_15/image%206.png" alt="image.png"></p>
+<p>At each iteration $t$, $X_t$ is the model parameters, $g_t$ is the local raw gradients, $g^s_t$ is the local gradients after sparsification, and $g^∗_t$ is the global gradients after synchronization. $η$ represents the learning rate. The $Sparse(·)$  function is employed to sparsify the original gradient, thereby setting zeros for most gradient values while retaining important gradients for updates. $Sync(·)$ function denotes the synchronization of gradient information across nodes, typically achieved through methods such as all-reduce, ring all-reduce, and others.</p>
+<h3 id="dynamic-compression-strategy">Dynamic Compression Strategy</h3>
+<p>In this section, we have to give different contribution to different layers in our model.</p>
+<p><img src="/figures/25_1_15/image%207.png" alt="image.png"></p>
+<p>By employing larger weight values, the input data can exert a more pronounced influence on subsequent layers, thereby amplifying the importance of the given layer. Conversely, smaller weight values attenuate the impact of input data, thereby diminishing the layer’s contribution to the overall network.</p>
+<p>Fig.3 shows policy in this paper (dynamic GC) Specifically, we assess the importance of each layer based on the magnitude of its weight, that is,</p>
+<p>$$
+\mu_l^i=|w_l^i|
+$$</p>
+<p>$w_l^i$  is the $i$th weight of layer $l$.</p>
+<p>$|.|$ returns the absolute value of its input.</p>
+<p>$\mu_l^i$ is the cross-layer ranking across the whole network by the numerical order.</p>
+<p>Assuming a global compression ratio $p$, the compression ratio of each layer can be easily determined by sparsifying the weights with the lowest ranks. As a result, each weight $w_l^i$ will be transformed  into a sparse representation $\hat{w}_l^i$ whose elements are defined as, if $\mu_l^i$ is among the lowest-rated $\hat{w}_l^i = 0$, otherwise, $\hat{w}_l^i = w_l^i$ .</p>
+<p>A straightforward method for quantifying the importance of each layer of the network is to determine per-layer compression rate pl based on the per-layer sparsity after above operation as,</p>
+<p><img src="/figures/25_1_15/image%208.png" alt="image.png"></p>
+<p>$G_l$ is the total number of gradients in $l$th layer</p>
+<p>$\delta(.)$ is an indicator function, which returns 1 if the input is true, and 0 otherwise.</p>
+<p>The definition of $p_l$ equalizes the sparsity of the $l$th layer.</p>
+<h3 id="neighborhood-statistics-indicator-nsi">Neighborhood Statistics Indicator (NSI)</h3>
+<p>In order to effectively prioritize gradients for transmission, we introduce NSI as a quantifiable measure to assess the significance of gradients. Most existing gradient GC measure the importance of gradients by each individual gradient itself. Differently, we consider a gradient and its neighborhood as a whole.</p>
+<p>Generally, a convolution layer transforms an input tensor $\mathcal{X} \in \mathcal{R}^{C\times H_{in}\times W_{in}}$ into an output tensor $\mathcal{Y} \in \mathcal{R}^{C\times H_{out}\times W_{out}}$ by using the filters $\mathcal{W} \in \mathcal{R}^{N\times C\times K_h\times K_w}$, Here, $C$ is the number of the input feature maps, $N$  is the number of the filters, and $K_h$ and $K_w$ are the height and width of a filter, respectively. Since weights and gradients have a one-to-one correspondence, the gradient shape of each convolution layer is consistent with the weight, that is, $g \in \mathcal{R}^{N\times C\times K_h\times K_w}$. We convert the gradients of each layer into tensors on a 2-D plane. Let $g_0$ be a 2-D spatial plane coordinate $(x_0, y_0)$. The Chebyshev distance between $g_0$ and $(x, y)$ on the 2-D plane is defined as</p>
+<p><img src="/figures/25_1_15/image%209.png" alt="image.png"></p>
+<p>The neighboring gradients $G_p(x_0, y_0)$ defined by Chebyshev distance is a set of gradients that are within $p × p$ patch including $(x_0, y_0)$ itself and is defined as follows:</p>
+<p><img src="/figures/25_1_15/image%2010.png" alt="image.png"></p>
+<p>where $G(x, y)$ is the gradient at position $(x, y)$ in layer $l.$</p>
+<p>We measure the importance of gradients in neighborhood $G_p(x_0, y_0)$ by calculating the NSI</p>
+<p><img src="/figures/25_1_15/image%2011.png" alt="image.png"></p>
+<p>where $α$  is the hyperparameter between 0 and 1, and it can be adjusted for different models. $mean_p(x_0, y_0)$ and $std_p(x_0, y_0)$ are the mean of absolute value and standard deviation of the gradients in the neighborhood $G_p(x_0, y_0)$.</p>
+<p><img src="/figures/25_1_15/image%2012.png" alt="image.png"></p>
+<p>Suppose we get the compression ratio corresponding to the nth node and the $l$th layer of the model $p^l _n$, and then we calculate the number of gradients that is need to be preserved</p>
+<p><img src="/figures/25_1_15/image%2013.png" alt="image.png"></p>
+<p>Then, we will preserve all gradient values in the neighborhood corresponding to the Top-k NSI value and transmit the corresponding neighborhood index.</p>
+<p>Therefore, our approach can be seen as a variant of Top-k sparsity. It is worth noting that our method differs from Top-k sparsity in two ways.</p>
+<ol>
+<li>
+<p>By introducing gradient neighborhood, we aggregate all the gradients within the specified neighborhood as a unit to mitigate the contingency caused by individual gradients. This approach effectively minimizes the influence of random noise, resulting in smoother and more stable gradients.</p>
+</li>
+<li>
+<p>Statistic indicators, particularly the standard deviation, assist us in capturing significant yet relatively small gradients; thereby, preventing the model from overfitting. Moreover, these small gradients encompass crucial fine-tuning information regarding the model’s weight, playing a major role in sustaining optimal model performance.</p>
+</li>
+</ol>
+<p>To solve the problem of gradient optimization direction deviation caused by gradient accumulation directly, we can use local gradient accumulation using momentum correction</p>
+<p><img src="/figures/25_1_15/image%2014.png" alt="image.png"></p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/25_1_8/"
+      title="Learning Record --- 20 (2025/1/8)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>

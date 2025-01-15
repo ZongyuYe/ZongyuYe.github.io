@@ -6,8 +6,15 @@
     <description>Recent content in aafu theme on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 21 (2025/1/15)</title>
+      <link>https://ZongyuYe.github.io/blog/25_1_15/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/25_1_15/</guid>
+      <description>Communication-Efficient Learning of Deep Networks from Decentralized Data (FedAvg) McMahan, H. B., Moore, E., Ramage, D., Hampson, S., and Agüera y Arcas, B., “Communication-Efficient Learning of Deep Networks from Decentralized Data”, arXiv e-prints, Art. no. arXiv:1602.05629, 2016. doi:10.48550/arXiv.1602.05629.&#xA;Background Federated Learning: Ideal problems for federated learning have the following properties:&#xA;Training on real-world data from mobile devices provides a distinct advantage over training on proxy data that is generally available in the data center.</description>
+    </item>
     <item>
       <title>Learning Record --- 20 (2025/1/8)</title>
       <link>https://ZongyuYe.github.io/blog/25_1_8/</link>
