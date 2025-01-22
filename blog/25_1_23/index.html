@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.94e34217b49dc1e731fe3acb6c19e698ee07651761f1431ba3772128bcd8845c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 22 (2025/1/22)</h1>
+  <p class="mb-1">January 22, 2025</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="learning-end-to-end-lossy--image-compression-a-benchmark">Learning End-to-End Lossy  Image Compression: A Benchmark</h1>
+<p>Y. Hu, W. Yang, Z. Ma and J. Liu, &ldquo;Learning End-to-End Lossy Image Compression: A Benchmark,&rdquo; in <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>, vol. 44, no. 8, pp. 4194-4211, 1 Aug. 2022, doi: 10.1109/TPAMI.2021.3065339.</p>
+<p>Code: <a href="https://github.com/huzi96/Coarse2Fine-PyTorch">GitHub - huzi96/Coarse2Fine-PyTorch</a></p>
+<h1 id="abstract">Abstract</h1>
+<p>Image compression is one of the most fundamental techniques and commonly used applications in the image and video processing field. Earlier methods built a well-designed pipeline, and efforts were made to improve all modules of the pipeline by handcrafted tuning. Later, tremendous contributions were made, especially when data-driven methods revitalized the domain with their excellent modeling capacities and flexibility in incorporating newly designed modules and constraints. Despite great progress, a systematic benchmark and comprehensive analysis of end-to-end learned image compression methods are lacking. In this paper, we first conduct a comprehensive literature survey of learned image compression methods. The literature is organized based on several aspects to jointly optimize the rate-distortion performance with a neural network, i.e., network architecture, entropy model and rate control. We describe milestones in cutting-edge learned image-compression methods, review a broad range of existing works, and provide insights into their historical development routes. With this survey, the main challenges of image compression methods are revealed, along with opportunities to address the related issues with recent advanced learning methods. This analysis provides an opportunity to take a further step towards higher-efficiency image compression. By introducing a coarse-to-fine hyperprior model for entropy estimation and signal reconstruction, we achieve improved rate-distortion performance, especially on high-resolution images. Extensive benchmark experiments demonstrate the superiority of our model in rate-distortion performance and time complexity on multi-core CPUs and GPUs.</p>
+<h1 id="problem-formulation">Problem Formulation</h1>
+<p>Natural image signals include many spatial redundancies and have the potential to be compressed without much degradation in perceptual quality.</p>
+<p>Considering practical constraints on bandwidth and storage, <strong>lossy image compression</strong> is widely adopted to minimize the bit-rate of representing a given image to tolerate a certain level of distortion.</p>
+<p>The compression framework usually consists of an encoder-decoder pair. Given an input image $x$ with its distribution $p_x$, the encoder with an encoding transform $\mathcal{E}$ and a quantization function $\mathcal{Q}$, a discrete code $y$ is generated as follows:</p>
+<p><img src="/figures/25_1_23/image.png" alt="image.png"></p>
+<p>where $\theta_{\mathcal{E}}$ denotes the encoder parameters to be tuned during the learning procedure. To obtain the pixel representation of the image, the corresponding decoder $\mathcal{D}$ reconstructs the image $\hat{x}$ from the code $y$ as follows:</p>
+<p><img src="/figures/25_1_23/image%201.png" alt="image.png"></p>
+<p>$\theta_{\mathcal{D}}$ denotes denotes the parameters in $\mathcal{D}$.</p>
+<p>Two kinds of metrics, i.e., distortion $D$ and bit-rate $R$, give rise to rate-distortion optimization $R+\lambda D$, the core problem of lossy image compression. The distortion term $D$ measures how different the reconstructed image is from the original image, and it is usually measured via fidelitydriven metrics or perceptual metrics as follows:</p>
+<p><img src="/figures/25_1_23/image%202.png" alt="image.png"></p>
+<p>where $d$ denotes the distortion function. The rate term $R$ corresponds to the number of bits to encode $y$, which is bounded according to the entropy constraints. However, the actual probability distribution of the latent code $y$, denoted as $p_y$, is unknown, making accurate entropy calculation intractable. Thus, we usually utilize an entropy model $q_y$ to serve as the estimation of $p_y$ for entropy coding. Hence, the rate term can be formulated as the cross entropy of $p_y$ and $q_y$ as follows:</p>
+<p><img src="/figures/25_1_23/image%203.png" alt="image.png"></p>
+<p>where $p_y$ stands for the real probability distribution and $q_y$ refers to the distribution estimated by the entropy model. The overall compression model can be viewed as an optimization of the weighted sum of $R$ and $D$. Formally, the problem can be solved by minimizing the following optimization with a trade-off coefficient $\lambda$ as follows:</p>
+<p><img src="/figures/25_1_23/image%204.png" alt="image.png"></p>
+<p>where $\theta_p$ denotes the parameter for the entropy model. The  optimal parameters $\hat{\theta}_E$; $\hat{\theta}_D$; $\hat{\theta}_p$ cause the model to achieve an overall good rate-distortion performance on the image $x$ that follows $x\sim p_x$. Different values indicate different rate-distortion trade-offs, depending on the requirements of different applications.</p>
+<h1 id="backbones-for-image-compression">Backbones for image compression</h1>
+<p>A typical neural network backbone for image compression is built upon the VAE architecture. The architecture encodes images into vectors in a latent space, forming a compact representation. With dimensionality reduction and entropy constraints, the redundancy in the image is squeezed out by the compressive transform. <strong>There have been a variety of architectures for the backbone of the framework, which can be coarsely divided into two categories, namely, one-time feed-forward frameworks and multistage recurrent frameworks.</strong></p>
+<ol>
+<li>Each component in a one-time feed-forward framework conducts the feed-forward operation only once in the encoding and decoding procedure. Usually, multiple models need to be trained to cover different ranges of bit-rates, as the encoder and decoder networks determine the ratedistortion trade-off.</li>
+<li>In contrast, in multistage recurrent frameworks, an encoding component of the network iteratively conducts compression on the original and residual signals, and the number of iterations controls the ratedistortion trade-off. Each iteration encodes a portion of the residual signal with a certain amount of bits. Such a model can conduct variable-bit-rate compression on its own. In the following, we introduce both types of architectures and conduct a comparison analysis on them.</li>
+</ol>
+<h2 id="one-time-feed-forward-frameworks">One-Time Feed-Forward Frameworks</h2>
+<p>One-time feed-forward frameworks have been most widely adopted for end-to-end learned image compression. Basic variations of the architectures in the literature are illustrated in Fig. 1.</p>
+<p><img src="/figures/25_1_23/image%205.png" alt="image.png"></p>
+<h2 id="multistage-recurrent-frameworks">Multistage Recurrent Frameworks</h2>
+<p>The basic architecture and the variations of multistage recurrent frameworks for image compression are illustrated in Fig. 2.</p>
+<p><img src="/figures/25_1_23/image%206.png" alt="image.png"></p>
+<h1 id="proposed-coarse-to-fine-model">Proposed Coarse-to-Fine Model</h1>
+<h2 id="coarse-to-fine-hyperprior-modeling">Coarse-to-Fine Hyperprior Modeling</h2>
+<p>In this paper, authors follow the idea of one-time feed-forward framework, which consists of an analysis transform $\mathcal{G}_a$ and a synthesis transform $\mathcal{G}_s$.</p>
+<p>$\mathcal{G}_a$ transforms the image to latent representations.</p>
+<p>$\mathcal{G}_s$ reconstructs the image from those representations.</p>
+<p>To perform entropy coding, the latent representations are first quantized to a vector of discrete symbols $\textbf{X} = { X_1,X_2,\dots,X_n }$.</p>
+<p>A parametric entropy model $Q_{\textbf{X}}(\textbf{X};\theta)$ w.r.t. the random vector $\textbf{X}$ is built to provide the estimation of the likelihoods.</p>
+<p>The aim of entropy coding is now to jointly optimize the parameters in the networks to:</p>
+<ol>
+<li>accurately model the distribution $P_{\textbf{X}}(\textbf{X})$ of the random vector $\textbf{X}$ with $Q_{\textbf{X}}(\textbf{X};\theta)$.</li>
+<li>minimize the overall rate-distortion function with the estimated entropy.</li>
+</ol>
+<hr>
+<p>State-of-the-art methods combine context models and hyperpriors. In such approaches, it is first assumed that the joint probability distribution of $\textbf{X}$ can be factorized to the product of sequential conditional probabilities as follows:</p>
+<p><img src="/figures/25_1_23/image%207.png" alt="image.png"></p>
+<p>where $\textbf{Y}$ denotes the hyperprior, which is generated from $\textbf{X}$  and encoded to the bit-stream. When we need to decode $\textbf{X}$, $\textbf{Y}$ has already been decoded. These kinds of models need to address two issues. First, the dimensionality and the corresponding bit-rate of $\textbf{Y}$ should be kept low; otherwise, $\textbf{Y}$ itself may contain too much redundancy and is not efficiently compressed. In such a circumstance, the hyperprior may not provide enough information to accurately model the conditional probability, especially for higher ranges of bit-rates and large resolutions. Second, although contextual conditioning can help with accuracy, it is performed in a sequential way and is hard to accelerate with large-scale parallel computing devices. Thus, the framework is less scalable for input images of different sizes.</p>
+<p>In this case, to address the issues of the sequential context models, in the proposed method, this paper adopt a multilayer conditioning framework, which improves scalability for images of different sizes. The formulation is modified as follows:</p>
+<p><img src="/figures/25_1_23/image%208.png" alt="image.png"></p>
+<p>The first equality in upper equation holds for $\textbf{Y}$ because the hyperprior is generated from $\textbf{X}$ in a deterministic manner. When $\textbf{X}$ becomes complex and is controlled by expanding the dimension, $\textbf{Y}$ may need to embed more information to support accurate conditional modeling. Therefore, an additional layer of the hyperprior is introduced as follows:</p>
+<p><img src="/figures/25_1_23/image%209.png" alt="image.png"></p>
+<p>which in fact forms a coarse-to-fine hyperprior model. The dimension of $\textbf{Z}$ is reduced, and the redundancy is squeezed out by the hypertransforms. Thus, the joint distribution $P_{\textbf{Z}}(\textbf{Z})$ of the latent representation $\textbf{Z}={ Z_1,Z_2,\dots,Z_n }$ at the innermost layer can be approximately factorized as follows:</p>
+<p><img src="/figures/25_1_23/image%2010.png" alt="image.png"></p>
+<p><strong>(P.S. In fact, for common test, we can just use one of their layer. This kind of layer is very common in learning based image compression. Just like the equations below. Use a model to save main information and another model to save more detailed information)</strong></p>
+<p><img src="/figures/25_1_23/image%2011.png" alt="image.png"></p>
+<h2 id="network-architecture">Network Architecture</h2>
+<p>The overall structure of the end-to-end learned coarse-tofine framework is shown below.</p>
+<p><img src="/figures/25_1_23/image%2012.png" alt="image.png"></p>
+<p>The analysis transform network encodes the input image as the latent representation $\textbf{X}$, which is then quantized with a rounding operation. It aims to squeeze out pixelwise redundancy as much as possible.</p>
+<p>For multilayer hyper analysis and a symmetric hyper synthesis transform, based on,</p>
+<p><img src="/figures/25_1_23/image%208.png" alt="image.png"></p>
+<p><img src="/figures/25_1_23/image%209.png" alt="image.png"></p>
+<p>to estimate the distribution of $\textbf{X}$, a probability estimation network is employed to process $\textbf{Y}$ and predict the likelihood $P_{X_i}(X_i=x_i)$ with the estimated $Q_{X_i}(X_i=x_i)$ for each element $X_i$ in $\textbf{X}$.</p>
+<p>The likelihood of the latent code can be calculated as follows:</p>
+<p><img src="/figures/25_1_23/image%2013.png" alt="image.png"></p>
+<p>$\phi$ denotes the cumulative distribution function of a standard normal distribution, while the mean $\mu_{x_i}$ and scale $\sigma_{x_i}$ are predicted from $\textbf{Y}$.</p>
+<p>According to information theory, the minimum bit-rate required to encode $\textbf{X}$ (or $\textbf{Y}$  and $\textbf{Z}$) with the estimated distribution equals the cross entropy of the real distribution $P_{\textbf{X}|\textbf{Y}}(\textbf{X}|\textbf{Y})$ and the estimated distribution $Q_{\textbf{X}|\textbf{Y}}(\textbf{X}|\textbf{Y})\sim \mathcal{N}(\mu_x, \sigma_x)$, which is denoted as follows:</p>
+<p><img src="/figures/25_1_23/image%2014.png" alt="image.png"></p>
+<p>We minimize the rate-distortion function $\mathcal{L}_{RD}=R+\lambda D$ with the network. To accelerate the convergence during the training of the multilayer network, an additional information-fidelity loss is introduced. This loss term encourages the hyperrepresentation $\textbf{Y}$ to maintain the critical information in $\textbf{Y}$ during training and is formulated as follows:</p>
+<p><img src="/figures/25_1_23/image%2015.png" alt="image.png"></p>
+<h2 id="signal-preserving-hyper-transform">Signal-Preserving Hyper Transform</h2>
+<p>To conduct coarse-to-fine modeling of images, especially for high-fidelity modeling in high-resolution or high-quality circumstances, it is important to preserve the information while performing hyper analysis and synthesis transforms in the succeeding hyperlayers. Therefore, the signal-preserving hypertransform is proposed to build a framework with multiple layers. We observe that elements in the latent representations produced by the main analysis transform are much less correlated compared with pixels in natural images, as the spatial redundancy has been largely reduced by the previous analysis transforms. Therefore, local correlations in the feature maps are weak, while convolutions with large kernels rely on such local correlations for effective modeling. In addition, the previous transform network consists of stride convolutions with ReLU activation. Stride convolutions downsample the feature maps, while activation functions such as ReLU intuitively disable some of the filter neurons that produce negative values and make the response sparser. Because the dimension of these convolution layers needs to be limited to ensure the gradual factorization of the latent representation, the original hypertransform loses much information during processing.</p>
+<h2 id="information-aggregation-for-reconstruction">Information Aggregation for Reconstruction</h2>
+<p>In the decoding process, the synthesis transform maps latent representations back to pixels. To best reconstruct the image, the decoder needs to fully utilize the provided information in the bit stream. Practical image and video compression usually exploit side information to improve quality. With this idea in mind, we take hyperlatent representations as side information and aggregate information from all layers of the hyperlatent representations to reconstruct the decoded image in the proposed framework. The architecture of the information aggregation decoding network is shown in Fig. 5. Both the main latent representation and the higher order representations of smaller scales are upsampled by the decoding network to half the size of the output image. A fusion is conducted with a concatenation of the two representations. The fused representation is then processed by a residue block and then upsampled to the scale of the output image.</p>
+<p><img src="/figures/25_1_23/image%2016.png" alt="image.png"></p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/25_1_15/"
+      title="Learning Record --- 21 (2025/1/15)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
