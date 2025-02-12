@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.94e34217b49dc1e731fe3acb6c19e698ee07651761f1431ba3772128bcd8845c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 23 (2025/2/12)</h1>
+  <p class="mb-1">February 12, 2025</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="end-to-end-optimized-image-compression">END-TO-END OPTIMIZED IMAGE COMPRESSION</h1>
+<p>Johannes Balle ́, Valero Laparra, and Eero P. Simoncelli. End-to-end optimized image compression. In ICLR, 2017.</p>
+<p><a href="http://arxiv.org/abs/1611.01704">http://arxiv.org/abs/1611.01704</a></p>
+<p>Code: <a href="https://github.com/tensorflow/compression?utm_source=catalyzex.com">https://github.com/tensorflow/compression?utm_source=catalyzex.com</a> (Tensorflow)</p>
+<p><a href="https://github.com/jorge-pessoa/pytorch-gdn?utm_source=catalyzex.com">https://github.com/jorge-pessoa/pytorch-gdn?utm_source=catalyzex.com</a> (pytorch)</p>
+<h2 id="abstract">Abstract</h2>
+<p>We describe an image compression method, consisting of a nonlinear analysis transformation, a uniform quantizer, and a nonlinear synthesis transformation. The transforms are constructed in three successive stages of convolutional linear filters and nonlinear activation functions. Unlike most convolutional neural networks, the joint nonlinearity is chosen to implement a form of local gain control, inspired by those used to model biological neurons. Using a variant of stochastic gradient descent, we jointly optimize the entire model for rate–distortion performance over a database of training images, introducing a continuous proxy for the discontinuous loss function arising from the quantizer. Under certain conditions, the relaxed loss function may be interpreted as the log likelihood of a generative model, as implemented by a variational autoencoder. Unlike these models, however, the compression model must operate at any given point along the ratedistortion curve, as specified by a trade-off parameter. Across an independent set of test images, we find that the optimized method generally exhibits better rate–distortion performance than the standard JPEG and JPEG 2000 compression methods. More importantly, we observe a dramatic improvement in visual quality for all images at all bit rates, which is supported by objective quality estimates using MS-SSIM.</p>
+<h2 id="introduction">Introduction</h2>
+<p>In this paper, authors proposed a new framework for end-to-end optimization of an image compression model based on nonlinear transforms.</p>
+<p><img src="/figures/25_2_23/image.png" alt="image.png"></p>
+<p>Previously, we demonstrated that a model consisting of linear-nonlinear block transformations, optimized for <strong>a measure of perceptual distortion</strong>, exhibited visually superior performance compared to a model optimized for mean squared error (MSE).</p>
+<p>Here, we optimize for MSE, but use a more flexible transforms built from cascades of linear convolutions and nonlinearities. Specifically, we use a generalized divisive normalization (GDN) joint nonlinearity that is inspired by models of neurons in biological visual systems, and has proven effective in Gaussianizing image densities. This cascaded transformation is followed by uniform scalar quantization (i.e., each element is rounded to the nearest integer), which effectively implements a parametric form of vector quantization on the original image space. The compressed image is reconstructed from these quantized values using an approximate parametric nonlinear inverse transform. (Here shows compared common CNN, this paper introduce one more kind of )</p>
+<h2 id="forward-inverse-perceptual-transforms">Forward, Inverse, Perceptual Transforms</h2>
+<p>For better explanation. Here I need to explain an important module in this paper, which will be mentioned many times later.</p>
+<p>Generalized Divisive Normalization (GDN) is a nonlinear transformation used primarily in image processing and compression, particularly in neural network-based image compression models. It is designed to normalize the activations of neural networks in a way that mimics the normalization observed in biological visual systems.</p>
+<p>The basic idea behind GDN is to divide each activation by a weighted sum of the activations in a local neighborhood, raised to some power. This helps to reduce redundancy and enhance the efficiency of the representation.</p>
+<h3 id="mathematical-formulation">Mathematical Formulation</h3>
+<p>Given an input vector $x=[x_1,x_2,…,x_N]$, the GDN transformation is defined as:</p>
+<p><img src="/figures/25_2_23/image%201.png" alt="image.png"></p>
+<p>Where:</p>
+<ul>
+<li>$y_i$ is the normalized output for the i-th component.</li>
+<li>$x_i$ is the i-th component of the input vector.</li>
+<li>$β_i$ is a bias term that ensures the denominator is never zero.</li>
+<li>$γ_{ij}$ are the weights that determine the influence of the j-th component on the i-th component.</li>
+<li>$α_i$  and $α_j$ are exponents that control the shape of the normalization.</li>
+</ul>
+<h3 id="key-components">Key Components:</h3>
+<ol>
+<li><strong>Bias Term ($β_i$)</strong>: This term prevents division by zero and adds stability to the normalization process.</li>
+<li><strong>Weights ($γ_{ij}$)</strong>: These weights determine how much each component $x_j$ influences the normalization of $x_i$. They can be learned during training.</li>
+<li><strong>Exponents ($α_i$ )</strong>: These control the nonlinearity of the normalization. Typically, $α_i$ is set to 2, which corresponds to a quadratic normalization.</li>
+</ol>
+<hr>
+<p>In this paper, their analysis transform $g_a$ consists of three stages of convolution, subsampling, and divisive normalization. the i-th input channel of the k-th stage at spatial location $(m, n)$ as $u^{(k)} _i (m, n)$. The input image vector $x$  corresponds to $u^{(0)} _i (m, n)$. and the output vector $y$  is $u^{(3)} _i (m, n)$.</p>
+<p>Each stage then begins with an affine convolution:</p>
+<p><img src="/figures/25_2_23/image%202.png" alt="image.png"></p>
+<p>where $∗$ denotes 2D convolution. This is followed by downsampling:</p>
+<p><img src="/figures/25_2_23/image%203.png" alt="image.png"></p>
+<p>where $s_k$ is the downsampling factor for stage $k$. Each stage concludes with a GDN operation:</p>
+<p><img src="/figures/25_2_23/image%204.png" alt="image.png"></p>
+<p>The full set of $h, c, β$ and $γ$ parameters (across all three stages) constitute the parameter vector φ to be optimized.</p>
+<hr>
+<p>Analogously, the synthesis transform $g_s$  consists of three stages, with the order of operations reversed within each stage, downsampling replaced by upsampling, and GDN replaced by an approximate inverse we call IGDN We define $\hat{u}^{(k)} _i (m, n)$ as the input to the k-th synthesis stage, such that $\hat{y}$ corresponds to $\hat{u}^{(0)} _i (m, n)$, and $\hat{x}$ to $\hat{u}^{(3)} _i (m, n)$. Each stage then consists of the IGDN operation:</p>
+<p><img src="/figures/25_2_23/image%205.png" alt="image.png"></p>
+<p>which is followed by upsampling:</p>
+<p><img src="/figures/25_2_23/image%206.png" alt="image.png"></p>
+<p>where $\hat{s}_k$ is the upsampling factor for stage $k$. Finally, this is followed by an affine convolution:</p>
+<p><img src="/figures/25_2_23/image%207.png" alt="image.png"></p>
+<p>Analogously, the set of $\hat{h}$, $\hat{c}$, $\hat{\beta}$, and $\hat{\gamma}$ make up the parameter vector $\theta$. Note that the down/upsampling operations can be implemented jointly with their adjacent convolution, improving computational efficiency.</p>
+<hr>
+<p>Here, we set the perceptual transform $g_p$ to the identity, and use mean squared error (MSE) as the metric ($d(z, \hat{z}) = ||z-\hat{z}||_2^2$)</p>
+<h2 id="optimization-on-nonlinear-transform-coding-model">Optimization on Nonlinear Transform Coding Model</h2>
+<p>Our objective is to minimize a weighted sum of the rate and distortion, $R + λD$, over the parameters of the analysis and synthesis transforms and the entropy code, where $λ$ governs the trade-off between the two terms.</p>
+<p>The objective functional directly in terms of entropy:</p>
+<p><img src="/figures/25_2_23/image%208.png" alt="image.png"></p>
+<p>where both expectations will be approximated by averages over a training set of images. Given a powerful enough set of transformations, we can assume without loss of generality that the quantization bin size is always one and the representing values are at the centers of the bins. That is,</p>
+<p><img src="/figures/25_2_23/image%209.png" alt="image.png"></p>
+<p>where index $i$ runs over all elements of the vectors, including channels and spatial locations. The marginal density of $\hat{y}_i$ is then given by a train of discrete probability masses with weights equal to the probability mass function of $q_i$:</p>
+<p><img src="/figures/25_2_23/image%2010.png" alt="image.png"></p>
+<p>However, upper idea may render gradient descent ineffective. In this case, authors relax their objective functions.</p>
+<p>Consider $\Delta y$ is additive i.i.d. uniform noise, which has the same width as the quantization bins.</p>
+<p>the density function of $\tilde{y} = y+\Delta y$ is a continuous relaxation of the probability mass function of $q$.</p>
+<p><img src="/figures/25_2_23/image%2011.png" alt="image.png"></p>
+<p>which implies that the differential entropy of $\tilde{y}$ can be used as an approximation of the entropy of $q$.</p>
+<p>Also, independent uniform noise approximates quantization error in terms of its marginal moments, and is frequently used as a model of quantization error. We can thus use the same approximation for our measure of distortion.</p>
+<p><img src="/figures/25_2_23/image%2012.png" alt="image.png"></p>
+<h2 id="network-architecture">Network Architecture</h2>
+<p><img src="/figures/25_2_23/image%2013.png" alt="image.png"></p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/25_1_23/"
+      title="Learning Record --- 22 (2025/1/22)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
