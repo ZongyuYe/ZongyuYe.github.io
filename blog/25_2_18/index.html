@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.94e34217b49dc1e731fe3acb6c19e698ee07651761f1431ba3772128bcd8845c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 25 (2025/2/18)</h1>
+  <p class="mb-1">February 18, 2025</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="channel-model-between-satellites-and-ground-station">Channel Model between Satellites and Ground Station</h1>
+<p>O. Y. Kolawole, S. Vuppala, M. Sellathurai and T. Ratnarajah, &ldquo;On the Performance of Cognitive Satellite-Terrestrial Networks,&rdquo; in IEEE Transactions on Cognitive Communications and Networking, vol. 3, no. 4, pp. 668-683, Dec. 2017, doi: 10.1109/TCCN.2017.2763619.</p>
+<h2 id="abstract">Abstract</h2>
+<p>We investigate the performance of <strong>a multi-beam cognitive satellite terrestrial network</strong> in which <strong>a secondary network (mobile terrestrial system) shares resources with a primary satellite network given that the interference temperature constraint is satisfied.</strong></p>
+<p>(Scenery)</p>
+<p>The terrestrial base stations (BSs) and satellite users are modeled as independent homogeneous Poisson point processes. Utilizing tools from stochastic geometry, we study and compare the outage performance of three secondary transmission schemes:</p>
+<p>first is the power constraint (PCI) scheme where the transmit power at the terrestrial BS is limited by the interference temperature constraint.</p>
+<p>In the second scheme, the terrestrial BSs employ directional beamforming to focus the signal intended for the terrestrial user,</p>
+<p>In the third, BSs that do not satisfy the interference temperature constraint are thinned out (BTPI).</p>
+<hr>
+<p>Analytical approximations of all three schemes are derived and validated through numerical simulations. It is shown that for the least interference to the satellite user, BTPI is the best scheme. However, when thinning is not feasible, PCI scheme is the viable alternative. In addition, the gains of directional beamforming are optimal when the terrestrial system employs massive multipleinput-multiple-output transceivers or by the use of millimeter wave links between terrestrial BSs and users.</p>
+<p><strong>(hybrid satellite-terrestrial networks)</strong></p>
+<h2 id="system-model">System Model</h2>
+<h3 id="background">Background</h3>
+<p><img src="/figures/25_2_18/image.png" alt="image.png"></p>
+<p><img src="/figures/25_2_18/image%201.png" alt="image.png"></p>
+<p><img src="/figures/25_2_18/image%202.png" alt="image.png"></p>
+<h3 id="satellite-system-model">Satellite System Model</h3>
+<p>We assume that the forward link contains both the line-of-sight (LOS) component and the scatter component.</p>
+<table>
+<thead>
+<tr>
+<th>$\Omega$</th>
+<th>The average receive power of LOS term</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$b_0$</td>
+<td>Half of the average power of scattered component</td>
+</tr>
+<tr>
+<td>$m$</td>
+<td>The Nakagami fading coefficient by definition</td>
+</tr>
+<tr>
+<td>$1F_1$</td>
+<td>The hypergeometric function</td>
+</tr>
+<tr>
+<td>$θ$</td>
+<td>The elevation angle</td>
+</tr>
+</tbody>
+</table>
+<p>The Shadowed-Rician (SR) fading model can be considered to model both the LOS and scatter components. Therefore the probability density function (PDF) can be written as</p>
+<p><img src="/figures/25_2_18/image%203.png" alt="image.png"></p>
+<p>A. Abdi, W. C. Lau, M.-S. Alouini, and M. Kaveh, “A new simple model for land mobile satellite channels: First-and second-order statistics,” IEEE Trans. Wireless Commun., vol. 2, no. 3, pp. 519–528, May 2003.</p>
+<p>(Here to add intro of SR model)</p>
+<p>Approximate the squared SR model with Gamma random variable. Accordingly, the parameters of Gamma random variable are given as</p>
+<p><img src="/figures/25_2_18/image%204.png" alt="image.png"></p>
+<h3 id="antenna-gain-at-satellite-user-terminal">Antenna Gain at Satellite User Terminal</h3>
+<p><img src="/figures/25_2_18/image%205.png" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th>$\mathcal{L}_{max}$</th>
+<th>The free space loss</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$x$</td>
+<td>$x = 2.07123\times sin(\phi_{ii}) / sin(\phi_{3dB})$</td>
+</tr>
+<tr>
+<td>$J_1,J_3$</td>
+<td>The first-kind Bessel functions of order 1 and 3</td>
+</tr>
+<tr>
+<td>$G_{s, i}$</td>
+<td>The satellite transmit antenna gain for the i-th beam</td>
+</tr>
+<tr>
+<td>$G_{r, i}$</td>
+<td>The satellite user’s receive antenna gain</td>
+</tr>
+<tr>
+<td>$\phi_{ii}$</td>
+<td>The off-axis angle of the i-th desired beam</td>
+</tr>
+<tr>
+<td>$\phi_{ij}$</td>
+<td>The off-axis angle from the i-th desired beam to the center of the j-th interfering beam.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="signal-model">Signal Model</h3>
+<p><strong>Satellite Received Signal:</strong> Consider $P_{si}$ as the satellite transmit power of i-th beam, and $x^i_p$ as the transmitted information symbol from beam $i$. The received signal at i-th beam user can be formulated as</p>
+<p><img src="/figures/25_2_18/image%206.png" alt="image.png"></p>
+<p><img src="/figures/25_2_18/image%207.png" alt="image.png"></p>
+<h3 id="sinr-model">SINR Model</h3>
+<p><img src="/figures/25_2_18/image%208.png" alt="image.png"></p>
+<p><img src="/figures/25_2_18/image%209.png" alt="image.png"></p>
+<p>The second term of the denominator in (14) is zero due to successful ZF precoding.</p>
+<h3 id="metric">Metric</h3>
+<p><img src="/figures/25_2_18/image%2010.png" alt="image.png"></p>
+<p><img src="/figures/25_2_18/image%2011.png" alt="image.png"></p>
+<h1 id="federated-learning-over-wireless-device-to-device--networks-algorithms-and-convergence-analysis">Federated Learning Over Wireless Device-to-Device  Networks: Algorithms and Convergence Analysis</h1>
+<p>H. Xing, O. Simeone and S. Bi, &ldquo;Federated Learning Over Wireless Device-to-Device Networks: Algorithms and Convergence Analysis,&rdquo; in IEEE Journal on Selected Areas in Communications, vol. 39, no. 12, pp. 3723-3741, Dec. 2021, doi: 10.1109/JSAC.2021.3118400.</p>
+<p><a href="https://ieeexplore.ieee.org/document/9563232/?arnumber=9563232">https://ieeexplore.ieee.org/document/9563232/?arnumber=9563232</a></p>
+<h2 id="system-model-1">System Model</h2>
+<h3 id="overall-system">Overall system</h3>
+<p><img src="/figures/25_2_18/image%2012.png" alt="image.png"></p>
+<p><img src="/figures/25_2_18/image%2013.png" alt="image.png"></p>
+<h3 id="learning-model">Learning Model</h3>
+<p>Basic Learning strategy</p>
+<p><img src="/figures/25_2_18/image%2014.png" alt="image.png"></p>
+<p>Step one for CHOCO-SGD</p>
+<p><img src="/figures/25_2_18/image%2015.png" alt="image.png"></p>
+<p><img src="/figures/25_2_18/image%2016.png" alt="image.png"></p>
+<h3 id="communication-model">Communication Model</h3>
+<p><img src="/figures/25_2_18/image%2017.png" alt="image.png"></p>
+<p>At the end of every iteration $t$, communication takes place within one communication block of a total number $N$ of channel uses spanning over $M$ equal-length slots, denoted by $\mathcal{S} = {1, . . . , M}$. Slow fading remains constant across all iterations.</p>
+<p><img src="/figures/25_2_18/image%2018.png" alt="image.png"></p>
+<p><img src="/figures/25_2_18/image%2019.png" alt="image.png"></p>
+<h2 id="digital-and-analog-transmission">Digital and Analog Transmission</h2>
+<h3 id="digital">Digital</h3>
+<p><img src="/figures/25_2_18/image%2020.png" alt="image.png"></p>
+<p><img src="/figures/25_2_18/image%2021.png" alt="image.png"></p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/25_2_12/"
+      title="Learning Record --- 23 (2025/2/12)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
