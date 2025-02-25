@@ -6,8 +6,15 @@
     <description>Recent content in aafu theme on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 26 (2025/2/25)</title>
+      <link>https://ZongyuYe.github.io/blog/25_2_25/</link>
+      <pubDate>Tue, 25 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/25_2_25/</guid>
+      <description>Blind Federated Learning via Over-the-Air q-QAM Saeed Razavikia, José Mairton Barros da Silva, and Carlo Fischione. 2024. Blind Federated Learning via Over-the-Air q-QAM. Trans. Wireless. Comm. 23, 12_Part_2 (Dec. 2024), 19570–19586. https://doi.org/10.1109/TWC.2024.3485117.&#xA;Basic Introduction Federated edge learning over a fading multiple access channel.&#xA;To alleviate the communication burden between the edge devices and the access point, we introduce a pioneering digital over-the-air computation strategy employing q-ary quadrature amplitude modulation, culminating in a low latency communication scheme.</description>
+    </item>
     <item>
       <title>Learning Record --- 25 (2025/2/18)</title>
       <link>https://ZongyuYe.github.io/blog/25_2_18/</link>

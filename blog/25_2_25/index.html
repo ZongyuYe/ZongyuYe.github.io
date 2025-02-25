@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.94e34217b49dc1e731fe3acb6c19e698ee07651761f1431ba3772128bcd8845c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 26 (2025/2/25)</h1>
+  <p class="mb-1">February 25, 2025</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="blind-federated-learning-via-over-the-air-q-qam">Blind Federated Learning via Over-the-Air q-QAM</h1>
+<p>Saeed Razavikia, José Mairton Barros da Silva, and Carlo Fischione. 2024. Blind Federated Learning via Over-the-Air q-QAM. Trans. Wireless. Comm. 23, 12_Part_2 (Dec. 2024), 19570–19586. <a href="https://doi.org/10.1109/TWC.2024.3485117">https://doi.org/10.1109/TWC.2024.3485117</a>.</p>
+<h2 id="basic-introduction">Basic Introduction</h2>
+<p>Federated edge learning over a fading multiple access channel.</p>
+<p>To alleviate the communication burden between the edge devices and the access point, we introduce a pioneering digital over-the-air computation strategy employing q-ary quadrature amplitude modulation, culminating in a low latency communication scheme.</p>
+<p>A new federated edge learning framework in which edge devices use digital modulation for over-the-air uplink transmission to the edge server while they have no access to the channel state information.</p>
+<h2 id="system-model">System Model</h2>
+<p>Communication Model:</p>
+<p><img src="/figures/25_2_25/image.png" alt="image.png"></p>
+<p>To perform digital transmission,</p>
+<p>$g_k^n$, element $n$  of the gradient vector of edge device $k$, is quantized into a scaler.</p>
+<p>$\tilde{g}_k^n := \mathcal{Q}_q(g_k^n)$, with $q$ possible values for $n \in [N]$,</p>
+<p>$\mathcal{Q}_q(.)$ is the quantizer and $q$ is the number of quantization levels.</p>
+<p>Then, the resultant vector is mapped into the digitally modulated signal $x_k^n$, using the encoder $\mathcal{E}_q(.)$, $x_k^n = \mathcal{E}_q(\tilde{g}_k^n)$</p>
+<p>Consider that the average transmission power of every edge device is limited by a predefined positive value, $P_{max}$.</p>
+<p><img src="/figures/25_2_25/image%201.png" alt="image.png"></p>
+<p><img src="/figures/25_2_25/image%202.png" alt="image.png"></p>
+<p>the term $z^n$ represents the additive white Gaussian noise (AWGN), which is distributed according to $\mathcal{CN}(0, \sigma_z^2I_{N_r})$.</p>
+<p><img src="/figures/25_2_25/image%203.png" alt="image.png"></p>
+<h1 id="digital-over-the-air-federated-learning-in-multi-antenna-systems">Digital Over-the-Air Federated Learning in Multi-Antenna Systems</h1>
+<p>S. Wang, M. Chen, C. Shen, C. Yin and C. G. Brinton, &ldquo;Digital Over-the-Air Federated Learning in Multi-Antenna Systems,&rdquo; in IEEE Transactions on Wireless Communications, vol. 23, no. 10, pp. 15125-15141, Oct. 2024, doi: 10.1109/TWC.2024.3425732.</p>
+<h2 id="system-model-1">System Model</h2>
+<p>An FL system implemented over a cellular network, where K wireless edge devices train their individual machine learning models and send the machine learning parameters to a central PS through a noisy wireless channel by using a media access control (MAC) protocol.</p>
+<p>The PS is equipped with $N_r$ antennas while each device $k$ is equipped with $N_t$  antennas.</p>
+<p><img src="/figures/25_2_25/image%204.png" alt="image.png"></p>
+<p>The objective of the training is to minimize the global loss function over all data samples, which is given by,</p>
+<p><img src="/figures/25_2_25/image%205.png" alt="image.png"></p>
+<p>$\textbf{x}<em>{k, n}$ is the input feature vector of training data samples and $\textbf{y}</em>{k, n}$ is the corresponding label vector.</p>
+<p>$f(.)$  is the local loss function of each device $k$ with FL model $g$.</p>
+<p>Upper is about how to get the loss from one data sample from any device.</p>
+<p><img src="/figures/25_2_25/image%206.png" alt="image.png"></p>
+<p>Aggregation from the number of samples on different devices.</p>
+<p><img src="/figures/25_2_25/image%207.png" alt="image.png"></p>
+<h3 id="digital-pre-processing-at-devices">Digital Pre-Processing at devices</h3>
+<p>To transmit $w_{k,t}$ over wireless fading channels, each device $k$ leverages digital pre-processing to represent each numerical FL parameter in $w_{k,t}$ using a symbol vector, which is</p>
+<p><img src="/figures/25_2_25/image%208.png" alt="image.png"></p>
+<p>$\hat{\textbf{w}}_{k, t}$ is a modulated symbol vector with $W$ being the number of symbols.</p>
+<p>$l(.)$  denotes the digital pre-processing function that combines decimal-to-binary conversion and digital modulation</p>
+<p><img src="/figures/25_2_25/image%209.png" alt="image.png"></p>
+<h3 id="post-processing-at-the-ps">Post-Processing at the PS</h3>
+<p><img src="/figures/25_2_25/image%2010.png" alt="image.png"></p>
+<p>Since $s_t(\textbf{A}<em>t)$ is the weighted sum of all users’ local FL models, we consider directly generating the global FL model $g</em>{t+1}$ from $s_t(\textbf{A}_t)$. This is a major difference between the existing works and this work. The digital beamformer output signal can be expressed as</p>
+<p><img src="/figures/25_2_25/image%2011.png" alt="image.png"></p>
+<p><img src="/figures/25_2_25/image%2012.png" alt="image.png"></p>
+<p><img src="/figures/25_2_25/image%2013.png" alt="image.png"></p>
+<h1 id="blind-federated-learning-at-the-wireless-edge--with-low-resolution-adc-and-dac">Blind Federated Learning at the Wireless Edge  With Low-Resolution ADC and DAC</h1>
+<p>B. Tegin and T. M. Duman, &ldquo;Blind Federated Learning at the Wireless Edge With Low-Resolution ADC and DAC,&rdquo; in <em>IEEE Transactions on Wireless Communications</em>, vol. 20, no. 12, pp. 7786-7798, Dec. 2021, doi: 10.1109/TWC.2021.3087594.</p>
+<h2 id="basic-introduction-1">Basic Introduction</h2>
+<h3 id="background">Background</h3>
+<p>Workers send their estimates through a multipath fading multiple access channel with orthogonal frequency division multiplexing to mitigate the frequency selectivity of the channel.</p>
+<p>No channel state information (CSI) at the workers.</p>
+<p>The parameter server (PS) employs multiple antennas to align the received signals.</p>
+<h3 id="problems-and-methods">Problems and Methods</h3>
+<p>To reduce the power consumption and the hardware costs, we employ complex-valued low-resolution digital-to-analog converters (DACs) and analog-to-digital converters (ADCs), at the transmitter and the receiver sides, respectively.</p>
+<h3 id="result">Result</h3>
+<p>Our theoretical analysis shows that the impairments caused by lowresolution DACs and ADCs, including those of one-bit DACs and ADCs, do not prevent the convergence of the federated learning algorithms, and the multipath channel effects vanish when a sufficient number of antennas are used at the PS.</p>
+<h2 id="system-model-2">System Model</h2>
+<p>A distributed ML system where each worker calculates its gradient estimate and sends it to a central PS through a multipath fading MAC using OFDM as illustrated in Fig. 1.</p>
+<p><img src="/figures/25_2_25/image%2014.png" alt="image.png"></p>
+<p>At the receiver side, OFDM demodulation, signal combining and global model parameter update are performed. The global parameter is broadcast to the workers over an error-free link.</p>
+<p><img src="/figures/25_2_25/image%2015.png" alt="image.png"></p>
+<p><img src="/figures/25_2_25/image%2016.png" alt="image.png"></p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/25_2_18/"
+      title="Learning Record --- 25 (2025/2/18)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
