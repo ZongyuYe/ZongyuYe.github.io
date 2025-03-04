@@ -6,8 +6,15 @@
     <description>Recent content in aafu theme on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 27 (2025/3/4)</title>
+      <link>https://ZongyuYe.github.io/blog/25_3_4/</link>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/25_3_4/</guid>
+      <description>OTA-Summary N. K. Jha, H. Guo and V. K. N. Lau, &amp;ldquo;Analog Product Coding for Over-the-Air Aggregation Over Burst-Sparse Interference Multiple-Access Channels,&amp;rdquo; in IEEE Transactions on Signal Processing, vol. 72, pp. 157-172, 2024, doi: 10.1109/TSP.2023.3338046.&#xA;Introduction Problem: Over-the-Air aggregation (OTA) is a promising technology for Internet-of-Things (IoT) applications, but it can be vulnerable to burst interference from co-channel non-cooperative IoT communications.&#xA;Solutions: A robust OTA framework for IoT-OTA applications that mitigates burst sparse interference using analog product code.</description>
+    </item>
     <item>
       <title>Learning Record --- 26 (2025/2/25)</title>
       <link>https://ZongyuYe.github.io/blog/25_2_25/</link>

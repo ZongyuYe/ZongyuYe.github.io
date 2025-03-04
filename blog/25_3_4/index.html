@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.94e34217b49dc1e731fe3acb6c19e698ee07651761f1431ba3772128bcd8845c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 27 (2025/3/4)</h1>
+  <p class="mb-1">March 4, 2025</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="ota-summary">OTA-Summary</h1>
+<p>N. K. Jha, H. Guo and V. K. N. Lau, &ldquo;Analog Product Coding for Over-the-Air Aggregation Over Burst-Sparse Interference Multiple-Access Channels,&rdquo; in <em>IEEE Transactions on Signal Processing</em>, vol. 72, pp. 157-172, 2024, doi: 10.1109/TSP.2023.3338046.</p>
+<h1 id="introduction">Introduction</h1>
+<p>Problem: Over-the-Air aggregation (OTA) is a promising technology for Internet-of-Things (IoT) applications, but it can be vulnerable to burst interference from co-channel non-cooperative IoT communications.</p>
+<p>Solutions: A robust OTA framework for IoT-OTA applications that mitigates burst sparse interference using analog product code.</p>
+<ol>
+<li>A hierarchical likelihood model and a Markov-based hierarchical prior model to capture the structural properties in the received coded observations and the statistics of the burst-sparse interference, respectively.</li>
+<li>A low-complexity Bayesian decoder using online turbo variational Bayesian inference technique, which ensures good performance without prior knowledge of the model parameters.</li>
+<li>An optimization-based design for the analog product code encoding matrix that minimizes the end-to-end decoding mean squared error.</li>
+</ol>
+<p>As illustrated in Fig. 1. over-the-air aggregation (OTA) approach (also known as over-the-air computation) can significantly reduce the radio resource required to support a massive number of wideband IoT devices while relieving the processing at the server.</p>
+<p><img src="/figures/25_3_4/image.png" alt="image.png"></p>
+<p>To achieve such integrated communication and computation, the IoT devices are assigned a common radio resource block (RB) in which they transmit their symbols, $u_k$, simultaneously using analog modulation and the goal of the receiver is to estimate the  aggregate symbols $\sum_k u_k$ from the received signal.</p>
+<p>The space of the functions that can be computed in this fashion, called nomographic functions, covers a wide class of functions, and can be represented as,</p>
+<p><img src="/figures/25_3_4/image%201.png" alt="image.png"></p>
+<h2 id="contributions">Contributions</h2>
+<ol>
+<li>
+<p><strong>Analog Product Code OTA framework with Superb Performance:</strong></p>
+<p>A new analog coded OTA framework for IoT-OTA applications in presence of burst sparse interference. The decentralised low-complexity linear encoding enables OTA for a large number of devices over O(1) resource blocks without feedback. Furthermore, the low-complexity decoder resolves the decoding problem via approximate Bayesian inference, which can ensure good performance with no prior knowledge of the model parameters. In addition, we provide a systematic method for the design of the encoding matrices.</p>
+</li>
+<li>
+<p><strong>Low-Complexity Bayesian Product-code Decoder for Burst Sparse Interference:</strong></p>
+<p>A product analog coding scheme with low-complexity Bayesian decoder based on online turbo variational Bayesian inference (Turbo-VBI).</p>
+<p>A hierarchical likelihood model to exploit the product-code structure to reduce the decoding complexity, and also design a Markov-based hierarchical prior model to embrace the structural properties of the burstsparse interference to enhance the decoding performance. Based on the Bayesian model, we propose an online Expectation Maximization (EM) solution to estimate the interference as well as to track the model parameters.</p>
+</li>
+<li>
+<p>Encoding Matrix Design and Optimisation:</p>
+<p>We consider the design of the encoding matrix in the product analog code using end-to-end optimization approach. One challenge is to design an appropriate objective function which can model the closed-form impact of the encoding sub-matrices on the overall performance. We overcome the challenge by unrolling the proposed iterative decoder to construct a tractable objective which indicates the endto-end performance of the proposed overall solution for the interference realizations in the training dataset. The optimisation algorithm is then designed to optimize the encoding matrix using the stochastic gradient descent on Riemannian manifold algorithm.</p>
+</li>
+</ol>
+<h1 id="system-model">System Model</h1>
+<h2 id="target">Target</h2>
+<p><img src="/figures/25_3_4/image%202.png" alt="image.png"></p>
+<p>Server interests the global message $b_0$ consisting of $K$ local message $b_k$ from different IoT devices.</p>
+<p>$\phi_{rx}(.)$ is prost-processing function and  $\phi_{tx, k}(.)$ for all k are pre-processing functions.</p>
+<h2 id="workflow">Workflow</h2>
+<p>A wideband IoT system sharing a common pool of resource blocks (RBs) with $M$ subcarriers.</p>
+<p>In the $m_{th}$ subcarrier, all $K$ wideband IoT devices send messages $u_{k, m} = \phi_{tx, k}(b_{k,m})$ simultaneously using analog modulation.</p>
+<p>The OTA approach utilize the superposition nature of the wireless communication channels to achieve integrated communication and computation over the multiple access channel. The received signal at the server is given by:</p>
+<p><img src="/figures/25_3_4/image%203.png" alt="image.png"></p>
+<p>$h_{k, m}$  is the channel fading.</p>
+<p>$z_m \sim \mathcal{CN}(0, \sigma_z^2)$ is the additive channel noise.</p>
+<p>$e_m$ is the co-channel interference.</p>
+<hr>
+<p>The channel fading will distort the superposition of the messages so that the received signal $y_m$ consists of weighted aggregation (instead of pure aggregation) of $u_{k,m}$.</p>
+<p>In this paper, we consider truncated channel inversion at the transmitter. Specifically, a neutralizing factor $c_{k,m}$ and an activity indicator $a_{k,m} ∈ {0, 1}$ are introduced to $u_{k,m}$, and the transmitted signal becomes:</p>
+<p><img src="/figures/25_3_4/image%204.png" alt="image.png"></p>
+<p>$c_{k, m} = \frac{(h_{k,m})^<em>}{|h_{k, m}|^2}$. $(.)^</em>$ denotes the complex conjugate operation. $a_{k, m}$ is designed according to a threshold $ζ_m$ broadcast from the server.</p>
+<p><img src="/figures/25_3_4/image%205.png" alt="image.png"></p>
+<p>The received signal at the server is given by</p>
+<p><img src="/figures/25_3_4/image%206.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%207.png" alt="image.png"></p>
+<hr>
+<p>The truncation threshold should be adjusted according to the power-delay profile, to make sure the noise terms can be combined by $w_m = \tilde{z}<em>m + z_m$. $w_m \sim \mathcal{CN}(0, \sigma_w^2)$ and $\sigma_w^2 = \sigma_z^2 + \sigma</em>{\tilde{z}}^2$</p>
+<p><img src="/figures/25_3_4/image%208.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%209.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2010.png" alt="image.png"></p>
+<h2 id="burst-sparsity-of-the-interference">Burst-Sparsity of the Interference</h2>
+<p>The interference $\textbf{e}$ could be burst sparse in frequency domain since the co-channel NB-IoT users adopt SC-FDM within small number of subcarriers (180 kHz for one NB-IoT carrier band)</p>
+<p><img src="/figures/25_3_4/image%2011.png" alt="image.png"></p>
+<hr>
+<p><img src="/figures/25_3_4/image%2012.png" alt="image.png"></p>
+<ol>
+<li>Interference $\textbf{e}$: The prior of the interference e is modelled by a multivariate complex Gaussian distribution with uncorrelated elements:</li>
+</ol>
+<p><img src="/figures/25_3_4/image%2013.png" alt="image.png"></p>
+<p>It is seen a large $λ_m$ promotes a small $e_m$, such that the sparsity structure of e is encapsulated by the $λ$. Next, we model $λ_m$ by two different patterns to indicate whether $e_m$ exists in the m-th subcarrier or not.</p>
+<ol>
+<li>Interference inverse variance $\textbf{λ}$: Writing $\textbf{λ} = [λ_1, λ_2, · · · , λ_M ]^T$ and $\textbf{s} = [s_1, s_2, · · · , s_M ]^T$, each $λ_m$ is modelled by a mixture gamma distribution:</li>
+</ol>
+<p><img src="/figures/25_3_4/image%2014.png" alt="image.png"></p>
+<p>$\overline{\alpha}_0/\overline{\beta}_0 \gg 1$ for the $s_m = 0$ state to promote sparsity. Also, we fix $α_0 = 1$, and set $β_0$ as a learnable parameter which is initialized by $β_0 = 1$. As such, the support of $e_m$ is actually determined by $s_m$, and we further model $\textbf{s}$  by another layer.</p>
+<ol>
+<li>Interference Support $\textbf{s}$: We model the burst sparsity feature of the support $\textbf{s}$ with a Markov chain:</li>
+</ol>
+<p><img src="/figures/25_3_4/image%2015.png" alt="image.png"></p>
+<p>with the transition probability and initial distribution given by</p>
+<p><img src="/figures/25_3_4/image%2016.png" alt="image.png"></p>
+<p>where $π = \frac{p_{01}}{p_{01}+p_{10}}$ , and we initialize $p_{01} = 0.1$ and $p_{10} =  0.9$ to make most elements in $\textbf{s}$ to be zero. We also set $p_{10}$ and $p_{01}$ to be learnable, since in practice we usually do not have exact knowledge about the sparsity level and the cluster size which are encapsulated by these two parameters.</p>
+<h1 id="bayesian-formulation-on-the-analog-product-code-for-interference-mitigation-of-ota-systems">Bayesian Formulation on the Analog Product Code for Interference Mitigation of OTA Systems</h1>
+<h2 id="decentralized-analog-product-code-encoding-at-the-iot-devices">Decentralized Analog Product-Code Encoding at the IoT Devices</h2>
+<h3 id="analog-error-correcting-code">Analog Error Correcting Code</h3>
+<p>Consider a p2p transmission scenario transmitting signal $\textbf{x} \in \mathbb{C}^N$ over $M$ channel uses $(M &gt; N)$</p>
+<p><img src="/figures/25_3_4/image%2017.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2018.png" alt="image.png"></p>
+<p>$\textbf{e}$ and $\textbf{w}$ denote the interference and noise, respectively.</p>
+<p>Let $\textbf{F} \in \mathbb{C}^{L\times M}$ (with $L = M-N$) be the parity check matrix associated with $\textbf{G}$ such that $\textbf{FG} = 0$.</p>
+<p><img src="/figures/25_3_4/image%2019.png" alt="image.png"></p>
+<p>Since the dimension of $\textbf{v}$ is given by $L$ which is smaller than $M$, direct estimation of $\textbf{e}$ from $\textbf{v}$  will be an under-determined system but the interference $\textbf{e}$  can be estimated by Lasso regression according to the sparsity property of $\textbf{e}$:</p>
+<p><img src="/figures/25_3_4/image%2020.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2021.png" alt="image.png"></p>
+<p>Instead of probability of errors, the performance of analog error correcting code is characterized by the MSE between $x$ and $\hat{x}$.</p>
+<p>(The basic idea, it is to improve the distance between $\hat{x}$ and $x$)</p>
+<h3 id="decentralized-analog-coding-and-compatibility-with-ota">Decentralized Analog Coding and Compatibility With OTA</h3>
+<p>The analog error correction code can be extended to multiple IoT devices with decentralized encoding. Specifically, at t-th slot, the transmitted signal of the k-th IoT device is given by,</p>
+<p><img src="/figures/25_3_4/image%2022.png" alt="image.png"></p>
+<p>where $\textbf{G} ∈ C^{M×N}$  is the common encoding matrix across the $K$ IoT devices, and $\textbf{x}<em>k$ is the input analog symbols at the k-th device with $x</em>{k,n} = \phi_{tx,k}(b_{k,n})$</p>
+<p><img src="/figures/25_3_4/image%2023.png" alt="image.png"></p>
+<p>$\textbf{x} = \sum_{k=1}^K \textbf{x}<em>k$ can be recover from (18). Since $x_n = \sum_k \phi</em>{tx, k}(b_{k, n})$, the aggregated message $b_{0, n} = \phi_{rx}(\sum_k \phi_{tx, k}(b_{k, n}))$ is recovered by $\hat{b}<em>{0, n} = \phi</em>{rx}(\hat{x}_{0, n})$ for $n = 1, 2, …, N$.</p>
+<p>The overall datapath of the analog-coded OTA is illustrated below.</p>
+<p><img src="/figures/25_3_4/image%2024.png" alt="image.png"></p>
+<h3 id="product-code-structure-and-motivation">Product Code Structure and Motivation</h3>
+<p>Problems or Motivations: Lasso regression have a high complexity.</p>
+<p><img src="/figures/25_3_4/image%2025.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2026.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2027.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2028.png" alt="image.png"></p>
+<h2 id="bayesian-formulation-for-the-sparse-interference-estimation-at-the-server">Bayesian Formulation for the Sparse Interference Estimation at the Server</h2>
+<h2 id="issues-of-traditional-formulation">Issues of Traditional Formulation</h2>
+<ol>
+<li>The product-code structure is difficult to be exploited based on the likelihood model, and the complexity of the designed inference algorithm is generally high for a large $M$. New likelihood model is required to embrace the product-code structure.</li>
+<li>The prior parameter $ξ$ encapsulates the burst sparsity feature of e which is slow-varying over time in general. One can improve the estimation accuracy of $ξ$ by utilizing the outdated observations.</li>
+</ol>
+<h2 id="hierarchical-likelihood-model-for-product-code-structure">Hierarchical Likelihood Model for Product-Code Structure</h2>
+<p><img src="/figures/25_3_4/image%2029.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2030.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2031.png" alt="image.png"></p>
+<ol>
+<li>Column and Row Observations:</li>
+</ol>
+<p><img src="/figures/25_3_4/image%2032.png" alt="image.png"></p>
+<ol>
+<li>Fusion of the Overall Observations:</li>
+</ol>
+<p><img src="/figures/25_3_4/image%2033.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2034.png" alt="image.png"></p>
+<ol>
+<li>Posterior Inference Problem Formulation for Sparse Interference Estimation</li>
+</ol>
+<p><img src="/figures/25_3_4/image%2035.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2036.png" alt="image.png"></p>
+<h1 id="online-turbo-vbi-for-the-analog-product-code-decoder-implementation-decoder-part">Online Turbo-VBI for the Analog Product Code Decoder Implementation (Decoder Part)</h1>
+<h2 id="top-level-architecture-of-online-turbo-vbi-solution">Top-Level Architecture of Online Turbo-VBI Solution</h2>
+<p><img src="/figures/25_3_4/image%2037.png" alt="image.png"></p>
+<p>Based on upper figure,</p>
+<p>It is seen that when the streaming observation $o^{(t)}$ arrives at the t-th slot, two key steps are proceeded:</p>
+<ol>
+<li>E-Step</li>
+</ol>
+<p><img src="/figures/25_3_4/image%2038.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2039.png" alt="image.png"></p>
+<ol>
+<li>M-Step</li>
+</ol>
+<p><img src="/figures/25_3_4/image%2040.png" alt="image.png"></p>
+<h2 id="online-turbo-vbi-e-step-local-posterior-inference">Online Turbo-VBI-E Step: Local Posterior Inference</h2>
+<p>The main module for posterior inference.</p>
+<p><img src="/figures/25_3_4/image%2041.png" alt="image.png"></p>
+<p>The two modules are executed iteratively until convergence with extrinsic messages exchanged between them by turbo message passing.</p>
+<p><img src="/figures/25_3_4/image%2042.png" alt="image.png"></p>
+<h3 id="extrinsic-messages-with-simplified-structure">Extrinsic Messages With Simplified Structure</h3>
+<p>The likelihood module and the prior module are connect by distribution $p(E^{(t)}_o |E^{(t)}) = δ(E^{(t)} − E^{(t)}_o)$. Hence, regarding to the turbo message passing, one shall derive the extrinsic messages exchanged between $E^{(t)}_o$ and $E^{(t)}$. In order to obtain a low-complexity inference in both modules, we restrict the extrinsic messages following a simplified distribution structure:</p>
+<p><img src="/figures/25_3_4/image%2043.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2044.png" alt="image.png"></p>
+<h3 id="likelihood-module">Likelihood Module</h3>
+<p>Here, using sum-product message passing(SPMP) to infer the approximate posterior for $ε^{(t)} = {E^{(t)}_c , E^{(t)}_r, E^{(t)}_o}$. The joint probabilistic model of $o^{(t)}$ and $ε^{(t)}$</p>
+<p><img src="/figures/25_3_4/image%2045.png" alt="image.png"></p>
+<p>$ς_{pir}(vec(\textbf{E}{(t)}_o))$ is the approximate prior.</p>
+<p><img src="/figures/25_3_4/image%2046.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2047.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2048.png" alt="image.png"></p>
+<h3 id="prior-module">Prior Module</h3>
+<p><img src="/figures/25_3_4/image%2049.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2050.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2051.png" alt="image.png"></p>
+<p><img src="/figures/25_3_4/image%2052.png" alt="image.png"></p>
+<p>Finally, the estimation on posterior can be shown as,</p>
+<p><img src="/figures/25_3_4/image%2053.png" alt="image.png"></p>
+<h1 id="encoder-design">Encoder Design</h1>
+<p>(Based on the decoder, using a simple deep learning idea to improve the performance. )</p>
+<p><img src="/figures/25_3_4/image%2054.png" alt="image.png"></p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/25_2_25/"
+      title="Learning Record --- 26 (2025/2/25)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
