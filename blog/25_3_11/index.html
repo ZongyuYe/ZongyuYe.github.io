@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.94e34217b49dc1e731fe3acb6c19e698ee07651761f1431ba3772128bcd8845c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 28 (2025/3/11)</h1>
+  <p class="mb-1">March 11, 2025</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="uveqfed-universal-vector-quantization-for--federated-learning">UVeQFed: Universal Vector Quantization for  Federated Learning</h1>
+<p>N. Shlezinger, M. Chen, Y. C. Eldar, H. V. Poor and S. Cui, &ldquo;UVeQFed: Universal Vector Quantization for Federated Learning,&rdquo; in <em>IEEE Transactions on Signal Processing</em>, vol. 69, pp. 500-514, 2021, doi: 10.1109/TSP.2020.3046971. </p>
+<p><a href="https://ieeexplore.ieee.org/document/9305988">UVeQFed: Universal Vector Quantization for Federated Learning | IEEE Journals &amp; Magazine | IEEE Xplore</a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Problems: The server then collects the individual updates and aggregates them into a global model. A major challenge that arises in this method is the need of each user to repeatedly transmit its learned model over the throughput limited uplink channel.</p>
+<p>Tackle this challenge using tools from quantization theory.</p>
+<h2 id="system-model">System Model</h2>
+<p>FL aims at recovering the $m × 1$ weights vector $\textbf{w}^o$ satisfying</p>
+<p><img src="/figures/25_3_11/image.png" alt="Global Optimal Target"></p>
+<p>Global Optimal Target</p>
+<p><img src="/figures/25_3_11/image%201.png" alt="Local optimal Target"></p>
+<p>Local optimal Target</p>
+<p>${\textbf{x}_i^{(k)}, \textbf{y}<em>i^{(k)}}</em>{i=1}^{n_k}$ be the set of $n_k$ labeled training samples  available at the k-th user,</p>
+<p>${\alpha_k}$ is the weighting average coefficients and satisfy $\sum \alpha_k = 1$.</p>
+<hr>
+<p>Consider local user receives the new model from server which represented as $\textbf{w}_t \in \mathcal{R}^m$.</p>
+<p>Then, every user will retrain the model from $\tilde{\textbf{w}}_{t+\tau}^{(k)} \in \mathcal{R}^m$.</p>
+<p>Then the user have to transmit $\textbf{h}^{(k)}<em>{t+\tau} \triangleq \tilde{\textbf{w}}</em>{t+\tau}^{(k)} - \textbf{w}_t$  to the server.</p>
+<p>Since uploading throughput is typically more limited compared to its downloading counterpart, the kth user needs to communicate a finite-bit quantized representation of its model update.</p>
+<p>For Quantization, we need encoded $\textbf{h}^{(k)}_{t+\tau}$ into a digital codeword of $R_k$ bits denoted as $u_t^{(k)} \in {0, …., 2^{R_k}-1} \triangleq \mathcal{U}_k$.</p>
+<p><img src="/figures/25_3_11/image%202.png" alt="Encoder Function"></p>
+<p>Encoder Function</p>
+<p>The server can use decoder to reconstruct $\hat{\textbf{h}}_{t + \tau} \in \mathcal{R}^m$</p>
+<p><img src="/figures/25_3_11/image%203.png" alt="image.png"></p>
+<p>The recovered $\hat{\textbf{h}}<em>{t+\tau}$ is an estimate of the weighted average $\sum</em>{k=1}^K \alpha_k \hat{\textbf{h}}_{t+\tau}$</p>
+<p><img src="/figures/25_3_11/image%204.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%205.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%206.png" alt="image.png"></p>
+<h2 id="uveqfed">UVEQFED</h2>
+<h3 id="quantization-scheme">Quantization Scheme</h3>
+<p>Let $L$ be a fixed positive integer, referred to henceforth as the lattice dimension.</p>
+<p>$\textbf{G}$ be a non-singular $L × L$ matrix, which denotes the lattice generator matrix.</p>
+<p>(Assume $M \triangleq \frac{m}{L}$ is an integer, and $m$ is the number of parameters)</p>
+<p>Using $\mathcal{\textbf{L}}$  to denote the lattice, which is for writing the columns of $\mathcal{\textbf{G}}$  as an integer linear combination.</p>
+<p><img src="/figures/25_3_11/image%207.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%208.png" alt="image.png"></p>
+<p><strong>Encoder:</strong></p>
+<p>The proposed encoding function $e_{t+τ}(·)$ implements dithered lattice quantization in four stages.</p>
+<p><img src="/figures/25_3_11/image%209.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%2010.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%2011.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%2012.png" alt="image.png"></p>
+<p><strong>Decoder:</strong></p>
+<p>The decoding mapping dt+τ (·) is comprised of four stages.</p>
+<p><img src="/figures/25_3_11/image%2013.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%2014.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%2015.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%2016.png" alt="image.png"></p>
+<h3 id="discussion">Discussion</h3>
+<p>The encoding Steps E1–E3 can be viewed as a generalization of probabilistic scalar quantizers.</p>
+<p>However, the decoder is not the same as in QSGD due to the dither subtraction in Step D2, which is known to reduce the distortion and yield an error term that does not depend on the model updates.</p>
+<p><img src="/figures/25_3_11/image%2017.png" alt="image.png"></p>
+<h2 id="performance-analysis">Performance Analysis</h2>
+<h3 id="quantization-error-bound">Quantization Error Bound</h3>
+<p><img src="/figures/25_3_11/image%2018.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%2019.png" alt="image.png"></p>
+<hr>
+<p><img src="/figures/25_3_11/image%2020.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%2021.png" alt="image.png"></p>
+<hr>
+<p><img src="/figures/25_3_11/image%2022.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%2023.png" alt="image.png"></p>
+<h1 id="a-joint-learning-and-communications-framework--for-federated-learning-over--wireless-networks">A Joint Learning and Communications Framework  for Federated Learning Over  Wireless Networks</h1>
+<p>M. Chen, Z. Yang, W. Saad, C. Yin, H. V. Poor and S. Cui, &ldquo;A Joint Learning and Communications Framework for Federated Learning Over Wireless Networks,&rdquo; in <em>IEEE Transactions on Wireless Communications</em>, vol. 20, no. 1, pp. 269-283, Jan. 2021, doi: 10.1109/TWC.2020.3024629.
+<a href="https://ieeexplore.ieee.org/document/9210812">A Joint Learning and Communications Framework for Federated Learning Over Wireless Networks | IEEE Journals &amp; Magazine | IEEE Xplore</a></p>
+<h2 id="introduction-1">Introduction</h2>
+<p>The problem of training federated learning (FL) algorithms over a realistic wireless network.</p>
+<p>Since all training parameters are transmitted over wireless links, the quality of training is affected by wireless factors such as packet errors and the availability of wireless resources.</p>
+<p>This joint learning, wireless resource allocation, and user selection problem is formulated as an optimization problem whose goal is to minimize an FL loss function that captures the performance of the FL algorithm.</p>
+<h2 id="system-model-1">System Model</h2>
+<p>Consider a cellular network in which one BS and a set $\mathcal{U}$  of $U$ users cooperatively perform an FL algorithm for data analysis and inference.</p>
+<p><img src="/figures/25_3_11/image%2024.png" alt="image.png"></p>
+<h3 id="machine-learning-model">Machine Learning Model</h3>
+<p>In our model, each user $i$ collects a matrix $\textbf{X}<em>i = [x</em>{i1}, . . . , x_{iK_i} ]$ of input data, where $K_i$  is the number of the samples collected by each user $i$ and each element $x_{ik}$ is an input vector of the FL algorithm.</p>
+<p>Define a vector $\textbf{w}_i$ to capture the parameters related to the local FL model that is trained by $\textbf{X}_i$ and $\textbf{y}<em>i$. ($\textbf{y}<em>i = [y</em>{i1}, …, y</em>{iK_i}]$)</p>
+<p><img src="/figures/25_3_11/image%2025.png" alt="image.png"></p>
+<p>For each user $i$, the local training problem seeks to find the optimal learning model parameters $w_i^∗$ that minimize its training loss. $K = \sum_{i=1}^U K_i$ is total size of training data of all users.</p>
+<h3 id="transmission-model">Transmission Model</h3>
+<p>For uplink, we assume that an orthogonal frequency division multiple access (OFDMA) technique in which each user occupies one RB. The uplink rate of user $i$  transmitting its local FL model parameters to the BS is given by,</p>
+<p><img src="/figures/25_3_11/image%2026.png" alt="image.png"></p>
+<p>$r_i = [r_{i,1}, . . . , r_{i,R}]$  is an RB allocation vector with $R$ being the total number of RBs.</p>
+<p>$r_{i,n} ∈ {0, 1}$ and  $\sum_{n=1}^R r_{i, n} = 1$; $r_{i,n} = 1$ indicates that RB $n$ is allocated to user $i$, and $r_{i,n} = 0$, otherwise;</p>
+<p>$B^U$ is the bandwidth of each RB and $P_i$ is the transmit power of user $i$.</p>
+<p>$h_i = o_id_i^{−2}$ is the channel gain between user $i$ and the BS with di being the distance between user $i$     and the BS and oi being the Rayleigh fading parameter.</p>
+<p>$\mathbb{E}_{h_i}(·)$ is the expectation with respect to $h_i$.</p>
+<p>$N_0$ is the noise power spectral density;</p>
+<p>$I_n$ is the interference caused by the users that are located in other service areas (e.g., other BSs not participating in the FL algorithm) and use RB $n$.</p>
+<p>The downlink data rate achieved by the BS when transmitting the parameters of global FL model to each user $i$ is given by</p>
+<p><img src="/figures/25_3_11/image%2027.png" alt="image.png"></p>
+<p>$B^D$ is the bandwidth that the BS used to broadcast the global FL model of each user $i$</p>
+<p>$P_B$ is the transmit power of the BS</p>
+<p>$I^D$ is the interference caused by other BSs not participating in the FL algorithm</p>
+<p>The transmission delays between user i and the BS over uplink and downlink are respectively specified as</p>
+<p><img src="/figures/25_3_11/image%2028.png" alt="image.png"></p>
+<p>$Z (\textbf{x})$ is the data size of $\textbf{x}$ which is defined as the number of bits that the users or the BS require to transmit vector $\textbf{x}$ over wireless links.</p>
+<h3 id="packet-error-rates">Packet Error Rates</h3>
+<p><img src="/figures/25_3_11/image%2029.png" alt="image.png"></p>
+<p>In the considered system, whenever the received local FL model contains errors, the BS will not use it for the update of the global FL model.</p>
+<p>Instead, the BS will directly use the remaining correct local FL models to update the global FL model. As a result, the global FL model in (2) can be written as</p>
+<p><img src="/figures/25_3_11/image%2030.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%2031.png" alt="image.png"></p>
+<h3 id="energy-consumption-model">Energy Consumption Model</h3>
+<p>The energy consumption of each user consists of the energy needed for two purposes:</p>
+<p>a) Transmission of the local FL model</p>
+<p>b) Training of the local FL model.</p>
+<p>The energy consumption of each user i is given by</p>
+<p><img src="/figures/25_3_11/image%2032.png" alt="image.png"></p>
+<p>$\mathcal{θ}$ is the frequency of the central processing unit (CPU) clock of each user $i$</p>
+<p>$ω_i$ is the number of CPU cycles required for computing per bit data of user $i$, which is assumed to be equal for all users</p>
+<p>$ς$ is the energy consumption coefficient depending on the chip of each user $i$’s device</p>
+<p>The first part is the energy consumption of user i training the local FL model at its own device.</p>
+<p>The second part represents the energy consumption of local FL model transmission from user $i$ to the BS.</p>
+<h3 id="problem-formulation">Problem Formulation</h3>
+<p>This minimization problem includes optimizing transmit power allocation as well as resource allocation for each user. The minimization problem is given by</p>
+<p><img src="/figures/25_3_11/image%2033.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%2034.png" alt="image.png"></p>
+<h2 id="convergence-rate-analysis">Convergence Rate Analysis</h2>
+<h3 id="background-and-assumption">Background and Assumption</h3>
+<p><img src="/figures/25_3_11/image%2035.png" alt="Common method to calculate out the new model. "></p>
+<p>Common method to calculate out the new model.</p>
+<p><img src="/figures/25_3_11/image%2036.png" alt="image.png"></p>
+<ol>
+<li></li>
+</ol>
+<p><img src="/figures/25_3_11/image%2037.png" alt="image.png"></p>
+<ol>
+<li></li>
+</ol>
+<p><img src="/figures/25_3_11/image%2038.png" alt="image.png"></p>
+<ol>
+<li></li>
+</ol>
+<p><img src="/figures/25_3_11/image%2039.png" alt="image.png"></p>
+<ol>
+<li></li>
+</ol>
+<p><img src="/figures/25_3_11/image%2040.png" alt="image.png"></p>
+<h2 id="theorem">Theorem</h2>
+<p><img src="/figures/25_3_11/image%2041.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%2042.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%2043.png" alt="image.png"></p>
+<h1 id="communication-efficient-satellite-ground-federated--learning-through-progressive-weight-quantization">Communication-Efficient Satellite-Ground Federated  Learning Through Progressive Weight Quantization</h1>
+<p>C. Yang <em>et al</em>., &ldquo;Communication-Efficient Satellite-Ground Federated Learning Through Progressive Weight Quantization,&rdquo; in <em>IEEE Transactions on Mobile Computing</em>, vol. 23, no. 9, pp. 8999-9011, Sept. 2024, doi: 10.1109/TMC.2024.3358804.
+<a href="https://ieeexplore.ieee.org/document/10415259">Communication-Efficient Satellite-Ground Federated Learning Through Progressive Weight Quantization | IEEE Journals &amp; Magazine | IEEE Xplore</a></p>
+<h2 id="introduction-2">Introduction</h2>
+<p>Problems: Past works mostly focus on single unique challenges such as limited ground-to-satellite bandwidth, short connection window, and long connection cycle.</p>
+<p>Solutions: An efficient satellite-ground FL framework, SatelliteFL, to address these three challenges collectively.</p>
+<ol>
+<li>Ensure that each satellite must complete per-round training within each connection window.</li>
+<li>A progressive block-wise quantization algorithm that determines a unique bit-width for each block of the ML model to maximize the model utility while not exceeding the connection window.</li>
+</ol>
+<h2 id="system-model-2">System Model</h2>
+<h3 id="communication-model-communication-window">Communication Model (Communication Window)</h3>
+<p><img src="/figures/25_3_11/image%2044.png" alt="image.png"></p>
+<p>Two observation angles: azimuth and elevation that decide the location of a satellite with respect to a ground station on Earth.</p>
+<p>Azimuth: Denotes the angle between the North pole, measured clockwise around the ground station’s horizon.</p>
+<p>Elevation: Denotes the vertical angular distance between the satellite and the ground station’s local horizon.</p>
+<p>Due to the satellite’s low orbit, it often takes only a few minutes for a satellite with a low elevation ($β_1$ in Fig. 2) from entering the signal coverage of a ground station to leaving it. But, with a higher elevation ($β_2 &gt; β_1$).</p>
+<hr>
+<p>Consider a collection LEO satellites $\mathcal{S}$ and ground stations $\mathcal{G}$ for Earth observation.</p>
+<p>We introduce a continuous wall clock time $t$ and a discrete time index $i ∈ {0, 1, 2, . . .}$ with each adjacent time indexes having $τ$ wall clock time interval.</p>
+<p>We denote the wall clock time interval from $iτ$ to $(i + 1)τ$ as $[i]$.</p>
+<p>If a satellite $s ∈ \mathcal{S}$ is captured by a ground station $g ∈ \mathcal{G}$ at any time $t ∈ [i]$, their communication link would be established.</p>
+<p>We define the satellite $s$ as a connected satellite in time interval $[i]$. As s moves out of signal coverage of $g$, the link breaks, and $s$ is no longer a connected satellite. We define the duration of this link as connection window, which is denoted as $τ_d$, and we have $τ_d ≤ τ$.</p>
+<h3 id="optimization-model">Optimization Model</h3>
+<p><img src="/figures/25_3_11/image%2045.png" alt="image.png"></p>
+<p>$n_k = |\mathcal{D}_k|$ denotes the samples of training data at satellite $k$.</p>
+<p>$f_k$ denotes the local objective function of satellite $k$.</p>
+<p>n = $\sum_{k=1}^K n_k$.</p>
+<p>Randomly select $K_s$ satellites from $K_c$ connected satellites in each round, where $K_c ≤ K$. The local update on each selected satellite $k ∈ K_s$ can be formulated as</p>
+<p><img src="/figures/25_3_11/image%2046.png" alt="image.png"></p>
+<p>$η$ denotes the hyper-parameter learning rate and $r$ denotes the global training round across satellites and ground stations.</p>
+<p><img src="/figures/25_3_11/image%2047.png" alt="image.png"></p>
+<p><img src="/figures/25_3_11/image%2048.png" alt="image.png"></p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/25_3_4/"
+      title="Learning Record --- 27 (2025/3/4)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
