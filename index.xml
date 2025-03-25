@@ -6,8 +6,15 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 30 (2025/3/25)</title>
+      <link>https://ZongyuYe.github.io/blog/25_3_25/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/25_3_25/</guid>
+      <description>Ringmaster ASGD http://arxiv.org/abs/2501.16168&#xA;“Ringmaster ASGD: The First Asynchronous SGD with Optimal Time Complexity”&#xA;Common ASGD Idea $f(x; \xi)$ denotes the loss of a model parameterized by $x$ on a data sample $\xi$.&#xA;This is a greedy and asynchronous method. Once a worker finishes computation of the stochastic gradient, it immediately sends the gradient to the server, which updates the current iterate without waiting for other workers.&#xA;the update is performed using the stochastic gradient calculated at the point $x^{k−δ^k}$, where the index $k − δ^k$ corresponds to the iteration when the worker started computing the gradient, which can be significantly outdated.</description>
+    </item>
     <item>
       <title>Learning Record --- 29 (2025/3/18)</title>
       <link>https://ZongyuYe.github.io/blog/25_3_19/</link>

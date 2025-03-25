@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.94e34217b49dc1e731fe3acb6c19e698ee07651761f1431ba3772128bcd8845c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 30 (2025/3/25)</h1>
+  <p class="mb-1">March 25, 2025</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="ringmaster-asgd"><strong>Ringmaster ASGD</strong></h1>
+<p><a href="http://arxiv.org/abs/2501.16168">http://arxiv.org/abs/2501.16168</a></p>
+<p><strong>“Ringmaster ASGD: The First Asynchronous SGD with Optimal Time Complexity”</strong></p>
+<h2 id="common-asgd-idea">Common ASGD Idea</h2>
+<p><img src="/figures/25_3_25/image.png" alt="image.png"></p>
+<p>$f(x; \xi)$ denotes the loss of a model parameterized by $x$ on a data sample $\xi$.</p>
+<p>This is a greedy and asynchronous method. Once a worker finishes computation of the stochastic gradient, it immediately sends the gradient to the server, which updates the current iterate without waiting for other workers.</p>
+<p>the update is performed using the stochastic gradient calculated at the point $x^{k−δ^k}$, where the index $k − δ^k$ corresponds to the iteration when the worker started computing the gradient, which can be significantly outdated.</p>
+<hr>
+<h2 id="assumptions">Assumptions</h2>
+<p><img src="/figures/25_3_25/image%201.png" alt="image.png"></p>
+<p><img src="/figures/25_3_25/image%202.png" alt="image.png"></p>
+<p><img src="/figures/25_3_25/image%203.png" alt="image.png"></p>
+<hr>
+<h2 id="past-works-rennala-sgd">Past Works: Rennala SGD</h2>
+<p><img src="/figures/25_3_25/image%204.png" alt="image.png"></p>
+<h3 id="drawbacks">Drawbacks</h3>
+<p><img src="/figures/25_3_25/image%205.png" alt="image.png"></p>
+<p><img src="/figures/25_3_25/image%206.png" alt="image.png"></p>
+<hr>
+<h2 id="naive-method-analysis">Naive Method Analysis</h2>
+<h3 id="basic-assumption">Basic Assumption</h3>
+<p><img src="/figures/25_3_25/image%207.png" alt="image.png"></p>
+<h3 id="optimal-time-complexity-lower-bound">Optimal time complexity lower bound</h3>
+<p>Rennala SGD</p>
+<p><img src="/figures/25_3_25/image%208.png" alt="image.png"></p>
+<p>Asynchronous SGD</p>
+<p><img src="/figures/25_3_25/image%209.png" alt="image.png"></p>
+<h3 id="naive-analysis">Naive Analysis</h3>
+<p><img src="/figures/25_3_25/image%2010.png" alt="image.png"></p>
+<p><img src="/figures/25_3_25/image%2011.png" alt="image.png"></p>
+<p>But, for most of the time, we cannot find the exact computation</p>
+<h2 id="ringmaster-asgd-1">Ringmaster ASGD</h2>
+<p><img src="/figures/25_3_25/image%2012.png" alt="image.png"></p>
+<p><img src="/figures/25_3_25/image.png" alt="image.png"></p>
+<p>Algorithm 4 disregards “very old stochastic gradients.</p>
+<p><img src="/figures/25_3_25/image%2013.png" alt="image.png"></p>
+<p><img src="/figures/25_3_25/image%2014.png" alt="image.png"></p>
+<p>When $R = 1$, the algorithm reduces to the classical SGD method,</p>
+<p>Conversely, if $R = ∞$, the method incorporates stochastic gradients with arbitrarily large delays, and becomes classical Asynchronous SGD.</p>
+<h1 id="weconvene"><strong>WeConvene</strong></h1>
+<p>SOTA VAE works.</p>
+<p>More suitable for our scenarios than Gaussian Split and INR.</p>
+<p><strong>WeConvene: Learned Image Compression with  Wavelet-Domain Convolution and Entropy Model</strong></p>
+<p><a href="http://arxiv.org/abs/2407.09983">http://arxiv.org/abs/2407.09983</a></p>
+<h2 id="introduction">Introduction</h2>
+<p>LIC mainly reduces spatial redundancy in the autoencoder networks and entropy coding</p>
+<p>Propose a surprisingly simple but efficient WeConvene framework, which introduces the DWT to both the convolution layers and entropy coding of CNN-based LIC.</p>
+<p>First, in both the core and hyperprior autoencoder networks, we propose a Wavelet-domain Convolution (WeConv) module, which performs convolution after DWT, and then converts the data back to spatial domain via inverse DWT. This module is used at selected layers in a CNN network to reduce the frequency-domain correlation explicitly and make the signal sparser in DWT domain.</p>
+<p>We also propose a Wavelet-domain Channel-wise Auto-Regressive entropy Model (WeChARM), where the output latent representations from the encoder network are first transformed by the DWT, before applying quantization and entropy coding, as in the traditional paradigm.</p>
+<h2 id="system-model">System Model</h2>
+<p><img src="/figures/25_3_25/image%2015.png" alt="image.png"></p>
+<p>System includes the core autoencoder $g_a$ to extract the compact latent representations of the input image, the core decoder network $g_s$ to reconstruct the image, the hyperprior networks $h_a$ and $h_s$ to encode and decode the side information that helps the entropy coding of the latents.</p>
+<p>(Very Very Famous VAE method for Image Compression)</p>
+<p><img src="/figures/25_3_25/image%2016.png" alt="The structure of WeConv, especially the conv with wavelet transform"></p>
+<p>The structure of WeConv, especially the conv with wavelet transform</p>
+<h2 id="wavelet-domain-channel-wise-auto-regressive-entropy-model-wecharm">Wavelet-domain Channel-Wise Auto-Regressive Entropy Model (WeChARM)</h2>
+<p><img src="/figures/25_3_25/image%2017.png" alt="image.png"></p>
+<p>Apply the ChARM model with 5 slices to encode both the LF and HF components $y_L$ and $y_H$ in the wavelet domain</p>
+<p><img src="/figures/25_3_25/image%2018.png" alt="image.png"></p>
+<p><img src="/figures/25_3_25/image%2019.png" alt="image.png"></p>
+<p><img src="/figures/25_3_25/image%2020.png" alt="image.png"></p>
+<h2 id="loss-function">Loss Function</h2>
+<p><img src="/figures/25_3_25/image%2021.png" alt="image.png"></p>
+<p>$D$ is the distortion.</p>
+<p>$H(\hat{y}_L)$, $H(\hat{y}_H)$  and $H(\hat{z})$ represent the entropies of the LF, HF components and the hyperprior latent representations.</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/25_3_19/"
+      title="Learning Record --- 29 (2025/3/18)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
