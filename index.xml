@@ -253,5 +253,12 @@
       <guid>https://ZongyuYe.github.io/test/</guid>
       <description>Title &lt;ｓｃｒｉｐｔ type=&#34;text/javaｓｃｒｉｐｔ&#34;&gt; var ball; var mouseX = 100; var mouseY = 100; var angle = 0; var radius = 0; var ballstyle = &#34;.&#34; var ballcolor = &#34;#FF0000&#34;; var allzindex = 0; var cav_elem; var cav_context; //old positon var opos; function draw(){ ball = document.createElement(&#34;p&#34;); ball.style.position = &#34;absolute&#34;; ball.style.color = ballcolor; ball.style.zIndex = allzindex+1; ball.innerHTML = ballstyle; document.body.appendChild(ball); document.all.selected = false; ball.style[&#34;left&#34;] = mouseX+ &#34;px&#34;; ball.style[&#34;top&#34;] = mouseY+ &#34;</description>
     </item>
+    <item>
+      <title>Learning Record --- 31 (2025/4/1)</title>
+      <link>https://ZongyuYe.github.io/blog/25_4_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/25_4_1/</guid>
+      <description>Ringmaster ASGD Part 2 http://arxiv.org/abs/2501.16168&#xA;Background Supplement f(.) denotes the loss function.&#xA;x denotes the model parameters.&#xA;$\xi$ denotes the the sampled data.&#xA;$\mathcal{D}$ denotes the original dataset.&#xA;We consider a setup involving n workers (e.g., CPUs, GPUs, servers), each with access to the same distribution $\mathcal{D}$.&#xA;(A very strange assumption, if every user can access the same distribution, only one user can converge to the optimal point. Why we need federated learning here)</description>
+    </item>
   </channel>
 </rss>

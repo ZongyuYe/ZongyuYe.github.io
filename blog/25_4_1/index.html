@@ -111,155 +111,92 @@
 
     
     <main class="grow">
-<div class="prose dark:prose-invert max-w-none">
-  <h1 class="standard font-italic">
-    #Notes</h1>
-  
-  <div class="">
-    <div
-      class="rounded hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 active"
-    >
-      <i
-        onclick="expandAccordion(this)"
-        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
-      ></i>
-      <a href="/blog/24_8_7/"
-        ><h2 class="accordion m-0">Learning Record --- 2 (2024/8/7)</h2></a
-      >
-    </div>
-    <div
-      id="panel-item-0"
-      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
-    >
-      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">August 7, 2024</p>
-<p class="mt-1 mb-0 text-sm">Reading Time: 5 minutes</p>
- 
-
-
-
-<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
-  Tags: 
-  <a
-    class="metadata-tags hover:no-underline"
-    href="/tags/notes"
-    title="tags"
-  >
-    #notes</a>
-  
-</p>
-
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 31 (2025/4/1)</h1>
+  <p class="mb-1">January 1, 0001</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="ringmaster-asgd-part-2">Ringmaster ASGD Part 2</h1>
+<p><a href="http://arxiv.org/abs/2501.16168">http://arxiv.org/abs/2501.16168</a></p>
+<h2 id="background-supplement">Background Supplement</h2>
+<p><img src="/figures/25_4_1/image.png" alt="image.png"></p>
+<p>f(.) denotes the loss function.</p>
+<p>x denotes the model parameters.</p>
+<p>$\xi$ denotes the the sampled data.</p>
+<p>$\mathcal{D}$ denotes the original dataset.</p>
+<p><strong>We consider a setup involving n workers (e.g., CPUs, GPUs, servers), each with access to the same distribution $\mathcal{D}$.</strong></p>
+<p>(A very strange assumption, if every user can access the same distribution, only one user can converge to the optimal point. Why we need federated learning here)</p>
+<h2 id="naive-method-supplement"><strong>Naive Method Supplement</strong></h2>
+<p>Under the fixed computation model:</p>
+<p><img src="/figures/25_4_1/image%201.png" alt="image.png"></p>
+<p><img src="/figures/25_4_1/image%202.png" alt="image.png"></p>
+<p>Past works we have,</p>
+<p><img src="/figures/25_4_1/image%203.png" alt="image.png"></p>
+<p><img src="/figures/25_4_1/image%204.png" alt="image.png"></p>
+<p>Consider $\tau_i$ is the computation time for user $i$, $T_R$ gives the optimal time complexity lower bound for algorithm 2.</p>
+<p>$∆$ denotes $∆ := f(x^0) − f^{inf}$</p>
+<p>There exist $f^{inf} ∈ R$ such that $f(x) ≥ f^{inf}$</p>
+<p>$σ^2$ has</p>
+<p><img src="/figures/25_4_1/image%205.png" alt="image.png"></p>
+<p>$\epsilon$ denotes the error bound.</p>
+<p>$L$ denotes $L–Lipschitz$ continuous parameters.</p>
+<p>So, the computation complexity depends on the fastest $m$ users.</p>
+<p>(only one need participate into the training, thus do not need all user participate in)</p>
+<p><img src="/figures/25_4_1/image%206.png" alt="image.png"></p>
+<p><img src="/figures/25_4_1/image%207.png" alt="image.png"></p>
+<p>Upper is a traditional one which invite all the user participate into training.</p>
+<p>In fact, Common SGD should be constrained by the computation complexity on $T_A$.</p>
+<p>So, Naive model can be summarized into,</p>
+<p><img src="/figures/25_4_1/image%208.png" alt="image.png"></p>
+<h2 id="theoretical-analysis">Theoretical Analysis</h2>
+<p><img src="/figures/25_4_1/image%209.png" alt="image.png"></p>
+<p>$\gamma$ denotes the learning rate</p>
+<p>$K$ denotes the global round</p>
+<p>Theorem depends on two Lemma:</p>
+<p><img src="/figures/25_4_1/image%2010.png" alt="image.png"></p>
+<p><img src="/figures/25_4_1/image%2011.png" alt="image.png"></p>
+<hr>
+<p><img src="/figures/25_4_1/image%2012.png" alt="image.png"></p>
+<p><img src="/figures/25_4_1/image%2013.png" alt="image.png"></p>
+<p><img src="/figures/25_4_1/image%2014.png" alt="image.png"></p>
+<p><img src="/figures/25_4_1/image%2015.png" alt="image.png"></p>
+<p>Here, Ringmaster ASGD, which is truly an asynchronous federated learning achieve the same complexity as semi-synchronous federated learning.</p>
+<h2 id="optimality-under-arbitrary-computation-dynamics">Optimality under Arbitrary Computation Dynamics</h2>
+<p>Ringmaster ASGD is optimal under virtually any computation behavior of the workers.</p>
+<p><img src="/figures/25_4_1/image%2016.png" alt="image.png"></p>
+<p><img src="/figures/25_4_1/image%2017.png" alt="image.png"></p>
+<p>The computational power $v_i$  characterizes the behavior of workers.</p>
+<p>(Using power to calculate out the computation power)</p>
+<p><img src="/figures/25_4_1/image%2018.png" alt="image.png"></p>
+<p>What is universal computation model:</p>
+<p><img src="/figures/25_4_1/image%2019.png" alt="image.png"></p>
+<p>What Lemma 5.1 means?</p>
+<p>It means we want to find a the smallest $T$ which can make an user finish R steps SGD.</p>
+<p><img src="/figures/25_4_1/image%2020.png" alt="image.png"></p>
+<p><img src="/figures/25_4_1/image%2021.png" alt="image.png"></p>
 
 </div>
-    </div>
-  </div>
-  
-  <div class="">
-    <div
-      class="rounded hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
-    >
-      <i
-        onclick="expandAccordion(this)"
-        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
-      ></i>
-      <a href="/blog/24_7_31/"
-        ><h2 class="accordion m-0">Learning Record --- 1 (2024/7/31)</h2></a
-      >
-    </div>
-    <div
-      id="panel-item-1"
-      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
-    >
-      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">July 31, 2024</p>
-<p class="mt-1 mb-0 text-sm">Reading Time: 13 minutes</p>
- 
-
-
-
-<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
-  Tags: 
-  <a
-    class="metadata-tags hover:no-underline"
-    href="/tags/notes"
-    title="tags"
-  >
-    #notes</a>
-  
-</p>
-
-
 </div>
-    </div>
-  </div>
-  
-  <div class="">
-    <div
-      class="rounded hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 "
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-left"></i>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/markdown_syntax/"
+      title="Demo Page"
     >
-      <i
-        onclick="expandAccordion(this)"
-        class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
-      ></i>
-      <a href="/blog/25_4_1/"
-        ><h2 class="accordion m-0">Learning Record --- 31 (2025/4/1)</h2></a
-      >
-    </div>
-    <div
-      id="panel-item-2"
-      class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark"
-    >
-      <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">January 1, 0001</p>
-<p class="mt-1 mb-0 text-sm">Reading Time: 2 minutes</p>
- 
-
-
-
-<p class="metadata-value mt-1 mb-0 text-sm taxa taxa-container-div list-tags">
-  Tags: 
-  <a
-    class="metadata-tags hover:no-underline"
-    href="/tags/notes"
-    title="tags"
-  >
-    #notes</a>
-  
-</p>
-
-
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
 </div>
-    </div>
-  </div>
-  
-</div>
-<script src="/js/accordion.js"></script>
-<div class="mt-4 d-flex justify-content-center">
-  
-    <ul class="pagination pagination-default">
-      <li class="page-item">
-        <a href="/tags/notes/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/tags/notes/page/3/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/tags/notes/" aria-label="Page 1" class="page-link" role="button">1</a>
-      </li>
-      <li class="page-item">
-        <a href="/tags/notes/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
-      </li>
-      <li class="page-item">
-        <a href="/tags/notes/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
-      </li>
-      <li class="page-item active">
-        <a aria-current="page" aria-label="Page 4" class="page-link" role="button">4</a>
-      </li>
-      <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
-      </li>
-      <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
-      </li>
-    </ul>
-</div>
+
 
     </main>
     

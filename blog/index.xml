@@ -239,5 +239,12 @@
       <guid>https://ZongyuYe.github.io/blog/markdown_syntax/</guid>
       <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>Learning Record --- 31 (2025/4/1)</title>
+      <link>https://ZongyuYe.github.io/blog/25_4_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/25_4_1/</guid>
+      <description>Ringmaster ASGD Part 2 http://arxiv.org/abs/2501.16168&#xA;Background Supplement f(.) denotes the loss function.&#xA;x denotes the model parameters.&#xA;$\xi$ denotes the the sampled data.&#xA;$\mathcal{D}$ denotes the original dataset.&#xA;We consider a setup involving n workers (e.g., CPUs, GPUs, servers), each with access to the same distribution $\mathcal{D}$.&#xA;(A very strange assumption, if every user can access the same distribution, only one user can converge to the optimal point. Why we need federated learning here)</description>
+    </item>
   </channel>
 </rss>
