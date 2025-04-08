@@ -6,8 +6,15 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 32 (2025/4/8)</title>
+      <link>https://ZongyuYe.github.io/blog/25_4_8/</link>
+      <pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/25_4_8/</guid>
+      <description>Lattice compression “Optimization of Lattices for Quantization” https://ieeexplore.ieee.org/document/705561&#xA;E. Agrell and T. Eriksson, &amp;ldquo;Optimization of lattices for quantization,&amp;rdquo; in IEEE Transactions on Information Theory, vol. 44, no. 5, pp. 1814-1828, Sept. 1998, doi: 10.1109/18.705561.&#xA;Introduction A training algorithm for the design of lattices for vector quantization is presented. The algorithm uses a steepest descent method to adjust a generator matrix, in the search for a lattice whose Voronoi regions have minimal normalized second moment.</description>
+    </item>
     <item>
       <title>Learning Record --- 31 (2025/4/1)</title>
       <link>https://ZongyuYe.github.io/blog/25_4_1/</link>

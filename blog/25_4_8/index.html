@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto dark"><head>
+  <title>ZY Docs</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="Website title" />
+<meta name="author" content="Maple Ye" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.128.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+
+
+
+
+
+
+<link href="/main.min.94e34217b49dc1e731fe3acb6c19e698ee07651761f1431ba3772128bcd8845c.css" rel="stylesheet" />
+
+
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    
+    <header
+  class="nav flex flex-row row py-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://ZongyuYe.github.io/">Home</a>    
+    <a class="no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Learning Record --- 32 (2025/4/8)</h1>
+  <p class="mb-1">April 8, 2025</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <h1 id="lattice-compression">Lattice compression</h1>
+<p><strong>“Optimization of Lattices for Quantization”</strong> <a href="https://ieeexplore.ieee.org/document/705561">https://ieeexplore.ieee.org/document/705561</a></p>
+<p>E. Agrell and T. Eriksson, &ldquo;Optimization of lattices for quantization,&rdquo; in <em>IEEE Transactions on Information Theory</em>, vol. 44, no. 5, pp. 1814-1828, Sept. 1998, doi: 10.1109/18.705561.</p>
+<h2 id="introduction">Introduction</h2>
+<p>A training algorithm for the design of lattices for vector quantization is presented. The algorithm uses a steepest descent method to adjust a generator matrix, in the search for a lattice whose Voronoi regions have minimal normalized second moment.
+Second moment is the variance:</p>
+<p><img src="/figures/25_4_8/image.png" alt="image.png"></p>
+<p>The numerical elements of the found generator matrices are interpreted and translated into exact values.</p>
+<h3 id="vector-quantization">Vector Quantization</h3>
+<p>The quantization is governed by a function $Q: \mathbb{R}^d \rightarrow \mathcal{C}$.</p>
+<p>$\mathcal{C} = { \textbf{c}_1, \dots, \textbf{c}_N }$ denotes codebook.</p>
+<p>The standard quality measure is the mean-square error, or distortion, per vector</p>
+<p><img src="/figures/25_4_8/image%201.png" alt="This can be easily transformed into discrete form. "></p>
+<p>This can be easily transformed into discrete form.</p>
+<p>$f_{\textbf{x}}(\textbf{x})$ denotes the probability density function of the source vectors $\textbf{x}$.</p>
+<p>If the codebook is given, the optimal quantization function is to simply choose the closest codevector in the Euclidean sense,</p>
+<p><img src="/figures/25_4_8/image%202.png" alt="image.png"></p>
+<p>Many input vectors $\textbf{x}$ yield the same output vector $\textbf{c}_i$ The set of all input vectors that are encoded as the same codevector is called a Voronoi region</p>
+<p><img src="/figures/25_4_8/image%203.png" alt="image.png"></p>
+<p><img src="/figures/25_4_8/image%204.png" alt="image.png"></p>
+<h3 id="uniform-sources">Uniform Sources</h3>
+<p>Now, we consider a relatively detailed scenarios,</p>
+<p>Consider we have uniform sources. Suppose that the source probability density function is uniform within a region $\Delta$.</p>
+<p><img src="/figures/25_4_8/image%205.png" alt="image.png"></p>
+<p>In this case, we can simplify the distortion in the upper equation.</p>
+<p><img src="/figures/25_4_8/image%206.png" alt="image.png"></p>
+<p>Almost all the Voronoi regions will be similar to each other in the optimal vector quantizer. In other words, there exists a typical body that, through proper scaling, rotation, reflection, and translation, will approximate most of the Voronoi regions.</p>
+<p><img src="/figures/25_4_8/image%207.png" alt="image.png"></p>
+<p>Based on the thought of uniform sources and congruent lattice, distortion in every single lattice can be easily considered as the same. Then transformed as upper way.</p>
+<p><img src="/figures/25_4_8/image%208.png" alt="image.png"></p>
+<p>So, this paper transform the distortion into eq(10). $d$ is the lattice dimension, $R$ is the datarate. $G$ is the normalized second moment of typical body $\Omega_t$, so, the problem can be simplified into how to find suitable G to get the smallets distortion.</p>
+<h3 id="lattice">Lattice</h3>
+<p><img src="/figures/25_4_8/image%209.png" alt="image.png"></p>
+<p><img src="/figures/25_4_8/image%2010.png" alt="image.png"></p>
+<p><img src="/figures/25_4_8/image%2011.png" alt="image.png"></p>
+<p>This paper discuss about how to design lattice for non-uniform sources. But we may do not discuss it here. The reasons is the specific parameter initiation for neural network layer.</p>
+<p>Recalling the famous initialization method for neural network Kaiming initialization</p>
+<p>Kaiming initialization is an uniform distribution bounded on $b$, $U(-b, b)$.</p>
+<p><img src="/figures/25_4_8/image%2012.png" alt="image.png"></p>
+<p>$fan_in$ is the input parameters num.
+$a$  is the negative slope of the rectifier used after this layer.</p>
+<p>So, generally, we may can just use uniform lattice with relatively lower distortion.</p>
+<h2 id="the-optimization-problem">The Optimization Problem</h2>
+<p><img src="/figures/25_4_8/image%2013.png" alt="image.png"></p>
+<p><img src="/figures/25_4_8/image%2014.png" alt="image.png"></p>
+<p>Based on the target of optimizing $G$. We can design the algorithm based on gradient descent method.</p>
+<p>To allocate enough communication resources for each satellite to transmit the model back to the ground station.</p>
+<p>For different subcarriers, the state of channel are different.</p>
+<p>Here, we use relatively simple way to calculate the data rate for one subcarrier.</p>
+<p>Consider we have bandwidth $B$, signal power $S$ and noise power $N$.</p>
+<p>We can get the channel capacity by using Shannon&rsquo;s theorems:</p>
+<p>$$
+C=Blog_2(1+\frac{S}{N})
+$$</p>
+<p>Then, consider we allocate M subcarriers to satellite $i$, Then, the overall data rate for this satellite would be,</p>
+<p>$$
+C_i = \sum_{m=1}^M B_mlog_2(1+\frac{S_m}{N_m})
+$$</p>
+<hr>
+<h1 id="channel-parameters-explanation">Channel Parameters Explanation</h1>
+<p>Firstly, let us discuss the bandwidth first.</p>
+<p><a href="https://ieeexplore.ieee.org/document/10107477/">https://ieeexplore.ieee.org/document/10107477/</a></p>
+<p>T. E. Humphreys, P. A. Iannucci, Z. M. Komodromos and A. M. Graff, &ldquo;Signal Structure of the Starlink Ku-Band Downlink,&rdquo; in <em>IEEE Transactions on Aerospace and Electronic Systems</em>, vol. 59, no. 5, pp. 6016-6030, Oct. 2023, doi: 10.1109/TAES.2023.3268610.</p>
+<p>Based on the information provided by upper paper,</p>
+<p>They try to estimate the signal structure of Starlink V1’s satellites.</p>
+<p>We can get useful information as below.</p>
+<p>For the downlink channel, Starlink V1 uses Ku-band. (downlink band ranges from 10.7GHz to 12.7GHz)</p>
+<p>Central frequency:</p>
+<p><img src="/figures/25_4_8/image%2015.png" alt="image.png"></p>
+<p>Channel bandwidth:</p>
+<p><img src="/figures/25_4_8/image%2016.png" alt="image.png"></p>
+<p><img src="/figures/25_4_8/image%2017.png" alt="image.png"></p>
+<p>We can easily tell, in the frequency range, Starlink divide the original 2GHz into 8 smaller channels.</p>
+<p>For every channel, we divide it into N subcarriers.</p>
+<p><img src="/figures/25_4_8/image%2018.png" alt="image.png"></p>
+<p><img src="/figures/25_4_8/image%2019.png" alt="image.png"></p>
+<p>So, it is divided into 1024 subcarriers and every subcarriers will have 200KHz.</p>
+<p>Now, we can use 234375 to replace the $B_m$.</p>
+<hr>
+<p>Then, let me explain to get $N$, the noise power.</p>
+<p>$N = -174 + 10 * log_{10} B + 10 * log_{10} \frac{T}{290}$.</p>
+<hr>
+<p>Now, let us consider how to calculate the signal’s power.</p>
+<p>$$
+S = P \times G \times |h|^2
+$$</p>
+<p>$P$ denotes the signal power, commonly, we can consider it as, 20dB, a very large value.</p>
+<p>For G, we can have,</p>
+<p>$$
+G = \mathcal{L} + G_t + G_r
+$$</p>
+<p>$\mathcal{L}$ denotes the free space path loss,</p>
+<p>$$
+\mathcal{L} = 20 log_{10}(d)+20 log_{10}(f) - 147.55</p>
+<p>$$</p>
+<p>$G_t$ is the antenna gain on the transmitting antenna and $G_r$ is the antenna gain on the receiving  antenna.</p>
+<p>$|h|^2$ is the small scale fading.</p>
+<p>Here, we use shadowed Rician to model the channel.</p>
+<p>The envelope of the channel is denoted from,</p>
+<p><img src="/figures/25_4_8/image%2020.png" alt="image.png"></p>
+<p>A(t) follows Rayleigh distribution, and Z(t) follow Nakagami-m distribution.</p>
+<p>$\alpha(t)$ is the random phase which follows uniform distribution (denotes scatter)</p>
+<p>$\zeta_0$ denotes the phase for line of sight signal.</p>
+<p>Then, we can generate a range of $R(t)$.</p>
+<p>$$
+P = \left|\left|\frac{1}{N}\sum_{n=1}^NR(t+n\tau)\right|\right|^2
+$$</p>
+<p>$\tau$ is a very small delay.</p>
+<p>And using P to estimate $||h||^2$.</p>
+
+</div>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/25_4_1/"
+      title="Learning Record --- 31 (2025/4/1)"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">powered by <a href="https://gohugo.io/">hugo</a> &amp; deployed on <a href="https://www.cloudflare.com/">Cloudflare</a></p>
+  <p >
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+    
+  </body>
+</html>
