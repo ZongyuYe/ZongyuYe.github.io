@@ -6,8 +6,15 @@
     <description>Recent content in Notes on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ZongyuYe.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Record --- 33 (2025/4/15)</title>
+      <link>https://ZongyuYe.github.io/blog/25_4_15/</link>
+      <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://ZongyuYe.github.io/blog/25_4_15/</guid>
+      <description>Lattice Coding Error Bound Consider the model update of user $k$ from $\bm{h}{t+\tau}^{(k)}$, $\bm{h}{t+\tau}^{(k)}$ is updated from $\bm{h}_{t}^{(k)}$ with $\tau$ steps.&#xA;For $\bm{h}{t+\tau}^{(k)}$, after quantization, we can get $\hat{\bm{h}}{t+\tau}^{(k)} = \bm{h}{t+\tau}^{(k)} + \bm{\epsilon}{t+\tau}^{(k)}$.&#xA;$\overline{\sigma}^2_{\mathcal{L}}$ denotes the normalized second order lattice moment,&#xA;$$ \overline{\sigma}^2_{\mathcal{L}} \triangleq \int_{\mathcal{P}0} ||\bm{x}||^2d\bm{x} / \int{\mathcal{P}_0} d\bm{x} $$&#xA;$\mathcal{P}_0$ denotes $\mathcal{P}_0 \triangleq{\bm{x}\in\mathcal{R}^L:||\bm{x}||&amp;lt;||\bm{x}-\bm{p}||, \forall \bm{p}\in\mathcal{L}/{\bm{0}}}$&#xA;In this case, we can represent $\bm{\epsilon}_{t+\tau}^{(k)}$ satisfy,&#xA;$$ \mathbb{E}{||\bm{\epsilon}{t+\tau}^{(k)}||^2|\bm{h}{t+\tau}^{(k)}} = ||\bm{h}{t+\tau}^{(k)}||{∞}^2M\overline{\sigma}^2_{\mathcal{L}} $$&#xA;$||\bm{h}{t+\tau}^{(k)}||{∞}$ is the scaling method for quantization.</description>
+    </item>
     <item>
       <title>Learning Record --- 32 (2025/4/8)</title>
       <link>https://ZongyuYe.github.io/blog/25_4_8/</link>
